@@ -40,7 +40,7 @@ Content-Type: application/json
 
 This endpoint returns a list of Global Role resources.
 
-## Get a specific Global Rolex
+## Get a specific Global Role
 
 ```http
 GET /api/v2/global-roles/UR4/ HTTP/1.1
