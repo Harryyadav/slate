@@ -23,11 +23,11 @@ Content-Type: application/json
         "logo_url": "/static/images/logo-other.png"
     },
     {
-    "id": "P3",
-    "name": ".NET Web App",
-    "description": "Microsoft .NET Web Application",
-    "answers":["A1061", "A740", "A48", "A4", "A2"],
-    "logo_url": "/static/images/logo-net.png"
+        "id": "P3",
+        "name": ".NET Web App",
+        "description": "Microsoft .NET Web Application",
+        "answers":["A1061", "A740", "A48", "A4", "A2"],
+        "logo_url": "/static/images/logo-net.png"
     }
     ]
 }
