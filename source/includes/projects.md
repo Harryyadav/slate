@@ -29,6 +29,8 @@ Content-Type: application/json
 ```
 This endpoint retrieves a list of Project resources.
 
+**`GET /api/v2/projects/`**
+
 ## Get a Specific Project
 
 ```http
@@ -57,16 +59,13 @@ Content-Type: application/json
 
 This endpoint retrieves a single Project resource, as specified by the id parameter.
 
-**HTTP Request:**
+**`GET /api/v2/projects/{project_id}/`**
 
-`GET /projects/{id}/`
-
-**URL Parameters:**
+### URL Parameters
 
 Parameter | Description
 --------- | -----------
 id        | The id of the Project to retrieve
-
 
 
 ## Create a New Project
