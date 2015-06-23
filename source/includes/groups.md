@@ -24,6 +24,8 @@ Content-Type: application/json
 
 This endpoint returns a list of Group resources.
 
+**`GET /api/v2/groups/`**
+
 ## Get a specific Group
 
 ```http
@@ -45,3 +47,11 @@ Content-Type: application/json
 ```
 
 Get a specific Group resource.
+
+**`GET /api/v2/groups/{group_id}/`**
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+group_id  | The id of the Group to retrieve
