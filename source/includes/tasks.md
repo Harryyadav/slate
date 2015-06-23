@@ -92,8 +92,6 @@ Content-Type: application/json
 
 ```
 
-Expand Parameters allow you to request detailed information for specific resource fields.
-
 See the [Expand Parameters](#expand-parameters) section for more details.
 
 Parameter   | Description
@@ -158,8 +156,6 @@ Content-Type: application/json
 }
 
 ```
-
-Include Parameters allow you to request related resources.
 
 See the [Include Parameters](#include-parameters) section for more details.
 
