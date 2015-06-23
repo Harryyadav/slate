@@ -39,6 +39,6 @@ This endpoint retrieves a list of Application resources.
 The following parameters may be used to filter the application resources in the response.
 
 
-Parameter | Description | Example
-----------|-------------|-------------
-ordering |  Returns a list of application resources ordered by the specified field. This endpoint supports ordering by id, name and description. | "/?ordering=name"
+Parameter | Description
+----------|-------------
+ordering |  Returns a list of application resources ordered by the specified field. This endpoint supports ordering by id, name and description.
