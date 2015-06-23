@@ -35,5 +35,39 @@ Content-Type: application/json
 
 This endpoint returns a list of Glossary Term resources.
 
-## Create a new Glossary Term
+## Create a New Glossary Term
 
+```http
+POST /api/v2/glossary-terms/ HTTP/1.1
+Accept: application/json
+Authorization: Token "YOUR SDE ACCESS TOKEN"
+
+{
+    "title": "New Glossary Term",
+    "text": "Full description of the term goes here.",
+    "summary": "The summary of the glossary term goes here."
+}
+
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "id": "CG13",
+    "title": "New Glossary Term",
+    "text": "<p>This is the new glossary term for our API documentation example<p>",
+    "summary": "<p>Example POST glossary Term<p>",
+    "created": "2015-06-23T19:05:46.175048Z",
+    "updated": "2015-06-23T19:05:46.107520Z"
+
+}
+```
+
+This endpoint lets you create a new glossary term.
+
+Fields | Required | Description
+-------|----------|-------------
+name | Yes | The name of the new application
+text | Yes | The id of the business unit to which the application belongs
