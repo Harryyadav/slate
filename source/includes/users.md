@@ -29,6 +29,8 @@ Content-Type: application/json
 
 This endpoint returns a list of User resources.
 
+**`GET /api/v2/users/`**
+
 ## Get a specific User
 
 ```http
@@ -56,6 +58,14 @@ Content-Type: application/json
 ```
 
 Get a specific User resource.
+
+**`GET /api/v2/users/{user_id}/`**
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+user_id   | The ID of the User to retrieve
 
 ## Create a User
 
@@ -90,6 +100,8 @@ Content-Type: application/json
 ```
 
 Create a User resource.
+
+**`POST /api/v2/users/`**
 
 ## Update a specific User
 
@@ -126,3 +138,11 @@ Content-Type: application/json
 ```
 
 Update a specific User resource.
+
+**`PUT /api/v2/users/{user_id}/`**
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+user_id  | The ID of the User to update
