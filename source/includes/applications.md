@@ -125,7 +125,7 @@ projects  | includes a list of projects contained associated with an application
 ## Get a Specific Application
 
 ```http
-GET /api/v2/applications/3 HTTP/1.1
+GET /api/v2/applications/3/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
@@ -149,7 +149,7 @@ Content-Type: application/json
 
 This endpoint retrieves a single application resource, as specified by the id parameter.
 
-**`GET /api/v2/applications/{application_id}`**
+**`GET /api/v2/applications/{application_id}/`**
 
 ### URL Parameters
 
