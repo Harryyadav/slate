@@ -32,13 +32,11 @@ This endpoint retrieves a list of Application resources.
 
 The following parameters may be used to filter the application resources in the response.
 
-Parameter | Description | Example
+Parameter | Description
 ----------|-------------------|----------
-name | Returns application resource with specified name | "/?name=My%20New%20App"
-priority | Returns a list of application resources with specified priority | "/?priority=0-none"
-created | Returns a list of application resources created on the specified date | "/?created="
-updated | Returns a list of application resources updated on the specified date
-ordering | Returns a list of application resources ordered by the specified field. | "/?ordering=name"
+name | Returns application resource with specified name
+priority | Returns a list of application resources with specified priority. Priority can be "0-none", "1-high", "2-medium", or "3-low".
+ordering | Returns a list of application resources ordered by the specified field. This endpoint currently supports ordering by the name.
 
 ---
 
