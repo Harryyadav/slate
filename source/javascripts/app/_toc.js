@@ -33,6 +33,13 @@
 
     $(".page-wrapper").click(closeToc);
     $(".tocify-item").click(closeToc);
+
+    var headings = ['Introduction', 'Resources'];
+
+    headings.forEach(function(heading) {
+      $('ul > li > a:contains("' + heading + '")').addClass('section-header');
+      $('h1:contains("' + heading + '")').addClass('section-header');
+    });
   };
 
   // Hack to make already open sections to start opened,

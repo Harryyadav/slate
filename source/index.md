@@ -7,7 +7,10 @@ toc_footers:
 includes:
  - introduction
  - authentication
-
+ - help
+ - errors
+ 
+ - resources
  - applications
  - business_units
  - global_roles
@@ -20,9 +23,6 @@ includes:
  - report_settings
  - tasks
  - users
-
- - help
- - errors
 
 search: true
 ---

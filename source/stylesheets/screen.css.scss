@@ -626,3 +626,19 @@ html, body {
     clear: both;
   }
 }
+
+
+
+.tocify-wrapper {
+  font-weight: normal;
+
+  li {
+    color: silver
+  }
+
+  .section-header {
+    font-weight: bold;
+    margin-top: 20px;
+    color: white;
+  }
+}
