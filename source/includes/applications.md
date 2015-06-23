@@ -27,6 +27,8 @@ Content-Type: application/json
 ```
 This endpoint retrieves a list of Application resources.
 
+**`GET /api/v2/applications/`**
+
 
 ### Query Parameters
 
@@ -147,7 +149,7 @@ Content-Type: application/json
 
 This endpoint retrieves a single application resource, as specified by the id parameter.
 
-**`GET /applications/{application_id}`**
+**`GET /api/v2/applications/{application_id}`**
 
 ### URL Parameters
 
@@ -188,6 +190,8 @@ Content-Type: application/json
     }]
 }
 ```
+
+**`POST /api/v2/applications/`**
 
 Fields | Required | Description
 -------|----------|-------------
