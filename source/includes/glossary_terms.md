@@ -2,7 +2,7 @@
 
 ## Get all Glossary Terms
 ```http
-GET /api/v2/projects/1/glossary-terms/ HTTP/1.1
+GET /api/v2/glossary-terms/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
@@ -34,3 +34,6 @@ Content-Type: application/json
 ```
 
 This endpoint returns a list of Glossary Term resources.
+
+## Create a new Glossary Term
+
