@@ -2,7 +2,7 @@
 title: API Reference
 
 toc_footers:
-- <a href='https://github.com/sdelements'> Visit us on Github </a>
+- <a href='https://github.com/sdelements/slate'>View the source for these docs on Github</a>
 
 includes:
  - introduction
