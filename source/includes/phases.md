@@ -31,7 +31,7 @@ This endpoint retrieves a list of Phase resources, which describe phases of a so
 
 ### Query Parameters
 
-The following parameters may be used to filter the application resources in the response.
+The following parameters may be used to filter the phases resources in the response.
 
 Parameter | Description
 ----------|-------------
