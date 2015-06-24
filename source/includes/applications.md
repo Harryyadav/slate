@@ -160,7 +160,7 @@ Parameter      | Description
 application_id | The id of the application to retrieve
 
 
-*All of the extend and include parameters for the apply here as well.*
+*All of the extend and include parameters for the 'Get all Applications' endpoint apply here as well.*
 
 ## Create a New Application
 
