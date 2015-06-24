@@ -35,10 +35,12 @@ This endpoint retrieves a list of Application resources.
 The following parameters may be used to filter the application resources in the response.
 
 Parameter | Description
-----------|-------------------|----------
-name | Returns application resource with specified name
-priority | Returns a list of application resources with specified priority. Priority can be "0-none", "1-high", "2-medium", or "3-low".
-ordering | Returns a list of application resources ordered by the specified field. This endpoint currently supports ordering by the name.
+----------|-----------------------------
+name      | Returns application resource with specified name.
+priority  | Returns a list of application resources with specified priority.
+created   | Returns a list of application resources created on the specified date.
+updated   | Returns a list of application resources updated on the specified date.
+ordering  | Returns a list of application resources ordered by the specified field.
 
 ---
 
@@ -151,8 +153,8 @@ This endpoint retrieves a single application resource, as specified by the id pa
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
+Parameter      | Description
+-------------- | ---------------
 application_id | The id of the application to retrieve
 
 
@@ -189,12 +191,10 @@ Content-Type: application/json
 }
 ```
 
-**`POST /api/v2/applications/`**
-
-Fields | Required | Description
--------|----------|-------------
-name | Yes | The name of the new application
-business_unit | Yes | The ID of the business unit the application belongs to
+Fields        | Required | Description
+--------------|----------|-------------
+name          | Yes      | The name of the new application
+business_unit | Yes      | The ID of the business unit the application belongs to
 
 
 ## Update an Application
@@ -235,17 +235,17 @@ Update a single application by specifying a new name and new business unit. The 
 
 ### URL Parameters
 
-Parameter| Description
----------|------------------
+Parameter      | Description
+---------------|------------------
 application_id | The id of the application to edit must be submitted in the request
 
 ### Payload
 
-Fields | Required | Description
--------|----------|---------------
-name | No | The name of the application can be changed to any other string
-business_unit |  No | This can be edited by setting the business unit id
-priority | No | The three options are: '0-none', '1-high', '2-medium', '3-low'
+Fields        | Required | Description
+--------------|----------|---------------
+name          | No       | The name of the application can be changed to any other string
+business_unit | No       | This can be edited by setting the business unit id
+priority      | No       | The three options are: '0-none', '1-high', '2-medium', '3-low'
 
 
 
@@ -269,6 +269,6 @@ This endpoint deletes a single application resource, as specified by the id para
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
+Parameter      | Description
+-------------- | --------------
 application_id | The id of the application to retrieve

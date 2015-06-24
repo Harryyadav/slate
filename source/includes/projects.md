@@ -101,7 +101,7 @@ Content-Type: application/json
 }
 ```
 
-Fields | Required | Description
--------|----------|-------------
-name | Yes | The name of the new project
-application | Yes | The ID of the application the project belongs to
+Fields      | Required | Description
+------------|----------|-------------
+name        | Yes      | The name of the new project
+application | Yes      | The ID of the application the project belongs to
