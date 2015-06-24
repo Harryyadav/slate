@@ -15,30 +15,27 @@ Content-Type: application/json
 
 {
     "results": [
-    {
-        "id": "P1",
-        "name": "No Profile",
-        "description": "An empty Profile",
-        "answers": ["A740"],
-        "logo_url": "/static/images/logo-other.png"
-    },
-    {
-        "id": "P3",
-        "name": ".NET Web App",
-        "description": "Microsoft .NET Web Application",
-        "answers":["A1061", "A740", "A48", "A4", "A2"],
-        "logo_url": "/static/images/logo-net.png"
-    }
+        {
+            "id": "P1",
+            "name": "No Profile",
+            "description": "An empty Profile",
+            "answers": ["A740"],
+            "logo_url": "/static/images/logo-other.png"
+        },
+        {
+            "id": "P3",
+            "name": ".NET Web App",
+            "description": "Microsoft .NET Web Application",
+            "answers":["A1061", "A740", "A48", "A4", "A2"],
+            "logo_url": "/static/images/logo-net.png"
+        }
     ]
 }
 ```
-This endpoint retrieves a list of Application resources.
+This endpoint retrieves a list of Profiles resources.
 
 ### Query Parameters
 
-The following parameters may be used to filter the application resources in the response.
-
-
 Parameter | Description
 ----------|-------------
-ordering  |  Returns a list of application resources ordered by the specified field. This endpoint supports ordering by id, name and description.
+ordering  |  Returns a list of profile resources ordered by the specified field. This endpoint supports ordering by id, name and description.
