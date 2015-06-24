@@ -72,8 +72,6 @@ Content-Type: application/json
     }]
 }
 ```
-Expand Parameters allow you to request detailed information for specific resource fields.
-
 See the [Expand Parameters](#expand-parameters) section for more details.
 
 Parameter     | Description
@@ -106,14 +104,18 @@ Content-Type: application/json
         "priority": "0-none",
         "slug": "application-test",
         "projects": [
-            {"name": "Project 1", "slug": "project-1"},
-            {"name": "Project 2", "slug": "project-2"}
+            {
+                "name": "Project 1",
+                "slug": "project-1"
+            },
+            {
+                "name": "Project 2",
+                "slug": "project-2"
+            }
         ]
     }]
 }
 ```
-
-Include Parameters allow you to request related resources.
 
 See the [Include Parameters](#include-parameters) section for more details.
 
@@ -158,6 +160,7 @@ Parameter      | Description
 application_id | The id of the application to retrieve
 
 
+*All of the extend and include parameters for the 'Get all Applications' endpoint apply here as well.*
 
 ## Create a New Application
 
@@ -195,6 +198,8 @@ Fields        | Required | Description
 --------------|----------|-------------
 name          | Yes      | The name of the new application
 business_unit | Yes      | The ID of the business unit the application belongs to
+priority      | No       | Specifies the priority of the application to be either '0-none', '1-high', '2-medium' or '3-low'
+
 
 
 ## Update an Application
