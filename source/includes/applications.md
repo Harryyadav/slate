@@ -74,7 +74,7 @@ See the [Expand Parameters](#expand-parameters) section for more details.
 
 Parameter     | Description
 --------------|------------------------------
-business_unit | Expands the business unit field in the application response object
+business_unit | Business unit field is expanded into id, name and slug subfields.
 
 ---
 

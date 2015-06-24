@@ -96,8 +96,8 @@ See the [Expand Parameters](#expand-parameters) section for more details.
 
 Parameter   | Description
 ------------|---------------------
-status      | Status field returned with meaning, icon, name and slug sub-fields.
-description | Description field is returned with content and amendments sub-fields.
+status      | Status field is expanded into meaning, icon, name and slug sub-fields.
+description | Description field is expanded into content and amendments sub-fields.
 
 ---
 
