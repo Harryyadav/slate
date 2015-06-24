@@ -38,9 +38,7 @@ Parameter | Description
 ----------|-----------------------------
 name      | Returns application resource with specified name.
 priority  | Returns a list of application resources with specified priority.
-created   | Returns a list of application resources created on the specified date.
-updated   | Returns a list of application resources updated on the specified date.
-ordering  | Returns a list of application resources ordered by the specified field.
+ordering  | Returns a list of application resources ordered by the specified field.  This endpoint accepts ordering by name.
 
 ---
 
