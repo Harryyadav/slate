@@ -627,8 +627,6 @@ html, body {
   }
 }
 
-
-
 .tocify-wrapper {
   font-weight: normal;
 
@@ -640,5 +638,9 @@ html, body {
     font-weight: bold;
     margin-top: 20px;
     color: white;
+  }
+
+  .tocify-focus {
+    box-shadow: none;
   }
 }
