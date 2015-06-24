@@ -17,6 +17,7 @@ includes:
  - global_roles
  - glossary_terms
  - groups
+ - library
  - phases
  - profiles
  - project_roles
