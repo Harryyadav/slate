@@ -74,7 +74,7 @@ See the [Expand Parameters](#expand-parameters) section for more details.
 
 Parameter     | Description
 --------------|------------------------------
-business_unit | expands the business unit field in the application response object
+business_unit | Expands the business unit field in the application response object
 
 ---
 
@@ -119,7 +119,7 @@ See the [Include Parameters](#include-parameters) section for more details.
 
 Parameter | Description
 ----------|---------------
-projects  | includes a list of projects contained associated with an application
+projects  | Includes a list of projects contained associated with an application
 
 
 ## Get a Specific Application
