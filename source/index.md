@@ -2,7 +2,8 @@
 title: API Reference
 
 toc_footers:
-- <a href='https://github.com/sdelements/slate'>View the source for these docs on Github</a>
+- '&copy; 2015 SD Elements Inc.'
+- <small><a href="https://github.com/sdelements/slate" target="_blank">&lt;/&gt; View the source for these docs on Github</a></small>
 
 includes:
  - introduction
