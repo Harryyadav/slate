@@ -48,11 +48,9 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    {
-        "id": "PR4",
-        "name": "Manage Project",
-        "description": "Can change project settings, ..."
-    }
+    "id": "PR4",
+    "name": "Manage Project",
+    "description": "Can change project settings, ..."
 }
 ```
 This endpoint returns a single Project Role resource, specified its id.
