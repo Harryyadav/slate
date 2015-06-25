@@ -119,7 +119,7 @@ See the [Include Parameters](#include-parameters) section for more details.
 
 Parameter | Description
 ----------|---------------
-projects  | Includes a list of projects contained associated with an application
+projects  | Includes a list of projects associated with an application
 
 
 ## Get a Specific Application
