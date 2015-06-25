@@ -31,6 +31,15 @@ This endpoint returns a list of User resources.
 
 **`GET /api/v2/users/`**
 
+
+
+
+
+
+
+
+
+
 ## Get a specific User
 
 ```http
@@ -66,6 +75,15 @@ Get a specific User resource.
 Parameter | Description
 --------- | -----------
 user_id   | The ID of the User to retrieve
+
+
+
+
+
+
+
+
+
 
 ## Create a User
 
@@ -103,10 +121,19 @@ Create a User resource.
 
 **`POST /api/v2/users/`**
 
+
+
+
+
+
+
+
+
+
 ## Update a specific User
 
 ```http
-PUT /api/v2/users/ HTTP/1.1
+PUT /api/v2/users/599/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 
@@ -145,4 +172,35 @@ Update a specific User resource.
 
 Parameter | Description
 --------- | -----------
-user_id  | The ID of the User to update
+user_id   | The ID of the User to update
+
+
+
+
+
+
+
+
+
+
+## Delete a User
+
+```http
+DELETE /api/v2/users/599/ HTTP/1.1
+Accept: application/json
+Authorization: Token "YOUR SDE ACCESS TOKEN"
+```
+
+```http
+HTTP/1.1 204 NO CONTENT
+```
+
+This endpoint deletes a single User resource, as specified by the id parameter.
+
+**`DELETE /api/v2/users/{user_id}/`**
+
+### URL Parameters
+
+Parameter | Description
+--------- | --------------
+user_id   | The id of the User to delete

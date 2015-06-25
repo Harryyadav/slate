@@ -40,6 +40,15 @@ Content-Type: application/json
 
 This endpoint returns a list of Global Role resources.
 
+
+
+
+
+
+
+
+
+
 ## Get a specific Global Role
 
 ```http
@@ -59,4 +68,12 @@ Content-Type: application/json
 }
 ```
 
-This endpoint returns a list of Global Role resources.
+This endpoint returns a single Global Role resource.
+
+**`GET /api/v2/global-roles/{global_role_id}/`**
+
+### URL Parameters
+
+Parameter      | Description
+-------------- | ---------------
+global_role_id | The id of the Global Role to retrieve

@@ -31,6 +31,15 @@ This endpoint retrieves a list of Project resources.
 
 **`GET /api/v2/projects/`**
 
+
+
+
+
+
+
+
+
+
 ## Get a Specific Project
 
 ```http
@@ -66,6 +75,14 @@ This endpoint retrieves a single Project resource, as specified by the id parame
 Parameter | Description
 --------- | -----------
 id        | The id of the Project to retrieve
+
+
+
+
+
+
+
+
 
 
 ## Create a New Project

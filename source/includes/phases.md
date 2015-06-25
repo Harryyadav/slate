@@ -39,6 +39,14 @@ name      | Returns the phase resource with specified name
 slug      | Returns the phase resource with the specified slug
 
 
+
+
+
+
+
+
+
+
 ## Get a Specific Phase
 
 ```http

@@ -26,6 +26,15 @@ This endpoint returns a list of Group resources.
 
 **`GET /api/v2/groups/`**
 
+
+
+
+
+
+
+
+
+
 ## Get a specific Group
 
 ```http

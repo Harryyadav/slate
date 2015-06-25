@@ -78,8 +78,6 @@ business_unit | Business unit field is expanded into id, name and slug subfields
 
 ---
 
-
-
 ### Include Parameters
 
 ```http
@@ -120,6 +118,14 @@ See the [Include Parameters](#include-parameters) section for more details.
 Parameter | Description
 ----------|---------------
 projects  | Includes a list of projects associated with an application
+
+
+
+
+
+
+
+
 
 
 ## Get a Specific Application
@@ -171,7 +177,6 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
     "business_unit": 1,
     "name":"API Test"
 }
-
 ```
 
 ```http
@@ -200,6 +205,13 @@ priority      | No       | Specifies the priority of the application to be eithe
 
 
 
+
+
+
+
+
+
+
 ## Update an Application
 
 
@@ -212,7 +224,6 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
     "name": "Edit Test",
     "business_unit": 2
 }
-
 ```
 
 ```http
@@ -252,18 +263,23 @@ priority      | No       | The three options are: '0-none', '1-high', '2-medium'
 
 
 
+
+
+
+
+
+
+
 ## Delete an Application
 
 ```http
 DELETE /api/v2/applications/1/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
-
 ```
 
 ```http
-HTTP/1.1 200 OK
-Content-Type: application/json
+HTTP/1.1 204 NO CONTENT
 ```
 
 This endpoint deletes a single application resource, as specified by the id parameter.
