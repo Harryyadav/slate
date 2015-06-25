@@ -10,7 +10,7 @@ includes:
  - authentication
  - help
  - errors
- 
+
  - resources
  - applications
  - business_units
@@ -23,6 +23,7 @@ includes:
  - projects
  - report_settings
  - tasks
+ - task_statuses
  - users
 
 search: true
