@@ -38,9 +38,7 @@ Parameter | Description
 ----------|-----------------------------
 name      | Returns application resource with specified name.
 priority  | Returns a list of application resources with specified priority.
-created   | Returns a list of application resources created on the specified date.
-updated   | Returns a list of application resources updated on the specified date.
-ordering  | Returns a list of application resources ordered by the specified field.
+ordering  | Returns a list of application resources ordered by the specified field.  This endpoint accepts ordering by name.
 
 ---
 
@@ -76,7 +74,7 @@ See the [Expand Parameters](#expand-parameters) section for more details.
 
 Parameter     | Description
 --------------|------------------------------
-business_unit | expands the business unit field in the application response object
+business_unit | Business unit field is expanded into id, name and slug subfields.
 
 ---
 
@@ -121,7 +119,7 @@ See the [Include Parameters](#include-parameters) section for more details.
 
 Parameter | Description
 ----------|---------------
-projects  | includes a list of projects contained associated with an application
+projects  | Includes a list of projects associated with an application
 
 
 ## Get a Specific Application

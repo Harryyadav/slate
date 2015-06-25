@@ -69,5 +69,5 @@ This endpoint lets you create a new glossary term.
 
 Fields | Required | Description
 -------|----------|-------------
-name | Yes | The name of the new application
-text | Yes | The id of the business unit to which the application belongs
+name   | Yes      | The name of the new application
+text   | Yes      | The id of the business unit to which the application belongs

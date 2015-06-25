@@ -96,8 +96,8 @@ See the [Expand Parameters](#expand-parameters) section for more details.
 
 Parameter   | Description
 ------------|---------------------
-status      | expands the status field associated with the task
-description | expands the description field associated with the task
+status      | Status field is expanded into meaning, icon, name and slug sub-fields.
+description | Description field is expanded into content and amendments sub-fields.
 
 ---
 
@@ -161,7 +161,7 @@ See the [Include Parameters](#include-parameters) section for more details.
 
 Parameter | Description
 ----------|---------------------
-tags      | includes a list of tags associated to the task
-related   | includes a list of related tasks
-problem   | includes the problem that the task is related to
-how_tos   | includes a list of how-tos
+tags      | Includes a list of tags associated to the task
+related   | Includes a list of related tasks
+problem   | Includes the problem that the task is related to
+how_tos   | Includes a list of applicable how-tos
