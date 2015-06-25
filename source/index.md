@@ -24,6 +24,7 @@ includes:
  - report_settings
  - tasks
  - task_statuses
+ - task_updates
  - users
 
 search: true
