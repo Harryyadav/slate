@@ -36,4 +36,4 @@ Parameter | Description
 ----------|-----------------------------
 name      | Returns the business unit resource with the specified name.
 id        | Returns the business unit resource with the specified id.
-ordering  | Returns a list of application resources ordered by the specified field.  This endpoint accepts ordering by id.
+ordering  | Returns a list of business unit resources ordered by the specified field.  This endpoint accepts ordering by id.
