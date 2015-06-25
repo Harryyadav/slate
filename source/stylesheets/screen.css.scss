@@ -83,8 +83,6 @@ html, body {
 
   // This is the logo at the top of the ToC
   &>img {
-    width: 95%;
-    margin: 0 auto;
     display: block;
   }
 
@@ -621,6 +619,8 @@ html, body {
   }
 }
 
+
+
 // SDE Elements specifc
 .content {
   hr {
@@ -644,5 +644,10 @@ html, body {
 
   .tocify-focus {
     box-shadow: none;
+  }
+
+  &>img {
+    width: 95%;
+    margin: 0 auto;
   }
 }
