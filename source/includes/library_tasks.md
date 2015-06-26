@@ -129,7 +129,7 @@ Parameter             | Description
 categories            | Includes a list of categories that apply to each task
 verification_coverage | Includes a list of verification coverages of each task
 tags                  | Includes a list of tags attached to each task
-howtos                | Includes a list of How-Tos for each task. These are language specific examples of how to implement the task
+how_tos               | Includes a list of How-Tos for each task. These are language specific examples of how to implement the task
 amendments            | Includes a list of amendments on each task
 
 
