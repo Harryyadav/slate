@@ -23,7 +23,7 @@ Content-Type: application/json
         "phase": "requirements",
         "id": "T179"
     }]
-} 
+}
 ```
 This endpoint retrieves a list of Library Standard resources.
 
@@ -58,25 +58,25 @@ Content-Type: application/json
 
 {
     "results": [{
-        "priority": 8, 
-        "tags": [], 
-        "url": "http://example.com/library/tasks/T179/", 
+        "priority": 8,
+        "tags": [],
+        "url": "http://example.com/library/tasks/T179/",
         "problem": {
-            "description": "This is some example description.", 
+            "description": "This is some example description.",
             "cwes": [{
-                "url": "http://cwe.mitre.org/data/definitions/359", 
-                "title": "Exposure of Private Information ('Privacy Violation')", 
+                "url": "http://cwe.mitre.org/data/definitions/359",
+                "title": "Exposure of Private Information ('Privacy Violation')",
                 "cwe_id": 359
-            }], 
-            "id": "P257", 
+            }],
+            "id": "P257",
             "title": "Privacy Violation"
-        }, 
-        "title": "Allow access for users to remove their data from the system", 
-        "description": "Some example description", 
-        "phase": "requirements", ** add expanded phase 
-        "id": "T179" 
+        },
+        "title": "Allow access for users to remove their data from the system",
+        "description": "Some example description",
+        "phase": "requirements", ** add expanded phase
+        "id": "T179"
     }]
-} 
+}
 
 ```
 
@@ -103,23 +103,23 @@ Content-Type: application/json
 
 {
     "results": [{
-        "priority": 8, 
-        "tags": [1, 2, 3], 
-        "url": "http://example.com/library/tasks/T179/", 
-        "problem": 1, 
-        "title": "Allow access for users to remove their data from the system", 
-        "description": "Some example description", 
-        "phase": "requirements", 
-        "id": "T179", 
+        "priority": 8,
+        "tags": [1, 2, 3],
+        "url": "http://example.com/library/tasks/T179/",
+        "problem": 1,
+        "title": "Allow access for users to remove their data from the system",
+        "description": "Some example description",
+        "phase": "requirements",
+        "id": "T179",
         "categories": [
-            "1", 
+            "1",
             "2"
-        ], 
+        ],
         "verification_coverage": [
             "No Automated Static Analysis Coverage"
         ]
     }]
-} 
+}
 ```
 
 See the [Include Parameters](#include-parameters) section for more details.
@@ -127,7 +127,7 @@ See the [Include Parameters](#include-parameters) section for more details.
 Parameter             | Description
 ----------------------|---------------
 categories            | Includes a list of categories that apply to each task
-verification_coverage | Includes a list of verification coverages of each task 
+verification_coverage | Includes a list of verification coverages of each task
 tags                  | Includes a list of tags attached to each task
 howtos                | Includes a list of How-Tos for each task. These are language specific examples of how to implement the task
 amendments            | Includes a list of amendments on each task
@@ -149,16 +149,16 @@ Content-Type: application/json
 
 {
     "results": [{
-        "priority": 8, 
-        "tags": [], 
-        "url": "http://example.com/library/tasks/T3/", 
+        "priority": 8,
+        "tags": [],
+        "url": "http://example.com/library/tasks/T3/",
         "problem": 1,
-        "title": "Example Library Standard", 
-        "description": "Some example description", 
-        "phase": "requirements", 
+        "title": "Example Library Standard",
+        "description": "Some example description",
+        "phase": "requirements",
         "id": "T3"
     }]
-} 
+}
 
 ```
 
