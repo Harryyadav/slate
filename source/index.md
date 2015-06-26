@@ -23,6 +23,7 @@ includes:
  - projects
  - report_settings
  - tasks
+ - task_notes
  - task_statuses
  - users
 
