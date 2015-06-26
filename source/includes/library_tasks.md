@@ -47,7 +47,7 @@ ___
 ### Expand Parameters
 
 ```http
-GET /api/v2/library/tasks/?expand=problems HTTP/1.1
+GET /api/v2/library/tasks/?expand=problem HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
@@ -84,7 +84,7 @@ See the [Expand Parameters](#expand-parameters) section for more details.
 
 Parameter     | Description
 --------------|------------------------------
-problems      | Expands the problem fields in the task response object
+problem       | Expands the problem fields in the task response object
 phase         | Expands the phase field in the task response object
 
 ---
