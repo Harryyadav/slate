@@ -92,7 +92,7 @@ phase         | Expands the phase field in the task response object
 ### Include Parameters
 
 ```http
-GET /api/v2/library/tasks/?include=verification_coverage,categories HTTP/1.1
+GET /api/v2/library/tasks/?include=verification_coverage,categories,tags,how_tos,amendments HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
@@ -115,9 +115,21 @@ Content-Type: application/json
             "1",
             "2"
         ],
+        "amendments": [{
+            "id": "TA123",
+            "title": "TA123",
+            "content": "Some additional information about this task..."
+        }],
         "verification_coverage": [
             "No Automated Static Analysis Coverage"
-        ]
+        ],
+        "how_tos": [{
+            "id": "I131",
+            "title": "I131: Manually with browser",
+            "slug": "test-account-lockout-manually-browser",
+            "url": "http://a7069ccda519b00c4/....",
+            "content": "1. Open your web browser ..."
+        }]
     }]
 }
 ```
