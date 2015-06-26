@@ -10,7 +10,7 @@ includes:
  - authentication
  - help
  - errors
- 
+
  - resources
  - applications
  - business_units
@@ -18,7 +18,7 @@ includes:
  - glossary_terms
  - groups
  - library_tasks
- - library_weaknesses
+ - library_problems
  - phases
  - profiles
  - project_roles
