@@ -90,7 +90,7 @@ note_id    | The id of the Task Note to retrieve
 ## Create a Task Note
 
 ```http
-PUT /api/v2/projects/1/tasks/1-T2/notes/ HTTP/1.1
+POST /api/v2/projects/1/tasks/1-T2/notes/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 
