@@ -69,7 +69,7 @@ Content-Type: application/json
                 "cwe_id": 359
             }],
             "id": "P257",
-            "title": "Privacy Violation"
+            "title": "P257: Privacy Violation"
         },
         "title": "Allow access for users to remove their data from the system",
         "description": "Some example description",
