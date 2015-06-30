@@ -63,7 +63,7 @@ Content-Type: application/json
         "url": "http://example.com/library/tasks/T179/",
         "problem": {
             "content": "This is some example content.",
-            "cwes": [{
+            "cwe": [{
                 "url": "http://cwe.mitre.org/data/definitions/359",
                 "title": "Exposure of Private Information ('Privacy Violation')",
                 "cwe_id": 359
