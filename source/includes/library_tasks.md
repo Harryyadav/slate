@@ -112,8 +112,7 @@ Content-Type: application/json
         "phase": "requirements",
         "id": "T179",
         "categories": [
-            "1",
-            "2"
+            "Authorization"
         ],
         "amendments": [{
             "id": "TA123",
