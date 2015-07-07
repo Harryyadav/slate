@@ -1,11 +1,11 @@
 # Integrations
 
 
-## Get all integrations of all projects
+## Get All ALM Integrations of All Projects
 
 
 ```http
-GET /api/v2/integrations/ HTTP/1.1
+GET /api/v2/integrations/alm/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
@@ -21,26 +21,24 @@ Content-Type: application/json
         "system": "Rally",
         "alias": "Rally Integration",
         "frequency": "manually",
-        "command": "sync_rally",
-        "type": "ALM"
+        "command": "sync_rally"
     }]
 }
 ```
 
-Will return a list of all integrations associated with all projects.
+Will return a list of all ALM integrations associated with all projects.
 
-**`GET /api/v2/integrations/`**
+**`GET /api/v2/integrations/alm/`**
 
 ### Query Parameters
 
-The following parameters may be used to filter the integrations resources in the response.
+The following parameters may be used to filter the ALM integrations resources in the response.
 
 Parameter | Description
 ----------|-----------------------------
-alias     | Returns all integrations with the specified alias.
-frequency | Returns all integrations with the specified frequency of synchronization.
-system    | Returns all integrations associated with a particular system.
-type      | Returns all integrations of a particular type. e.g. ALM, Analysis Tool, etc.
+alias     | Returns all ALM integrations with the specified alias.
+frequency | Returns all ALM integrations with the specified frequency of synchronization.
+system    | Returns all ALM integrations associated with a particular system.
 
 ---
 
@@ -48,7 +46,7 @@ type      | Returns all integrations of a particular type. e.g. ALM, Analysis To
 
 
 ```http
-GET /api/v2/integrations/?include=params HTTP/1.1
+GET /api/v2/integrations/alm/?include=params HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
@@ -82,8 +80,7 @@ Content-Type: application/json
             "sde_statuses_in_scope": "TODO",
             "conflict_policy": "alm",
             "sde_min_priority": 7
-        },
-        "type": "ALM"
+        }
     }]
 }
 
@@ -93,15 +90,15 @@ See the [Include Parameters](#include-parameters) section for more details.
 
 Parameter   | Description
 ------------|---------------------
-params      | Includes a params field that specifies the configuration parameters for the integration.
+params      | Includes a params field that specifies the configuration parameters for the ALM integration.
 
 ---
 
-## Get all integrations of a specific project
+## Get All ALM Integrations of a Specific Project
 
 
 ```http
-GET /api/v2/projects/1/integrations/ HTTP/1.1
+GET /api/v2/projects/1/integrations/alm/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
@@ -116,15 +113,14 @@ Content-Type: application/json
         "system": "Rally",
         "alias": "Rally Integration",
         "frequency": "manually",
-        "command": "sync_rally",
-        "type": "ALM"
+        "command": "sync_rally"
     }]
 }
 ```
 
-Will return a list of all integrations associated with the project having id "project_id".
+Will return a list of all ALM integrations associated with the project having id "project_id".
 
-**`GET /api/v2/projects/{project_id}/integrations/`**
+**`GET /api/v2/projects/{project_id}/integrations/alm/`**
 
 ### Query Parameters
 
@@ -132,10 +128,9 @@ The following parameters may be used to filter the integrations resources in the
 
 Parameter | Description
 ----------|-----------------------------
-alias     | Returns all integrations with the specified alias.
-frequency | Returns all integrations with the specified frequency of synchronization.
-system    | Returns all integrations associated with a particular system.
-type      | Returns all integrations of a particular type. e.g. ALM, Analysis Tool, etc.
+alias     | Returns all ALM integrations with the specified alias.
+frequency | Returns all ALM integrations with the specified frequency of synchronization.
+system    | Returns all ALM integrations associated with a particular system.
 
 ---
 
@@ -143,7 +138,7 @@ type      | Returns all integrations of a particular type. e.g. ALM, Analysis To
 
 
 ```http
-GET /api/v2/projects/1/integrations/?include=params HTTP/1.1
+GET /api/v2/projects/1/integrations/alm/?include=params HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
@@ -176,8 +171,178 @@ Content-Type: application/json
             "sde_statuses_in_scope": "TODO",
             "conflict_policy": "alm",
             "sde_min_priority": 7
-        },
-        "type": "ALM"
+        }
+    }]
+}
+
+```
+
+See the [Include Parameters](#include-parameters) section for more details.
+
+Parameter   | Description
+------------|---------------------
+params      | Includes a params field that specifies the configuration parameters for the ALM integration.
+
+---
+
+
+## Get All Analysis Integrations of All Projects
+
+
+```http
+GET /api/v2/integrations/analysis/ HTTP/1.1
+Accept: application/json
+Authorization: Token "YOUR SDE ACCESS TOKEN"
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "results": [{
+        "id": 1,
+        "system": "WhiteHat",
+        "alias": "WhiteHat Integration",
+        "frequency": "manually",
+        "command": "sync_whitehat"
+    }]
+}
+```
+
+Will return a list of all analysis integrations associated with all projects.
+
+**`GET /api/v2/integrations/analysis/`**
+
+### Query Parameters
+
+The following parameters may be used to filter the analysis integrations resources in the response.
+
+Parameter | Description
+----------|-----------------------------
+alias     | Returns all analysis integrations with the specified alias.
+frequency | Returns all analysis integrations with the specified frequency of synchronization.
+system    | Returns all analysis integrations associated with a particular system.
+
+---
+
+### Include Parameters
+
+
+```http
+GET /api/v2/integrations/analysis/?include=params HTTP/1.1
+Accept: application/json
+Authorization: Token "YOUR SDE ACCESS TOKEN"
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+
+{
+    "results": [{
+        "id": 1,
+        "project_id": 2,
+        "system": "WhiteHat",
+        "alias": "WhiteHat Integration",
+        "frequency": "manually",
+        "command": "sync_whitehat",
+        "params": {
+            "asset_name": "WebGoat Java",
+            "sde_project": "WhiteHat",
+            "analysis_api_token": "ab9485b-as6as43a-4acb4f62",
+            "sde_businessunit": "General",
+            "sde_application": "Demo Application",
+            "import_behaviour": "replace-scanner",
+            "analysis_server": "server.whitehatsec.com",
+            "task_status_mapping": "{}"
+        }
+    }]
+}
+
+```
+
+See the [Include Parameters](#include-parameters) section for more details.
+
+Parameter   | Description
+------------|---------------------
+params      | Includes a params field that specifies the configuration parameters for the analysis integration.
+
+---
+
+## Get All Analysis Integrations of a Specific Project
+
+
+```http
+GET /api/v2/projects/1/integrations/analysis/ HTTP/1.1
+Accept: application/json
+Authorization: Token "YOUR SDE ACCESS TOKEN"
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "results": [{
+        "id": 1,
+        "project_id": 2,
+        "system": "WhiteHat",
+        "alias": "WhiteHat Integration",
+        "frequency": "manually",
+        "command": "sync_whitehat"
+    }]
+}
+```
+
+Will return a list of all Analysis integrations associated with the project having id "project_id".
+
+**`GET /api/v2/projects/{project_id}/integrations/analysis/`**
+
+### Query Parameters
+
+The following parameters may be used to filter the integrations resources in the response.
+
+Parameter | Description
+----------|-----------------------------
+alias     | Returns all analysis integrations with the specified alias.
+frequency | Returns all analysis integrations with the specified frequency of synchronization.
+system    | Returns all analysis integrations associated with a particular system.
+
+---
+
+### Include Parameters
+
+
+```http
+GET /api/v2/projects/1/integrations/analysis/?include=params HTTP/1.1
+Accept: application/json
+Authorization: Token "YOUR SDE ACCESS TOKEN"
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+
+{
+    "results": [{
+        "id": 1,
+        "system": "WhiteHat",
+        "alias": "WhiteHat Integration",
+        "frequency": "manually",
+        "command": "sync_whitehat",
+        "params": {
+            "asset_name": "WebGoat Java",
+            "sde_project": "WhiteHat",
+            "analysis_api_token": "ab9485b-as6as43a-4acb4f62",
+            "sde_businessunit": "General",
+            "sde_application": "Demo Application",
+            "import_behaviour": "replace-scanner",
+            "analysis_server": "server.whitehatsec.com",
+            "task_status_mapping": "{}"
+        }
     }]
 }
 
