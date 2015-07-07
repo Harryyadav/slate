@@ -21,6 +21,7 @@ includes:
  - groups
  - integration_connectors
  - integrations
+ - jobs
  - library_tasks
  - library_problems
  - phases
