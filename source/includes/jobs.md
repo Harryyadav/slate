@@ -195,6 +195,10 @@ Content-Type: application/json
 }
 ```
 
+Will submit the results of an ALM job.
+
+**`POST /api/v2/jobs/alm/`**
+
 Fields        | Required | Description
 --------------|----------|-------------
 connection    | Yes      | The connection id associated with the job.
@@ -396,6 +400,10 @@ Content-Type: application/json
     }]
 }
 ```
+
+Will submit the results of an analysis job.
+
+**`POST /api/v2/jobs/analysis/`**
 
 Fields        | Required | Description
 --------------|----------|-------------
