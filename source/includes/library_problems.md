@@ -32,54 +32,16 @@ The following parameters may be used to filter the library problem resources in 
 
 Parameter            | Description
 ---------------------|-------------------
-title                |
-content              |
+custom_only          | If true, returns all problems that were custom made content
+original_only        | If true, returns all problems that are original SDElements content (i.e. non-custom)
 risk_rating          | Given a risk rating 0-10, returns all problems with specified rating
-tags                 | Given a JSON encoded list of tags, returns all tasks with specified tags
-
-___
-
-### Expand Parameters
-
-```http
-GET /api/v2/library/problems/?expand=cwes HTTP/1.1
-Accept: application/json
-Authorization: Token "YOUR SDE ACCESS TOKEN"
-```
-
-```http
-HTTP/1.1 200 OK
-Content-Type: application/json
-
-{
-    "results": [{
-        "description": "This is some example description.", 
-        "cwes": [{
-            "url": "http://cwe.mitre.org/data/definitions/359", 
-            "title": "Exposure of Private Information ('Privacy Violation')", 
-            "cwe_id": 359
-        }], 
-        "id": "P257", 
-        "title": "Privacy Violation",
-        "risk_rating": 5
-    }]
-} 
-
-```
-
-See the [Expand Parameters](#expand-parameters) section for more details.
-
-Parameter     | Description
---------------|------------------------------
-cwes          | Expands the CWE field in the problem response object
-
 
 ---
 
 ### Include Parameters
 
 ```http
-GET /api/v2/library/problems/?include=related_tasks,category HTTP/1.1
+GET /api/v2/library/problems/?include=related_tasks,category,cwe HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
@@ -90,17 +52,23 @@ Content-Type: application/json
 
 {
     "results": [{
+        "id": "P257",
+        "title": "Privacy Violation",
         "description": "This is some example description.", 
-        "cwes": [{
+        "risk_rating": 5,
+        "category": "XML and Web Services",
+        "cwe": [{
             "url": "http://cwe.mitre.org/data/definitions/359", 
             "title": "Exposure of Private Information ('Privacy Violation')", 
             "cwe_id": 359
         }], 
-        "id": "P257", 
-        "title": "Privacy Violation",
-        "risk_rating": 5,
-        "category": "XML and Web Services",
-        "related_tasks": ["T55", "CT3"]
+        "related_tasks": [{
+                "id": "CT1",
+                "title": "Example Task 1",
+                "priority": 10,
+                "description": "Example task solution",
+                "phase": 3
+        }]
     }]
 } 
 ```
@@ -109,8 +77,9 @@ See the [Include Parameters](#include-parameters) section for more details.
 
 Parameter             | Description
 ----------------------|---------------
-related_tasks         | Includes a list of tasks that relate to each problem
 category              | Includes the category that applies to each problem
+cwe                   | Includes the list of CWEs that apply to each problem
+related_tasks         | Includes a list of tasks that relate to each problem
 
 
 
@@ -129,7 +98,6 @@ Content-Type: application/json
 {
     "results": [{
         "description": "This is some example description.", 
-        "cwes": [359], 
         "id": "P3", 
         "title": "Example Library Weakness",
         "risk_rating": 5
