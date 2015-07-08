@@ -104,6 +104,7 @@ Content-Type: application/json
 {
     "results": [{
         "connection": 23,
+        "project_id": 1,
         "user": 1,
         "succeeded": true,
         "completed": true,
@@ -149,6 +150,7 @@ Content-Type: application/json
 {
     "results": [{
         "connection": 23,
+        "project_id": 1,
         "user": 1,
         "succeeded": true,
         "completed": true,
@@ -168,10 +170,10 @@ connection| Expands the connection details for the ALM job.
 
 ---
 
-## Post Results of an ALM Job
+## Post Results of an ALM Job of a Project
 
 ```http
-POST /api/v2/jobs/alm/ HTTP/1.1
+POST /api/v2/projects/1/jobs/alm/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 
@@ -188,17 +190,15 @@ Content-Type: application/json
 
 
 {
-    "results": [{
-        "id": 21,
-        "project_id": 129,
-        "connection": 23,
-        "user": 1,
-        "succeeded": true,
-        "completed": true,
-        "manual": true,
-        "result_message": "My Message",
-        "last_run": "2015-04-15T20:27:24.396442Z"
-    }]
+    "id": 21,
+    "project_id": 1,
+    "connection": 23,
+    "user": 1,
+    "succeeded": true,
+    "completed": true,
+    "manual": true,
+    "result_message": "My Message",
+    "last_run": "2015-04-15T20:27:24.396442Z"
 }
 ```
 
@@ -317,6 +317,7 @@ Content-Type: application/json
 {
     "results": [{
         "connection": 23,
+        "project_id": 1,
         "user": 1,
         "succeeded": true,
         "completed": true,
@@ -362,6 +363,7 @@ Content-Type: application/json
 {
     "results": [{
         "connection": 23,
+        "project_id": 1,
         "user": 1,
         "succeeded": true,
         "completed": true,
@@ -384,7 +386,7 @@ connection| Expands the connection details for the analysis job.
 ## Post Results of an Analysis Job
 
 ```http
-POST /api/v2/jobs/analysis/ HTTP/1.1
+POST /api/v2/projects/1/jobs/analysis/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 
@@ -401,17 +403,15 @@ Content-Type: application/json
 
 
 {
-    "results": [{
-        "id": 21,
-        "project_id": 129,
-        "connection": 23,
-        "user": 1,
-        "succeeded": true,
-        "completed": true,
-        "manual": true,
-        "result_message": "My Message",
-        "last_run": "2015-04-15T20:27:24.396442Z"
-    }]
+    "id": 21,
+    "project_id": 1,
+    "connection": 23,
+    "user": 1,
+    "succeeded": true,
+    "completed": true,
+    "manual": true,
+    "result_message": "My Message",
+    "last_run": "2015-04-15T20:27:24.396442Z"
 }
 ```
 
