@@ -17,15 +17,15 @@ Content-Type: application/json
 {
     "results": [{
         "id": 1,
-        "name": "HP Rally Connector",
+        "name": "Rally Connector",
         "system": "Rally"
     }]
 }
 ```
 
-Will return a list of all ALM connectors available.
+Returns a list of all ALM connectors available.
 
-**`GET /api/v2/connectors/`**
+**`GET /api/v2/connectors/alm/`**
 
 ### Query Parameters
 
@@ -52,12 +52,12 @@ Content-Type: application/json
 
 {
     "id": 1,
-    "name": "HP Rally Connector",
+    "name": "Rally Connector",
     "system": "Rally"
 }
 ```
 
-Will return a specific ALM connector.
+Returns a specific ALM connector.
 
 **`GET /api/v2/connectors/alm/{id}`**
 
@@ -85,7 +85,7 @@ Content-Type: application/json
 }
 ```
 
-Will return a list of all analysis connectors available.
+Returns a list of all analysis connectors available.
 
 **`GET /api/v2/connectors/analysis/`**
 
@@ -119,7 +119,7 @@ Content-Type: application/json
 }
 ```
 
-Will return a specific analysis connector.
+Returns a specific analysis connector.
 
 **`GET /api/v2/connectors/analysis/{id}`**
 

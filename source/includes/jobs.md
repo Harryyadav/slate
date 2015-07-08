@@ -28,7 +28,7 @@ Content-Type: application/json
 }
 ```
 
-Will return a list of all alm jobs associated with all projects.
+Returns a list of all alm jobs associated with all projects.
 
 **`GET /api/v2/jobs/alm/`**
 
@@ -82,10 +82,13 @@ Content-Type: application/json
 
 See the [Expand Parameters](#expand-parameters) section for more details.
 
+Parameter | Description
+----------|-----------------------------
+connection| Expands the connection details for the ALM job.
 
 ---
 
-## Get All ALM Jobs of a Specific Project
+## Get All ALM Jobs for a Specific Project
 
 
 ```http
@@ -111,7 +114,7 @@ Content-Type: application/json
 }
 ```
 
-Will return a list of all ALM jobs associated with the project having id "project_id".
+Returns a list of all ALM jobs associated with the project having id "project_id".
 
 **`GET /api/v2/projects/{project_id}/jobs/alm/`**
 
@@ -158,6 +161,10 @@ Content-Type: application/json
 ```
 
 See the [Expand Parameters](#expand-parameters) section for more details.
+
+Parameter | Description
+----------|-----------------------------
+connection| Expands the connection details for the ALM job.
 
 ---
 
@@ -207,7 +214,7 @@ succeeded     | Yes      | Whether the job was run successfully.
 
 ---
 
-## Get All Analysis Jobs of All Projects
+## Get All Analysis Jobs for All Projects
 
 
 ```http
@@ -234,7 +241,7 @@ Content-Type: application/json
 }
 ```
 
-Will return a list of all analysis jobs associated with all projects.
+Returns a list of all analysis jobs associated with all projects.
 
 **`GET /api/v2/jobs/analysis/`**
 
@@ -288,10 +295,13 @@ Content-Type: application/json
 
 See the [Expand Parameters](#expand-parameters) section for more details.
 
+Parameter | Description
+----------|-----------------------------
+connection| Expands the connection details for the analysis job.
 
 ---
 
-## Get All Analysis Jobs of a Specific Project
+## Get All Analysis Jobs for a Specific Project
 
 
 ```http
@@ -317,7 +327,7 @@ Content-Type: application/json
 }
 ```
 
-Will return a list of all analysis jobs associated with the project having id "project_id".
+Returns a list of all analysis jobs associated with the project having id "project_id".
 
 **`GET /api/v2/projects/{project_id}/jobs/analysis/`**
 
@@ -364,6 +374,10 @@ Content-Type: application/json
 ```
 
 See the [Expand Parameters](#expand-parameters) section for more details.
+
+Parameter | Description
+----------|-----------------------------
+connection| Expands the connection details for the analysis job.
 
 ---
 

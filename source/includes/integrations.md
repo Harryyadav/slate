@@ -26,7 +26,7 @@ Content-Type: application/json
 }
 ```
 
-Will return a list of all ALM integrations associated with all projects.
+Returns a list of all ALM integrations associated with all projects.
 
 **`GET /api/v2/integrations/alm/`**
 
@@ -94,7 +94,7 @@ params      | Includes a params field that specifies the configuration parameter
 
 ---
 
-## Get All ALM Integrations of a Specific Project
+## Get All ALM Integrations for a Specific Project
 
 
 ```http
@@ -118,7 +118,7 @@ Content-Type: application/json
 }
 ```
 
-Will return a list of all ALM integrations associated with the project having id "project_id".
+Returns a list of all ALM integrations associated with the project having id "project_id".
 
 **`GET /api/v2/projects/{project_id}/integrations/alm/`**
 
@@ -210,7 +210,7 @@ Content-Type: application/json
 }
 ```
 
-Will return a list of all analysis integrations associated with all projects.
+Returns a list of all analysis integrations associated with all projects.
 
 **`GET /api/v2/integrations/analysis/`**
 
@@ -251,7 +251,6 @@ Content-Type: application/json
         "params": {
             "asset_name": "WebGoat Java",
             "sde_project": "WhiteHat",
-            "analysis_api_token": "ab9485b-as6as43a-4acb4f62",
             "sde_businessunit": "General",
             "sde_application": "Demo Application",
             "import_behaviour": "replace-scanner",
@@ -271,7 +270,7 @@ params      | Includes a params field that specifies the configuration parameter
 
 ---
 
-## Get All Analysis Integrations of a Specific Project
+## Get All Analysis Integrations for a Specific Project
 
 
 ```http
@@ -296,7 +295,7 @@ Content-Type: application/json
 }
 ```
 
-Will return a list of all Analysis integrations associated with the project having id "project_id".
+Returns a list of all Analysis integrations associated with the project having id "project_id".
 
 **`GET /api/v2/projects/{project_id}/integrations/analysis/`**
 
@@ -336,7 +335,6 @@ Content-Type: application/json
         "params": {
             "asset_name": "WebGoat Java",
             "sde_project": "WhiteHat",
-            "analysis_api_token": "ab9485b-as6as43a-4acb4f62",
             "sde_businessunit": "General",
             "sde_application": "Demo Application",
             "import_behaviour": "replace-scanner",
