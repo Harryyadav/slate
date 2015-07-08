@@ -21,7 +21,16 @@ Content-Type: application/json
         "system": "Rally",
         "alias": "Rally Integration",
         "frequency": "manually",
-        "command": "sync_rally"
+        "command": "sync_rally",
+        "params": {
+            "asset_name": "WebGoat Java",
+            "sde_project": "WhiteHat",
+            "sde_businessunit": "General",
+            "sde_application": "Demo Application",
+            "import_behaviour": "replace-scanner",
+            "analysis_server": "server.whitehatsec.com",
+            "task_status_mapping": "{}"
+        }
     }]
 }
 ```
@@ -42,57 +51,6 @@ system    | Returns all ALM integrations associated with a particular system.
 
 ---
 
-### Include Parameters
-
-
-```http
-GET /api/v2/integrations/alm/?include=params HTTP/1.1
-Accept: application/json
-Authorization: Token "YOUR SDE ACCESS TOKEN"
-```
-
-```http
-HTTP/1.1 200 OK
-Content-Type: application/json
-
-
-{
-    "results": [{
-        "id": 1,
-        "project_id": 2,
-        "system": "Rally",
-        "alias": "Rally Integration",
-        "frequency": "manually",
-        "command": "sync_rally",
-        "params": {
-            "sde_project": "Demo Project",
-            "alm_user": "rally_user",
-            "sde_verification_filter": "none,partial,pass,fail",
-            "rally_workspace": "Rally Workspace",
-            "alm_method": "https",
-            "alm_title_format": "$task_id $title",
-            "alm_server": "rally1.rallydev.com",
-            "sde_businessunit": "General",
-            "sde_application": "Demo Application",
-            "alm_project": "Rally Project",
-            "alm_pass": "rally_password",
-            "alm_phases": "requirements,architecture-design,development",
-            "sde_statuses_in_scope": "TODO",
-            "conflict_policy": "alm",
-            "sde_min_priority": 7
-        }
-    }]
-}
-
-```
-
-See the [Include Parameters](#include-parameters) section for more details.
-
-Parameter   | Description
-------------|---------------------
-params      | Includes a params field that specifies the configuration parameters for the ALM integration.
-
----
 
 ## Get All ALM Integrations for a Specific Project
 
@@ -113,47 +71,6 @@ Content-Type: application/json
         "system": "Rally",
         "alias": "Rally Integration",
         "frequency": "manually",
-        "command": "sync_rally"
-    }]
-}
-```
-
-Returns a list of all ALM integrations associated with the project having id "project_id".
-
-**`GET /api/v2/projects/{project_id}/integrations/alm/`**
-
-### Query Parameters
-
-The following parameters may be used to filter the integrations resources in the response.
-
-Parameter | Description
-----------|-----------------------------
-alias     | Returns all ALM integrations with the specified alias.
-frequency | Returns all ALM integrations with the specified frequency of synchronization.
-system    | Returns all ALM integrations associated with a particular system.
-
----
-
-### Include Parameters
-
-
-```http
-GET /api/v2/projects/1/integrations/alm/?include=params HTTP/1.1
-Accept: application/json
-Authorization: Token "YOUR SDE ACCESS TOKEN"
-```
-
-```http
-HTTP/1.1 200 OK
-Content-Type: application/json
-
-
-{
-    "results": [{
-        "id": 1,
-        "system": "Rally",
-        "alias": "Rally Integration",
-        "frequency": "manually",
         "command": "sync_rally",
         "params": {
             "sde_project": "Demo Project",
@@ -174,14 +91,21 @@ Content-Type: application/json
         }
     }]
 }
-
 ```
 
-See the [Include Parameters](#include-parameters) section for more details.
+Returns a list of all ALM integrations associated with the project having id "project_id".
 
-Parameter   | Description
-------------|---------------------
-params      | Includes a params field that specifies the configuration parameters for the ALM integration.
+**`GET /api/v2/projects/{project_id}/integrations/alm/`**
+
+### Query Parameters
+
+The following parameters may be used to filter the integrations resources in the response.
+
+Parameter | Description
+----------|-----------------------------
+alias     | Returns all ALM integrations with the specified alias.
+frequency | Returns all ALM integrations with the specified frequency of synchronization.
+system    | Returns all ALM integrations associated with a particular system.
 
 ---
 
@@ -205,7 +129,16 @@ Content-Type: application/json
         "system": "WhiteHat",
         "alias": "WhiteHat Integration",
         "frequency": "manually",
-        "command": "sync_whitehat"
+        "command": "sync_whitehat",
+        "params": {
+            "asset_name": "WebGoat Java",
+            "sde_project": "WhiteHat",
+            "sde_businessunit": "General",
+            "sde_application": "Demo Application",
+            "import_behaviour": "replace-scanner",
+            "analysis_server": "server.whitehatsec.com",
+            "task_status_mapping": "{}"
+        }
     }]
 }
 ```
@@ -223,50 +156,6 @@ Parameter | Description
 alias     | Returns all analysis integrations with the specified alias.
 frequency | Returns all analysis integrations with the specified frequency of synchronization.
 system    | Returns all analysis integrations associated with a particular system.
-
----
-
-### Include Parameters
-
-
-```http
-GET /api/v2/integrations/analysis/?include=params HTTP/1.1
-Accept: application/json
-Authorization: Token "YOUR SDE ACCESS TOKEN"
-```
-
-```http
-HTTP/1.1 200 OK
-Content-Type: application/json
-
-
-{
-    "results": [{
-        "id": 1,
-        "project_id": 2,
-        "system": "WhiteHat",
-        "alias": "WhiteHat Integration",
-        "frequency": "manually",
-        "command": "sync_whitehat",
-        "params": {
-            "asset_name": "WebGoat Java",
-            "sde_project": "WhiteHat",
-            "sde_businessunit": "General",
-            "sde_application": "Demo Application",
-            "import_behaviour": "replace-scanner",
-            "analysis_server": "server.whitehatsec.com",
-            "task_status_mapping": "{}"
-        }
-    }]
-}
-
-```
-
-See the [Include Parameters](#include-parameters) section for more details.
-
-Parameter   | Description
-------------|---------------------
-params      | Includes a params field that specifies the configuration parameters for the analysis integration.
 
 ---
 
@@ -290,7 +179,16 @@ Content-Type: application/json
         "system": "WhiteHat",
         "alias": "WhiteHat Integration",
         "frequency": "manually",
-        "command": "sync_whitehat"
+        "command": "sync_whitehat",
+        "params": {
+            "asset_name": "WebGoat Java",
+            "sde_project": "WhiteHat",
+            "sde_businessunit": "General",
+            "sde_application": "Demo Application",
+            "import_behaviour": "replace-scanner",
+            "analysis_server": "server.whitehatsec.com",
+            "task_status_mapping": "{}"
+        }
     }]
 }
 ```
@@ -308,47 +206,4 @@ Parameter | Description
 alias     | Returns all analysis integrations with the specified alias.
 frequency | Returns all analysis integrations with the specified frequency of synchronization.
 system    | Returns all analysis integrations associated with a particular system.
-
----
-
-### Include Parameters
-
-
-```http
-GET /api/v2/projects/1/integrations/analysis/?include=params HTTP/1.1
-Accept: application/json
-Authorization: Token "YOUR SDE ACCESS TOKEN"
-```
-
-```http
-HTTP/1.1 200 OK
-Content-Type: application/json
-
-
-{
-    "results": [{
-        "id": 1,
-        "system": "WhiteHat",
-        "alias": "WhiteHat Integration",
-        "frequency": "manually",
-        "command": "sync_whitehat",
-        "params": {
-            "asset_name": "WebGoat Java",
-            "sde_project": "WhiteHat",
-            "sde_businessunit": "General",
-            "sde_application": "Demo Application",
-            "import_behaviour": "replace-scanner",
-            "analysis_server": "server.whitehatsec.com",
-            "task_status_mapping": "{}"
-        }
-    }]
-}
-
-```
-
-See the [Include Parameters](#include-parameters) section for more details.
-
-Parameter   | Description
-------------|---------------------
-params      | Includes a params field that specifies the configuration parameters for the integration.
 
