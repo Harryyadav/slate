@@ -21,7 +21,7 @@ Content-Type: application/json
         "user": 1,
         "succeeded": true,
         "completed": true,
-        "automatic": true,
+        "manual": true,
         "result_message": "",
         "last_run": "2015-04-15T20:27:24.396442Z"
     }]
@@ -72,7 +72,7 @@ Content-Type: application/json
         "user": 1,
         "succeeded": true,
         "completed": true,
-        "automatic": true,
+        "manual": true,
         "result_message": "",
         "last_run": "2015-04-15T20:27:24.396442Z"
     }]
@@ -107,7 +107,7 @@ Content-Type: application/json
         "user": 1,
         "succeeded": true,
         "completed": true,
-        "automatic": true,
+        "manual": true,
         "result_message": "",
         "last_run": "2015-04-15T20:27:24.396442Z"
     }]
@@ -152,7 +152,7 @@ Content-Type: application/json
         "user": 1,
         "succeeded": true,
         "completed": true,
-        "automatic": true,
+        "manual": true,
         "result_message": "",
         "last_run": "2015-04-15T20:27:24.396442Z"
     }]
@@ -195,7 +195,7 @@ Content-Type: application/json
         "user": 1,
         "succeeded": true,
         "completed": true,
-        "automatic": true,
+        "manual": true,
         "result_message": "My Message",
         "last_run": "2015-04-15T20:27:24.396442Z"
     }]
@@ -234,7 +234,7 @@ Content-Type: application/json
         "user": 1,
         "succeeded": true,
         "completed": true,
-        "automatic": true,
+        "manual": true,
         "result_message": "",
         "last_run": "2015-04-15T20:27:24.396442Z"
     }]
@@ -285,7 +285,7 @@ Content-Type: application/json
         "user": 1,
         "succeeded": true,
         "completed": true,
-        "automatic": true,
+        "manual": true,
         "result_message": "",
         "last_run": "2015-04-15T20:27:24.396442Z"
     }]
@@ -320,7 +320,7 @@ Content-Type: application/json
         "user": 1,
         "succeeded": true,
         "completed": true,
-        "automatic": true,
+        "manual": true,
         "result_message": "",
         "last_run": "2015-04-15T20:27:24.396442Z"
     }]
@@ -365,7 +365,7 @@ Content-Type: application/json
         "user": 1,
         "succeeded": true,
         "completed": true,
-        "automatic": true,
+        "manual": true,
         "result_message": "",
         "last_run": "2015-04-15T20:27:24.396442Z"
     }]
@@ -408,7 +408,7 @@ Content-Type: application/json
         "user": 1,
         "succeeded": true,
         "completed": true,
-        "automatic": true,
+        "manual": true,
         "result_message": "My Message",
         "last_run": "2015-04-15T20:27:24.396442Z"
     }]
