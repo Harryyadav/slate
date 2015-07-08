@@ -40,6 +40,7 @@ Parameter | Description
 ----------|-----------------------------
 completed | Returns all ALM jobs that have completed, successfully or otherwise.
 connection| Returns all ALM jobs that correspond to a specific connection.
+latest    | Returns only the latest ALM jobs.
 manual    | Returns all ALM jobs that were created manually.
 succeeded | Returns all ALM jobs that completed successfully.
 user      | Returns all ALM jobs created by the specified user.
@@ -127,6 +128,7 @@ Parameter | Description
 ----------|-----------------------------
 completed | Returns all ALM jobs that have completed, successfully or otherwise.
 connection| Returns all ALM jobs that correspond to a specific connection.
+latest    | Returns only the latest ALM jobs.
 manual    | Returns all ALM jobs that were created manually.
 succeeded | Returns all ALM jobs that completed successfully.
 user      | Returns all ALM jobs created by the specified user.
@@ -253,6 +255,7 @@ Parameter | Description
 ----------|-----------------------------
 completed | Returns all analysis jobs that have completed, successfully or otherwise.
 connection| Returns all analysis jobs that correspond to a specific connection.
+latest    | Returns only the latest analysis jobs.
 manual    | Returns all analysis jobs that were created manually.
 succeeded | Returns all analysis jobs that completed successfully.
 user      | Returns all analysis jobs created by the specified user.
@@ -340,6 +343,7 @@ Parameter | Description
 ----------|-----------------------------
 completed | Returns all analysis jobs that have completed, successfully or otherwise.
 connection| Returns all analysis jobs that correspond to a specific connection.
+latest    | Returns only the latest analysis jobs.
 manual    | Returns all analysis jobs that were created manually.
 succeeded | Returns all analysis jobs that completed successfully.
 user      | Returns all analysis jobs created by the specified user.
