@@ -34,7 +34,7 @@ Returns a list of all alm jobs associated with all projects.
 
 ### Query Parameters
 
-The following parameters may be used to filter the ALM integrations resources in the response. See the [Integrations](#integrations) and [Integration Connectors](#integration-connectors) section for more details about the `connection` parameter.
+The following parameters may be used to filter the ALM integrations resources in the response. A `connection` corresponds to either a connector or an integration. See the [Integrations](#integrations) and [Integration Connectors](#integration-connectors) section for more details about the `connection` parameter.
 
 Parameter | Description
 ----------|-----------------------------
@@ -121,7 +121,7 @@ Returns a list of all ALM jobs associated with the project having id "project_id
 
 ### Query Parameters
 
-The following parameters may be used to filter the ALM integrations resources in the response. See the [Integrations](#integrations) and [Integration Connectors](#integration-connectors) section for more details about the `connection` parameter.
+The following parameters may be used to filter the ALM integrations resources in the response. A `connection` corresponds to either a connector or an integration. See the [Integrations](#integrations) and [Integration Connectors](#integration-connectors) section for more details about the `connection` parameter.
 
 Parameter | Description
 ----------|-----------------------------
@@ -383,7 +383,7 @@ connection| Expands the connection details for the analysis job.
 
 ---
 
-## Post Results of an Analysis Job
+## Post Results of an Analysis Job of a Project
 
 ```http
 POST /api/v2/projects/1/jobs/analysis/ HTTP/1.1
