@@ -23,13 +23,21 @@ Content-Type: application/json
         "frequency": "manually",
         "command": "sync_rally",
         "params": {
-            "asset_name": "WebGoat Java",
-            "sde_project": "WhiteHat",
+            "sde_project": "Demo Project",
+            "alm_user": "rally_user",
+            "sde_verification_filter": "none,partial,pass,fail",
+            "rally_workspace": "Rally Workspace",
+            "alm_method": "https",
+            "alm_title_format": "$task_id $title",
+            "alm_server": "rally1.rallydev.com",
             "sde_businessunit": "General",
             "sde_application": "Demo Application",
-            "import_behaviour": "replace-scanner",
-            "analysis_server": "server.whitehatsec.com",
-            "task_status_mapping": "{}"
+            "alm_project": "Rally Project",
+            "alm_pass": "rally_password",
+            "alm_phases": "requirements,architecture-design,development",
+            "sde_statuses_in_scope": "TODO",
+            "conflict_policy": "alm",
+            "sde_min_priority": 7
         }
     }]
 }
