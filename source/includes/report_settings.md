@@ -160,7 +160,7 @@ Fields        | Required | Description
 template      | Yes      | The type of report that the settings apply to.  Usually set to "project".
 title         | Yes      | A string representing a unique title of the report settings.
 filters       | No       | A json object containing any filters on the project settings.
-filter_query  | No       | A json object containing .... what does this contain?
+filter_query  | No       | A json object containing the query to be run against the project resource.
 
 ## Delete a Report Setting
 
