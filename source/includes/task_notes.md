@@ -17,14 +17,14 @@ Content-Type: application/json
         "id": 682,
         "task": "1-T2",
         "text": "This task is on-hold until we...",
-        "creator": "geoff+demo@sdelements.com",
+        "updater": 1,
         "created": "2015-03-26T19:50:46.348000Z",
         "updated": "2015-03-26T19:50:46.348000Z"
     }]
 }
 ```
 
-This endpoint returns a list of Task Note resources.
+This endpoint returns a specific Task Note resource.
 
 **`GET /api/v2/projects/{project_id}/tasks/{task_id}/notes/`**
 
@@ -44,7 +44,7 @@ task_id    | The id of the Task
 
 
 
-## Get a specific Task Note
+## Get a Specific Task Note
 
 ```http
 GET /api/v2/projects/1/tasks/1-T2/notes/682/ HTTP/1.1
@@ -60,7 +60,7 @@ Content-Type: application/json
     "id": 682,
     "task": "1-T2",
     "text": "This task is on-hold until we...",
-    "creator": "geoff+demo@sdelements.com",
+    "updater": 1,
     "created": "2015-03-26T19:50:46.348000Z",
     "updated": "2015-03-26T19:50:46.348000Z"
 }
@@ -107,7 +107,7 @@ Content-Type: application/json
     "id": 682,
     "task": "1-T2",
     "text": "This task is on-hold until we...",
-    "creator": "geoff+demo@sdelements.com",
+    "updater": 1,
     "created": "2015-03-26T19:50:46.348000Z",
     "updated": "2015-03-26T19:50:46.348000Z"
 }
@@ -159,7 +159,7 @@ Content-Type: application/json
     "id": 682,
     "task": "1-T2",
     "text": "This task is on-hold until we...",
-    "creator": "geoff+demo@sdelements.com",
+    "updater": 1,
     "created": "2015-03-26T19:50:46.348000Z",
     "updated": "2015-03-26T19:50:46.348000Z"
 }
@@ -182,3 +182,37 @@ note_id    | The id of the Task Note to update
 Field | Required | Description
 ----- |----------| -----------
 text  | Yes      | The note text
+
+
+
+
+
+
+
+
+
+
+## Delete a Specific Task Note
+
+```http
+DELETE /api/v2/projects/1/tasks/1-T2/notes/682/ HTTP/1.1
+Accept: application/json
+Authorization: Token "YOUR SDE ACCESS TOKEN"
+```
+
+```http
+HTTP/1.1 204 NO CONTENT
+```
+
+This endpoint deletes specific Task Note resource.
+
+**`DELETE /api/v2/projects/{project_id}/tasks/{task_id}/notes/{note_id}/`**
+
+### URL Parameters
+
+Parameter  | Description
+---------- | -----------
+project_id | The id of the Project
+task_id    | The id of the Task
+note_id    | The id of the Task Note to retrieve
+
