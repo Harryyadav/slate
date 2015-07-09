@@ -35,10 +35,7 @@ The following parameters may be used to filter the library task resources in the
 
 Parameter            | Description
 ---------------------|-------------------
-title                | Returns all tasks containing string in their title
-description          | Returns all tasks containing string in their description
 priority             | Given a priority 0-10, returns all tasks with specified priority
-tags                 | Given a JSON encoded list of tags, returns all tasks with specified tags
 phase                | Given a phase id, returns all tasks in specified phase
 
 
