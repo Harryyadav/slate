@@ -24,7 +24,7 @@ Content-Type: application/json
 }
 ```
 
-This endpoint returns a specific Task Note resource.
+This endpoint returns a list of Task Note resources.
 
 **`GET /api/v2/projects/{project_id}/tasks/{task_id}/notes/`**
 
@@ -66,7 +66,7 @@ Content-Type: application/json
 }
 ```
 
-This endpoint returns a list of Task Note resources.
+This endpoint returns a specific Task Note resource.
 
 **`GET /api/v2/projects/{project_id}/tasks/{task_id}/notes/{note_id}/`**
 
@@ -113,7 +113,7 @@ Content-Type: application/json
 }
 ```
 
-This endpoint returns a list of Task Note resources.
+This endpoint creates a Task Note resource with the specified content.
 
 **`POST /api/v2/projects/{project_id}/tasks/{task_id}/notes/`**
 
@@ -165,7 +165,7 @@ Content-Type: application/json
 }
 ```
 
-This endpoint returns a list of Task Note resources.
+This endpoint updates a Task Note resource.
 
 **`PUT /api/v2/projects/{project_id}/tasks/{task_id}/notes/{note_id}/`**
 
@@ -204,7 +204,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
 HTTP/1.1 204 NO CONTENT
 ```
 
-This endpoint deletes specific Task Note resource.
+This endpoint deletes a specific Task Note resource.
 
 **`DELETE /api/v2/projects/{project_id}/tasks/{task_id}/notes/{note_id}/`**
 
