@@ -40,7 +40,7 @@ This endpoint returns a list of User resources.
 
 
 
-## Get a specific User
+## Get a Specific User
 
 ```http
 GET /api/v2/users/599/ HTTP/1.1
@@ -66,7 +66,7 @@ Content-Type: application/json
 }
 ```
 
-Get a specific User resource.
+This endpoint returns a specific User resource.
 
 **`GET /api/v2/users/{user_id}/`**
 

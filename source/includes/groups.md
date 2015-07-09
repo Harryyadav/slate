@@ -35,7 +35,7 @@ This endpoint returns a list of Group resources.
 
 
 
-## Get a specific Group
+## Get a Specific Group
 
 ```http
 GET /api/v2/groups/G64/ HTTP/1.1
@@ -55,7 +55,7 @@ Content-Type: application/json
 }
 ```
 
-Get a specific Group resource.
+This endpoint retreives a specific Group Resource as specified by the group_id.
 
 **`GET /api/v2/groups/{group_id}/`**
 

@@ -26,7 +26,7 @@ Content-Type: application/json
 }
 ```
 
-This endpoint retrieves a list of business unit resources, respecting the permissions of the user who has made the requested.
+This endpoint retrieves a list of Business Unit resources, respecting the permissions of the user who has made the requested.
 
 ### Query Parameters
 
@@ -34,6 +34,6 @@ The following parameters may be used to filter the business unit resources in th
 
 Parameter | Description
 ----------|-----------------------------
-name      | Returns the business unit resource with the specified name.
 id        | Returns the business unit resource with the specified id.
+name      | Returns the business unit resource with the specified name.
 ordering  | Returns a list of business unit resources ordered by the specified field.  This endpoint accepts ordering by id.

@@ -6,7 +6,7 @@ Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
 
-To authenticate against SDE Elements,
+To authenticate against SD Elements,
 you need to pass an API access token via an `Authorization` header.
 
 A token can be generated as follows:
