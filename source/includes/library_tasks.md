@@ -17,15 +17,15 @@ Content-Type: application/json
     "results": [{
         "priority": 8,
         "url": "http://example.com/library/tasks/T179/",
-        "problem": 1,
+        "problem": P1,
         "title": "Allow access for users to remove their data from the system",
         "description": "Some example description",
-        "phase": "requirements",
+        "phase": 2,
         "id": "T179"
     }]
 }
 ```
-This endpoint retrieves a list of Library Standard resources.
+This endpoint retrieves a list of Library Task resources.
 
 **`GET /api/v2/library/tasks/`**
 
@@ -35,11 +35,11 @@ The following parameters may be used to filter the library task resources in the
 
 Parameter            | Description
 ---------------------|-------------------
-title                | Returns all tasks containing string in their title   **
-description          | Returns all tasks containing string in their description **
+title                | Returns all tasks containing string in their title
+description          | Returns all tasks containing string in their description
 priority             | Given a priority 0-10, returns all tasks with specified priority
 tags                 | Given a JSON encoded list of tags, returns all tasks with specified tags
-phase                | Given a phase slug, returns all tasks in specified phase
+phase                | Given a phase id, returns all tasks in specified phase
 
 
 ___
@@ -73,7 +73,7 @@ Content-Type: application/json
         },
         "title": "Allow access for users to remove their data from the system",
         "description": "Some example description",
-        "phase": "requirements", ** add expanded phase
+        "phase": 3,
         "id": "T179"
     }]
 }
@@ -109,7 +109,7 @@ Content-Type: application/json
         "problem": 1,
         "title": "Allow access for users to remove their data from the system",
         "description": "Some example description",
-        "phase": "requirements",
+        "phase": 1,
         "id": "T179",
         "categories": [
             "Authorization"
@@ -146,7 +146,7 @@ verification_coverage | Includes a list of verification coverages of each task
 
 
 
-## Get a Specific Library Standard
+## Get a Specific Library Task 
 
 ```http
 GET /api/v2/library/tasks/T3/ HTTP/1.1
@@ -163,10 +163,10 @@ Content-Type: application/json
         "priority": 8,
         "tags": [],
         "url": "http://example.com/library/tasks/T3/",
-        "problem": 1,
-        "title": "Example Library Standard",
+        "problem": P1,
+        "title": "Example Library Task",
         "description": "Some example description",
-        "phase": "requirements",
+        "phase": 3,
         "id": "T3"
     }]
 }
@@ -184,7 +184,7 @@ Parameter      | Description
 task_id        | The id of the task to retrieve
 
 
-*All of the expand and include parameters for the 'Get All Library Standards' endpoint apply here as well.*
+*All of the expand and include parameters for the 'Get All Library Tasks' endpoint apply here as well.*
 
 
 

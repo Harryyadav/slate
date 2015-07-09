@@ -1,5 +1,5 @@
 # Library Problems
-## Get All Library Weaknesses
+## Get All Library Problems 
 
 
 ```http
@@ -22,7 +22,7 @@ Content-Type: application/json
     }]
 } 
 ```
-This endpoint retrieves a list of Library Weakness resources.
+This endpoint retrieves a list of Library Problem resources.
 
 **`GET /api/v2/library/problems/`**
 
@@ -32,8 +32,6 @@ The following parameters may be used to filter the library problem resources in 
 
 Parameter            | Description
 ---------------------|-------------------
-custom_only          | If true, returns all problems that were custom made content
-original_only        | If true, returns all problems that are original SDElements content (i.e. non-custom)
 risk_rating          | Given a risk rating 0-10, returns all problems with specified rating
 
 ---
@@ -83,7 +81,7 @@ related_tasks         | Includes a list of tasks that relate to each problem
 
 
 
-## Get a Specific Library Weakness
+## Get a Specific Library Problem
 
 ```http
 GET /api/v2/library/problems/P3/ HTTP/1.1
@@ -99,7 +97,7 @@ Content-Type: application/json
     "results": [{
         "description": "This is some example description.", 
         "id": "P3", 
-        "title": "Example Library Weakness",
+        "title": "Example Library Problem",
         "risk_rating": 5
     }]
 } 
@@ -117,5 +115,5 @@ Parameter      | Description
 problem_id     | The id of the problem to retrieve
 
 
-*All of the expand and include parameters for the 'Get All Library Weaknesses' endpoint apply here as well.*
+*All of the expand and include parameters for the 'Get All Library Problems' endpoint apply here as well.*
 
