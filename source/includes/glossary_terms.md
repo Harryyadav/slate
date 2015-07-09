@@ -44,7 +44,7 @@ This endpoint returns a list of Glossary Term resources.
 
 
 
-## Get a specific Glossary Term
+## Get a Specific Glossary Term
 
 ```http
 GET /api/v2/glossary-terms/G2/ HTTP/1.1
@@ -66,7 +66,7 @@ Content-Type: application/json
 }
 ```
 
-This endpoint returns a single Glossary Term resource.
+This endpoint returns a specific Glossary Term resource.
 
 **`GET /api/v2/glossary-terms/{glossary_term_id}/`**
 
@@ -114,10 +114,10 @@ Content-Type: application/json
 }
 ```
 
-This endpoint lets you create a new glossary term.
+This endpoint creates a new Glossary Term resource.
 
 Fields  | Required | Description
 --------|----------|-------------
-title   | Yes      |
 text    | Yes      |
+title   | Yes      |
 summary | Yes      |

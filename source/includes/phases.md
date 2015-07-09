@@ -67,7 +67,7 @@ Content-Type: application/json
 }
 ```
 
-This endpoint retrieves a single phase resource, as specified by the id parameter.
+This endpoint retrieves a specific Phase resource, as specified by the id parameter.
 
 **`GET /api/v2/phases/{phase_id}/`**
 

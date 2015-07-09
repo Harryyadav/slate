@@ -38,7 +38,7 @@ Content-Type: application/json
 }
 ```
 
-Will return a list of tasks associated with the project having id "project_id".
+This endpoint returns a list of Task resources associated with the project having id "project_id".
 
 **`GET /api/v2/projects/{project_id}/tasks/`**
 
@@ -96,8 +96,8 @@ See the [Expand Parameters](#expand-parameters) section for more details.
 
 Parameter   | Description
 ------------|---------------------
-status      | Status field is expanded into meaning, icon, name and slug sub-fields.
 description | Description field is expanded into content and amendments sub-fields.
+status      | Status field is expanded into meaning, icon, name and slug sub-fields.
 
 ---
 
@@ -161,7 +161,7 @@ See the [Include Parameters](#include-parameters) section for more details.
 
 Parameter | Description
 ----------|---------------------
-tags      | Includes a list of tags associated to the task
-related   | Includes a list of related tasks
-problem   | Includes the problem that the task is related to
 how_tos   | Includes a list of applicable how-tos
+problem   | Includes the problem that the task is related to
+related   | Includes a list of related tasks
+tags      | Includes a list of tags associated to the task

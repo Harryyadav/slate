@@ -63,6 +63,16 @@ Parameter | Description
 ----------|-----------------------------
 template  | Returns a list of report settings with the specified template
 
+
+
+
+
+
+
+
+
+
+
 ## Get a Specific Report Setting
 
 ```http
@@ -115,7 +125,7 @@ Content-Type: application/json
 
 ```
 
-This endpoint retrieves a single report setting resource, as specified by the id parameter.
+This endpoint retrieves a specific Report Setting resource, as specified by the id parameter.
 
 **`GET /api/v2/applications/{report-settings_id}/`**
 
@@ -124,6 +134,17 @@ This endpoint retrieves a single report setting resource, as specified by the id
 Parameter          | Description
 -------------------| ---------------
 report-settings_id | The id of the report setting to retrieve
+
+
+
+
+
+
+
+
+
+
+
 
 ## Create A New Report Setting
 
@@ -161,6 +182,14 @@ filters       | No       | A json object containing any filters on the project s
 filter_query  | No       | A json object containing the query to be run against the project resource.
 template      | Yes      | The type of report that the settings apply to.  Usually set to "project".
 title         | Yes      | A string representing a unique title of the report settings.
+
+
+
+
+
+
+
+
 
 
 

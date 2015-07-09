@@ -49,7 +49,7 @@ This endpoint returns a list of Global Role resources.
 
 
 
-## Get a specific Global Role
+## Get a Specific Global Role
 
 ```http
 GET /api/v2/global-roles/UR4/ HTTP/1.1
@@ -68,7 +68,7 @@ Content-Type: application/json
 }
 ```
 
-This endpoint returns a single Global Role resource.
+This endpoint returns a specific Global Role resource as specified by the id parameter.
 
 **`GET /api/v2/global-roles/{global_role_id}/`**
 

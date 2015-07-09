@@ -37,8 +37,9 @@ The following parameters may be used to filter the application resources in the 
 Parameter | Description
 ----------|-----------------------------
 name      | Returns application resource with specified name.
-priority  | Returns a list of application resources with specified priority.
 ordering  | Returns a list of application resources ordered by the specified field.  This endpoint accepts ordering by name.
+priority  | Returns a list of application resources with specified priority.
+
 
 ---
 
@@ -153,7 +154,7 @@ Content-Type: application/json
 }
 ```
 
-This endpoint retrieves a single application resource, as specified by the id parameter.
+This endpoint retrieves a specific Application resource, as specified by the id parameter.
 
 **`GET /api/v2/applications/{application_id}/`**
 
@@ -199,8 +200,8 @@ Content-Type: application/json
 
 Fields        | Required | Description
 --------------|----------|-------------
-name          | Yes      | The name of the new application
 business_unit | Yes      | The ID of the business unit the application belongs to
+name          | Yes      | The name of the new application
 priority      | No       | Specifies the priority of the application to be either '0-none', '1-high', '2-medium' or '3-low'
 
 
@@ -282,7 +283,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
 HTTP/1.1 204 NO CONTENT
 ```
 
-This endpoint deletes a single application resource, as specified by the id parameter.
+This endpoint deletes a single Application resource, as specified by the id parameter.
 
 **`DELETE /applications/{application_id}/`**
 

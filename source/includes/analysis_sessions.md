@@ -38,7 +38,7 @@ This endpoint returns a list of Analysis Session resources.
 
 
 
-## Get a specific Analysis Session
+## Get a Specific Analysis Session
 
 ```http
 GET /api/v2/projects/1/analysis-sessions/1/ HTTP/1.1

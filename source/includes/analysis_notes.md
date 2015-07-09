@@ -38,7 +38,7 @@ This endpoint returns a list of Analysis Note resources for a specific project t
 
 
 
-## Get a specific Analysis Note
+## Get a Specific Analysis Note
 
 ```http
 GET /api/v2/projects/1936/tasks/1-T2/analysis-notes/682/ HTTP/1.1

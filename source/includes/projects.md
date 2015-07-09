@@ -66,7 +66,7 @@ Content-Type: application/json
 }
 ```
 
-This endpoint retrieves a single Project resource, as specified by the id parameter.
+This endpoint retrieves a specific Project resource, as specified by the id parameter.
 
 **`GET /api/v2/projects/{project_id}/`**
 
@@ -120,5 +120,5 @@ Content-Type: application/json
 
 Fields      | Required | Description
 ------------|----------|-------------
-name        | Yes      | The name of the new project
 application | Yes      | The ID of the application the project belongs to
+name        | Yes      | The name of the new project
