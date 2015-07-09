@@ -12,6 +12,8 @@ includes:
  - errors
 
  - resources
+ - analysis_notes
+ - analysis_sessions
  - applications
  - business_units
  - global_roles
