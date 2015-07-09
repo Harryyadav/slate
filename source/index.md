@@ -1,5 +1,5 @@
 ---
-title: API Reference
+title: SD Elements API v2 Reference
 
 toc_footers:
 - '&copy; 2015 SD Elements Inc.'
