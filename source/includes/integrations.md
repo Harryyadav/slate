@@ -17,7 +17,7 @@ Content-Type: application/json
 {
     "results": [{
         "id": 1,
-        "project_id": 2,
+        "project": 2,
         "system": "Rally",
         "alias": "Rally Integration",
         "frequency": "manually",
@@ -76,7 +76,7 @@ Content-Type: application/json
 {
     "results": [{
         "id": 1,
-        "project_id": 1,
+        "project": 1,
         "system": "Rally",
         "alias": "Rally Integration",
         "frequency": "manually",
@@ -135,7 +135,7 @@ Content-Type: application/json
 {
     "results": [{
         "id": 1,
-        "project_id": 1,
+        "project": 1,
         "system": "WhiteHat",
         "alias": "WhiteHat Integration",
         "frequency": "manually",
@@ -185,7 +185,7 @@ Content-Type: application/json
 {
     "results": [{
         "id": 1,
-        "project_id": 1,
+        "project": 1,
         "system": "WhiteHat",
         "alias": "WhiteHat Integration",
         "frequency": "manually",

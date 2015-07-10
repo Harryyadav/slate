@@ -16,7 +16,7 @@ Content-Type: application/json
 
 {
     "results": [{
-        "project_id": 129,
+        "project": 129,
         "connection": 23,
         "user": 1,
         "succeeded": true,
@@ -63,7 +63,7 @@ Content-Type: application/json
 
 {
     "results": [{
-        "project_id": 129,
+        "project": 129,
         "connection": {
             "alias": "Mingle Connection",
             "frequency": "manually",
@@ -105,7 +105,7 @@ Content-Type: application/json
 {
     "results": [{
         "connection": 23,
-        "project_id": 1,
+        "project": 1,
         "user": 1,
         "succeeded": true,
         "completed": true,
@@ -152,7 +152,7 @@ Content-Type: application/json
 {
     "results": [{
         "connection": 23,
-        "project_id": 1,
+        "project": 1,
         "user": 1,
         "succeeded": true,
         "completed": true,
@@ -193,7 +193,7 @@ Content-Type: application/json
 
 {
     "id": 21,
-    "project_id": 1,
+    "project": 1,
     "connection": 23,
     "user": 1,
     "succeeded": true,
@@ -231,7 +231,7 @@ Content-Type: application/json
 
 {
     "results": [{
-        "project_id": 129,
+        "project": 129,
         "connection": 23,
         "user": 1,
         "succeeded": true,
@@ -278,7 +278,7 @@ Content-Type: application/json
 
 {
     "results": [{
-        "project_id": 129,
+        "project": 129,
         "connection": {
             "alias": "Mingle Connection",
             "frequency": "manually",
@@ -320,7 +320,7 @@ Content-Type: application/json
 {
     "results": [{
         "connection": 23,
-        "project_id": 1,
+        "project": 1,
         "user": 1,
         "succeeded": true,
         "completed": true,
@@ -367,7 +367,7 @@ Content-Type: application/json
 {
     "results": [{
         "connection": 23,
-        "project_id": 1,
+        "project": 1,
         "user": 1,
         "succeeded": true,
         "completed": true,
@@ -408,7 +408,7 @@ Content-Type: application/json
 
 {
     "id": 21,
-    "project_id": 1,
+    "project": 1,
     "connection": 23,
     "user": 1,
     "succeeded": true,
