@@ -113,9 +113,8 @@ This endpoint creates a single Analysis Note resource.
 Fields              | Required | Description
 --------------------|----------|-------------
 analysis_session    | No       | The ID of the related Analysis Session.<br>Not required if this is a manual verification.
-applicable          | No       |
 behaviour           | Yes      | See [Behaviour](#behaviour) section below.
-confidence          | Yes      | "high", "low", or "none"
+confidence          | Yes      | "high" or "low"
 findings            | Yes      | JSON object/array representing analysis findings
 finding_ref         | No       |
 status              | Yes      | "pass", "partial", "fail", or "none"
