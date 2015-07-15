@@ -19,6 +19,8 @@ includes:
  - global_roles
  - glossary_terms
  - groups
+ - library_tasks
+ - library_problems
  - phases
  - profiles
  - project_roles
