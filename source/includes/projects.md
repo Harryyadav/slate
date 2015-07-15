@@ -32,6 +32,18 @@ This endpoint retrieves a list of Project resources.
 **`GET /api/v2/projects/`**
 
 
+### Query Parameters
+
+The following parameters may be used to filter the application resources in the response.
+
+Parameter   | Description
+------------|-------------
+id          | Returns the project resource with the specified id.
+name        | Returns the project resource with the specified name.
+application | Returns a list of project resources that belong to the specified application id.
+slug        | Returns the project resource with the specified slug.
+
+
 
 
 
