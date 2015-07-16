@@ -36,9 +36,10 @@ The following parameters may be used to filter the application resources in the 
 
 Parameter | Description
 ----------|-----------------------------
-name      | Returns application resource with specified name.
+name      | Returns the application resource with the specified name.
 ordering  | Returns a list of application resources ordered by the specified field.  This endpoint accepts ordering by name.
 priority  | Returns a list of application resources with specified priority.
+slug      | Returns the application resource with the specified slug.
 
 
 ---
@@ -66,10 +67,12 @@ Content-Type: application/json
         "slug": "application-test",
         "projects": [
             {
+                "id": "1",
                 "name": "Project 1",
                 "slug": "project-1"
             },
             {
+                "id": "2",
                 "name": "Project 2",
                 "slug": "project-2"
             }
