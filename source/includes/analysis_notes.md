@@ -118,7 +118,7 @@ confidence          | Yes      | "high" or "low"
 findings            | Yes      | JSON object/array representing analysis findings
 finding_ref         | No       |
 status              | Yes      | "pass", "partial", "fail", or "none"
-task_status_mapping | No       | See [Task Status Mapping](#tesk-status-mapping) section below.
+task_status_mapping | No       | See [Task Status Mapping](#task-status-mapping) section below.
 
 ### Behaviour
 
