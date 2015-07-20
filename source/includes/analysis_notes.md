@@ -16,8 +16,13 @@ Content-Type: application/json
     "results": [{
         "id": 875,
         "analysis_session": 334,
+        "analysis_type": {
+            "slug": "manual",
+            "name": "Manual Verification"
+        },
         "behaviour": "replace",
         "confidence": "high",
+        "created": "2015-03-26T19:50:46.348000Z",
         "findings": {},
         "finding_ref": "my_ref",
         "status": "pass"
@@ -53,8 +58,13 @@ Content-Type: application/json
 {
     "id": 875,
     "analysis_session": 334,
+    "analysis_type": {
+        "slug": "manual",
+        "name": "Manual Verification"
+    },
     "behaviour": "replace",
     "confidence": "high",
+    "created": "2015-03-26T19:50:46.348000Z",
     "findings": {},
     "finding_ref": "my_ref",
     "status": "pass"
@@ -98,8 +108,13 @@ Content-Type: application/json
 {
     "id": 875,
     "analysis_session": 334,
+    "analysis_type": {
+        "slug": "manual",
+        "name": "Manual Verification"
+    },
     "behaviour": "replace",
     "confidence": "high",
+    "created": "2015-03-26T19:50:46.348000Z",
     "findings": {},
     "finding_ref": "my_ref",
     "status": "pass"
