@@ -16,14 +16,29 @@ Content-Type: application/json
     "results": [{
         "id": 1936,
         "slug": "project-test",
+        "url": "http://example.com/bunits/bu-test/app-test/project-test",
         "application": 1280,
+        "profile" : {
+            "id": "P9",
+            "name": "Android App"
+        },
         "archived": false,
         "name": "Project Test",
         "creator": "geoff+demo@sdelements.com",
         "description": "API Project",
-        "tags": [],
+        "tags": ["foo", "bar"],
         "created": "2015-04-15T19:30:04.132712Z",
-        "updated": "2015-04-15T19:57:15.042353Z"
+        "updated": "2015-04-15T19:57:15.042353Z",
+        "users": [{
+            "id": "1",
+            "email": "test@example.com",
+            "role": "PR4"
+        }],
+        "groups": [{
+            "id": "G1",
+            "name": "Devs",
+            "role": "PR4"
+        }]
     }]
 }
 ```
@@ -66,15 +81,30 @@ Content-Type: application/json
 
 {
     "id": 1936,
-    "slug": "api-test",
+    "slug": "project-test",
+    "url": "http://example.com/bunits/bu-test/app-test/project-test",
     "application": 1280,
+    "profile" : {
+        "id": "P9",
+        "name": "Android App"
+    },
     "archived": false,
-    "name": "API Test",
+    "name": "Project Test",
     "creator": "geoff+demo@sdelements.com",
     "description": "API Project",
-    "tags": [],
+    "tags": ["foo", "bar"],
     "created": "2015-04-15T19:30:04.132712Z",
-    "updated": "2015-04-15T19:57:15.042353Z"
+    "updated": "2015-04-15T19:57:15.042353Z",
+    "users": [{
+        "id": "1",
+        "email": "test@example.com",
+        "role": "PR4"
+    }],
+    "groups": [{
+        "id": "G1",
+        "name": "Devs",
+        "role": "PR4"
+    }]
 }
 ```
 
@@ -106,7 +136,10 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
 
 {
     "application": 1280,
-    "name":"API Test"
+    "name": "API Test",
+    "profile": "P9",
+    "users": [{"email": "test@example.com", "role": "PR4"}],
+    "groups": [{"id": "G1", "role": "PR4"}]
 }
 
 ```
@@ -115,22 +148,39 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
 HTTP/1.1 200 OK
 Content-Type: application/json
 
-
 {
     "id": 1936,
-    "slug": "api-test",
+    "slug": "project-test",
+    "url": "http://example.com/bunits/bu-test/app-test/project-test",
     "application": 1280,
+    "profile" : {
+        "id": "P9",
+        "name": "Android App"
+    },
     "archived": false,
-    "name": "API Test",
+    "name": "Project Test",
     "creator": "geoff+demo@sdelements.com",
     "description": "API Project",
-    "tags": [],
+    "tags": ["foo", "bar"],
     "created": "2015-04-15T19:30:04.132712Z",
-    "updated": "2015-04-15T19:57:15.042353Z"
+    "updated": "2015-04-15T19:57:15.042353Z",
+    "users": [{
+        "id": "1",
+        "email": "test@example.com",
+        "role": "PR4"
+    }],
+    "groups": [{
+        "id": "G1",
+        "name": "Devs",
+        "role": "PR4"
+    }]
 }
 ```
 
 Fields      | Required | Description
 ------------|----------|-------------
-application | Yes      | The ID of the application the project belongs to
-name        | Yes      | The name of the new project
+application | Yes      | The ID of the application the project should be created under.
+groups      | No       | A list of dictionaries per group that are to be assigned to the project. Each dictionary should contain the group's id and the desired role.
+name        | Yes      | The name of the new project.
+profile     | No       | The ID of the desired profile for the project.
+users       | No       | A list of dictionaries per user that are to be assigned to the project. Each dictionary should contain the user's email and the desired role.
