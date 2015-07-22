@@ -140,15 +140,22 @@ Content-Type: application/json
         "problem": {
             "id": "P526",
             "title": "P526: Weak Password Recovery Mechanism...",
-            "content": "It is common for an application..."
+            "description": "It is common for an application...",
+            "cwe": [
+                {
+                    "url": "http://example.com/640",
+                    "id": 640,
+                    "title": "Weak Password Recovery..."
+                }
+            ]
         },
         "how_tos": [
             {
-            "id": "I131",
-            "title": "I131: Manually with browser",
-            "slug": "test-account-lockout-manually-browser",
-            "url": "http://a7069ccda519b00c4/....",
-            "content": "1. Open your web browser ..."
+                "id": "I131",
+                "title": "I131: Manually with browser",
+                "slug": "test-account-lockout-manually-browser",
+                "url": "http://a7069ccda519b00c4/....",
+                "content": "1. Open your web browser ..."
             }
         ]
 
