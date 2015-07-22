@@ -1,4 +1,4 @@
-# Integration Connectors
+# Connectors
 
 
 ## Get All ALM Connectors

@@ -16,11 +16,11 @@ includes:
  - analysis_sessions
  - applications
  - business_units
+ - connections
+ - connectors
  - global_roles
  - glossary_terms
  - groups
- - integration_connectors
- - integrations
  - jobs
  - library_tasks
  - library_problems

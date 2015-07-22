@@ -34,7 +34,7 @@ Returns a list of all alm jobs associated with all projects.
 
 ### Query Parameters
 
-The following parameters may be used to filter the ALM integrations resources in the response. A `connection` corresponds to either a connector or an integration. See the [Integrations](#integrations) and [Integration Connectors](#integration-connectors) section for more details about the `connection` parameter.
+The following parameters may be used to filter the ALM connections resources in the response. A `connection` corresponds to either a connector or an integration. See the [Connections](#connections) and [Connectors](#integration-connectors) section for more details about the `connection` parameter.
 
 Parameter | Description
 ----------|-----------------------------
@@ -122,7 +122,7 @@ Returns a list of all ALM jobs associated with the project having id "project_id
 
 ### Query Parameters
 
-The following parameters may be used to filter the ALM integrations resources in the response. A `connection` corresponds to either a connector or an integration. See the [Integrations](#integrations) and [Integration Connectors](#integration-connectors) section for more details about the `connection` parameter.
+The following parameters may be used to filter the ALM connections resources in the response. A `connection` corresponds to either a connector or an integration. See the [Connections](#connections) and [Connectors](#integration-connectors) section for more details about the `connection` parameter.
 
 Parameter | Description
 ----------|-----------------------------
@@ -249,7 +249,7 @@ Returns a list of all analysis jobs associated with all projects.
 
 ### Query Parameters
 
-The following parameters may be used to filter the analysis integrations resources in the response. See the [Integrations](#integrations) and [Integration Connectors](#integration-connectors) section for more details about the `connection` parameter.
+The following parameters may be used to filter the analysis connections resources in the response. See the [Connections](#connections) and [Connectors](#integration-connectors) section for more details about the `connection` parameter.
 
 Parameter | Description
 ----------|-----------------------------
@@ -337,7 +337,7 @@ Returns a list of all analysis jobs associated with the project having id "proje
 
 ### Query Parameters
 
-The following parameters may be used to filter the analysis integrations resources in the response. See the [Integrations](#integrations) and [Integration Connectors](#integration-connectors) section for more details about the `connection` parameter.
+The following parameters may be used to filter the analysis connections resources in the response. See the [Connections](#connections) and [Connectors](#integration-connectors) section for more details about the `connection` parameter.
 
 Parameter | Description
 ----------|-----------------------------
