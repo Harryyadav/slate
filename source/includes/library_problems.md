@@ -58,7 +58,7 @@ Content-Type: application/json
         "cwe": [{
             "url": "http://cwe.mitre.org/data/definitions/359", 
             "title": "Exposure of Private Information ('Privacy Violation')", 
-            "cwe_id": 359
+            "id": 359
         }], 
         "related_tasks": [{
                 "id": "CT1",
