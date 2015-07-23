@@ -114,9 +114,9 @@ This endpoint retrieves a specific Project resource, as specified by the id para
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-id        | The id of the Project to retrieve
+Parameter         | Description
+----------------- | -----------
+project_id        | The id of the Project to retrieve
 
 
 
@@ -184,3 +184,104 @@ groups      | No       | A list of dictionaries per group that are to be assigne
 name        | Yes      | The name of the new project.
 profile     | No       | The ID of the desired profile for the project.
 users       | No       | A list of dictionaries per user that are to be assigned to the project. Each dictionary should contain the user's email and the desired role.
+
+
+
+
+
+
+
+
+
+
+
+## Update a Project
+
+```http
+PUT /api/v2/projects/1936/ HTTP/1.1
+Accept: application/json
+Authorization: Token "YOUR SDE ACCESS TOKEN"
+
+{
+    "application": 1,
+    "name": "This is the project's new name!"
+
+}
+```
+
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "id": 1936,
+    "slug": "project-test",
+    "url": "http://example.com/bunits/bu-test/app-test/project-test",
+    "application": 1,
+    "profile" : {
+        "id": "P9",
+        "name": "Android App"
+    },
+    "archived": false,
+    "name": "This is the project's new name!",
+    "creator": "geoff+demo@sdelements.com",
+    "description": "API Project",
+    "tags": ["foo", "bar"],
+    "created": "2015-04-15T19:30:04.132712Z",
+    "updated": "2015-07-23T15:52:14.482992Z",
+    "users": [{
+        "id": "1",
+        "email": "test@example.com",
+        "role": "PR4"
+    }],
+    "groups": [{
+        "id": "G1",
+        "name": "Devs",
+        "role": "PR4"
+    }]
+}
+```
+
+Update a single project by specifying a new name and a new application. The project to update is identified by the id.
+
+
+**`PUT /api/v2/projects/{project_id}/`**
+
+### URL Parameters
+
+Parameter  | Description
+---------  | -----------
+project_id | The id of the Project to update
+
+
+
+
+
+
+
+
+
+## Delete a Project
+
+```http
+DELETE /api/v2/projects/10/ HTTP/1.1
+Accept: application/json
+Authorization: Token "YOUR SDE ACCESS TOKEN"
+```
+
+```http
+HTTP/1.1 204 NO CONTENT
+```
+
+This endpoint deletes a specific project, specified by the project id.
+
+**`DELETE /api/v2/projects/{project_id}/`**
+
+### URL Parameters
+
+Parameter         | Description
+----------------- | -----------
+project_id        | The id of the Project to delete
+
+
