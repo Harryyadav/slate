@@ -205,7 +205,6 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
 {
     "application": 1,
     "name": "This is the project's new name!"
-
 }
 ```
 
