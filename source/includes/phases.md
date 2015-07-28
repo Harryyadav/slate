@@ -2,7 +2,6 @@
 
 ## Get All Phases
 
-
 ```http
 GET /api/v2/phases/ HTTP/1.1
 Accept: application/json
@@ -24,10 +23,10 @@ Content-Type: application/json
     ]
 }
 ```
+
 This endpoint retrieves a list of Phase resources, which describe phases of a software development process.
 
 **`GET /api/v2/phases/`**
-
 
 ### Query Parameters
 

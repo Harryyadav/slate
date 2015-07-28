@@ -2,7 +2,6 @@
 
 ## Get All Applications
 
-
 ```http
 GET /api/v2/applications/ HTTP/1.1
 Accept: application/json
@@ -25,10 +24,10 @@ Content-Type: application/json
     }]
 }
 ```
+
 This endpoint retrieves a list of Application resources.
 
 **`GET /api/v2/applications/`**
-
 
 ### Query Parameters
 
@@ -40,7 +39,6 @@ name      | Returns the application resource with the specified name.
 ordering  | Returns a list of application resources ordered by the specified field.  This endpoint accepts ordering by name.
 priority  | Returns a list of application resources with specified priority.
 slug      | Returns the application resource with the specified slug.
-
 
 ---
 
@@ -131,8 +129,16 @@ Parameter      | Description
 -------------- | ---------------
 application_id | The id of the application to retrieve
 
-
 *All of the expand and include parameters for the 'Get all Applications' endpoint apply here as well.*
+
+
+
+
+
+
+
+
+
 
 ## Create a New Application
 
@@ -150,7 +156,6 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
-
 
 {
     "results": [{
@@ -181,7 +186,6 @@ priority      | No       | Specifies the priority of the application to be eithe
 
 
 ## Update an Application
-
 
 ```http
 PUT /api/v2/applications/1/ HTTP/1.1

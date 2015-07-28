@@ -2,7 +2,6 @@
 
 ## Get All Library Tasks
 
-
 ```http
 GET /api/v2/library/tasks/ HTTP/1.1
 Accept: application/json
@@ -25,6 +24,7 @@ Content-Type: application/json
     }]
 }
 ```
+
 This endpoint retrieves a list of Library Task resources.
 
 **`GET /api/v2/library/tasks/`**
@@ -37,7 +37,6 @@ Parameter            | Description
 ---------------------|-------------------
 priority             | Given a priority 0-10, returns all tasks with specified priority
 phase                | Given a phase id, returns all tasks in specified phase
-
 
 ___
 
@@ -74,7 +73,6 @@ Content-Type: application/json
         "id": "T179"
     }]
 }
-
 ```
 
 See the [Expand Parameters](#expand-parameters) section for more details.
@@ -143,6 +141,12 @@ verification_coverage | Includes a list of verification coverages of each task
 
 
 
+
+
+
+
+
+
 ## Get a Specific Library Task 
 
 ```http
@@ -167,7 +171,6 @@ Content-Type: application/json
         "id": "T3"
     }]
 }
-
 ```
 
 This endpoint retrieves a single library task resource, as specified by the id parameter.
@@ -180,8 +183,5 @@ Parameter      | Description
 -------------- | ---------------
 task_id        | The id of the task to retrieve
 
-
 *All of the expand and include parameters for the 'Get All Library Tasks' endpoint apply here as well.*
-
-
 

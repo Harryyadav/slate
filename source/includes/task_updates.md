@@ -6,7 +6,6 @@
 GET /api/v2/projects/1/task-updates/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
-
 ```
 
 ```http
@@ -29,7 +28,6 @@ Content-Type: application/json
         "library_task_updated": "2015-06-16T19:36:57.836874Z"
     }]
 }
-
 ```
 
 Will return a list of tasks whose accepted state is out of date with the project
@@ -45,18 +43,25 @@ Parameter  | Description
 ---------- | ------------
 project_id | The ID of the project for the tasks
 
+
+
+
+
+
+
+
+
+
 ## Accept task changes for a project
 
 ```http
 POST /api/v2/projects/1/tasks-updates/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
-
 ```
 
 ```http
 HTTP/1.1 200 OK
-
 ```
 
 Will accept all changes to the project tasks. This will add all relevant tasks
@@ -70,13 +75,21 @@ Parameter  | Description
 ---------- | ------------
 project_id | The ID of the project for the tasks
 
+
+
+
+
+
+
+
+
+
 ## Get specific updated task
 
 ```http
 GET /api/v2/projects/1/task-updates/1-T2/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
-
 ```
 
 ```http
@@ -97,7 +110,6 @@ Content-Type: application/json
     "library_task_created": "2015-06-16T19:36:57.863684Z",
     "library_task_updated": "2015-06-16T19:36:57.836874Z"
 }
-
 ```
 
 Return task data for a specific task whose relevance is out of line with its

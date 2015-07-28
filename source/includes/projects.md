@@ -42,10 +42,10 @@ Content-Type: application/json
     }]
 }
 ```
+
 This endpoint retrieves a list of Project resources.
 
 **`GET /api/v2/projects/`**
-
 
 ### Query Parameters
 
@@ -141,7 +141,6 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
     "users": [{"email": "test@example.com", "role": "PR4"}],
     "groups": [{"id": "G1", "role": "PR4"}]
 }
-
 ```
 
 ```http
@@ -194,7 +193,6 @@ users       | No       | A list of dictionaries per user that are to be assigned
 
 
 
-
 ## Update a Project
 
 ```http
@@ -207,7 +205,6 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
     "name": "This is the project's new name!"
 }
 ```
-
 
 ```http
 HTTP/1.1 200 OK
@@ -244,7 +241,6 @@ Content-Type: application/json
 
 Update a single project by specifying a new name and a new application. The project to update is identified by the id.
 
-
 **`PUT /api/v2/projects/{project_id}/`**
 
 ### URL Parameters
@@ -252,6 +248,7 @@ Update a single project by specifying a new name and a new application. The proj
 Parameter  | Description
 ---------  | -----------
 project_id | The id of the Project to update
+
 
 
 
@@ -282,5 +279,4 @@ This endpoint deletes a specific project, specified by the project id.
 Parameter         | Description
 ----------------- | -----------
 project_id        | The id of the Project to delete
-
 

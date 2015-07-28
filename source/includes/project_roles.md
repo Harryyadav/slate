@@ -62,6 +62,7 @@ Content-Type: application/json
     "description": "Can change project settings, ..."
 }
 ```
+
 This endpoint returns a specific Project Role resource, specified its id.
 
 **`GET /api/v2/project-roles/{project_role_id}/`**
