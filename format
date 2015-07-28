@@ -4,7 +4,16 @@
 var fs = require('fs');
 var path = require('path');
 
-function iterator(func) {
+var pipeline = function(funcs) {
+  return function(contents) {
+    funcs.forEach(function(func) {
+      contents = func(contents);
+    });
+    return contents;
+  }
+};
+
+var iterator = function(func) {
   return function(contents) {
     var results = [];
 
@@ -24,7 +33,7 @@ function iterator(func) {
 
     return results;
   }
-}
+};
 
 var spacingAfterHeadings = iterator(function(line) {
   if (this.newLine) {
@@ -97,20 +106,12 @@ var codeblockSpacing = iterator(function(line) {
   }
 });
 
-function processResource(contents) {
-  var pipeline = [
-    spacingAfterHeadings,
-    spacingAfterCodeBlocks,
-    spacingBetweenMethods,
-    codeblockSpacing
-  ];
-
-  pipeline.forEach(function(func) {
-    contents = func(contents);
-  });
-
-  return contents;
-}
+var processResource = pipeline([
+  spacingAfterHeadings,
+  spacingAfterCodeBlocks,
+  spacingBetweenMethods,
+  codeblockSpacing
+]);
 
 var dirname = path.join(__dirname, 'source', 'includes');
 
@@ -121,7 +122,10 @@ fs.readdir(dirname, function(err, files) {
   }).forEach(function(filename) {
     var filepath = path.join(dirname, filename)
     var data = fs.readFileSync(filepath);
-    var contents = data.toString().replace(/\r\n/g, '\n').replace(/\n\n+/g, '\n\n').split('\n');
+    var contents = data.toString()
+                       .replace(/\r\n/g, '\n')
+                       .replace(/\n\n+/g, '\n\n')
+                       .split('\n');
 
     if (contents.some(function(line) { return line.indexOf('```http') === 0; })) {
       var results = processResource(contents);
