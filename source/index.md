@@ -29,6 +29,7 @@ includes:
  - tasks
  - task_notes
  - task_statuses
+ - task_updates
  - users
 
 search: true
