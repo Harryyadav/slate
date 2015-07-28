@@ -1,8 +1,6 @@
 # Tasks
 
-
 ## Get all tasks of a project
-
 
 ```http
 GET /api/v2/projects/1/tasks/ HTTP/1.1
@@ -46,7 +44,6 @@ This endpoint returns a list of Task resources associated with the project havin
 
 ### Expand Parameters
 
-
 ```http
 GET /api/v2/projects/1/tasks/?expand=status,description HTTP/1.1
 Accept: application/json
@@ -56,7 +53,6 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
-
 
 {
     "results": [{
@@ -89,7 +85,6 @@ Content-Type: application/json
 
     }]
 }
-
 ```
 
 See the [Expand Parameters](#expand-parameters) section for more details.
@@ -103,7 +98,6 @@ status      | Status field is expanded into meaning, icon, name and slug sub-fie
 
 ### Include Parameters
 
-
 ```http
 GET /api/v2/projects/1/tasks/?include=tags,related,problems,how_tos HTTP/1.1
 Accept: application/json
@@ -113,7 +107,6 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
-
 
 {
     "results": [{
@@ -161,7 +154,6 @@ Content-Type: application/json
 
     }]
 }
-
 ```
 
 See the [Include Parameters](#include-parameters) section for more details.
@@ -183,9 +175,7 @@ tags      | Includes a list of tags associated to the task
 
 
 
-
 ## Get a Specific Task
-
 
 ```http
 GET /api/v2/projects/1/tasks/1-T2/ HTTP/1.1
@@ -237,9 +227,7 @@ This endpoint retrieves a single Task resource, as specified by the id parameter
 
 
 
-
 ## Update a Specific Task
-
 
 ```http
 PATCH /api/v2/projects/1/tasks/1-T2/ HTTP/1.1

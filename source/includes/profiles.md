@@ -2,7 +2,6 @@
 
 ## Get All Profiles
 
-
 ```http
 GET /api/v2/profiles/ HTTP/1.1
 Accept: application/json
@@ -32,6 +31,7 @@ Content-Type: application/json
     ]
 }
 ```
+
 This endpoint retrieves a list of Profiles resources.
 
 ### Query Parameters

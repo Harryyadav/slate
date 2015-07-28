@@ -7,6 +7,7 @@ GET /api/v2/report-settings/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
+
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -48,7 +49,6 @@ Content-Type: application/json
         },
         "template": "project"
 }
-
 ```
 
 This endpoint retrieves a list of Report Settings resources.
@@ -62,7 +62,6 @@ The following parameters may be used to filter the report setting resources reso
 Parameter | Description
 ----------|-----------------------------
 template  | Returns a list of report settings with the specified template
-
 
 
 
@@ -122,7 +121,6 @@ Content-Type: application/json
         },
         "template": "project"
 }
-
 ```
 
 This endpoint retrieves a specific Report Setting resource, as specified by the id parameter.
@@ -134,8 +132,6 @@ This endpoint retrieves a specific Report Setting resource, as specified by the 
 Parameter          | Description
 -------------------| ---------------
 report-settings_id | The id of the report setting to retrieve
-
-
 
 
 
@@ -162,7 +158,6 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
-
 
 {
     "id": "CR3",
@@ -192,7 +187,6 @@ title         | Yes      | A string representing a unique title of the report se
 
 
 
-
 ## Delete a Report Setting
 
 ```http
@@ -200,6 +194,7 @@ DELETE /api/v2/report-settings/CR1/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
+
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json

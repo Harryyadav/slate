@@ -44,6 +44,7 @@ This endpoint returns a list of Glossary Term resources.
 
 
 
+
 ## Get a Specific Glossary Term
 
 ```http
@@ -97,7 +98,6 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
     "text": "Full description of the term goes here.",
     "summary": "The summary of the glossary term goes here."
 }
-
 ```
 
 ```http

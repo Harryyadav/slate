@@ -1,6 +1,6 @@
 # Library Problems
-## Get All Library Problems 
 
+## Get All Library Problems 
 
 ```http
 GET /api/v2/library/problems/ HTTP/1.1
@@ -22,6 +22,7 @@ Content-Type: application/json
     }]
 } 
 ```
+
 This endpoint retrieves a list of Library Problem resources.
 
 **`GET /api/v2/library/problems/`**
@@ -81,6 +82,13 @@ related_tasks         | Includes a list of tasks that relate to each problem
 
 
 
+
+
+
+
+
+
+
 ## Get a Specific Library Problem
 
 ```http
@@ -101,7 +109,6 @@ Content-Type: application/json
         "risk_rating": 5
     }]
 } 
-
 ```
 
 This endpoint retrieves a single library problem resource, as specified by the id parameter.
@@ -113,7 +120,6 @@ This endpoint retrieves a single library problem resource, as specified by the i
 Parameter      | Description
 -------------- | ---------------
 problem_id     | The id of the problem to retrieve
-
 
 *All of the expand and include parameters for the 'Get All Library Problems' endpoint apply here as well.*
 
