@@ -1,0 +1,131 @@
+#!/usr/bin/env node
+'use strict';
+
+var fs = require('fs');
+var path = require('path');
+
+function iterator(func) {
+  return function(contents) {
+    var results = [];
+
+    var context = {
+      push: function() {
+        Array.prototype.push.apply(results, arguments);
+      },
+      pop: function() {
+        Array.prototype.pop.apply(results, arguments);
+      },
+      peek: function() {
+        return results[results.length - 1];
+      }
+    };
+
+    contents.forEach(func, context);
+
+    return results;
+  }
+}
+
+var spacingAfterHeadings = iterator(function(line) {
+  if (this.newLine) {
+    this.newLine = false;
+    if (line !== '') {
+      this.push('');
+    }
+  }
+
+  var headings = ['# ', '## ', '### ', '#### '];
+  var match = headings.some(function(heading) {
+    return line.indexOf(heading) === 0;
+  });
+  if (match) {
+    this.newLine = true;
+  }
+
+  this.push(line);
+});
+
+var spacingAfterCodeBlocks = iterator(function(line) {
+  if (this.newLine) {
+    this.newLine = false;
+    if (line !== '') {
+      this.push('');
+    }
+  }
+
+  var elements = ['```'];
+  var match = elements.some(function(ele) {
+    return line === ele;
+  });
+  if (match) {
+    this.newLine = true;
+  }
+
+  this.push(line);
+});
+
+var spacingBetweenMethods = iterator(function(line) {
+  if (line.indexOf('## ') === 0) {
+    if (!this.first) {
+      this.first = true;
+    } else {
+      for (var i = 0; i < 9; i++) {
+        this.push('');
+      }
+    }
+  }
+
+  this.push(line);
+});
+
+var codeblockSpacing = iterator(function(line) {
+  if (line === '```http') {
+    this.blockStart = true;
+  }
+
+  var ignore = this.blockStart && line === '';
+
+  if (line === '```') {
+    if (this.peek() === '') {
+      this.pop();
+    }
+  }
+
+  if (!ignore) {
+    this.blockStart = false;
+    this.push(line);
+  }
+});
+
+function processResource(contents) {
+  var pipeline = [
+    spacingAfterHeadings,
+    spacingAfterCodeBlocks,
+    spacingBetweenMethods,
+    codeblockSpacing
+  ];
+
+  pipeline.forEach(function(func) {
+    contents = func(contents);
+  });
+
+  return contents;
+}
+
+var dirname = path.join(__dirname, 'source', 'includes');
+
+fs.readdir(dirname, function(err, files) {
+  if (err) throw err;
+  files.filter(function(filename) {
+    return filename.indexOf('.md') !== -1;
+  }).forEach(function(filename) {
+    var filepath = path.join(dirname, filename)
+    var data = fs.readFileSync(filepath);
+    var contents = data.toString().replace(/\r\n/g, '\n').replace(/\n\n+/g, '\n\n').split('\n');
+
+    if (contents.some(function(line) { return line.indexOf('```http') === 0; })) {
+      var results = processResource(contents);
+      fs.writeFileSync(filepath, results.join('\n'));
+    }
+  });
+});
