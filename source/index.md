@@ -16,9 +16,12 @@ includes:
  - analysis_sessions
  - applications
  - business_units
+ - connections
+ - connectors
  - global_roles
  - glossary_terms
  - groups
+ - jobs
  - library_tasks
  - library_problems
  - phases
