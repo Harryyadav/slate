@@ -1,8 +1,6 @@
 # Jobs
 
-
 ## Get All ALM Jobs of All Projects
-
 
 ```http
 GET /api/v2/jobs/alm/ HTTP/1.1
@@ -70,8 +68,16 @@ user      | Returns all ALM jobs created by the specified user.
 
 ---
 
-## Get a Specific ALM Job
 
+
+
+
+
+
+
+
+
+## Get a Specific ALM Job
 
 ```http
 GET /api/v2/jobs/alm/{job_id} HTTP/1.1
@@ -125,6 +131,15 @@ Returns a specific alm job. Note that the params are only shown if you have 'Edi
 
 ---
 
+
+
+
+
+
+
+
+
+
 ## Post Results of an ALM Job of a Project
 
 ```http
@@ -143,7 +158,6 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
-
 
 {
     "id": 12,
@@ -194,8 +208,16 @@ succeeded     | Yes      | Whether the job was run successfully.
 
 ---
 
-## Get All Analysis Jobs for All Projects
 
+
+
+
+
+
+
+
+
+## Get All Analysis Jobs for All Projects
 
 ```http
 GET /api/v2/jobs/analysis/ HTTP/1.1
@@ -255,8 +277,16 @@ user      | Returns all Analysis jobs created by the specified user.
 
 ---
 
-## Get a Specific Analysis Job
 
+
+
+
+
+
+
+
+
+## Get a Specific Analysis Job
 
 ```http
 GET /api/v2/jobs/analysis/{job_id} HTTP/1.1
@@ -302,6 +332,15 @@ Returns a specific analysis job. Note that the params are only shown if you have
 
 ---
 
+
+
+
+
+
+
+
+
+
 ## Post Results of an Analysis Job of a Project
 
 ```http
@@ -320,7 +359,6 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
-
 
 {
     "id": 12,

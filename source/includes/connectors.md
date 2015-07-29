@@ -1,8 +1,6 @@
 # Connectors
 
-
 ## Get All ALM Connectors
-
 
 ```http
 GET /api/v2/connectors/alm/ HTTP/1.1
@@ -37,8 +35,16 @@ system    | Returns all ALM connectors associated with a particular system.
 
 ---
 
-## Get a Specific ALM Connector
 
+
+
+
+
+
+
+
+
+## Get a Specific ALM Connector
 
 ```http
 GET /api/v2/connectors/alm/1/ HTTP/1.1
@@ -63,8 +69,16 @@ Returns a specific ALM connector.
 
 ---
 
-## Get All Analysis Connectors
 
+
+
+
+
+
+
+
+
+## Get All Analysis Connectors
 
 ```http
 GET /api/v2/connectors/analysis/ HTTP/1.1
@@ -99,8 +113,16 @@ system    | Returns all analysis connectors associated with a particular system.
 
 ---
 
-## Get a Specific Analysis Connector
 
+
+
+
+
+
+
+
+
+## Get a Specific Analysis Connector
 
 ```http
 GET /api/v2/connectors/analysis/1/ HTTP/1.1

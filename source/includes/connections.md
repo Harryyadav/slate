@@ -1,8 +1,6 @@
 # Connections
 
-
 ## Get All ALM Connections of All Projects
-
 
 ```http
 GET /api/v2/connections/alm/ HTTP/1.1
@@ -59,8 +57,16 @@ system    | Returns all ALM connections associated with a particular system.
 
 ---
 
-## Get a Specific ALM Connection
 
+
+
+
+
+
+
+
+
+## Get a Specific ALM Connection
 
 ```http
 GET /api/v2/connections/alm/{connection_id} HTTP/1.1
@@ -105,8 +111,16 @@ Returns a specific ALM connection. The params are only displayed if you have the
 
 ---
 
-## Get All Analysis Connections of All Projects
 
+
+
+
+
+
+
+
+
+## Get All Analysis Connections of All Projects
 
 ```http
 GET /api/v2/connections/analysis/ HTTP/1.1
@@ -155,8 +169,16 @@ system    | Returns all analysis connections associated with a particular system
 
 ---
 
-## Get a Specific Analysis Connection
 
+
+
+
+
+
+
+
+
+## Get a Specific Analysis Connection
 
 ```http
 GET /api/v2/connections/analysis/{connection_id} HTTP/1.1
