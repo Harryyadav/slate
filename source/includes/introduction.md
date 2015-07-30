@@ -29,3 +29,18 @@ Some endpoints allow users to *expand* a field that is already present in the re
 **It is possible to include and expand more than one field simultaneously.**
 
 `/?include={field1},{field2}&expand={field3},{field4}`
+
+# Pagination
+
+Consume long responses by enabling pagination on an endpoint. Specify a page size in the URL:
+
+`/?page_size=100`
+
+and use the `next` and `previous` values to move through the complete response.
+
+```
+{
+    count: 129372,
+    next: "http://server/api/v2/endpoint/?page=2&page_size=100",
+    previous: null,
+```
