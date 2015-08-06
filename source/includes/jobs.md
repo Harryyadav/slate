@@ -15,7 +15,7 @@ Content-Type: application/json
 {
     "results": [{
         "id": 12,
-        "user": 1,
+        "user": "bob@example.com",
         "succeeded": true,
         "automatic": true,
         "ready": true,
@@ -91,7 +91,7 @@ Content-Type: application/json
 
 {
     "id": 12,
-    "user": 1,
+    "user": "bob@example.com",
     "succeeded": true,
     "automatic": true,
     "ready": true,
@@ -161,7 +161,7 @@ Content-Type: application/json
 
 {
     "id": 12,
-    "user": 1,
+    "user": "bob@example.com",
     "succeeded": true,
     "automatic": true,
     "ready": true,
@@ -232,7 +232,7 @@ Content-Type: application/json
 {
     "results": [{
         "id": 12,
-        "user": 1,
+        "user": "bob@example.com",
         "succeeded": true,
         "automatic": true,
         "ready": true,
@@ -300,10 +300,10 @@ Content-Type: application/json
 
 {
     "id": 12,
-    "user": 1,
+    "user": "bob@example.com",
     "succeeded": true,
     "automatic": true,
-    "ready": 129,
+    "ready": true,
     "result_message": "",
     "last_run": "2015-04-15T20:27:24.396442Z",
     "connection": {
@@ -362,10 +362,10 @@ Content-Type: application/json
 
 {
     "id": 12,
-    "user": 1,
+    "user": "bob@example.com",
     "succeeded": true,
     "automatic": true,
-    "ready": 129,
+    "ready": true,
     "result_message": "My Message",
     "last_run": "2015-04-15T20:27:24.396442Z",
     "connection": {
