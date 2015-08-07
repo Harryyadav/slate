@@ -37,10 +37,3 @@ Consume long responses by enabling pagination on an endpoint. Specify a page siz
 `/?page_size=100`
 
 and use the `next` and `previous` values to move through the complete response.
-
-```
-{
-    count: 129372,
-    next: "http://server/api/v2/endpoint/?page=2&page_size=100",
-    previous: null,
-```
