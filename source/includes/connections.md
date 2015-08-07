@@ -69,7 +69,7 @@ system    | Returns all ALM connections associated with a particular system.
 ## Get a Specific ALM Connection
 
 ```http
-GET /api/v2/connections/alm/{connection_id} HTTP/1.1
+GET /api/v2/connections/alm/{connection_id}/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
@@ -107,7 +107,7 @@ Content-Type: application/json
 
 Returns a specific ALM connection. The params are only displayed if you have the 'Edit ALM connections' permission.
 
-**`GET /api/v2/connections/alm/{connection_id}`**
+**`GET /api/v2/connections/alm/{connection_id}/`**
 
 ---
 
@@ -181,7 +181,7 @@ system    | Returns all analysis connections associated with a particular system
 ## Get a Specific Analysis Connection
 
 ```http
-GET /api/v2/connections/analysis/{connection_id} HTTP/1.1
+GET /api/v2/connections/analysis/{connection_id}/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
@@ -211,4 +211,4 @@ Content-Type: application/json
 
 Returns a specific analysis connection. The params are only displayed if you have the 'Edit security tool connections' permission.
 
-**`GET /api/v2/connections/analysis/{connection_id}`**
+**`GET /api/v2/connections/analysis/{connection_id}/`**
