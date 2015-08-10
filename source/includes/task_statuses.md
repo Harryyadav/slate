@@ -3,7 +3,7 @@
 ## Get all Task Status Resources
 
 ```http
-GET /api/v2/taskstatuses/ HTTP/1.1
+GET /api/v2/task-statuses/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
