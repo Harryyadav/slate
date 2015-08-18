@@ -18,7 +18,7 @@ Content-Type: application/json
         "url": "http://example.com/library/tasks/T179/",
         "problem": "P1",
         "title": "Allow access for users to remove their data from the system",
-        "description": "Some example description",
+        "text": "Some example description",
         "phase": 2,
         "id": "T179"
     }]
@@ -58,7 +58,7 @@ Content-Type: application/json
         "tags": [],
         "url": "http://example.com/library/tasks/T179/",
         "problem": {
-            "content": "This is some example content.",
+            "text": "This is some example content.",
             "cwe": [{
                 "url": "http://cwe.mitre.org/data/definitions/359",
                 "title": "Exposure of Private Information ('Privacy Violation')",
@@ -68,7 +68,7 @@ Content-Type: application/json
             "title": "P257: Privacy Violation"
         },
         "title": "Allow access for users to remove their data from the system",
-        "description": "Some example description",
+        "text": "Some example description",
         "phase": 3,
         "id": "T179"
     }]
@@ -103,7 +103,7 @@ Content-Type: application/json
         "url": "http://example.com/library/tasks/T179/",
         "problem": "P1",
         "title": "Allow access for users to remove their data from the system",
-        "description": "Some example description",
+        "text": "Some example description",
         "phase": 1,
         "id": "T179",
         "categories": [
@@ -112,7 +112,7 @@ Content-Type: application/json
         "amendments": [{
             "id": "TA123",
             "title": "TA123",
-            "content": "Some additional information about this task..."
+            "text": "Some additional information about this task..."
         }],
         "verification_coverage": [
             "No Automated Static Analysis Coverage"
@@ -122,7 +122,7 @@ Content-Type: application/json
             "title": "I131: Manually with browser",
             "slug": "test-account-lockout-manually-browser",
             "url": "http://a7069ccda519b00c4/....",
-            "content": "1. Open your web browser ..."
+            "text": "1. Open your web browser ..."
         }]
     }]
 }
@@ -166,7 +166,7 @@ Content-Type: application/json
         "url": "http://example.com/library/tasks/T3/",
         "problem": "P1",
         "title": "Example Library Task",
-        "description": "Some example description",
+        "text": "Some example description",
         "phase": 3,
         "id": "T3"
     }]
