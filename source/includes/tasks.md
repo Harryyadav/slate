@@ -18,7 +18,7 @@ Content-Type: application/json
         "task_id": "T2",
         "url": "http://example.com/bunits/new-business-unit/...",
         "title": "Secure forgotten password",
-        "description": "Insecure forgotten password and password reset...",
+        "text": "Insecure forgotten password and password reset...",
         "priority": 8,
         "phase": "Requirements",
         "ad_hoc": false,
@@ -45,7 +45,7 @@ This endpoint returns a list of Task resources associated with the project havin
 ### Expand Parameters
 
 ```http
-GET /api/v2/projects/1/tasks/?expand=status,description HTTP/1.1
+GET /api/v2/projects/1/tasks/?expand=status,text HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
@@ -60,8 +60,8 @@ Content-Type: application/json
         "task_id": "T2",
         "url": "http://example.com/bunits/new-business-unit/...",
         "title": "Secure forgotten password",
-        "description": {
-            "content": "Insecure forgotten password and password reset...",
+        "text": {
+            "description": "Insecure forgotten password and password reset...",
             "amendments": []
         },
         "priority": 8,
@@ -114,7 +114,7 @@ Content-Type: application/json
         "task_id": "T2",
         "url": "http://example.com/bunits/new-business-unit/...",
         "title": "Secure forgotten password",
-        "description": "Insecure forgotten password and password reset...",
+        "text": "Insecure forgotten password and password reset...",
         "priority": 8,
         "phase": "Requirements",
         "ad_hoc": false,
@@ -133,7 +133,7 @@ Content-Type: application/json
         "problem": {
             "id": "P526",
             "title": "P526: Weak Password Recovery Mechanism...",
-            "description": "It is common for an application...",
+            "text": "It is common for an application...",
             "cwe": [
                 {
                     "url": "http://example.com/640",
@@ -148,7 +148,7 @@ Content-Type: application/json
                 "title": "I131: Manually with browser",
                 "slug": "test-account-lockout-manually-browser",
                 "url": "http://a7069ccda519b00c4/....",
-                "content": "1. Open your web browser ..."
+                "text": "1. Open your web browser ..."
             }
         ]
 
@@ -197,7 +197,7 @@ Content-Type: application/json
             "id": 3
         }
     ],
-    "description": "Insecure forgotten password.",
+    "text": "Insecure forgotten password.",
     "id": "1-T2",
     "library_task_created": "2010-10-20T17:46:50Z",
     "library_task_updated": "2015-05-07T18:58:26.732000Z",
@@ -255,7 +255,7 @@ Content-Type: application/json
             "id": 3
         }
     ],
-    "description": "Insecure forgotten password.",
+    "text": "Insecure forgotten password.",
     "id": "1-T2",
     "library_task_created": "2010-10-20T17:46:50Z",
     "library_task_updated": "2015-05-07T18:58:26.732000Z",

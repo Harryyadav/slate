@@ -14,7 +14,7 @@ Content-Type: application/json
 
 {
     "results": [{
-        "description": "This is some example description.", 
+        "text": "This is some example description.", 
         "cwes": [359],
         "id": "P257", 
         "title": "Privacy Violation",
@@ -53,7 +53,7 @@ Content-Type: application/json
     "results": [{
         "id": "P257",
         "title": "Privacy Violation",
-        "description": "This is some example description.", 
+        "text": "This is some example description.", 
         "risk_rating": 5,
         "category": "XML and Web Services",
         "cwe": [{
@@ -65,7 +65,7 @@ Content-Type: application/json
                 "id": "CT1",
                 "title": "Example Task 1",
                 "priority": 10,
-                "description": "Example task solution",
+                "text": "Example task solution",
                 "phase": 3
         }]
     }]
@@ -103,7 +103,7 @@ Content-Type: application/json
 
 {
     "results": [{
-        "description": "This is some example description.", 
+        "text": "This is some example description.", 
         "id": "P3", 
         "title": "Example Library Problem",
         "risk_rating": 5
