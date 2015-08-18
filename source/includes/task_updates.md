@@ -32,7 +32,7 @@ Content-Type: application/json
 
 Will return a list of tasks whose accepted state is out of date with the project
 having id "project_id". This list includes tasks which are relevant to a project
-but have not have not had their inclusion accepted by a user and tasks which
+but have not had their inclusion accepted by a user and tasks which
 are no longer relevant to a project whose removal has yet to be accepted.
 
 **`GET /api/v2/projects/{project_id}/tasks-updates/`**
