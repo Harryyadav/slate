@@ -96,6 +96,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
     "email": "user@example.com",
     "first_name": "Bob",
     "last_name": "Smith"
+    "role": "Project Lead,
+    "groups": ["G64", "Group2"]
 }
 ```
 
@@ -121,9 +123,13 @@ Create a User resource.
 
 **`POST /api/v2/users/`**
 
-
-
-
+Fields        | Required | Description
+--------------|----------|-------------
+email         | Yes      | The name of the new application
+first_name    | Yes      | The first name of the user
+last_name     | Yes      | The last name of the user
+role          | No       | The user's role
+groups        | No       | Groups the user belongs to
 
 
 
