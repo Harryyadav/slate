@@ -96,8 +96,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
     "email": "user@example.com",
     "first_name": "Bob",
     "last_name": "Smith"
-    "role": "Project Lead",
-    "groups": ["G64", "Group2"]
+    "role": "UR5",
+    "groups": ["G64", "G2"]
 }
 ```
 
@@ -115,7 +115,7 @@ Content-Type: application/json
     "is_active": true,
     "is_superuser": false,
     "role": "No Role",
-    "groups": []
+    "groups": ["Group64", "Group2"]
 }
 ```
 
@@ -123,13 +123,14 @@ Create a User resource.
 
 **`POST /api/v2/users/`**
 
+
 Fields        | Required | Description
 --------------|----------|-------------
-email         | Yes      | The user's email
-first_name    | Yes      | The first name of the user
-last_name     | Yes      | The last name of the user
-role          | No       | The user's role
-groups        | No       | Groups the user belongs to
+email         | Yes      | User's email
+first_name    | Yes      | First name of the user
+last_name     | Yes      | Last name of the user
+role          | No       | Id of the role to add user to
+groups        | No       | Ids of the groups to add user to
 
 
 
@@ -147,8 +148,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
     "email": "user@example.com",
     "first_name": "Bob",
     "last_name": "Smith",
-    "groups":["G64"],
-    “role”:”UR5”
+    "groups":["G2"],
+    “role”:”UR2”
 }
 ```
 
