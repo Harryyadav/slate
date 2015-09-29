@@ -97,7 +97,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
     "first_name": "Bob",
     "last_name": "Smith"
     "role": "UR5",
-    "groups": ["G64", "G2"]
+    "groups": ["G1", "G2"]
 }
 ```
 
@@ -110,12 +110,21 @@ Content-Type: application/json
     "email": "user@example.com",
     "first_name": "Bob",
     "last_name": "Smith",
-    "last_login": "2015-06-05T02:55:54.231254Z",
-    "date_joined": "2015-06-05T02:55:54.231254Z",
+    "last_login": "2015-09-29T18:52:41.247207Z",
+    "date_joined": "2015-09-29T18:52:41.247207Z",
     "is_active": true,
     "is_superuser": false,
-    "role": "No Role",
-    "groups": ["Group64", "Group2"]
+    "role": "UR5",
+    "groups": [
+        {
+            "id": "G1",
+            "name": "Group1"
+        },
+        {
+            "id": "G2",
+            "name": "Group2"
+        }
+    ]
 }
 ```
 
@@ -166,8 +175,13 @@ Content-Type: application/json
     "date_joined": "2015-06-05T02:55:54.231254Z",
     "is_active": true,
     "is_superuser": false,
-    "role": "Project Lead",
-    "groups": ["Group2"]
+    "role": "UR2",
+    "groups": [
+        {
+            "id": "G2",
+            "name": "Group2"
+        }
+    ]
 }
 ```
 
