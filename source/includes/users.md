@@ -96,6 +96,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
     "email": "user@example.com",
     "first_name": "Bob",
     "last_name": "Smith"
+    "role": "UR5",
+    "groups": ["G1", "G2"]
 }
 ```
 
@@ -108,12 +110,21 @@ Content-Type: application/json
     "email": "user@example.com",
     "first_name": "Bob",
     "last_name": "Smith",
-    "last_login": "2015-06-05T02:55:54.231254Z",
-    "date_joined": "2015-06-05T02:55:54.231254Z",
+    "last_login": "2015-09-29T18:52:41.247207Z",
+    "date_joined": "2015-09-29T18:52:41.247207Z",
     "is_active": true,
     "is_superuser": false,
-    "role": "No Role",
-    "groups": []
+    "role": "UR5",
+    "groups": [
+        {
+            "id": "G1",
+            "name": "Group1"
+        },
+        {
+            "id": "G2",
+            "name": "Group2"
+        }
+    ]
 }
 ```
 
@@ -122,8 +133,13 @@ Create a User resource.
 **`POST /api/v2/users/`**
 
 
-
-
+Fields        | Required | Description
+--------------|----------|-------------
+email         | Yes      | User's email
+first_name    | Yes      | First name of the user
+last_name     | Yes      | Last name of the user
+role          | No       | Id of the role to add user to
+groups        | No       | Ids of the groups to add user to
 
 
 
@@ -141,8 +157,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
     "email": "user@example.com",
     "first_name": "Bob",
     "last_name": "Smith",
-    "groups":["G64"],
-    “role”:”UR5”
+    "groups":["G2"],
+    “role”:”UR2”
 }
 ```
 
@@ -159,8 +175,13 @@ Content-Type: application/json
     "date_joined": "2015-06-05T02:55:54.231254Z",
     "is_active": true,
     "is_superuser": false,
-    "role": "Project Lead",
-    "groups": ["Group2"]
+    "role": "UR2",
+    "groups": [
+        {
+            "id": "G2",
+            "name": "Group2"
+        }
+    ]
 }
 ```
 
