@@ -15,18 +15,44 @@ Content-Type: application/json
         {
             "id": 1,
             "slug": "example-business-unit-1",
-            "name": "example business unit 1"
+            "name": "example business unit 1",
+            "created": "2015-09-30T18:28:37.214914Z",
+            "updated": "2015-09-30T18:28:37.214959Z",
+            "default_members": {
+                "default_users": [
+                    {
+                        "role": "UR4",
+                        "id": 5,
+                        "email": "jamie.red@example.com"
+                    }
+                ],
+                "default_groups": [
+                    {
+                        "role": "UR1",
+                        "id": "G1",
+                        "email": "SC@example.com"
+                    }
+                ]
+            }
         },
         {
             "id": 2,
             "slug": "example-business-unit-2",
-            "name": "example business unit 2"
+            "name": "example business unit 2",
+            "created": "2015-09-30T19:30:25.254036Z",
+            "updated": "2015-09-30T19:30:25.254072Z",
+            "default_members": {
+                "default_users": [],
+                "default_groups": []
+            }
         }
     ]
 }
 ```
 
-This endpoint retrieves a list of Business Unit resources, respecting the permissions of the user who has made the requested.
+This endpoint retrieves a list of Business Unit resources, respecting the permissions of the user who has made the request.
+
+**`GET /api/v2/business-units/`**
 
 ### Query Parameters
 
