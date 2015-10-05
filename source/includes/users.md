@@ -18,11 +18,17 @@ Content-Type: application/json
         "email": "frank@sdelements.com",
         "first_name": "Frank",
         "last_name": "Developer",
-        "role": "Project Lead",
         "last_login": "2014-12-15T20:10:51.900775Z",
         "date_joined": "2014-04-16T19:43:47.883319Z",
         "is_active": true,
-        "is_superuser": false
+        "is_superuser": false,
+        "role": "UR2",
+        "groups": [
+                {
+                    "id": "G1",
+                    "name": "SC"
+                }
+            ]
     }]
 }
 ```
@@ -61,7 +67,7 @@ Content-Type: application/json
     "date_joined": "2015-06-05T02:55:54.231254Z",
     "is_active": true,
     "is_superuser": false,
-    "role": "No Role",
+    "role": "UR5",
     "groups": []
 }
 ```
