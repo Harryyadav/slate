@@ -19,7 +19,7 @@ Content-Type: application/json
         "problem": "P1",
         "title": "Allow access for users to remove their data from the system",
         "text": "Some example description",
-        "phase": 2,
+        "phase": "X1",
         "id": "T179"
     }]
 }
@@ -36,7 +36,6 @@ The following parameters may be used to filter the library task resources in the
 Parameter            | Description
 ---------------------|-------------------
 priority             | Given a priority 0-10, returns all tasks with specified priority
-phase                | Given a phase id, returns all tasks in specified phase
 
 ___
 
@@ -69,7 +68,7 @@ Content-Type: application/json
         },
         "title": "Allow access for users to remove their data from the system",
         "text": "Some example description",
-        "phase": 3,
+        "phase": "X1",
         "id": "T179"
     }]
 }
@@ -80,7 +79,6 @@ See the [Expand Parameters](#expand-parameters) section for more details.
 Parameter     | Description
 --------------|------------------------------
 problem       | Expands the problem fields in the task response object
-phase         | Expands the phase field in the task response object
 
 ---
 
@@ -104,7 +102,7 @@ Content-Type: application/json
         "problem": "P1",
         "title": "Allow access for users to remove their data from the system",
         "text": "Some example description",
-        "phase": 1,
+        "phase": "X1",
         "id": "T179",
         "categories": [
             "Authorization"
@@ -167,7 +165,7 @@ Content-Type: application/json
         "problem": "P1",
         "title": "Example Library Task",
         "text": "Some example description",
-        "phase": 3,
+        "phase": "X1",
         "id": "T3"
     }]
 }
