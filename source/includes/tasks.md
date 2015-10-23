@@ -29,7 +29,7 @@ Content-Type: application/json
         "library_task_created": "2015-06-16T19:36:57.863684Z",
         "library_task_updated": "2015-06-16T19:36:57.836874Z",
         "verification_status": null,
-        "status": "TODO",
+        "status": "TS2",
         "note_count": 0,
         "artifact_proxy": null
     }]
@@ -75,6 +75,7 @@ Content-Type: application/json
         "library_task_updated": "2015-06-16T19:36:57.836874Z",
         "verification_status": null,
         "status": {
+            "id": "TS2",
             "meaning": "TODO",
             "icon": "clock-o",
             "name": "Incomplete",
@@ -92,7 +93,7 @@ See the [Expand Parameters](#expand-parameters) section for more details.
 Parameter   | Description
 ------------|---------------------
 description | Description field is expanded into content and amendments sub-fields.
-status      | Status field is expanded into meaning, icon, name and slug sub-fields.
+status      | Status field is expanded into id, meaning, icon, name and slug sub-fields.
 
 ---
 
@@ -125,7 +126,7 @@ Content-Type: application/json
         "library_task_created": "2015-06-16T19:36:57.863684Z",
         "library_task_updated": "2015-06-16T19:36:57.836874Z",
         "verification_status": null,
-        "status": "TODO",
+        "status": "TS2",
         "note_count": 0,
         "artifact_proxy": null,
         "tags": ["tag1", "tag2"],
@@ -205,7 +206,7 @@ Content-Type: application/json
     "phase": "Requirements",
     "priority": "8",
     "relevant": true,
-    "status": "TODO",
+    "status": "TS2",
     "task_id": "T2",
     "title": "Secure forgotten password",
     "updated": "2015-07-08T02:16:33.923315Z",
@@ -263,7 +264,7 @@ Content-Type: application/json
     "phase": "Requirements",
     "priority": "8",
     "relevant": true,
-    "status": "DONE",
+    "status": "TS1",
     "task_id": "T2",
     "title": "Secure forgotten password",
     "updated": "2015-07-08T02:16:33.923315Z",

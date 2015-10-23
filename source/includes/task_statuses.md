@@ -15,18 +15,21 @@ Content-Type: application/json
 {
     "results": [
         {
+            "id": "TS3",
             "meaning": "NA",
             "icon": "minus-circle",
             "name": "Not Applicable",
             "slug": "NA"
         },
         {
+            "id": "TS2",
             "meaning": "TODO",
             "icon": "clock-o",
             "name": "Incomplete",
             "slug": "TODO"
         },
         {
+            "id": "TS1",
             "meaning": "DONE",
             "icon": "check",
             "name": "Complete",
