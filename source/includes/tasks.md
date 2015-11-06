@@ -99,7 +99,7 @@ status      | Status field is expanded into meaning, icon, name and slug sub-fie
 ### Include Parameters
 
 ```http
-GET /api/v2/projects/1/tasks/?include=tags,related,problems,how_tos HTTP/1.1
+GET /api/v2/projects/1/tasks/?include=tags,related,problem,how_tos HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
