@@ -15,6 +15,7 @@ Content-Type: application/json
 {
     "results": [
         {
+            "id": "X1",
             "description": "Application security requirements, generally used to assist requirements analysts.",
             "name": "Requirements",
             "slug": "requirements",
@@ -49,7 +50,7 @@ slug      | Returns the phase resource with the specified slug
 ## Get a Specific Phase
 
 ```http
-GET /api/v2/phases/1/ HTTP/1.1
+GET /api/v2/phases/X1/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
@@ -59,6 +60,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
+    "id": "X1",
     "description": "Application security requirements, generally used to assist requirements analysts.",
     "name": "Requirements",
     "slug": "requirements",
