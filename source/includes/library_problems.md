@@ -66,7 +66,7 @@ Content-Type: application/json
                 "title": "Example Task 1",
                 "priority": 10,
                 "text": "Example task solution",
-                "phase": 3
+                "phase": "X1"
         }]
     }]
 } 
