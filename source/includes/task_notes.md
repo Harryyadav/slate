@@ -17,6 +17,7 @@ Content-Type: application/json
         "id": 682,
         "task": "1-T2",
         "text": "This task is on-hold until we...",
+        "automatic": true,
         "updater": 1,
         "created": "2015-03-26T19:50:46.348000Z",
         "updated": "2015-03-26T19:50:46.348000Z"
@@ -34,6 +35,7 @@ Parameter  | Description
 ---------- | -----------
 project_id | The id of the Project
 task_id    | The id of the Task
+automatic  | The Task Note was posted by a tool
 
 
 
@@ -60,6 +62,7 @@ Content-Type: application/json
     "id": 682,
     "task": "1-T2",
     "text": "This task is on-hold until we...",
+    "automatic": true,
     "updater": 1,
     "created": "2015-03-26T19:50:46.348000Z",
     "updated": "2015-03-26T19:50:46.348000Z"
@@ -77,6 +80,7 @@ Parameter  | Description
 project_id | The id of the Project
 task_id    | The id of the Task
 note_id    | The id of the Task Note to retrieve
+automatic  | The Task Note was posted by a tool
 
 
 
@@ -95,7 +99,7 @@ Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 
 {
-    "text": "This task is on-hold until we...",
+    "text": "This task is on-hold until we..."
 }
 ```
 
@@ -107,6 +111,7 @@ Content-Type: application/json
     "id": 682,
     "task": "1-T2",
     "text": "This task is on-hold until we...",
+    "automatic": true,
     "updater": 1,
     "created": "2015-03-26T19:50:46.348000Z",
     "updated": "2015-03-26T19:50:46.348000Z"
@@ -123,12 +128,14 @@ Parameter  | Description
 ---------- | -----------
 project_id | The id of the Project
 task_id    | The id of the Task
+automatic  | The Task Note was posted by a tool
 
 ### Fields
 
-Field | Required | Description
------ |----------| -----------
-text  | Yes      | The note text
+Field      | Required | Description
+---------- |----------| -----------
+text       | Yes      | The note text
+automatic  | No       | Whether the Task Note was posted by a tool. Default is `true`.
 
 
 
@@ -147,7 +154,7 @@ Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 
 {
-    "text": "This task is on-hold until we...",
+    "text": "This task is on-hold until we..."
 }
 ```
 
@@ -159,6 +166,7 @@ Content-Type: application/json
     "id": 682,
     "task": "1-T2",
     "text": "This task is on-hold until we...",
+    "automatic": true,
     "updater": 1,
     "created": "2015-03-26T19:50:46.348000Z",
     "updated": "2015-03-26T19:50:46.348000Z"
@@ -176,12 +184,14 @@ Parameter  | Description
 project_id | The id of the Project
 task_id    | The id of the Task
 note_id    | The id of the Task Note to update
+automatic  | The Task Note was posted by a tool
 
 ### Fields
 
-Field | Required | Description
------ |----------| -----------
-text  | Yes      | The note text
+Field      | Required | Description
+---------- |----------| -----------
+text       | Yes      | The note text
+automatic  | No       | Whether the Task Note was posted by a tool. Default is `true`.
 
 
 
