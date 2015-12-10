@@ -1,0 +1,43 @@
+* {
+  font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei","微软雅黑", STXihei, "华文细黑", sans-serif;
+}
+
+html, body, body > div, .menu, .content {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.menu {
+  height: 24px;
+  width: auto;
+  background-color: #222;
+  color: #aaa;
+  font-size: 14px;
+  padding: 4px;
+}
+.menu p {
+  margin: 0px;
+  vertical-align: middle;
+}
+.menu a, .menu span {
+  color: #aaa;
+  text-decoration: none;
+}
+.menu a.active {
+  color: #fff;
+  font-weight: bold;
+}
+.content {
+  height: calc(100% - 32px);
+  background-color: #333;
+}
+.menu span.version {
+  color: #aa759f;
+}
+
+iframe {
+  height: 100%;
+  width: 100%;
+}
