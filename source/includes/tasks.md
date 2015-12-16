@@ -94,7 +94,7 @@ Parameter   | Description
 ------------|---------------------
 description | Description field is expanded into content and amendments sub-fields.
 status      | Status field is expanded into id, meaning, icon, name and slug sub-fields.
-
+phase       | Phase field is expanded into id, name, slug, description and tip sub-fields.
 ---
 
 ### Include Parameters
@@ -239,7 +239,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
 {
     "artifact_proxy": "ABC-XYZ",
     "assigned_to": ['user1@example.com', 'user2@example.com'],
-    "status": "DONE"
+    "status": "TS1"
 }
 
 ```http
@@ -261,7 +261,7 @@ Content-Type: application/json
     "library_task_created": "2010-10-20T17:46:50Z",
     "library_task_updated": "2015-05-07T18:58:26.732000Z",
     "note_count": 0,
-    "phase": "Requirements",
+    "phase": "X1",
     "priority": "8",
     "relevant": true,
     "status": "TS1",
@@ -290,4 +290,4 @@ Fields         | Required | Description
 ---------------|----------|---------------
 artifact_proxy | No       | Arbitrary string which identifies a synchronized ALM issue
 assigned_to    | No       | A list of emails for users that belong to the project
-status         | No       | The slug of a status
+status         | No       | The id of a status
