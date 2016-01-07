@@ -38,7 +38,10 @@ Content-Type: application/json
             "id": "G1",
             "name": "Devs",
             "role": "PR4"
-        }]
+        }],
+        "custom_attributes": {
+          "slug": "value"
+        }
     }]
 }
 ```
@@ -104,7 +107,10 @@ Content-Type: application/json
         "id": "G1",
         "name": "Devs",
         "role": "PR4"
-    }]
+    }],
+    "custom_attributes": {
+      "slug": "value"
+    }
 }
 ```
 
@@ -172,7 +178,9 @@ Content-Type: application/json
         "id": "G1",
         "name": "Devs",
         "role": "PR4"
-    }]
+    }],
+    "custom_attributes": {
+    }
 }
 ```
 
@@ -235,7 +243,10 @@ Content-Type: application/json
         "id": "G1",
         "name": "Devs",
         "role": "PR4"
-    }]
+    }],
+    "custom_attributes": {
+      "slug": "value"
+    }
 }
 ```
 
