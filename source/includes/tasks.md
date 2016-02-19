@@ -228,6 +228,85 @@ This endpoint retrieves a single Task resource, as specified by the id parameter
 
 
 
+## Create a New Project Specific Task
+
+```http
+POST /api/v2/projects/1/tasks/ HTTP/1.1
+Accept: application/json
+Authorization: Token "YOUR SDE ACCESS TOKEN"
+```
+
+{
+    "artifact_proxy": "ABC-XYZ",
+    "assigned_to": ['user1@example.com'],
+    "phase": "X1",
+    "priority": 9,
+    "status": "TS1",
+    "text": "Task Description",
+    "title": "Project Specific Task"
+}
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "accepted": true,
+    "ad_hoc": true,
+    "artifact_proxy": "ABC-XYZ",
+    "assigned_to": [
+        {
+            "email": "user1@example.com",
+            "id": 3
+        }
+    ],
+    "text": "Task Description",
+    "id": "1-PT1",
+    "library_task_created": "2015-05-07T18:58:26.732000Z",
+    "library_task_updated": "2015-05-07T18:58:26.732000Z",
+    "note_count": 0,
+    "phase": "X1",
+    "priority": "9",
+    "relevant": true,
+    "status": "TS1",
+    "task_id": "PT1",
+    "title": "Project Specific Task",
+    "updated": "2015-05-07T18:58:26.732000Z",
+    "url": "http://example.com/.../1-PT1",
+    "verification_status": null
+}
+```
+
+Creates a new Task resource that is project-specific.
+
+**`POST /api/v2/projects/{project_id}/tasks/`**
+
+### URL Parameters
+
+Parameter      | Description
+---------------|------------------
+project_id     | The id of the project to edit this task belongs to
+
+### Payload
+
+Fields         | Required | Description
+---------------|----------|---------------
+artifact_proxy | No       | Arbitrary string which identifies a synchronized ALM issue
+assigned_to    | No       | A list of emails for users that belong to the project
+phase          | Yes      | The id of a phase
+priority       | Yes      | The priority value from 0-10
+status         | No       | The id of a status
+text           | Yes      | The description of the new task
+title          | Yes      | The title of the new task
+
+
+
+
+
+
+
+
+
 ## Update a Specific Task
 
 ```http
@@ -290,4 +369,8 @@ Fields         | Required | Description
 ---------------|----------|---------------
 artifact_proxy | No       | Arbitrary string which identifies a synchronized ALM issue
 assigned_to    | No       | A list of emails for users that belong to the project
+phase          | No       | The id of a phase. Available only if the updated task is a project specific task.
+priority       | No       | The priority value from 0-10. Available only if the updated task is a project specific task.
 status         | No       | The id of a status
+text           | No       | The description of the task. Available only if the updated task is a project specific task.
+title          | No       | The title of the task. Available only if the updated task is a project specific task.
