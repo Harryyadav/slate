@@ -55,7 +55,7 @@ project_id | The ID of the project for the tasks
 ## Accept task changes for a project
 
 ```http
-POST /api/v2/projects/1/tasks-updates/ HTTP/1.1
+POST /api/v2/projects/1/task-updates/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
