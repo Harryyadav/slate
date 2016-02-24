@@ -15,7 +15,7 @@ Content-Type: application/json
 {
     "results": [{
         "id": 12,
-        "user": "bob@example.com",
+        "user": 1,
         "succeeded": true,
         "automatic": true,
         "ready": true,
@@ -91,7 +91,7 @@ Content-Type: application/json
 
 {
     "id": 12,
-    "user": "bob@example.com",
+    "user": 1,
     "succeeded": true,
     "automatic": true,
     "ready": true,
@@ -161,7 +161,7 @@ Content-Type: application/json
 
 {
     "id": 12,
-    "user": "bob@example.com",
+    "user": 1,
     "succeeded": true,
     "automatic": true,
     "ready": true,
@@ -232,7 +232,7 @@ Content-Type: application/json
 {
     "results": [{
         "id": 12,
-        "user": "bob@example.com",
+        "user": 1,
         "succeeded": true,
         "automatic": true,
         "ready": true,
@@ -300,7 +300,7 @@ Content-Type: application/json
 
 {
     "id": 12,
-    "user": "bob@example.com",
+    "user": 1,
     "succeeded": true,
     "automatic": true,
     "ready": true,
@@ -362,7 +362,7 @@ Content-Type: application/json
 
 {
     "id": 12,
-    "user": "bob@example.com",
+    "user": 1,
     "succeeded": true,
     "automatic": true,
     "ready": true,
