@@ -167,12 +167,52 @@ related   | Includes a list of related tasks
 tags      | Includes a list of tags associated to the task
 =======
 
+### Filter Parameters
 
+```http
+GET /api/v2/projects/1/tasks/?applicable=true&relevant=false HTTP/1.1
+Accept: application/json
+Authorization: Token "YOUR SDE ACCESS TOKEN"
+```
 
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
 
+{
+    "results": [{
+        "id": "1-T2",
+        "task_id": "T2",
+        "url": "http://example.com/bunits/new-business-unit/...",
+        "title": "Secure forgotten password",
+        "text": "Insecure forgotten password and password reset...",
+        "priority": 8,
+        "phase": "Requirements",
+        "ad_hoc": false,
+        "relevant": false,
+        "accepted": true,
+        "assigned_to": [],
+        "updated": "2015-06-16T19:37:44.710100Z",
+        "library_task_created": "2015-06-16T19:36:57.863684Z",
+        "library_task_updated": "2015-06-16T19:36:57.836874Z",
+        "verification_status": null,
+        "status": "TS2",
+        "note_count": 0,
+        "artifact_proxy": null,
+    }]
+}
+```
 
+You can filter the tasks returned by the task list endpoint by their relevance
+and whether or not they have been accepted into a project by a project lead.
+If no filters are passed, we default to returning accepted tasks to match with
+the list shown in the web application.
 
-
+Parameter | Expected values | Description
+----------|---------------------
+accepted  | true \| false    | Return the accepted/unaccepted tasks respectively
+relevant  | true \| false    | Return the relevant/irrelevant tasks respectively
+=======
 
 
 
