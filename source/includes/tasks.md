@@ -151,20 +151,32 @@ Content-Type: application/json
                 "url": "http://a7069ccda519b00c4/....",
                 "text": "1. Open your web browser ..."
             }
+        ],
+        "regulation_sections" : [
+            {
+                "id": "RS1026",
+                "name": "CR2.7 (L3 and higher)"",
+                "regulation": "CR45"
+            },
+            {
+                "id": "RS642"
+                "name": "SR2.7 (L3 and higher)",
+                "regulation": "CR39"
+            }
         ]
-
     }]
 }
 ```
 
 See the [Include Parameters](#include-parameters) section for more details.
 
-Parameter | Description
-----------|---------------------
-how_tos   | Includes a list of applicable how-tos
-problem   | Includes the problem that the task is related to
-related   | Includes a list of related tasks
-tags      | Includes a list of tags associated to the task
+Parameter           | Description
+----------          |---------------------
+how_tos             | Includes a list of applicable how-tos
+problem             | Includes the problem that the task is related to
+related             | Includes a list of related tasks
+tags                | Includes a list of tags associated to the task
+regulation_sections | Includes a list of regulation sections to which this task belongs.
 =======
 
 
