@@ -234,7 +234,6 @@ This endpoint retrieves a single Task resource, as specified by the id parameter
 POST /api/v2/projects/1/tasks/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
-```
 
 {
     "artifact_proxy": "ABC-XYZ",
@@ -245,6 +244,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
     "text": "Task Description",
     "title": "Project Specific Task"
 }
+```
 
 ```http
 HTTP/1.1 200 OK
@@ -313,13 +313,13 @@ title          | Yes      | The title of the new task
 PATCH /api/v2/projects/1/tasks/1-T2/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
-```
 
 {
     "artifact_proxy": "ABC-XYZ",
     "assigned_to": ['user1@example.com', 'user2@example.com'],
     "status": "TS1"
 }
+```
 
 ```http
 HTTP/1.1 200 OK
