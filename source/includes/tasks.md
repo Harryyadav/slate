@@ -165,7 +165,7 @@ how_tos   | Includes a list of applicable how-tos
 problem   | Includes the problem that the task is related to
 related   | Includes a list of related tasks
 tags      | Includes a list of tags associated to the task
-=======
+---
 
 ### Filter Parameters
 
@@ -208,11 +208,11 @@ and whether or not they have been accepted into a project by a project lead.
 If no filters are passed, we default to returning accepted tasks to match with
 the list shown in the web application.
 
-Parameter | Expected values | Description
-----------|---------------------
-accepted  | true \| false    | Return the accepted/unaccepted tasks respectively
-relevant  | true \| false    | Return the relevant/irrelevant tasks respectively
-=======
+Parameter | Expected values   | Description
+----------|-------------------|--------------|
+accepted  | true &#124; false | Return the accepted/unaccepted tasks
+relevant  | true &#124; false | Return the relevant/irrelevant tasks
+---
 
 
 
