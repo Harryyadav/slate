@@ -146,7 +146,7 @@ Content-Type: application/json
         "how_tos": [
             {
                 "id": "I131",
-                "title": "I131: Manually with browser",
+                "title": "Manually with browser",
                 "slug": "test-account-lockout-manually-browser",
                 "url": "http://a7069ccda519b00c4/....",
                 "text": "1. Open your web browser ..."
