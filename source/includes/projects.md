@@ -61,6 +61,74 @@ application | Returns a list of project resources that belong to the specified a
 id          | Returns the project resource with the specified id.
 name        | Returns the project resource with the specified name.
 slug        | Returns the project resource with the specified slug.
+---
+
+### Include Parameters
+
+```http
+GET /api/v2/projects/1/tasks/?include=permissions HTTP/1.1
+Accept: application/json
+Authorization: Token "YOUR SDE ACCESS TOKEN"
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "results": [{
+        "id": 1936,
+        "slug": "project-test",
+        "url": "http://example.com/bunits/bu-test/app-test/project-test",
+        "application": 1280,
+        "profile" : {
+            "id": "P9",
+            "name": "Android App"
+        },
+        "archived": false,
+        "name": "Project Test",
+        "creator": 1,
+        "description": "API Project",
+        "tags": ["foo", "bar"],
+        "created": "2015-04-15T19:30:04.132712Z",
+        "updated": "2015-04-15T19:57:15.042353Z",
+        "parent": null,
+        "users": [{
+            "id": "1",
+            "email": "test@example.com",
+            "role": "PR4"
+        }],
+        "groups": [{
+            "id": "G1",
+            "name": "Devs",
+            "role": "PR4"
+        }],
+        "custom_attributes": {
+          "slug": "value"
+        },
+        "permissions": [
+            "edit_project_details",
+            "assign_task",
+            "mark_task",
+            "create_project_specific_task",
+            "archive_project",
+            "verify_task",
+            "edit_project_membership",
+            "view_project",
+            "write_task_note",
+            "sync_with_alm",
+            "edit_project_survey"
+        ]
+    }]
+}
+```
+
+See the [Include Parameters](#include-parameters) section for more details.
+
+Parameter     | Description
+--------------|---------------------
+permissions   | Includes a list of permissions the requesting user has for the project
+=======
 
 
 
