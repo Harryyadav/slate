@@ -159,7 +159,7 @@ Content-Type: application/json
                 "regulation": "CR45"
             },
             {
-                "id": "RS642"
+                "id": "RS642",
                 "name": "SR2.7 (L3 and higher)",
                 "regulation": "CR39"
             }
