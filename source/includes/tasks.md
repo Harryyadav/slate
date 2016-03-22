@@ -155,7 +155,7 @@ Content-Type: application/json
         "regulation_sections" : [
             {
                 "id": "RS1026",
-                "name": "CR2.7 (L3 and higher)"",
+                "name": "CR2.7 (L3 and higher)",
                 "regulation": "CR45"
             },
             {
