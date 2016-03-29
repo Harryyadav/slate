@@ -177,7 +177,7 @@ problem             | Includes the problem that the task is related to
 related             | Includes a list of related tasks
 tags                | Includes a list of tags associated to the task
 regulation_sections | Includes a list of regulation sections to which this task belongs.
-
+---
 
 ### Filter Parameters
 
