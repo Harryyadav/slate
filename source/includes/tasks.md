@@ -203,10 +203,9 @@ Content-Type: application/json
 }
 ```
 
-You can filter the tasks returned by the task list endpoint by their relevance
-and whether or not they have been accepted into a project by a project lead.
-If no filters are passed, we default to returning accepted tasks to match with
-the list shown in the web application.
+Tasks can be filtered by their relevance and whether or not they have been
+accepted into a project by a project lead. If no filters are passed, we default
+ to returning accepted tasks to match with the list shown in the web application.
 
 Parameter | Expected values   | Description
 ----------|-------------------|--------------|
