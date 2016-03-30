@@ -126,7 +126,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
     "analysis_type": "webinspect",
     "notes": [
       {
-          "task": "1-T6"
+          "task": "1-T6",
           "behaviour": "replace",
           "confidence": "high",
           "findings": {},

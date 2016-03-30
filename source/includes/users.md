@@ -95,7 +95,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
 {
     "email": "user@example.com",
     "first_name": "Bob",
-    "last_name": "Smith"
+    "last_name": "Smith",
     "role": "UR5",
     "groups": ["G1", "G2"]
 }
@@ -157,8 +157,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
     "email": "user@example.com",
     "first_name": "Bob",
     "last_name": "Smith",
-    "groups":["G2"],
-    “role”:”UR2”
+    "groups": ["G2"],
+    "role": "UR2"”"
 }
 ```
 
@@ -194,4 +194,3 @@ Update a specific User resource.
 Parameter | Description
 --------- | -----------
 user_id   | The ID of the User to update
-
