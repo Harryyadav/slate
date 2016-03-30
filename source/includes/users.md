@@ -132,7 +132,6 @@ Create a User resource.
 
 **`POST /api/v2/users/`**
 
-
 Fields        | Required | Description
 --------------|----------|-------------
 email         | Yes      | User's email
@@ -140,6 +139,10 @@ first_name    | Yes      | First name of the user
 last_name     | Yes      | Last name of the user
 role          | No       | Id of the role to add user to
 groups        | No       | Ids of the groups to add user to
+
+
+
+
 
 
 

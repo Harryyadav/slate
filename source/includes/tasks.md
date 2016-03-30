@@ -227,6 +227,13 @@ relevant  | true &#124; false | Return the relevant/irrelevant tasks
 
 
 
+
+
+
+
+
+
+
 ## Get a Specific Task
 
 ```http
@@ -349,6 +356,7 @@ priority       | Yes      | The priority value from 0-10
 status         | No       | The id of a status
 text           | Yes      | The description of the new task
 title          | Yes      | The title of the new task
+
 
 
 
