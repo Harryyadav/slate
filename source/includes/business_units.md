@@ -174,8 +174,8 @@ Fields              | Required | Description
 name                | Yes      | The name of the new business unit.
 users               | No       | A list of dictionaries representing the users who are part of the business unit. Each dictionary has an email field.
 groups              | No       | A list of dictionaries representing the groups which are part of the business unit. Each dictionary has an id field which is the group id.
-default_users       | No       | A list of dictionaries representing the default user roles for the users in the business unit. Each dictionary has an email field and a role field where the role is the role id. The users specified here should be a subset of the users field unless all_users is true.
-default_groups      | No       | A list of dictionaries representing the default group roles for the users in the business unit. Each dictionary has an id field which is the group id and a role field where the role is the role id. The groups specified here should be a subset of the groups field unless all_users is true.
+default_users       | No       | A list of dictionaries representing the default user roles for the users in the business unit. Each dictionary has an email field and a role field where the role is the role id. The users specified here should be members of the business unit unless all_users is true.
+default_groups      | No       | A list of dictionaries representing the default group roles for the users in the business unit. Each dictionary has an id field which is the group id and a role field where the role is the role id. The groups specified here should be members of the business unit unless all_users is true.
 all_users           | No       | Whether the business unit includes all users. Trying to create a business unit with this field set to True and specific users/groups specified is an error. Default is false.
 
 
@@ -227,7 +227,7 @@ Content-Type: application/json
 }
 ```
 
-Update a single business unit by specifying a new name. The business unit is then identified by the id.
+Update a single business unit by specifying the id. The fields `users`, `groups`, `name`, `default_users`, and `default_groups` can be updated.
 
 **`PUT /api/v2/business-units/{business_unit_id}/`**
 
