@@ -19,7 +19,7 @@ function getTags(cb) {
 }
 
 function renderMenu(tags) {
-  var $menu = $('.menu p');
+  var $menu = $('.versions p');
 
   var tagHtml = tags.map(function(tag) {
     return '<a target="iframe" href="' + tag.url + '">' + tag.name + '</a>';
@@ -29,7 +29,7 @@ function renderMenu(tags) {
 }
 
 function registerEvents() {
-  var $menuLinks = $('.menu p a');
+  var $menuLinks = $('.versions p a');
   $menuLinks.click(function() {
     $menuLinks.removeClass('active');
     $(this).addClass('active');
@@ -37,7 +37,7 @@ function registerEvents() {
 }
 
 function initState() {
-    var firstLink = $('.menu p a').first();
+    var firstLink = $('.versions p a').first();
     firstLink.addClass('active');
     $('iframe')[0].src = firstLink.attr('href');
 }

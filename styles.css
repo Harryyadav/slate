@@ -9,32 +9,60 @@ html, body, body > div, .menu, .content {
   padding: 0;
 }
 
-.menu {
-  height: 24px;
+.header {
+  height: 55px;
   width: auto;
-  background-color: #222;
+  background-color: #393939;
   color: #aaa;
   font-size: 14px;
   padding: 4px;
+  border-bottom: 2px solid white;
 }
-.menu p {
+
+.logo {
+  float: left;
+  width: 230px;
+}
+
+.logo img {
+  width: 95%;
+  margin: auto;
+}
+
+.title {
+  float: left;
+  width: auto;
+  font-size: 26px;
+  color: #ddd;
+  font-weight: bold;
+  padding-top: 12px;
+}
+
+.versions {
+  float: right;
+  width: auto;
+}
+
+.versions p {
   margin: 0px;
   vertical-align: middle;
 }
-.menu a, .menu span {
+.versions a, .versions span {
   color: #aaa;
   text-decoration: none;
 }
-.menu a.active {
+.versions a.active {
   color: #fff;
   font-weight: bold;
 }
-.content {
-  height: calc(100% - 32px);
-  background-color: #333;
-}
-.menu span.version {
+
+.versions span.version {
   color: #aa759f;
+}
+
+.content {
+  height: calc(100% - 57px);
+  background-color: #333;
 }
 
 iframe {
