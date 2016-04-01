@@ -8,7 +8,7 @@ includes:
  - introduction
  - authentication
  - help
- - _errors
+ - errors
 
  - resources
  - analysis_notes
