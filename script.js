@@ -7,7 +7,7 @@ function getTags(cb) {
     var tags = data.map(function(tag) {
       return {
         name: tag.name,
-        url: linkUrl.replace('<TAG>', tag.name)
+        url: linkUrl.replace('<TAG>', tag.commit.sha)
       };
     });
     tags.push({
