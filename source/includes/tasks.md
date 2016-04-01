@@ -182,7 +182,7 @@ regulation_sections | Includes a list of regulation sections to which this task 
 ### Filter Parameters
 
 ```http
-GET /api/v2/projects/1/tasks/?applicable=true&relevant=false HTTP/1.1
+GET /api/v2/projects/1/tasks/?accepted=true&relevant=false HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
