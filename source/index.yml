@@ -1,4 +1,3 @@
----
 title: SD Elements API v2 Reference
 
 toc_footers:
@@ -36,4 +35,5 @@ includes:
  - users
 
 search: true
----
+
+highlight_theme: monokai
