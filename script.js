@@ -1,6 +1,6 @@
 var apiUrl = 'https://api.github.com/repos/sdelements/slate/tags';
 var linkUrl = 'https://cdn.rawgit.com/sdelements/slate/<TAG>/index.html';
-var devUrl = 'https://cdn.rawgit.com/sdelements/slate/gh-pages-releases/index.html';
+var devUrl = 'https://rawgit.com/sdelements/slate/gh-pages-releases/index.html';
 
 function getTags(cb) {
   $.get(apiUrl, function(data) {
