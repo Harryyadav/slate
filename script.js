@@ -23,7 +23,7 @@ function renderMenu(tags) {
 
   var tagHtml = tags.map(function(tag) {
     return '<a target="iframe" href="' + tag.url + '">' + tag.name + '</a>';
-  }).join(' <span>|</span> ');
+  }).join(' <span>&middot;</span> ');
 
   $menu.append(tagHtml);
 }
