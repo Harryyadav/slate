@@ -41,6 +41,7 @@ html, body, body > div, .menu, .content {
 .versions {
   float: right;
   width: auto;
+  line-height: 55px;  /* align with title */
 }
 
 .versions p {
