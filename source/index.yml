@@ -11,6 +11,7 @@ includes:
  - errors
 
  - resources
+ - activity
  - analysis_notes
  - analysis_sessions
  - applications
