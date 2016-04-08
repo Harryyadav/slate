@@ -43,11 +43,14 @@ Content-Type: application/json
 }
 ```
 
-This endpoint returns a list of Activities.
+This endpoint returns a list of Activities.  Activities are events that have occurred in the application. We return when they occurred and some additional data about the event.
 
 ** `GET /api/v2/activities/` **
 
 Note: this endpoint uses the term 'standard' to reference what we call 'library tasks' elsewhere in the API.
+
+The application, business_unit, project, and standard fields have associated description fields, suffixed with '_desc'.  These fields contain a description of the related item, and can be used to filter if the related item has been deleted.
+
 
 ### Query Parameters
 
@@ -57,7 +60,7 @@ Parameter        | Description
 -----------------|-------------
 actor            | Returns a list of activities performed by the user with the id specified.
 application      | Returns a list of activities that reference the application with the specified id.
-application_desc | Returns a list of activities that reference the application with the specified applicaiton_desc.
+application_desc | Returns a list of activities that reference the application with the specified application_desc.
 business_unit    | Returns a list of activities that reference the business unit with the specified id.
 business_unit_desc | Returns a list of activities that reference the business_unit with the specified business_unit_desc.
 date_to          | Returns all activities performed at or before the specified date.
