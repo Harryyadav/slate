@@ -21,7 +21,7 @@ Content-Type: application/json
         "text": "Admin Testerton modified business unit Example BU 500",
         "data": {
             "business_unit": 5,
-            "business_unit_desc"="Example BU 500"
+            "business_unit_desc": "Example BU 500"
         }
     },
     {
@@ -47,6 +47,8 @@ This endpoint returns a list of Activities.
 
 ** `GET /api/v2/activities/` **
 
+Note: this endpoint uses the term 'standard' to reference what we call 'library tasks' elsewhere in the API.
+
 ### Query Parameters
 
 The following parameters may be used to filter the activity resources in the response.
@@ -55,13 +57,18 @@ Parameter        | Description
 -----------------|-------------
 actor            | Returns a list of activities performed by the user with the id specified.
 application      | Returns a list of activities that reference the application with the specified id.
+application_desc | Returns a list of activities that reference the application with the specified applicaiton_desc.
 business_unit    | Returns a list of activities that reference the business unit with the specified id.
+business_unit_desc | Returns a list of activities that reference the business_unit with the specified business_unit_desc.
 date_to          | Returns all activities performed at or before the specified date.
 date_from        | Returns all activities performed at or after the specified date.
 id               | Returns the activities with the specified id.
 name             | Returns a list of activities with the specified name.
 project          | Returns a list of activities that reference the project with the specified id.
+project_desc     | Returns a list of activities that reference the project with the specified project_desc.
 user             | Returns a list of activities that reference the user with the specified user id (not to be confused with activities that are performed by this user).
+standard        | Returns a list of activities that reference the standard with the specified id.  The id is of the format T or CT followed by a number, for example 'T1'.
+standard_desc    | Returns a list of activities that reference the standard with the specified standard_desc.
 
 
 
