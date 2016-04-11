@@ -31,6 +31,7 @@ includes:
  - report_settings
  - server_info
  - service_statuses
+ - tags
  - tasks
  - task_notes
  - task_statuses
