@@ -20,7 +20,8 @@ Content-Type: application/json
         "application": 1280,
         "profile" : {
             "id": "P9",
-            "name": "Android App"
+            "name": "Android App",
+            "logo_url": "/static/images/android.png"
         },
         "archived": false,
         "name": "Project Test",
@@ -83,7 +84,8 @@ Content-Type: application/json
         "application": 1280,
         "profile" : {
             "id": "P9",
-            "name": "Android App"
+            "name": "Android App",
+            "logo_url": "/static/images/android.png"
         },
         "archived": false,
         "name": "Project Test",
@@ -158,7 +160,8 @@ Content-Type: application/json
     "application": 1280,
     "profile" : {
         "id": "P9",
-        "name": "Android App"
+        "name": "Android App",
+        "logo_url": "/static/images/android.png"
     },
     "archived": false,
     "name": "Project Test",
@@ -230,7 +233,8 @@ Content-Type: application/json
     "application": 1280,
     "profile" : {
         "id": "P9",
-        "name": "Android App"
+        "name": "Android App",
+        "logo_url": "/static/images/android.png"
     },
     "archived": false,
     "name": "Project Test",
@@ -296,7 +300,8 @@ Content-Type: application/json
     "application": 1,
     "profile" : {
         "id": "P9",
-        "name": "Android App"
+        "name": "Android App",
+        "logo_url": "/static/images/android.png"
     },
     "archived": false,
     "name": "This is the project's new name!",
@@ -362,4 +367,3 @@ This endpoint deletes a specific project, specified by the project id.
 Parameter         | Description
 ----------------- | -----------
 project_id        | The id of the Project to delete
-
