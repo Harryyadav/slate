@@ -30,6 +30,7 @@ includes:
  - projects
  - report_settings
  - server_info
+ - service_statuses
  - tasks
  - task_notes
  - task_statuses
