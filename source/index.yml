@@ -29,6 +29,7 @@ includes:
  - project_roles
  - projects
  - report_settings
+ - server_info
  - tasks
  - task_notes
  - task_statuses
