@@ -34,7 +34,9 @@ Content-Type: application/json
         "users": [{
             "id": "1",
             "email": "test@example.com",
-            "role": "PR4"
+            "role": "PR4",
+            "first_name": "Admin",
+            "last_name": "Testerton"
         }],
         "groups": [{
             "id": "G1",
@@ -98,7 +100,9 @@ Content-Type: application/json
         "users": [{
             "id": "1",
             "email": "test@example.com",
-            "role": "PR4"
+            "role": "PR4",
+            "first_name": "Admin",
+            "last_name": "Testerton"
         }],
         "groups": [{
             "id": "G1",
@@ -174,7 +178,9 @@ Content-Type: application/json
     "users": [{
         "id": "1",
         "email": "test@example.com",
-        "role": "PR4"
+        "role": "PR4",
+        "first_name": "Admin",
+        "last_name": "Testerton"
     }],
     "groups": [{
         "id": "G1",
@@ -247,7 +253,9 @@ Content-Type: application/json
     "users": [{
         "id": "1",
         "email": "test@example.com",
-        "role": "PR4"
+        "role": "PR4",
+        "first_name": "Admin",
+        "last_name": "Testerton"
     }],
     "groups": [{
         "id": "G1",
@@ -314,7 +322,9 @@ Content-Type: application/json
     "users": [{
         "id": "1",
         "email": "test@example.com",
-        "role": "PR4"
+        "role": "PR4",
+        "first_name": "Admin",
+        "last_name": "Testerton"
     }],
     "groups": [{
         "id": "G1",

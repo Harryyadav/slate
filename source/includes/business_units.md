@@ -24,7 +24,9 @@ Content-Type: application/json
             "default_users": [],
             "users": [{
                 "id": 682,
-                "email": "frank@sdelements.com"
+                "email": "frank@sdelements.com",
+                "first_name": "Frank",
+                "last_name": "Testerton"
             }],
             "groups": [{
                 "id": "G64",
@@ -94,7 +96,9 @@ Content-Type: application/json
     "default_users": [],
     "users": [{
         "id": 682,
-        "email": "frank@sdelements.com"
+        "email": "frank@sdelements.com",
+        "first_name": "Frank",
+        "last_name": "Testerton"
     }],
     "groups": [{
         "id": "G64",
@@ -152,14 +156,20 @@ Content-Type: application/json
     "created": "2015-09-30T18:28:37.214914Z",
     "updated": "2015-09-30T18:28:37.214959Z",
     "users": [{
-        "email": "test@example.com"
+        "id": 1,
+        "email": "test@example.com",
+        "first_name": "Admin",
+        "last_name": "Testerton"
     }],
     "groups": [{
         "id": "G1"
     }],
     "default_users": [{
         "email": "test@example.com",
-        "role": "PR4"
+        "role": "PR4",
+        "id": 1,
+        "first_name": "Admin",
+        "last_name": "Testerton"
     }],
     "default_groups": [{
         "id": "G1",
@@ -210,14 +220,20 @@ Content-Type: application/json
     "created": "2015-09-30T18:28:37.214914Z",
     "updated": "2015-09-30T18:28:37.214959Z",
     "users": [{
-        "email": "test@example.com"
+        "email": "test@example.com",
+        "id": 1,
+        "first_name": "Admin",
+        "last_name": "Testerton"
     }],
     "groups": [{
         "id": "G1"
     }],
     "default_users": [{
         "email": "test@example.com",
-        "role": "PR4"
+        "role": "PR4",
+        "id": 1,
+        "first_name": "Admin",
+        "last_name": "Testerton"
     }],
     "default_groups": [{
         "id": "G1",
