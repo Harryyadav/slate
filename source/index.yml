@@ -27,6 +27,7 @@ includes:
  - phases
  - profiles
  - project_roles
+ - project_settings
  - projects
  - report_settings
  - server_info
