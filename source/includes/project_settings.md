@@ -45,7 +45,7 @@ Content-Type: application/json
             "id": "A21",
             "cpe": "cpe:/question/answer",
             "text": "",
-            "selected_by": []
+            "selected_by": [],
             "question": "Q100",
         }
     ],
