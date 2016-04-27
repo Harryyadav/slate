@@ -60,9 +60,8 @@ The following parameters may be used to filter the business unit resources in th
 
 Parameter | Description
 ----------|-----------------------------
-id        | Returns the business unit resource with the specified id.
-name      | Returns the business unit resource with the specified name.
-ordering  | Returns a list of business unit resources ordered by the specified field.  This endpoint accepts ordering by id.
+name      | Filter business units by name.
+ordering  | Sort business units by the specified field. Prefix field name with minus to sort descending. Sortable fields: name.
 =======
 
 

@@ -33,12 +33,14 @@ This endpoint retrieves a list of Application resources.
 
 The following parameters may be used to filter the application resources in the response.
 
-Parameter | Description
-----------|-----------------------------
-name      | Returns the application resource with the specified name.
-ordering  | Returns a list of application resources ordered by the specified field.  This endpoint accepts ordering by name.
-priority  | Returns a list of application resources with specified priority.
-slug      | Returns the application resource with the specified slug.
+Parameter     | Description
+--------------|-----------------------------
+business_unit | Filter applications by Business Unit ID.
+name          | Filter applications by name.
+priority      | Filter applications by priority.
+slug          | Filter applications by slug.
+ordering      | Sort applications by the specified field. Prefix field name with minus to sort descending. Sortable fields: name.
+search        | Filter applications by performing a textual search on name.
 
 ---
 

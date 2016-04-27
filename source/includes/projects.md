@@ -60,10 +60,11 @@ The following parameters may be used to filter the application resources in the 
 
 Parameter   | Description
 ------------|-------------
-application | Returns a list of project resources that belong to the specified application id.
-id          | Returns the project resource with the specified id.
-name        | Returns the project resource with the specified name.
-slug        | Returns the project resource with the specified slug.
+application | Filter projects by Application ID.
+name        | Filter projects by name.
+slug        | Filter projects by slug.
+ordering    | Sort projects by the specified field. Prefix field name with minus to sort descending. Sortable fields: name, created, updated.
+search      | Filter projects by performing a textual search on name and profile name.
 ---
 
 ### Include Parameters
