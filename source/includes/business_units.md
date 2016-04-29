@@ -62,6 +62,7 @@ Parameter | Description
 ----------|-----------------------------
 name      | Filter business units by name.
 ordering  | Sort business units by the specified field. Prefix field name with minus to sort descending. Sortable fields: name.
+search    | Filter applications by performing a textual search on name.
 =======
 
 
