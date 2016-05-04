@@ -252,3 +252,30 @@ Update a single business unit by specifying the id. The fields `users`, `groups`
 Parameter         | Description
 ----------------- | -----------
 business_unit_id  | The id of the Business Unit to update.
+
+
+
+
+
+
+## Delete a Business Unit
+
+```http
+DELETE /api/v2/business-units/1/ HTTP/1.1
+Accept: application/json
+Authorization: Token "YOUR SDE ACCESS TOKEN"
+```
+
+```http
+HTTP/1.1 204 NO CONTENT
+```
+
+This endpoint deletes a single Business Unit resource, as specified by the id parameter.
+
+**`DELETE /business-units/{business_unit_id}/`**
+
+### URL Parameters
+
+Parameter         | Description
+----------------- | --------------
+business_unit_id  | The id of the Business Unit to delete.
