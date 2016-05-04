@@ -56,7 +56,7 @@ This endpoint retrieves a list of Project resources.
 
 ### Query Parameters
 
-The following parameters may be used to filter the application resources in the response.
+The following parameters may be used to filter the project resources in the response.
 
 Parameter   | Description
 ------------|-------------
