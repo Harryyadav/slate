@@ -70,7 +70,7 @@ search      | Filter projects by performing a textual search on name and profile
 ### Include Parameters
 
 ```http
-GET /api/v2/projects/1/tasks/?include=permissions HTTP/1.1
+GET /api/v2/projects/1/tasks/?include=permissions,task_counts HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
@@ -125,7 +125,24 @@ Content-Type: application/json
             "write_task_note",
             "sync_with_alm",
             "edit_project_survey"
-        ]
+        ],
+        "task_counts": {
+            "high": {
+                "incomplete": 19
+                "complete": 2,
+                "na": 0
+            },
+            "medium": {
+                "incomplete": 4
+                "complete": 3,
+                "na": 1
+            },
+            "low": {
+                "incomplete": 2
+                "complete": 1,
+                "na": 0
+            }
+        }
     }]
 }
 ```
@@ -135,6 +152,7 @@ See the [Include Parameters](#include-parameters) section for more details.
 Parameter     | Description
 --------------|---------------------
 permissions   | Includes a list of permissions the requesting user has for the project
+task_counts   | Includes counts of tasks broken down by priority and completeness for the project.<br>Priorities are: high (7-10), medium (4-6), low (1-3).
 =======
 
 
