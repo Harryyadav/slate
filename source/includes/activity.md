@@ -22,7 +22,8 @@ Content-Type: application/json
         "data": {
             "business_unit": 5,
             "business_unit_desc": "Example BU 500"
-        }
+        },
+        "icon": "edit"
     },
     {
         "id": 2,
@@ -30,7 +31,8 @@ Content-Type: application/json
         "actor": 1,
         "name": "UserCreatedActivity",
         "text": "Admin Testerton created user Cindy Lu",
-        "data": {"user": 7}
+        "data": {"user": 7},
+        "icon": "user"
     },
     {
         "id": 1,
@@ -38,7 +40,8 @@ Content-Type: application/json
         "actor": 1,
         "name": "LoggedInActivity",
         "text": "Admin Testerton logged in",
-        "data": {}
+        "data": {},
+        "icon": "user"
     }]
 }
 ```
@@ -70,7 +73,7 @@ name             | Returns a list of activities with the specified name.
 project          | Returns a list of activities that reference the project with the specified id.
 project_desc     | Returns a list of activities that reference the project with the specified project_desc.
 user             | Returns a list of activities that reference the user with the specified user id (not to be confused with activities that are performed by this user).
-standard        | Returns a list of activities that reference the standard with the specified id.  The id is of the format T or CT followed by a number, for example 'T1'.
+standard         | Returns a list of activities that reference the standard with the specified id.  The id is of the format T or CT followed by a number, for example 'T1'.
 standard_desc    | Returns a list of activities that reference the standard with the specified standard_desc.
 
 
@@ -97,7 +100,8 @@ Content-Type: application/json
         "actor": 1,
         "name": "UserCreatedActivity",
         "text": "Admin Testerton created user Cindy Lu",
-        "data": {"user": 7}
+        "data": {"user": 7},
+        "icon": "user"
 }
 ```
 
