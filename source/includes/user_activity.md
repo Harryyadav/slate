@@ -1,9 +1,9 @@
 # User Activities
 
-## Get all users activities
+## Get all user activities
 
 ```http
-GET /api/v2/users/me/log/ HTTP/1.1
+GET /api/v2/users/me/activities/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
@@ -14,56 +14,59 @@ Content-Type: application/json
 
 {
     "results": [{
-    "id": 23,
-    "actor": 7,
-    "name": "MarkedTaskActivity",
-    "text": "Cindy Lu marked T21: Ensure confidential data is sent over an encrypted channel as Complete in project proj1 of application app1",
-    "date": "2016-05-11T18:53:02.216545Z",
-    "data":{
-        "status": "TS1",
-        "project_desc": "proj1",
-        "application_desc": "app1",
-        "status_desc": "Complete",
-        "standard": "T21",
-        "standard_desc": "T21: Ensure confidential data is sent over an encrypted channel",
-        "task_desc": "T21: Ensure confidential data is sent over an encrypted channel",
-        "business_unit_desc": "Example BU"
+        "id": 23,
+        "actor": 7,
+        "name": "MarkedTaskActivity",
+        "text": "Cindy Lu marked T21: Ensure confidential data is sent over an encrypted channel as Complete in project proj1 of application app1",
+        "date": "2016-05-11T18:53:02.216545Z",
+        "data":{
+            "status": "TS1",
+            "project_desc": "proj1",
+            "application_desc": "app1",
+            "status_desc": "Complete",
+            "standard": "T21",
+            "standard_desc": "T21: Ensure confidential data is sent over an encrypted channel",
+            "task_desc": "T21: Ensure confidential data is sent over an encrypted channel",
+            "business_unit_desc": "Example BU"
         },
-    "icon" : "check"
+        "icon" : "check",
+        "log_level": ""
     },
-
-    {"id": 20,
-    "name": "AddedUserToProjectActivity",
-    "actor": 1,
-    "text": "Admin Testerton added Cindy Luto project proj1 in application app1",
-    "date": "2016-05-11T18:52:34.548759Z",
-    "data": {
-        "project_desc": "proj1",
-        "application_desc": "app1",
-        "user": "U7",
-        "user_desc": "Cindy Lu",
-        "business_unit_desc": "Example BU"
+    {
+        "id": 20,
+        "name": "AddedUserToProjectActivity",
+        "actor": 1,
+        "text": "Admin Testerton added Cindy Luto project proj1 in application app1",
+        "date": "2016-05-11T18:52:34.548759Z",
+        "data": {
+            "project_desc": "proj1",
+            "application_desc": "app1",
+            "user": "U7",
+            "user_desc": "Cindy Lu",
+            "business_unit_desc": "Example BU"
         },
-    "icon": "users"
+        "icon": "users",
+        "log_level": ""
     },
-
-    {"id": 4,
-    "name": "UserCreatedActivity",
-    "actor": 1,
-    "text": "Admin Testerton created user Cindy Lu",
-    "date": "2016-05-06T14:53:10.961953Z",
-    "data": {
-        "user": "U2",
-        "user_desc": "Cindy Lu"
+    {
+        "id": 4,
+        "name": "UserCreatedActivity",
+        "actor": 1,
+        "text": "Admin Testerton created user Cindy Lu",
+        "date": "2016-05-06T14:53:10.961953Z",
+        "data": {
+            "user": "U2",
+            "user_desc": "Cindy Lu"
         },
-    "icon": "user"
+        "icon": "user",
+        "log_level": ""
     }]
 }
 ```
 
 This endpoint returns a list of Activities pertaining to the current user.  Activities are events that have occurred in the application. We return when they occurred and some additional data about the event.
 
-** `GET /api/v2/users/me/log/` **
+** `GET /api/v2/users/me/activities/` **
 
 Note: this endpoint uses the term 'standard' to reference what we call 'library tasks' elsewhere in the API.
 
@@ -100,7 +103,7 @@ standard_desc    | Returns a list of activities that reference the standard with
 ## Get a Specific Activity
 
 ```http
-GET /api/v2/users/me/log/2/ HTTP/1.1
+GET /api/v2/users/me/activities/2/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
@@ -122,7 +125,7 @@ Content-Type: application/json
 
 This endpoint retreives a specific Activity Resource as specified by the activity_id.
 
-**`GET /api/v2/users/me/log/{activity_id}/`**
+**`GET /api/v2/users/me/activities/{activity_id}/`**
 
 ### URL Parameters
 
