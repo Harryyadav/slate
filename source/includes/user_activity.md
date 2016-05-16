@@ -1,4 +1,4 @@
-# User Activities Log
+# User Activities
 
 ## Get all users activities
 
