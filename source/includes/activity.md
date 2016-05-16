@@ -14,6 +14,20 @@ Content-Type: application/json
 
 {
     "results": [{
+        id: 5,
+        name: "CreatedGroupActivity",
+        actor: 1,
+        text: "Admin Testerton created group group A",
+        date: "2016-05-06T14:53:28.557156Z",
+        data: {
+            target_group_desc: "group A",
+            group: "G1",
+            group_desc: "group A"
+        },
+        icon: "user",
+        log_level: "success"
+    },
+    {
         "id": 3,
         "date": "2016-03-30T17:10:20.532634+00:00",
         "actor": 7,
@@ -23,7 +37,8 @@ Content-Type: application/json
             "business_unit": 5,
             "business_unit_desc": "Example BU 500"
         },
-        "icon": "edit"
+        "icon": "edit",
+        "log_level": ""
     },
     {
         "id": 2,
@@ -32,7 +47,8 @@ Content-Type: application/json
         "name": "UserCreatedActivity",
         "text": "Admin Testerton created user Cindy Lu",
         "data": {"user": 7},
-        "icon": "user"
+        "icon": "user",
+        "log_level": ""
     },
     {
         "id": 1,
@@ -42,6 +58,7 @@ Content-Type: application/json
         "text": "Admin Testerton logged in",
         "data": {},
         "icon": "user"
+        "log_level" : ""
     }]
 }
 ```
@@ -101,7 +118,8 @@ Content-Type: application/json
         "name": "UserCreatedActivity",
         "text": "Admin Testerton created user Cindy Lu",
         "data": {"user": 7},
-        "icon": "user"
+        "icon": "user",
+        "log_level": ""
 }
 ```
 
