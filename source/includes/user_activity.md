@@ -1,6 +1,6 @@
 # User Activities
 
-## Get all user activities
+## Get all activities
 
 ```http
 GET /api/v2/users/me/activities/ HTTP/1.1
@@ -64,7 +64,9 @@ Content-Type: application/json
 }
 ```
 
-This endpoint returns a list of Activities pertaining to the current user.  Activities are events that have occurred in the application. We return when they occurred and some additional data about the event.
+This endpoint returns a list of Activities that impact the current user.  This includes activities performed by the current user, activites that affect the current user directly, and activities about projects the current user is a part of.  Login/logout activities are not included in this list.
+
+Activities are events that have occurred in the application. We return when they occurred and some additional data about the event.
 
 ** `GET /api/v2/users/me/activities/` **
 
@@ -90,7 +92,7 @@ id               | Returns the activities with the specified id.
 name             | Returns a list of activities with the specified name.
 project          | Returns a list of activities that reference the project with the specified id.
 project_desc     | Returns a list of activities that reference the project with the specified project_desc.
-user             | Returns a list of activities that reference the user with the specified user id (not to be confused with activities that are performed by this user).
+user             | Returns a list of activities that reference the user with the specified user id (not to be confused with activities that are performed by this user).  The id used here is a number, for example `?user=1`.
 standard         | Returns a list of activities that reference the standard with the specified id.  The id is of the format T or CT followed by a number, for example 'T1'.
 standard_desc    | Returns a list of activities that reference the standard with the specified standard_desc.
 
@@ -118,8 +120,9 @@ Content-Type: application/json
         "actor": 1,
         "name": "UserCreatedActivity",
         "text": "Admin Testerton created user Cindy Lu",
-        "data": {"user": 7},
-        "icon": "user"
+        "data": {"user": "U7"},
+        "icon": "user",
+        "log_level": ""
 }
 ```
 

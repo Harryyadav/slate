@@ -46,9 +46,10 @@ Content-Type: application/json
         "actor": 1,
         "name": "UserCreatedActivity",
         "text": "Admin Testerton created user Cindy Lu",
-        "data": {"user": 7},
+        "data": {"user": "U7}",
         "icon": "user",
         "log_level": ""
+
     },
     {
         "id": 1,
@@ -89,7 +90,7 @@ id               | Returns the activities with the specified id.
 name             | Returns a list of activities with the specified name.
 project          | Returns a list of activities that reference the project with the specified id.
 project_desc     | Returns a list of activities that reference the project with the specified project_desc.
-user             | Returns a list of activities that reference the user with the specified user id (not to be confused with activities that are performed by this user).
+user             | Returns a list of activities that reference the user with the specified user id (not to be confused with activities that are performed by this user).  The id used here is a number, for example `?user=1`.
 standard         | Returns a list of activities that reference the standard with the specified id.  The id is of the format T or CT followed by a number, for example 'T1'.
 standard_desc    | Returns a list of activities that reference the standard with the specified standard_desc.
 
@@ -117,9 +118,10 @@ Content-Type: application/json
         "actor": 1,
         "name": "UserCreatedActivity",
         "text": "Admin Testerton created user Cindy Lu",
-        "data": {"user": 7},
+        "data": {"user": "U7"},
         "icon": "user",
         "log_level": ""
+
 }
 ```
 
