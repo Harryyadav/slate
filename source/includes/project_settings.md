@@ -45,7 +45,7 @@ Content-Type: application/json
             "id": "A21",
             "cpe": "cpe:/question/answer",
             "text": "",
-            "selected_by": []
+            "selected_by": [],
             "question": "Q100",
         }
     ],
@@ -124,7 +124,7 @@ Content-Type: application/json
                     "id": "Q21",
                     "text": "Is this a question?",
                     "description": "Help text",
-                    "format": "MC" # SC for single choice, else MC
+                    "format": "MC" // SC for single choice, else MC
                     "mandatory": false,
                     "satisfied": true,
                     "subquestions": [...]
@@ -177,7 +177,7 @@ PUT /api/v2/projects/1/settings/draft/A21/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 
-{'selected': true}
+{"selected": true}
 ```
 
 ```http
@@ -196,8 +196,7 @@ Content-Type: application/json
 ```
 
 Modifies the specified answer in the draft and returns the full draft state.
-Other answers may be affected because of the change due to answer implications
-changing the selected state and match conditions affecting answer validity.
+This may affect other answer's selected and valid values.
 
 **`PUT /api/v2/projects/{project_id}/project-settings/draft/{answer_id}/`**
 
@@ -214,7 +213,7 @@ PUT /api/v2/projects/1/settings/draft/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 
-{'profile': 'P21'}
+{"profile": "P21"}
 ```
 
 ```http
