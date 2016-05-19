@@ -68,7 +68,7 @@ This endpoint returns a list of Activities that impact the current user.  This i
 
 Activities are events that have occurred in the application. We return when they occurred and some additional data about the event.
 
-** `GET /api/v2/users/me/activities/` **
+** `GET /api/v2/users/me/activities/`**
 
 Note: this endpoint uses the term 'standard' to reference what we call 'library tasks' elsewhere in the API.
 
@@ -83,19 +83,18 @@ Parameter        | Description
 -----------------|-------------
 actor            | Returns a list of activities performed by the user with the id specified.
 application      | Returns a list of activities that reference the application with the specified id.
-application_desc | Returns a list of activities that reference the application with the specified application_desc.
+application_desc | Returns a list of activities that reference the application with the specified application name.
 business_unit    | Returns a list of activities that reference the business unit with the specified id.
-business_unit_desc | Returns a list of activities that reference the business_unit with the specified business_unit_desc.
+business_unit_desc | Returns a list of activities that reference the business_unit with the specified business unit name.
 date_to          | Returns all activities performed at or before the specified date.
 date_from        | Returns all activities performed at or after the specified date.
 id               | Returns the activities with the specified id.
 name             | Returns a list of activities with the specified name.
 project          | Returns a list of activities that reference the project with the specified id.
-project_desc     | Returns a list of activities that reference the project with the specified project_desc.
+project_desc     | Returns a list of activities that reference the project with the specified project name.
 user             | Returns a list of activities that reference the user with the specified user id (not to be confused with activities that are performed by this user).  The id used here is a number, for example `?user=1`.
-standard         | Returns a list of activities that reference the standard with the specified id.  The id is of the format T or CT followed by a number, for example 'T1'.
-standard_desc    | Returns a list of activities that reference the standard with the specified standard_desc.
-
+standard         | Returns a list of activities that reference the standard with the specified id.  The format of this parameter value is the standard id prefixed by a 'T' for builtin standards or 'CT' for custom standards.
+standard_desc    | Returns a list of activities that reference the standard with the specified standard's full name, for example: "T21: Ensure confidential data is sent over an encrypted channel".
 
 
 
