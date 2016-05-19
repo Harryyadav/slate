@@ -1,9 +1,9 @@
-# Activities
+# User Activities
 
 ## Get all activities
 
 ```http
-GET /api/v2/activities/ HTTP/1.1
+GET /api/v2/users/me/activities/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
@@ -14,59 +14,61 @@ Content-Type: application/json
 
 {
     "results": [{
-        id: 5,
-        name: "CreatedGroupActivity",
-        actor: 1,
-        text: "Admin Testerton created group group A",
-        date: "2016-05-06T14:53:28.557156Z",
-        data: {
-            target_group_desc: "group A",
-            group: "G1",
-            group_desc: "group A"
-        },
-        icon: "user",
-        log_level: "success"
-    },
-    {
-        "id": 3,
-        "date": "2016-03-30T17:10:20.532634+00:00",
+        "id": 23,
         "actor": 7,
-        "name": "ModifiedBusinessUnitActivity",
-        "text": "Admin Testerton modified business unit Example BU 500",
-        "data": {
-            "business_unit": 5,
-            "business_unit_desc": "Example BU 500"
+        "name": "MarkedTaskActivity",
+        "text": "Cindy Lu marked T21: Ensure confidential data is sent over an encrypted channel as Complete in project proj1 of application app1",
+        "date": "2016-05-11T18:53:02.216545Z",
+        "data":{
+            "status": "TS1",
+            "project_desc": "proj1",
+            "application_desc": "app1",
+            "status_desc": "Complete",
+            "standard": "T21",
+            "standard_desc": "T21: Ensure confidential data is sent over an encrypted channel",
+            "task_desc": "T21: Ensure confidential data is sent over an encrypted channel",
+            "business_unit_desc": "Example BU"
         },
-        "icon": "edit",
+        "icon" : "check",
         "log_level": ""
     },
     {
-        "id": 2,
-        "date": "2016-03-30T15:16:05.659610+00:00",
+        "id": 20,
+        "name": "AddedUserToProjectActivity",
         "actor": 1,
+        "text": "Admin Testerton added Cindy Luto project proj1 in application app1",
+        "date": "2016-05-11T18:52:34.548759Z",
+        "data": {
+            "project_desc": "proj1",
+            "application_desc": "app1",
+            "user": "U7",
+            "user_desc": "Cindy Lu",
+            "business_unit_desc": "Example BU"
+        },
+        "icon": "users",
+        "log_level": ""
+    },
+    {
+        "id": 4,
         "name": "UserCreatedActivity",
+        "actor": 1,
         "text": "Admin Testerton created user Cindy Lu",
-        "data": {"user": "U7}",
+        "date": "2016-05-06T14:53:10.961953Z",
+        "data": {
+            "user": "U2",
+            "user_desc": "Cindy Lu"
+        },
         "icon": "user",
         "log_level": ""
-
-    },
-    {
-        "id": 1,
-        "date": "2016-03-30T15:14:46.634929+00:00",
-        "actor": 1,
-        "name": "LoggedInActivity",
-        "text": "Admin Testerton logged in",
-        "data": {},
-        "icon": "user"
-        "log_level" : ""
     }]
 }
 ```
 
-This endpoint returns a list of Activities.  Activities are events that have occurred in the application. We return when they occurred and some additional data about the event.
+This endpoint returns a list of Activities that impact the current user.  This includes activities performed by the current user, activites that affect the current user directly, and activities about projects the current user is a part of.  Login/logout activities are not included in this list.
 
-** `GET /api/v2/activities/`**
+Activities are events that have occurred in the application. We return when they occurred and some additional data about the event.
+
+** `GET /api/v2/users/me/activities/`**
 
 Note: this endpoint uses the term 'standard' to reference what we call 'library tasks' elsewhere in the API.
 
@@ -99,11 +101,10 @@ standard_desc    | Returns a list of activities that reference the standard with
 
 
 
-
 ## Get a Specific Activity
 
 ```http
-GET /api/v2/activities/2/ HTTP/1.1
+GET /api/v2/users/me/activities/2/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
@@ -113,7 +114,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-        "id": 2,
+        "id": 4,
         "date": "2016-03-30T15:16:05.659610+00:00",
         "actor": 1,
         "name": "UserCreatedActivity",
@@ -121,13 +122,12 @@ Content-Type: application/json
         "data": {"user": "U7"},
         "icon": "user",
         "log_level": ""
-
 }
 ```
 
 This endpoint retreives a specific Activity Resource as specified by the activity_id.
 
-**`GET /api/v2/activities/{activity_id}/`**
+**`GET /api/v2/users/me/activities/{activity_id}/`**
 
 ### URL Parameters
 

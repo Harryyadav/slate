@@ -38,6 +38,7 @@ includes:
  - task_statuses
  - task_updates
  - users
+ - user_activity
 
 search: true
 

@@ -153,7 +153,7 @@ Parameter     | Description
 --------------|---------------------
 permissions   | Includes a list of permissions the requesting user has for the project
 task_counts   | Includes counts of tasks broken down by priority and completeness for the project.<br>Priorities are: high (7-10), medium (4-6), low (1-3).
-=======
+
 
 
 
