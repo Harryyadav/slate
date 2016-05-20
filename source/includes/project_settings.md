@@ -156,7 +156,7 @@ survey    | Includes a full representation of the survey structure with metadata
 
 Reverts changes to the draft to the last saved state.
 
-**`DELETE /api/v2/projects/{project_id}/project-settings/draft/`**
+**`DELETE /api/v2/projects/{project_id}/settings/draft/`**
 
 ---
 
@@ -166,7 +166,7 @@ This saves the current changes to the draft to the project. This may cause chang
 in the applicable tasks & other content for the project as well as accepting any
 other unaccepted changes to the tasks.
 
-**`POST /api/v2/projects/{project_id}/project-settings/draft/`**
+**`POST /api/v2/projects/{project_id}/settings/draft/`**
 
 ---
 
@@ -198,7 +198,7 @@ Content-Type: application/json
 Modifies the specified answer in the draft and returns the full draft state.
 This may affect other answer's selected and valid values.
 
-**`PUT /api/v2/projects/{project_id}/project-settings/draft/{answer_id}/`**
+**`PUT /api/v2/projects/{project_id}/settings/draft/{answer_id}/`**
 
 Field    | Required | Description
 -------- | -------- | -----------
@@ -234,7 +234,7 @@ Content-Type: application/json
 Clears the current draft and uses the answers set on the specified profile for
 the draft instead. Any unsaved changes will be lost.
 
-**`PUT /api/v2/projects/{project_id}/project-settings/draft/`**
+**`PUT /api/v2/projects/{project_id}/settings/draft/`**
 
 Field    | Required | Description
 -------- | -------- | ----------
