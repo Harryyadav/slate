@@ -46,7 +46,7 @@ Content-Type: application/json
             "cpe": "cpe:/question/answer",
             "text": "",
             "selected_by": [],
-            "question": "Q100",
+            "question": "Q100"
         }
     ],
     "survey_complete": true
@@ -95,7 +95,7 @@ is different from the last saved settings.
 ### Include Filters
 
 ```http
-GET /api/v2/projects/1/settings/draft/?expand=answers HTTP/1.1
+GET /api/v2/projects/1/settings/draft/?include=survey HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
@@ -124,10 +124,10 @@ Content-Type: application/json
                     "id": "Q21",
                     "text": "Is this a question?",
                     "description": "Help text",
-                    "format": "MC" // SC for single choice, else MC
+                    "format": "MC", // SC for single choice, else MC
                     "mandatory": false,
                     "satisfied": true,
-                    "subquestions": [...]
+                    "subquestions": [...],
                     "answers": [{
                         "id": "A21",
                         "text": "Yes",
@@ -136,7 +136,6 @@ Content-Type: application/json
                         "valid": true,
                         "selected_by": []
                     }, ...]
-
                 }, ...]
             }, ...]
         }, ...]
