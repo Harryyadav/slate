@@ -365,9 +365,9 @@ Content-Type: application/json
     "custom_attributes": {
       "slug": "value"
     },
-    "locked_on": null,
-    "locked_by": null,
-    "locked": false
+    "locked_on": "2016-06-01T14:39:45.083334Z",
+    "locked_by": 1,
+    "locked": true
 }
 ```
 
