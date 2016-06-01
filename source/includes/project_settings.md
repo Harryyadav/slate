@@ -175,6 +175,27 @@ survey    | Includes a full representation of the survey structure with metadata
 
 ## Reset the draft
 
+```http
+DELETE /api/v2/projects/1/settings/draft/ HTTP/1.1
+Accept: application/json
+Authorization: Token "YOUR SDE ACCESS TOKEN"
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "answers": [{
+            "id": "A21",
+            "selected": false,
+            "valid": true
+    }, ...],
+    "survey_complete": true,
+    "dirty": false,
+}
+```
+
 Reverts changes to the draft to the last saved state.
 
 **`DELETE /api/v2/projects/{project_id}/settings/draft/`**
@@ -182,6 +203,27 @@ Reverts changes to the draft to the last saved state.
 ---
 
 ## Save the draft
+
+```http
+POST /api/v2/projects/1/settings/draft/ HTTP/1.1
+Accept: application/json
+Authorization: Token "YOUR SDE ACCESS TOKEN"
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "answers": [{
+            "id": "A21",
+            "selected": false,
+            "valid": true
+    }, ...],
+    "survey_complete": true,
+    "dirty": false,
+}
+```
 
 This saves the current changes to the draft to the project. This may cause changes
 in the applicable tasks & other content for the project as well as accepting any
