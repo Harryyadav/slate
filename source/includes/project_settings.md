@@ -127,7 +127,29 @@ Content-Type: application/json
                     "format": "MC", // SC for single choice, else MC
                     "mandatory": false,
                     "satisfied": true,
-                    "subquestions": [...],
+                    "subquestions": [{
+                        "mandatory": false,
+                        "description: "",
+                        "format: "MC",
+                        "text: "Sub Question?",
+                        "satisfied": true,
+                        "answers": [{
+                            "description": "Description 1",
+                            "text": "Answer 1",
+                            "selected": false,
+                            "selected_by": [ ],
+                            "valid": true,
+                            "id": "A11"
+                        }, {
+                            "description": "Description 2",
+                            "text": "Answer 2",
+                            "selected": false,
+                            "selected_by": [ ],
+                            "valid": true,
+                            "id": "A12"
+                        }],
+                        id: "Q216"
+                    }],
                     "answers": [{
                         "id": "A21",
                         "text": "Yes",
