@@ -413,14 +413,14 @@ Content-Type: application/json
 
 Updates a single Task resource, as specified by the project and task id parameters.
 
-**`PATCH /api/v2/projects/{project_id}/tasks/{task_id}/`**
+**`PATCH /api/v2/projects/{project_id}/tasks/{id}/`**
 
 ### URL Parameters
 
 Parameter      | Description
 ---------------|------------------
 project_id     | The id of the project to edit this task belongs to
-task_id        | The id of the task to modify
+id             | The id of the task to modify
 
 ### Payload
 
