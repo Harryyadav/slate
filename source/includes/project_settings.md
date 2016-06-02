@@ -46,7 +46,7 @@ Content-Type: application/json
             "cpe": "cpe:/question/answer",
             "text": "",
             "selected_by": [],
-            "question": "Q100",
+            "question": "Q100"
         }
     ],
     "survey_complete": true
@@ -95,7 +95,7 @@ is different from the last saved settings.
 ### Include Filters
 
 ```http
-GET /api/v2/projects/1/settings/draft/?expand=answers HTTP/1.1
+GET /api/v2/projects/1/settings/draft/?include=survey HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
@@ -124,10 +124,32 @@ Content-Type: application/json
                     "id": "Q21",
                     "text": "Is this a question?",
                     "description": "Help text",
-                    "format": "MC" // SC for single choice, else MC
+                    "format": "MC", // SC for single choice, else MC
                     "mandatory": false,
                     "satisfied": true,
-                    "subquestions": [...]
+                    "subquestions": [{
+                        "mandatory": false,
+                        "description: "",
+                        "format: "MC",
+                        "text: "Sub Question?",
+                        "satisfied": true,
+                        "answers": [{
+                            "description": "Description 1",
+                            "text": "Answer 1",
+                            "selected": false,
+                            "selected_by": [ ],
+                            "valid": true,
+                            "id": "A11"
+                        }, {
+                            "description": "Description 2",
+                            "text": "Answer 2",
+                            "selected": false,
+                            "selected_by": [ ],
+                            "valid": true,
+                            "id": "A12"
+                        }],
+                        id: "Q216"
+                    }],
                     "answers": [{
                         "id": "A21",
                         "text": "Yes",
@@ -136,7 +158,6 @@ Content-Type: application/json
                         "valid": true,
                         "selected_by": []
                     }, ...]
-
                 }, ...]
             }, ...]
         }, ...]
@@ -154,6 +175,27 @@ survey    | Includes a full representation of the survey structure with metadata
 
 ## Reset the draft
 
+```http
+DELETE /api/v2/projects/1/settings/draft/ HTTP/1.1
+Accept: application/json
+Authorization: Token "YOUR SDE ACCESS TOKEN"
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "answers": [{
+            "id": "A21",
+            "selected": false,
+            "valid": true
+    }, ...],
+    "survey_complete": true,
+    "dirty": false,
+}
+```
+
 Reverts changes to the draft to the last saved state.
 
 **`DELETE /api/v2/projects/{project_id}/settings/draft/`**
@@ -161,6 +203,27 @@ Reverts changes to the draft to the last saved state.
 ---
 
 ## Save the draft
+
+```http
+POST /api/v2/projects/1/settings/draft/ HTTP/1.1
+Accept: application/json
+Authorization: Token "YOUR SDE ACCESS TOKEN"
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "answers": [{
+            "id": "A21",
+            "selected": false,
+            "valid": true
+    }, ...],
+    "survey_complete": true,
+    "dirty": false,
+}
+```
 
 This saves the current changes to the draft to the project. This may cause changes
 in the applicable tasks & other content for the project as well as accepting any
