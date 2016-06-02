@@ -68,7 +68,7 @@ name        | Filter projects by name.
 slug        | Filter projects by slug.
 ordering    | Sort projects by the specified field. Prefix field name with minus to sort descending. Sortable fields: name, created, updated.
 search      | Filter projects by performing a textual search on name and profile name.
----
+
 
 ### Include Parameters
 
@@ -131,17 +131,17 @@ Content-Type: application/json
         ],
         "task_counts": {
             "high": {
-                "incomplete": 19
+                "incomplete": 19,
                 "complete": 2,
                 "na": 0
             },
             "medium": {
-                "incomplete": 4
+                "incomplete": 4,
                 "complete": 3,
                 "na": 1
             },
             "low": {
-                "incomplete": 2
+                "incomplete": 2,
                 "complete": 1,
                 "na": 0
             }
