@@ -45,7 +45,10 @@ Content-Type: application/json
         }],
         "custom_attributes": {
           "slug": "value"
-        }
+        },
+        "locked_on": null,
+        "locked_by": null,
+        "locked": false
     }]
 }
 ```
@@ -65,7 +68,7 @@ name        | Filter projects by name.
 slug        | Filter projects by slug.
 ordering    | Sort projects by the specified field. Prefix field name with minus to sort descending. Sortable fields: name, created, updated.
 search      | Filter projects by performing a textual search on name and profile name.
----
+
 
 ### Include Parameters
 
@@ -128,21 +131,24 @@ Content-Type: application/json
         ],
         "task_counts": {
             "high": {
-                "incomplete": 19
+                "incomplete": 19,
                 "complete": 2,
                 "na": 0
             },
             "medium": {
-                "incomplete": 4
+                "incomplete": 4,
                 "complete": 3,
                 "na": 1
             },
             "low": {
-                "incomplete": 2
+                "incomplete": 2,
                 "complete": 1,
                 "na": 0
             }
-        }
+        },
+        "locked_on": null,
+        "locked_by": null,
+        "locked": false
     }]
 }
 ```
@@ -208,7 +214,10 @@ Content-Type: application/json
     }],
     "custom_attributes": {
       "slug": "value"
-    }
+    },
+    "locked_on": null,
+    "locked_by": null,
+    "locked": false
 }
 ```
 
@@ -282,7 +291,10 @@ Content-Type: application/json
         "role": "PR4"
     }],
     "custom_attributes": {
-    }
+    },
+    "locked_on": null,
+    "locked_by": null,
+    "locked": false
 }
 ```
 
@@ -293,7 +305,7 @@ groups      | No       | A list of dictionaries per group that are to be assigne
 name        | Yes      | The name of the new project.
 profile     | No       | The ID of the desired profile for the project.
 users       | No       | A list of dictionaries per user that are to be assigned to the project. Each dictionary should contain the user's email and the desired role.
-
+locked      | No       | A boolean field to lock or unlock the project. It can only be used by users that have lock_project_settings permission
 
 
 
@@ -352,7 +364,10 @@ Content-Type: application/json
     }],
     "custom_attributes": {
       "slug": "value"
-    }
+    },
+    "locked_on": "2016-06-01T14:39:45.083334Z",
+    "locked_by": 1,
+    "locked": true
 }
 ```
 
@@ -366,7 +381,20 @@ Parameter  | Description
 ---------  | -----------
 project_id | The id of the Project to update
 
+### Payload
 
+Fields        | Required | Description
+--------------|----------|---------------
+locked        | No       | A boolean field to lock or unlock the project. It can only be used by users that have lock_project_settings permission
+application   | No       | The ID of the application the project should be created under.
+profile       | No       | The ID of the desired profile for the project.
+archived      | No       | A boolean to archive and unarchive a project.
+name          | No       | The name of the project.
+description   | No       | Project description.
+tags          | No       | List of project tags.
+parent        | No       | Id of the parent project.
+users         | No       | A list of dictionaries per user that are to be assigned to the project. Each dictionary should contain the user's email and the desired role.
+groups        | No       | A list of dictionaries per group that are to be assigned to the project. Each dictionary should contain the group's id and the desired role.
 
 
 
