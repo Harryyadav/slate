@@ -318,7 +318,7 @@ locked      | No       | A boolean field to lock or unlock the project. It can o
 ## Update a Project
 
 ```http
-PUT /api/v2/projects/1936/ HTTP/1.1
+PATCH /api/v2/projects/1936/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 
@@ -373,7 +373,7 @@ Content-Type: application/json
 
 Update a single project by specifying a new name and a new application. The project to update is identified by the id.
 
-**`PUT /api/v2/projects/{project_id}/`**
+**`PATCH /api/v2/projects/{project_id}/`**
 
 ### URL Parameters
 
