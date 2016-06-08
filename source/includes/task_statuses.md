@@ -1,6 +1,6 @@
 # Task Statuses
 
-## Get all Task Status Resources
+## Get all Task Statuses
 
 ```http
 GET /api/v2/task-statuses/ HTTP/1.1
@@ -40,6 +40,9 @@ Content-Type: application/json
 ```
 
 This endpoint returns a list of Task Status resources.
+
+**`GET /api/v2/task-statuses/`**
+
 
 ### Query Parameters
 
