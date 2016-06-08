@@ -100,7 +100,7 @@ phase       | Phase field is expanded into id, name, slug, description and tip s
 ### Include Parameters
 
 ```http
-GET /api/v2/projects/1/tasks/?include=tags,related,problem,how_tos HTTP/1.1
+GET /api/v2/projects/1/tasks/?include=tags,related,problem,how_tos,references HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
@@ -163,6 +163,15 @@ Content-Type: application/json
                 "name": "SR2.7 (L3 and higher)",
                 "regulation": "CR39"
             }
+        ],
+        "references" : [
+            {
+              "id": 10,
+              "alm_connection": 1,
+              "reference": "47300",
+              "name": "US451",
+              "link": "https://sdetest.atlassian.net/rest/api/2/issue/47300"
+            },
         ]
     }]
 }
@@ -176,7 +185,8 @@ how_tos             | Includes a list of applicable how-tos
 problem             | Includes the problem that the task is related to
 related             | Includes a list of related tasks
 tags                | Includes a list of tags associated to the task
-regulation_sections | Includes a list of regulation sections to which this task belongs.
+regulation_sections | Includes a list of regulation sections to which this task belongs
+references          | Includes a list of task references linked to this task
 ---
 
 ### Filter Parameters
