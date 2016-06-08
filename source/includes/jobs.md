@@ -151,12 +151,12 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
     "connection": 12,
     "result_message": "My Message",
     "succeeded": true,
-    "automatic": true,
+    "automatic": true
 }
 ```
 
 ```http
-HTTP/1.1 200 OK
+HTTP/1.1 201 CREATED
 Content-Type: application/json
 
 {
@@ -357,7 +357,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
 
 ```http
-HTTP/1.1 200 OK
+HTTP/1.1 201 CREATED
 Content-Type: application/json
 
 {
