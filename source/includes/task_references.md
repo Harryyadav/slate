@@ -18,15 +18,15 @@ Content-Type: application/json
       "id": 1,
       "alm_connection": 2,
       "reference": "47300",
-      "name": "US450",
-      "link": "https://sdetest.atlassian.net/rest/api/2/issue/47300"
+      "name": "PROJ-450",
+      "link": "https://atlassian.net/browse/PROJ-450"
     },
     {
       "id": 2,
       "alm_connection": 3,
       "reference": "47301",
-      "name": "US451",
-      "link": "https://sdetest.atlassian.net/rest/api/2/issue/47301"
+      "name": "PROJ-451",
+      "link": "https://atlassian.net/browse/PROJ-451"
     }
   ]
 }
@@ -62,8 +62,8 @@ Content-Type: application/json
   "id": 1,
   "alm_connection": 2,
   "reference": "47300",
-  "name": "US450",
-  "link": "https://sdetest.atlassian.net/rest/api/2/issue/47300"
+  "name": "PROJ-450",
+  "link": "https://atlassian.net/browse/PROJ-450"
 }
 ```
 
@@ -90,8 +90,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
 {
   "alm_connection": 2,
   "reference": "47300",
-  "name": "US450",
-  "link": "https://sdetest.atlassian.net/rest/api/2/issue/47300"
+  "name": "PROJ-450",
+  "link": "https://atlassian.net/browse/PROJ-450"
 }
 ```
 
@@ -103,8 +103,8 @@ Content-Type: application/json
   "id": 1,
   "alm_connection": 2,
   "reference": "47300",
-  "name": "US450",
-  "link": "https://sdetest.atlassian.net/rest/api/2/issue/47300"
+  "name": "PROJ-450",
+  "link": "https://atlassian.net/browse/PROJ-450"
 }
 ```
 
@@ -132,8 +132,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
 
 {
   "reference": "47300",
-  "name": "US450",
-  "link": "https://sdetest.atlassian.net/rest/api/2/issue/47300"
+  "name": "PROJ-450",
+  "link": "https://atlassian.net/browse/PROJ-450"
 }
 ```
 
@@ -145,8 +145,8 @@ Content-Type: application/json
   "id": 1,
   "alm_connection": 2,
   "reference": "47300",
-  "name": "US450",
-  "link": "https://sdetest.atlassian.net/rest/api/2/issue/47300"
+  "name": "PROJ-450",
+  "link": "https://atlassian.net/browse/PROJ-450"
 }
 ```
 
