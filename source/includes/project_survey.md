@@ -192,7 +192,7 @@ Content-Type: application/json
             "valid": true
     }, ...],
     "survey_complete": true,
-    "dirty": false,
+    "dirty": false
 }
 ```
 
