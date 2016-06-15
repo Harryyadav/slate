@@ -86,8 +86,8 @@ application      | Returns a list of activities that reference the application w
 application_desc | Returns a list of activities that reference the application with the specified application name.
 business_unit    | Returns a list of activities that reference the business unit with the specified id.
 business_unit_desc | Returns a list of activities that reference the business_unit with the specified business unit name.
-date_to          | Returns all activities performed at or before the specified date.
-date_from        | Returns all activities performed at or after the specified date.
+date_to          | Returns all activities performed at or before the specified date. Note that if you would like to filter the date by UTC time, add a 'Z' to the end of the time. Otherwise, it is assumed you are filtering using local time. This is consistent with the ISO format, which we use for our dates. An example of the format can be found here: https://www.w3.org/TR/NOTE-datetime.
+date_from        | Returns all activities performed at or after the specified date. Note that if you would like to filter the date by UTC time, add a 'Z' to the end of the time. Otherwise, it is assumed you are filtering using local time. This is consistent with the ISO format, which we use for our dates. An example of the format can be found here: https://www.w3.org/TR/NOTE-datetime.
 id               | Returns the activities with the specified id.
 name             | Returns a list of activities with the specified name.
 project          | Returns a list of activities that reference the project with the specified id.
