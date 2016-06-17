@@ -161,6 +161,71 @@ permissions   | Includes a list of permissions the requesting user has for the p
 task_counts   | Includes counts of tasks broken down by priority and completeness for the project.<br>Priorities are: high (7-10), medium (4-6), low (1-3).
 
 
+### Expand Parameters
+
+```http
+GET /api/v2/projects/?expand=creator HTTP/1.1
+Accept: application/json
+Authorization: Token "YOUR SDE ACCESS TOKEN"
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "results": [{
+        "id": 1936,
+        "slug": "project-test",
+        "url": "http://example.com/bunits/bu-test/app-test/project-test",
+        "application": 1280,
+        "profile" : {
+            "id": "P9",
+            "name": "Android App",
+            "logo_url": "/static/images/android.png"
+        },
+        "archived": false,
+        "name": "Project Test",
+        "creator": {
+            "id": "1",
+            "email": "test@example.com",
+            "role": "PR4",
+            "first_name": "Admin",
+            "last_name": "Testerton"
+        },
+        "description": "API Project",
+        "tags": ["foo", "bar"],
+        "created": "2015-04-15T19:30:04.132712Z",
+        "updated": "2015-04-15T19:57:15.042353Z",
+        "parent": null,
+        "users": [{
+            "id": "1",
+            "email": "test@example.com",
+            "role": "PR4",
+            "first_name": "Admin",
+            "last_name": "Testerton"
+        }],
+        "groups": [{
+            "id": "G1",
+            "name": "Devs",
+            "role": "PR4"
+        }],
+        "custom_attributes": {
+          "slug": "value"
+        },
+        "locked_on": null,
+        "locked_by": null,
+        "locked": false
+    }]
+}
+```
+
+See the [Expand Parameters](#expand-parameters) section for more details.
+
+Parameter   | Description
+------------|---------------------
+creator     | Creator field is expanded to display information on the project creator
+
 
 
 
