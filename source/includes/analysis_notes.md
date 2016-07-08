@@ -25,7 +25,8 @@ Content-Type: application/json
         "created": "2015-03-26T19:50:46.348000Z",
         "findings": {},
         "finding_ref": "my_ref",
-        "status": "pass"
+        "status": "pass",
+        "automatic": true
     }]
 }
 ```
@@ -67,7 +68,8 @@ Content-Type: application/json
     "created": "2015-03-26T19:50:46.348000Z",
     "findings": {},
     "finding_ref": "my_ref",
-    "status": "pass"
+    "status": "pass",
+    "automatic": true
 }
 ```
 
@@ -117,7 +119,8 @@ Content-Type: application/json
     "created": "2015-03-26T19:50:46.348000Z",
     "findings": {},
     "finding_ref": "my_ref",
-    "status": "pass"
+    "status": "pass",
+    "automatic": true
 }
 ```
 
@@ -134,6 +137,7 @@ findings            | Yes      | JSON object/array representing analysis finding
 finding_ref         | No       |
 status              | Yes      | "pass", "partial", "fail", or "none"
 task_status_mapping | No       | See [Task Status Mapping](#task-status-mapping) section below.
+automatic           | No       | Whether the Task Note was posted by a tool. Default is `false`.
 
 ### Behaviour
 
