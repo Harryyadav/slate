@@ -35,7 +35,6 @@ Parameter  | Description
 ---------- | -----------
 project_id | The id of the Project
 task_id    | The id of the Task
-automatic  | The Task Note was posted by a tool
 
 
 
@@ -80,7 +79,6 @@ Parameter  | Description
 project_id | The id of the Project
 task_id    | The id of the Task
 note_id    | The id of the Task Note to retrieve
-automatic  | The Task Note was posted by a tool
 
 
 
@@ -128,14 +126,13 @@ Parameter  | Description
 ---------- | -----------
 project_id | The id of the Project
 task_id    | The id of the Task
-automatic  | The Task Note was posted by a tool
 
 ### Fields
 
 Field      | Required | Description
 ---------- |----------| -----------
 text       | Yes      | The note text
-automatic  | No       | Whether the Task Note was posted by a tool. Default is `true`.
+automatic  | No       | Whether the Task Note was posted by a tool. Default is `false`.
 
 
 
@@ -184,14 +181,13 @@ Parameter  | Description
 project_id | The id of the Project
 task_id    | The id of the Task
 note_id    | The id of the Task Note to update
-automatic  | The Task Note was posted by a tool
 
 ### Fields
 
 Field      | Required | Description
 ---------- |----------| -----------
 text       | Yes      | The note text
-automatic  | No       | Whether the Task Note was posted by a tool. Default is `true`.
+automatic  | No       | Whether the Task Note was posted by a tool. Default is `false`.
 
 
 
