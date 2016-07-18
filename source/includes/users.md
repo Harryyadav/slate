@@ -13,6 +13,9 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
+    "count": 10,
+    "next": "http://localhost/api/v2/users/?page=2&page_size=5",
+    "previous": null,
     "results": [{
         "id": 682,
         "email": "frank@sdelements.com",
@@ -23,11 +26,13 @@ Content-Type: application/json
         "date_joined": "2014-04-16T19:43:47.883319Z",
         "is_active": true,
         "is_superuser": false
-    }]
+    }...]
 }
 ```
 
 This endpoint returns a list of User resources.
+
+[Pagination](#pagination) is supported.
 
 **`GET /api/v2/users/`**
 
