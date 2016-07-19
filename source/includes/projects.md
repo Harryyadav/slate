@@ -370,7 +370,7 @@ groups      | No       | A list of dictionaries per group that are to be assigne
 name        | Yes      | The name of the new project.
 profile     | No       | The ID of the desired profile for the project.
 users       | No       | A list of dictionaries per user that are to be assigned to the project. Each dictionary should contain the user's email and the desired role.
-locked      | No       | A boolean field to lock or unlock the project. It can only be used by users that have lock_project_settings permission
+locked      | No       | A boolean field to lock or unlock the project. It can only be used by users that have lock_project_survey permission
 
 
 
@@ -450,7 +450,7 @@ project_id | The id of the Project to update
 
 Fields        | Required | Description
 --------------|----------|---------------
-locked        | No       | A boolean field to lock or unlock the project. It can only be used by users that have lock_project_settings permission
+locked        | No       | A boolean field to lock or unlock the project. It can only be used by users that have lock_project_survey permission
 application   | No       | The ID of the application the project should be created under.
 profile       | No       | The ID of the desired profile for the project.
 archived      | No       | A boolean to archive and unarchive a project.

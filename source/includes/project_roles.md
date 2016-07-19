@@ -17,7 +17,7 @@ Content-Type: application/json
         {
             "id": "PR4",
             "name": "Manage Project",
-            "description": "Can change project settings, ..."
+            "description": "Can change project survey, ..."
         },
         {
             "id": "PR5",
@@ -59,7 +59,7 @@ Content-Type: application/json
 {
     "id": "PR4",
     "name": "Manage Project",
-    "description": "Can change project settings, ..."
+    "description": "Can change project survey, ..."
 }
 ```
 

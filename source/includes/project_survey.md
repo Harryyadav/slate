@@ -1,9 +1,9 @@
-# Project Settings
+# Project Survey
 
-## Get the project settings of a project
+## Get the project survey of a project
 
 ```http
-GET /api/v2/projects/1/settings/ HTTP/1.1
+GET /api/v2/projects/1/survey/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
@@ -23,14 +23,14 @@ Content-Type: application/json
 
 This endpoint returns data relevant to the profile for the current project
 
-**`GET /api/v2/projects/{project_id}/settings/`**
+**`GET /api/v2/projects/{project_id}/survey/`**
 
 ---
 
 ### Expand Filters
 
 ```http
-GET /api/v2/projects/1/settings/?expand=answers HTTP/1.1
+GET /api/v2/projects/1/survey/?expand=answers HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
@@ -60,12 +60,12 @@ Parameter | Description
 answers   | answers in answers field are expanded to include id, cpe, text, selected_by
 ---
 
-# Project Settings Draft
+# Project Survey Draft
 
-## Get the current state of the project settings draft
+## Get the current state of the project survey draft
 
 ```http
-GET /api/v2/projects/1/settings/draft/ HTTP/1.1
+GET /api/v2/projects/1/survey/draft/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
@@ -84,18 +84,18 @@ Content-Type: application/json
     "dirty": false
 }
 ```
-Returns the current state of the settings draft. All non-hidden answers are returned
+Returns the current state of the survey draft. All non-hidden answers are returned
 along with whether they are selected and whether they are valid for the current
 survey state. Dirty is a boolean representing whether the current draft state
-is different from the last saved settings.
+is different from the last saved survey.
 
 
-**`GET /api/v2/projects/{project_id}/settings/draft/`**
+**`GET /api/v2/projects/{project_id}/survey/draft/`**
 
 ### Include Filters
 
 ```http
-GET /api/v2/projects/1/settings/draft/?include=survey HTTP/1.1
+GET /api/v2/projects/1/survey/draft/?include=survey HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
@@ -115,8 +115,8 @@ Content-Type: application/json
     "survey": {
         "sections": [{
             "id": "S1",
-            "title": "Application Settings",
-            "slug": "application-settings",
+            "title": "Application Survey",
+            "slug": "application-survey",
             "subsections": [{
                 "id": "Q1",
                 "title": "Programming Language",
@@ -176,7 +176,7 @@ survey    | Includes a full representation of the survey structure with metadata
 ## Reset the draft
 
 ```http
-DELETE /api/v2/projects/1/settings/draft/ HTTP/1.1
+DELETE /api/v2/projects/1/survey/draft/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
@@ -198,14 +198,14 @@ Content-Type: application/json
 
 Reverts changes to the draft to the last saved state.
 
-**`DELETE /api/v2/projects/{project_id}/settings/draft/`**
+**`DELETE /api/v2/projects/{project_id}/survey/draft/`**
 
 ---
 
 ## Save the draft
 
 ```http
-POST /api/v2/projects/1/settings/draft/ HTTP/1.1
+POST /api/v2/projects/1/survey/draft/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
@@ -229,14 +229,14 @@ This saves the current changes to the draft to the project. This may cause chang
 in the applicable tasks & other content for the project as well as accepting any
 other unaccepted changes to the tasks.
 
-**`POST /api/v2/projects/{project_id}/settings/draft/`**
+**`POST /api/v2/projects/{project_id}/survey/draft/`**
 
 ---
 
 ## Modify an answer in the draft
 
 ```http
-PUT /api/v2/projects/1/settings/draft/A21/ HTTP/1.1
+PUT /api/v2/projects/1/survey/draft/A21/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 
@@ -261,7 +261,7 @@ Content-Type: application/json
 Modifies the specified answer in the draft and returns the full draft state.
 This may affect other answer's selected and valid values.
 
-**`PUT /api/v2/projects/{project_id}/settings/draft/{answer_id}/`**
+**`PUT /api/v2/projects/{project_id}/survey/draft/{answer_id}/`**
 
 Field    | Required | Description
 -------- | -------- | -----------
@@ -272,7 +272,7 @@ selected | Yes      | Selects or unselects the specified answer
 ## Clone a profile to the draft
 
 ```http
-PUT /api/v2/projects/1/settings/draft/ HTTP/1.1
+PUT /api/v2/projects/1/survey/draft/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 
@@ -297,7 +297,7 @@ Content-Type: application/json
 Clears the current draft and uses the answers set on the specified profile for
 the draft instead. Any unsaved changes will be lost.
 
-**`PUT /api/v2/projects/{project_id}/settings/draft/`**
+**`PUT /api/v2/projects/{project_id}/survey/draft/`**
 
 Field    | Required | Description
 -------- | -------- | ----------
