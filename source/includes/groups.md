@@ -15,7 +15,7 @@ Content-Type: application/json
 {
     "results": [{
         "id": "G64",
-        "name": "Group2",
+        "name": "Group 64",
         "description": "Group description",
         "role": "UR4"
     }]
@@ -26,9 +26,46 @@ This endpoint returns a list of Group resources.
 
 **`GET /api/v2/groups/`**
 
+### Include Parameters
 
+```http
+GET /api/v2/groups?include=groups,users
+Accept: application/json
+Authorization: Token: "YOUR SDE ACCESS TOKEN"
+```
 
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
 
+{
+    "results": [{
+        "id": "G64",
+        "name": "Group 64",
+        "description": "Group description",
+        "role": "UR4"
+        "users": [{
+            "first_name": "Frank",
+            "last_name": "Testerton",
+            "is_active": true,
+            "id": 2,
+            "email": "frank@example.com"
+        }],
+        "groups": [{
+            role: "User",
+            id: "G1",
+            name: "Example Group"
+        }]
+    }]
+}
+```
+
+See the [Include Parameters](#include-parameters) section for more details.
+
+Parameter | Description
+----------|-----------------
+groups    | Includes a list of nested groups that are directly a member of the parent group
+users     | Includes a list of direct users a part of the group.
 
 
 
@@ -49,9 +86,9 @@ Content-Type: application/json
 
 {
     "id": "G64",
-    "name": "Group2",
+    "name": "Group 64",
     "description": "Group description",
-    "role": "UR4"
+    "role": "UR4",
 }
 ```
 
@@ -83,8 +120,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
 {
     "name": "Group 2",
     "role": "UR5",
-    "users": [{"email": "user1@example.com"}, {"email": "user2@example.com"}],
-    "groups": [{"id": "G1"}]
+    "users": [{"email": "frank@example.com"}],
+    "groups": ["G1"]
 }
 ```
 
@@ -97,8 +134,18 @@ Content-Type: application/json
     "name": "Group 2",
     "description": "",
     "role": "UR5",
-    "users": [{"email": "user1@example.com"}, {"email": "user2@example.com"}],
-    "groups": [{"id": "G1"}]
+    "users": [{
+        "first_name": "Frank",
+        "last_name": "Testerton",
+        "is_active": true,
+        "id": 2,
+        "email": "frank@example.com"
+    }],
+    "groups": [{
+        role: "User",
+        id: "G1",
+        name: "Example Group"
+    }]
 }
 ```
 
@@ -112,7 +159,7 @@ name          | Yes      | The name of the group resource
 description   | No       | The description of the group
 role          | Yes      | The role of the group
 users         | No       | A list of dictionaries representing the users who are part of the business unit. Each dictionary has an email field.
-groups        | No       | A list of dictionaries representing the groups which are part of the business unit. Each dictionary has an id field which is the group id.
+groups        | No       | A list of group ids representing the nested groups who are part of the parent group.
 
 
 
@@ -147,8 +194,18 @@ Content-Type: application/json
     "name": "User Experience Group",
     "description": "Deals with designing user experiences",
     "role": "UR1"
-    "users": [{"email": "user1@example.com"}, {"email": "user2@example.com"}],
-    "groups": [{"id": "G1"}]
+    "users": [{
+        "first_name": "Frank",
+        "last_name": "Testerton",
+        "is_active": true
+        "id": 2,
+        "email": "frank@example.com"
+    }],
+    "groups": [{
+        "role": "User"
+        "id": "G1",
+        "name": "Example Group"
+    }]
 }
 ```
 
@@ -162,3 +219,24 @@ Parameter       | Description
 --------------- | -----------
 group_id        | The ID of the Group to update
 
+
+
+## Delete a Group
+
+```http
+DELETE api/v2/groups/G1/
+Accept: application/json
+Authorization: Token "YOUR SDE ACCESS TOKEN"
+```
+
+```http
+HTTP/1.1 204 NO CONTENT
+```
+
+This endpoint deletes a single Group resource, as specified by the id parameter.
+
+** `DELETE /groups/{group_id}/`**
+
+Parameter | Description
+----------|----------------
+group_id  | The id of the group to delete
