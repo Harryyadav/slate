@@ -17,7 +17,7 @@ Content-Type: application/json
         "id": "G64",
         "name": "Group2",
         "description": "Group description",
-        "role": "Administrator"
+        "role": "UR4"
     }]
 }
 ```
@@ -51,7 +51,7 @@ Content-Type: application/json
     "id": "G64",
     "name": "Group2",
     "description": "Group description",
-    "role": "Administrator"
+    "role": "UR4"
 }
 ```
 
