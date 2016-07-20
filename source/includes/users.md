@@ -118,11 +118,13 @@ Content-Type: application/json
     "groups": [
         {
             "id": "G1",
-            "name": "Group1"
+            "name": "Group1",
+            "role": "Project Lead"
         },
         {
             "id": "G2",
-            "name": "Group2"
+            "name": "Group2",
+            "role": "No Role"
         }
     ]
 }
@@ -182,7 +184,8 @@ Content-Type: application/json
     "groups": [
         {
             "id": "G2",
-            "name": "Group2"
+            "name": "Group2",
+            "role": "No Role"
         }
     ]
 }
