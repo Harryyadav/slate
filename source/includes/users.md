@@ -22,7 +22,15 @@ Content-Type: application/json
         "last_login": "2014-12-15T20:10:51.900775Z",
         "date_joined": "2014-04-16T19:43:47.883319Z",
         "is_active": true,
-        "is_superuser": false
+        "is_superuser": false,
+        "role": "UR5",
+        "groups": [
+            {
+                "id": "G1",
+                "name": "Group1",
+                "role": "Project Lead"
+            }
+        ]
     }]
 }
 ```
