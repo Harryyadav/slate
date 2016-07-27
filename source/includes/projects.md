@@ -36,7 +36,8 @@ Content-Type: application/json
             "email": "test@example.com",
             "role": "PR4",
             "first_name": "Admin",
-            "last_name": "Testerton"
+            "last_name": "Testerton",
+            "is_active": true
         }],
         "groups": [{
             "id": "G1",
@@ -106,7 +107,8 @@ Content-Type: application/json
             "email": "test@example.com",
             "role": "PR4",
             "first_name": "Admin",
-            "last_name": "Testerton"
+            "last_name": "Testerton",
+            "is_active": true
         }],
         "groups": [{
             "id": "G1",
@@ -191,7 +193,8 @@ Content-Type: application/json
             "email": "test@example.com",
             "role": "PR4",
             "first_name": "Admin",
-            "last_name": "Testerton"
+            "last_name": "Testerton",
+            "is_active": true
         },
         "description": "API Project",
         "tags": ["foo", "bar"],
@@ -203,7 +206,8 @@ Content-Type: application/json
             "email": "test@example.com",
             "role": "PR4",
             "first_name": "Admin",
-            "last_name": "Testerton"
+            "last_name": "Testerton",
+            "is_active": true
         }],
         "groups": [{
             "id": "G1",
@@ -270,7 +274,8 @@ Content-Type: application/json
         "email": "test@example.com",
         "role": "PR4",
         "first_name": "Admin",
-        "last_name": "Testerton"
+        "last_name": "Testerton",
+        "is_active": true
     }],
     "groups": [{
         "id": "G1",
@@ -348,7 +353,8 @@ Content-Type: application/json
         "email": "test@example.com",
         "role": "PR4",
         "first_name": "Admin",
-        "last_name": "Testerton"
+        "last_name": "Testerton",
+        "is_active": true
     }],
     "groups": [{
         "id": "G1",
@@ -420,7 +426,8 @@ Content-Type: application/json
         "email": "test@example.com",
         "role": "PR4",
         "first_name": "Admin",
-        "last_name": "Testerton"
+        "last_name": "Testerton",
+        "is_active": true
     }],
     "groups": [{
         "id": "G1",

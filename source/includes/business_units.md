@@ -26,7 +26,8 @@ Content-Type: application/json
                 "id": 682,
                 "email": "frank@sdelements.com",
                 "first_name": "Frank",
-                "last_name": "Testerton"
+                "last_name": "Testerton",
+                "is_active": true
             }],
             "groups": [{
                 "id": "G64",
@@ -98,7 +99,8 @@ Content-Type: application/json
         "id": 682,
         "email": "frank@sdelements.com",
         "first_name": "Frank",
-        "last_name": "Testerton"
+        "last_name": "Testerton",
+        "is_active": true
     }],
     "groups": [{
         "id": "G64",
@@ -159,7 +161,8 @@ Content-Type: application/json
         "id": 1,
         "email": "test@example.com",
         "first_name": "Admin",
-        "last_name": "Testerton"
+        "last_name": "Testerton",
+        "is_active": true
     }],
     "groups": [{
         "id": "G1"
@@ -169,7 +172,8 @@ Content-Type: application/json
         "role": "PR4",
         "id": 1,
         "first_name": "Admin",
-        "last_name": "Testerton"
+        "last_name": "Testerton",
+        "is_active": true
     }],
     "default_groups": [{
         "id": "G1",
@@ -223,7 +227,8 @@ Content-Type: application/json
         "email": "test@example.com",
         "id": 1,
         "first_name": "Admin",
-        "last_name": "Testerton"
+        "last_name": "Testerton",
+        "is_active": true
     }],
     "groups": [{
         "id": "G1"
@@ -233,7 +238,8 @@ Content-Type: application/json
         "role": "PR4",
         "id": 1,
         "first_name": "Admin",
-        "last_name": "Testerton"
+        "last_name": "Testerton",
+        "is_active": true
     }],
     "default_groups": [{
         "id": "G1",
