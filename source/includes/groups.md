@@ -16,6 +16,7 @@ Content-Type: application/json
     "results": [{
         "id": "G64",
         "name": "Group 64",
+        "updated": "2016-07-29T21:02:33.764620Z",
         "description": "Group description",
         "role": "UR4"
     }]
@@ -42,6 +43,7 @@ Content-Type: application/json
     "results": [{
         "id": "G64",
         "name": "Group 64",
+        "updated": "2016-07-29T21:02:19.780768Z",
         "description": "Group description",
         "role": "UR4"
         "users": [{
@@ -87,6 +89,7 @@ Content-Type: application/json
 {
     "id": "G64",
     "name": "Group 64",
+    "updated": "2016-07-29T21:02:19.780768Z",
     "description": "Group description",
     "role": "UR4",
 }
@@ -132,6 +135,7 @@ Content-Type: application/json
 {
     "id": "G2",
     "name": "Group 2",
+    "updated": "2016-07-29T21:02:19.780768Z",
     "description": "",
     "role": "UR5",
     "users": [{
@@ -192,6 +196,7 @@ Content-Type: application/json
 {
     "id": "G2",
     "name": "User Experience Group",
+    "updated": "2016-07-29T21:02:19.780768Z",
     "description": "Deals with designing user experiences",
     "role": "UR1"
     "users": [{
