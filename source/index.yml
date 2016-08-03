@@ -40,6 +40,7 @@ includes:
  - task_updates
  - users
  - user_activity
+ - users_bulk
  - assigned_tasks
 
 search: true
