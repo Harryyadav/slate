@@ -1,0 +1,39 @@
+branches:
+  only:
+  - master
+  - /^release\/.*$/
+
+language: node_js
+
+node_js:
+  - node
+
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - libstdc++-4.9-dev
+
+env:
+  global:
+  - GIT_DEPLOY_USERNAME: TravisCI
+  - GIT_DEPLOY_EMAIL: dev@sdelements.com
+
+before_install:
+  - openssl aes-256-cbc -K $encrypted_8e6e122a6c8c_key -iv $encrypted_8e6e122a6c8c_iv -in deploy_key.enc -out deploy_key -d
+  - eval "$(ssh-agent -s)"
+  - chmod 600 deploy_key
+  - ssh-add deploy_key
+  - git config user.name "$GIT_DEPLOY_USERNAME"
+  - git config user.email "$GIT_DEPLOY_EMAIL"
+
+install:
+  - git clone git@github.com:sdelements/slate.git $TRAVIS_REPO_SLUG
+  - cd $TRAVIS_REPO_SLUG
+  # - git checkout -qf $TRAVIS_COMMIT
+  - git checkout -qf master
+  - npm install
+
+script:
+  - npm run deploy
