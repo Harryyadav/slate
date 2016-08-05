@@ -628,6 +628,12 @@ html, body {
 
 
 // SDE Elements specifc
+$header-height: 62px;
+
+body {
+  padding-top: $header-height;
+}
+
 .header {
   position: fixed;
   top: 0;
@@ -714,10 +720,6 @@ html, body {
   color: #aa759f;
 }
 
-// .content {
-//   height: calc(100% - 54px);
-// }
-
 .content {
   hr {
     border: 0;
@@ -725,8 +727,12 @@ html, body {
   }
 }
 
+#nav-button {
+  top: $header-height;
+}
+
 .tocify-wrapper {
-  top: 61px;
+  top: $header-height;
   font-weight: normal;
 
   li {
