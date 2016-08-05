@@ -6,6 +6,7 @@
   "scripts": {
     "start": "gulp serve",
     "build": "gulp",
+    "publish": "gulp publish",
     "deploy": "./deploy.sh"
   },
   "repository": {
@@ -19,6 +20,8 @@
   },
   "homepage": "https://github.com/sdelements/node-slate#readme",
   "devDependencies": {
+    "async": "^2.0.1",
+    "compare-versions": "^2.0.2",
     "del": "^2.2.0",
     "gulp": "^3.9.1",
     "gulp-clean-css": "^2.0.4",
@@ -36,6 +39,7 @@
     "highlight.js": "^9.2.0",
     "js-yaml": "^3.5.5",
     "marked": "^0.3.5",
-    "node-sass": "^3.4.2"
+    "node-sass": "^3.4.2",
+    "nodegit": "^0.14.1"
   }
 }

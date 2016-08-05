@@ -1,3 +1,4 @@
+var exec = require('child_process').exec;
 var fs = require('fs');
 
 var gulp = require('gulp');
@@ -18,6 +19,10 @@ var highlight = require('highlight.js');
 var marked = require('marked');
 var yaml = require('js-yaml');
 
+var async = require('async');
+var compareVersions = require('compare-versions');
+var Git = require('nodegit');
+
 
 var renderer = new marked.Renderer();
 var COMPRESS = true;
@@ -29,19 +34,25 @@ renderer.code = function (code, language) {
   return '<pre class="highlight ' + language + '"><code>' + highlighted + '</code></pre>';
 };
 
-var readIndexYml = function() {
-  return yaml.safeLoad(fs.readFileSync('./source/index.yml', 'utf8'));
+var readIndexYml = function(dir) {
+  dir = dir || __dirname;
+  return yaml.safeLoad(fs.readFileSync(dir + '/source/index.yml', 'utf8'));
 };
 
-var getPageData = function() {
-  var config = readIndexYml();
+var getPageData = function(dir, refs, ref) {
+  dir = dir || __dirname;
 
+  var config = readIndexYml();
+  config.includes = readIndexYml(dir).includes;
   var includes = config.includes
-        .map(function(include) { return './source/includes/' + include + '.md'; })
+        .map(function(include) { return dir +'/source/includes/' + include + '.md'; })
         .map(function(include) { return fs.readFileSync(include, 'utf8'); })
         .map(function(include) { return marked(include, { renderer: renderer }); });
 
   return {
+    refs: refs || [{ version: 'dev', filename: 'index' }],
+    ref: ref || 'dev',
+
     current_page: {
       data: config
     },
@@ -62,8 +73,41 @@ var getPageData = function() {
   };
 };
 
+var getGitRefs = function() {
+  return Git.Repository.open('.').then(function(repo) {
+    return repo.getReferenceNames(3);
+  }).then(function(refs) {
+    return refs.filter(function(ref) {
+      return ref.indexOf('refs/remotes/origin/release/') !== -1;
+    }).map(function(ref) {
+      var split = ref.split('/');
+      return {
+        ref: ref,
+        version: split[split.length -1]
+      };
+    }).sort(function(a, b) {
+      return -1 * compareVersions(a.version, b.version);
+    }).concat([
+      {
+        ref: 'refs/heads/master',
+        version: 'dev'
+      }
+    ])
+    .map(function(ref, index) {
+      ref.filename = index === 0 ? 'index' : ref.version;
+      ref.folder = __dirname + '/temp/' + ref.version;
+      ref.archive = 'mkdir ' + ref.folder + ' && git archive ' + ref.ref + ' | tar -x -C ' + ref.folder;
+      return ref;
+    });
+  });
+};
+
 gulp.task('clean', function () {
-  return del(['build/*']);
+  return del(['build/*', 'temp/*']);
+});
+
+gulp.task('make-temp', function (done) {
+  fs.mkdir(__dirname + '/temp', function() { done(); });
 });
 
 gulp.task('fonts', function() {
@@ -125,11 +169,38 @@ gulp.task('html', function () {
   	.pipe(gulp.dest('./build'));
 });
 
+gulp.task('html-publish', function(done) {
+  getGitRefs().then(function(refs) {
+
+    async.each(refs, function(ref, callback) {
+      exec(ref.archive, function (err, stdout, stderr) {
+        if (err) {
+          return callback(err);
+        }
+
+        var data = getPageData(ref.folder, refs, ref.version);
+        gulp.src('./source/*.html')
+        	.pipe(ejs(data).on('error', gutil.log))
+          .pipe(gulpif(COMPRESS, prettify({indent_size: 2})))
+        	.pipe(rename({
+            basename: ref.filename
+          }))
+        	.pipe(gulp.dest('./build'))
+          .on('end', callback);
+
+      });
+    }, function(err) {
+      done(err);
+    });
+  })
+});
+
 gulp.task('NO_COMPRESS', function() {
   COMPRESS = false;
 });
 
 gulp.task('default', ['clean', 'fonts', 'images', 'highlightjs', 'js', 'sass', 'html']);
+gulp.task('publish', ['clean', 'make-temp', 'fonts', 'images', 'highlightjs', 'js', 'sass', 'html-publish']);
 
 gulp.task('serve', ['NO_COMPRESS', 'default'], function() {
 

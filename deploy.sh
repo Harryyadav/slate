@@ -30,7 +30,7 @@ overridden by environment variables. Any environment variables are overridden
 by values set in a '.env' file (if it exists), and in turn by those set in a
 file specified by the '--config-file' option."
 
-npm run build
+npm run publish
 
 parse_args() {
   # Set args from a local environment file.
@@ -73,7 +73,7 @@ parse_args() {
 
   # Source directory & target branch.
   deploy_directory=build
-  deploy_branch=gh-pages-releases
+  deploy_branch=gh-pages
 
   #if no user identity is already set in the current git environment, use this:
   default_username=${GIT_DEPLOY_USERNAME:-deploy.sh}

@@ -28,6 +28,33 @@ under the License.
   </head>
 
   <body class="<%= page_classes %>" data-languages="<%= JSON.stringify(langs) %>">
+    <div class="header">
+      <div class="logo">
+        <%- image_tag('logo.png', 'SD Elements logo', 'logo-big') %>
+        <%- image_tag('logo-small.png', 'SD Elements logo', 'logo-small') %>
+      </div>
+      <div class="title">
+        <span>API v2 Documentation</span>
+      </div>
+      <div class="versions">
+        <p><span class="version">v: </span>
+          <% for(var i=0; i<refs.length; i++) { %>
+            <% if (refs[i].version == ref) { %>
+              <a href="<%- refs[i].filename %>.html" class="active">
+                <%- refs[i].version %>
+              </a>
+            <% } else { %>
+              <a href="<%- refs[i].filename %>.html">
+                <%- refs[i].version %>
+              </a>
+            <% } %>
+            <% if (i < refs.length - 1) { %>
+              <span>&middot;</span>
+            <% } %>
+          <% } %>
+        </p>
+      </div>
+    </div>
     <a href="#" id="nav-button">
       <span>
         NAV
