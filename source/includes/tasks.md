@@ -353,7 +353,7 @@ Creates a new Task resource that is project-specific.
 
 Parameter      | Description
 ---------------|------------------
-project_id     | The id of the project to edit this task belongs to
+project_id     | The id of the project the new task belongs to
 
 ### Payload
 
@@ -429,7 +429,7 @@ Updates a single Task resource, as specified by the project and task id paramete
 
 Parameter      | Description
 ---------------|------------------
-project_id     | The id of the project to edit this task belongs to
+project_id     | The id of the project this task belongs to
 id             | The id of the task to modify
 
 ### Payload
