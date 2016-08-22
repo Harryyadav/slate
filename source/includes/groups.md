@@ -27,10 +27,45 @@ This endpoint returns a list of Group resources.
 
 **`GET /api/v2/groups/`**
 
+---
+
+
+### Expand Parameters
+
+```http
+GET /api/v2/groups/?expand=role
+Accept: application/json
+Authorization: Token: "YOUR SDE ACCESS TOKEN"
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "results": [{
+        "id": "G64",
+        "name": "Group 64",
+        "updated": "2016-07-29T21:02:19.780768Z",
+        "description": "Group description",
+        "role": {
+            "id": "UR1",
+            "name": "User"
+        }
+    }]
+}
+```
+See the [Expand Parameters](#expand-parameters) section for more details.
+
+Parameter   | Description
+------------|---------------------
+role        | Role field is expanded to include to id and name fields.
+---
+
 ### Include Parameters
 
 ```http
-GET /api/v2/groups?include=groups,users
+GET /api/v2/groups/?include=groups,users,all_users,total_user_count
 Accept: application/json
 Authorization: Token: "YOUR SDE ACCESS TOKEN"
 ```
@@ -57,7 +92,25 @@ Content-Type: application/json
             role: "User",
             id: "G1",
             name: "Example Group"
-        }]
+        }],
+        "total_user_count": 2,
+        "all_users": "users": [
+            {
+                "first_name": "Frank",
+                "last_name": "Testerton",
+                "is_active": true,
+                "id": 2,
+                "email": "frank@example.com"
+            },
+            {
+                "first_name": "Linda",
+                "last_name": "Graham",
+                "is_active": false,
+                "id": 3,
+                "email": "linda@example.com"
+            },
+
+        ]
     }]
 }
 ```
@@ -68,6 +121,8 @@ Parameter | Description
 ----------|-----------------
 groups    | Includes a list of nested groups that are directly a member of the parent group
 users     | Includes a list of direct users a part of the group.
+all_users | Include a list of direct and indirect users of the group.
+total_user_count | Includes the total number of users (direct and indirect) in the group.
 
 
 
