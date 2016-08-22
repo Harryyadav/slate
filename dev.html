@@ -1590,7 +1590,41 @@
 }</span></code></pre>
         <p>This endpoint returns a list of Group resources.</p>
         <p><strong><code>GET /api/v2/groups/</code></strong></p>
-        <h3 id="include-parameters">Include Parameters</h3> <pre class="highlight http"><code>GET /api/v2/groups?include=groups,users
+        <hr>
+        <h3 id="expand-parameters">Expand Parameters</h3> <pre class="highlight http"><code>GET /api/v2/groups/?expand=role
+Accept: application/json
+Authorization: Token: "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="json">{
+    <span class="hljs-attr">"results"</span>: [{
+        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"G64"</span>,
+        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Group 64"</span>,
+        <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2016-07-29T21:02:19.780768Z"</span>,
+        <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Group description"</span>,
+        <span class="hljs-attr">"role"</span>: {
+            <span class="hljs-attr">"id"</span>: <span class="hljs-string">"UR1"</span>,
+            <span class="hljs-attr">"name"</span>: <span class="hljs-string">"User"</span>
+        }
+    }]
+}</span></code></pre>
+        <p>See the <a href="#expand-parameters">Expand Parameters</a> section for more details.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>role</td>
+              <td>Role field is expanded to include to id and name fields.</td>
+            </tr>
+          </tbody>
+        </table>
+        <hr>
+        <h3 id="include-parameters">Include Parameters</h3> <pre class="highlight http"><code>GET /api/v2/groups/?include=groups,users,all_users,total_user_count
 Accept: application/json
 Authorization: Token: "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
@@ -1613,7 +1647,25 @@ Authorization: Token: "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight 
             role: <span class="hljs-string">"User"</span>,
             id: <span class="hljs-string">"G1"</span>,
             name: <span class="hljs-string">"Example Group"</span>
-        }]
+        }],
+        <span class="hljs-string">"total_user_count"</span>: <span class="hljs-number">2</span>,
+        <span class="hljs-string">"all_users"</span>: <span class="hljs-string">"users"</span>: [
+            {
+                <span class="hljs-string">"first_name"</span>: <span class="hljs-string">"Frank"</span>,
+                <span class="hljs-string">"last_name"</span>: <span class="hljs-string">"Testerton"</span>,
+                <span class="hljs-string">"is_active"</span>: <span class="hljs-literal">true</span>,
+                <span class="hljs-string">"id"</span>: <span class="hljs-number">2</span>,
+                <span class="hljs-string">"email"</span>: <span class="hljs-string">"frank@example.com"</span>
+            },
+            {
+                <span class="hljs-string">"first_name"</span>: <span class="hljs-string">"Linda"</span>,
+                <span class="hljs-string">"last_name"</span>: <span class="hljs-string">"Graham"</span>,
+                <span class="hljs-string">"is_active"</span>: <span class="hljs-literal">false</span>,
+                <span class="hljs-string">"id"</span>: <span class="hljs-number">3</span>,
+                <span class="hljs-string">"email"</span>: <span class="hljs-string">"linda@example.com"</span>
+            },
+
+        ]
     }]
 }</span></code></pre>
         <p>See the <a href="#include-parameters">Include Parameters</a> section for more details.</p>
@@ -1632,6 +1684,14 @@ Authorization: Token: "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight 
             <tr>
               <td>users</td>
               <td>Includes a list of direct users a part of the group.</td>
+            </tr>
+            <tr>
+              <td>all_users</td>
+              <td>Include a list of direct and indirect users of the group.</td>
+            </tr>
+            <tr>
+              <td>total_user_count</td>
+              <td>Includes the total number of users (direct and indirect) in the group.</td>
             </tr>
           </tbody>
         </table>
