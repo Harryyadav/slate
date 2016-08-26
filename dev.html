@@ -2642,206 +2642,33 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
         {
             <span class="hljs-attr">"id"</span>: <span class="hljs-string">"PR4"</span>,
             <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Manage Project"</span>,
-            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Can change project survey, ..."</span>,
-            <span class="hljs-attr">"permissions"</span>: [
-                <span class="hljs-string">"edit_project_membership"</span>,
-                <span class="hljs-string">"archive_project"</span>,
-                <span class="hljs-string">"lock_project_survey"</span>,
-                <span class="hljs-string">"write_task_note"</span>,
-                <span class="hljs-string">"verify_task"</span>,
-                <span class="hljs-string">"sync_with_alm"</span>,
-                <span class="hljs-string">"edit_project_survey"</span>,
-                <span class="hljs-string">"edit_project_details"</span>,
-                <span class="hljs-string">"assign_task"</span>,
-                <span class="hljs-string">"mark_task"</span>,
-                <span class="hljs-string">"view_project"</span>,
-                <span class="hljs-string">"create_project_specific_task"</span>
-            ]
+            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Can change project survey, ..."</span>
         },
         {
             <span class="hljs-attr">"id"</span>: <span class="hljs-string">"PR5"</span>,
             <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Normal"</span>,
-            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Can view project and update task statuses"</span>,
-            <span class="hljs-attr">"permissions"</span>: [
-                <span class="hljs-string">"verify_task"</span>,
-                <span class="hljs-string">"mark_task"</span>,
-                <span class="hljs-string">"view_project"</span>,
-                <span class="hljs-string">"write_task_note"</span>
-            ]
+            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Can view project and update task statuses"</span>
         },
         {
             <span class="hljs-attr">"id"</span>: <span class="hljs-string">"PR6"</span>,
             <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Read Only"</span>,
-            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Can view project, but not modify it"</span>,
-            <span class="hljs-attr">"permissions"</span>: [
-                <span class="hljs-string">"view_project"</span>
-            ]
+            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Can view project, but not modify it"</span>
         }
     ]
 }</span></code></pre>
         <p>This endpoint returns a list of Project Role resources.</p>
-        <h2 id="get-a-specific-project-role">Get a Specific Project Role</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/project-roles/CPR1/</span> HTTP/1.1
+        <h2 id="get-a-specific-project-role">Get a Specific Project Role</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/project-roles/PR4/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
-    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"CPR1"</span>,
-    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Custom Role"</span>,
-    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Can view project."</span>,
-    <span class="hljs-attr">"permissions"</span>: [
-        <span class="hljs-string">"view_project"</span>
-    ]
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"PR4"</span>,
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Manage Project"</span>,
+    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Can change project survey, ..."</span>
 }</span></code></pre>
-        <p>This endpoint returns a specific Project Role resource, specified by its id.</p>
+        <p>This endpoint returns a specific Project Role resource, specified its id.</p>
         <p><strong><code>GET /api/v2/project-roles/{project_role_id}/</code></strong></p>
-        <h3 id="url-parameters">URL Parameters</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>Parameter</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>project_role_id</td>
-              <td>The id of the Project Role to retrieve.</td>
-            </tr>
-          </tbody>
-        </table>
-        <h2 id="create-a-new-project-role">Create a New Project Role</h2> <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/project-roles/</span> HTTP/1.1
-<span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
-
-<span class="json">{
-    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"New Project Role"</span>,
-    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Can view project!"</span>,
-    <span class="hljs-attr">"inherit_from"</span>: <span class="hljs-string">"PR6"</span>
-}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
-<span class="hljs-attribute">Content-Type</span>: application/json
-
-<span class="json">{ 
-    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"CPR3"</span>,
-    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"New Project Role"</span>,
-    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Can view project!"</span>,
-    <span class="hljs-attr">"permissions"</span>: [
-        <span class="hljs-string">"view_project"</span>
-    ]
-}</span></code></pre><pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/project-roles/</span> HTTP/1.1
-<span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
-
-<span class="json">{
-    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"New Project Role"</span>,
-    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Can view project!"</span>,
-    <span class="hljs-attr">"permissions"</span>: [
-        <span class="hljs-string">"view_project"</span>
-    ]
-}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
-<span class="hljs-attribute">Content-Type</span>: application/json
-
-<span class="json">{ 
-    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"CPR3"</span>,
-    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"New Project Role"</span>,
-    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Can view project!"</span>,
-    <span class="hljs-attr">"permissions"</span>: [
-        <span class="hljs-string">"view_project"</span>
-    ]
-}</span></code></pre>
-        <table>
-          <thead>
-            <tr>
-              <th>Fields</th>
-              <th>Required</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>name</td>
-              <td>Yes</td>
-              <td>The name of the Project Role.</td>
-            </tr>
-            <tr>
-              <td>description</td>
-              <td>Yes</td>
-              <td>A description of the Project Role.</td>
-            </tr>
-            <tr>
-              <td>permissions</td>
-              <td>No</td>
-              <td>The permissions given to users who are assigned this Project Role.</td>
-            </tr>
-            <tr>
-              <td>inherit_from</td>
-              <td>No</td>
-              <td>If inherit_from field is passed, then the permissions field gets set with the permissions of the parent Project Role.</td>
-            </tr>
-          </tbody>
-        </table>
-        <h2 id="update-a-project-role">Update a Project Role</h2> <pre class="highlight http"><code><span class="hljs-keyword">PATCH</span> <span class="hljs-string">/api/v2/project-roles/CPR3/</span> HTTP/1.1
-<span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
-
-<span class="json">{
-    <span class="hljs-attr">"permissions"</span>: [<span class="hljs-string">"view_project"</span>, <span class="hljs-string">"archive_project"</span>]
-}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
-<span class="hljs-attribute">Content-Type</span>: application/json
-
-<span class="json">{ 
-    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"CPR3"</span>,
-    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"New Project Role"</span>,
-    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Can view project!"</span>,
-    <span class="hljs-attr">"permissions"</span>: [
-        <span class="hljs-string">"view_project"</span>,
-        <span class="hljs-string">"archive_project"</span>
-    ]
-
-}</span></code></pre>
-        <p><strong><code>PATCH /api/v2/project-roles/{project_role_id}/</code></strong></p>
-        <h3 id="url-parameters">URL Parameters</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>Parameter</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>project_role_id</td>
-              <td>The id of the Project Role to update</td>
-            </tr>
-          </tbody>
-        </table>
-        <h3 id="payload">Payload</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>Fields</th>
-              <th>Required</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>name</td>
-              <td>No</td>
-              <td>The name of the Project Role.</td>
-            </tr>
-            <tr>
-              <td>description</td>
-              <td>No</td>
-              <td>Project Role description.</td>
-            </tr>
-            <tr>
-              <td>permissions</td>
-              <td>No</td>
-              <td>The permissions given to users who are assigned this Project Role.</td>
-            </tr>
-          </tbody>
-        </table>
         <h1 id="project-survey">Project Survey</h1>
         <h2 id="get-the-project-survey-of-a-project">Get the project survey of a project</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/survey/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
