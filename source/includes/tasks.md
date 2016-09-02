@@ -262,8 +262,15 @@ Content-Type: application/json
     "artifact_proxy": "ABC-XYZ",
     "assigned_to": [
         {
+            "first_name": "Admin",
+            "last_name": "Testerton",
+            "is_active": true,
             "email": "admin@example.com",
-            "id": 3
+            "role": {
+                "id": "UR1",
+                "name": "User"
+            },
+            "id": 1
         }
     ],
     "text": "Insecure forgotten password.",
@@ -305,7 +312,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
 
 {
     "artifact_proxy": "ABC-XYZ",
-    "assigned_to": ['user1@example.com'],
+    "assigned_to": ['admin@example.com'],
     "phase": "X1",
     "priority": 9,
     "status": "TS1",
@@ -324,8 +331,15 @@ Content-Type: application/json
     "artifact_proxy": "ABC-XYZ",
     "assigned_to": [
         {
-            "email": "user1@example.com",
-            "id": 3
+            "first_name": "Admin",
+            "last_name": "Testerton",
+            "is_active": true,
+            "email": "admin@example.com",
+            "role": {
+                "id": "UR1",
+                "name": "User"
+            },
+            "id": 1
         }
     ],
     "text": "Task Description",
@@ -400,8 +414,15 @@ Content-Type: application/json
     "artifact_proxy": "ABC-XYZ",
     "assigned_to": [
         {
-            "email": "user1@example.com",
-            "id": 3
+            "first_name": "Admin",
+            "last_name": "Testerton",
+            "is_active": true,
+            "email": "admin@example.com",
+            "role": {
+                "id": "UR1",
+                "name": "User"
+            },
+            "id": 1
         }
     ],
     "text": "Insecure forgotten password.",

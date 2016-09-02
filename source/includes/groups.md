@@ -86,7 +86,11 @@ Content-Type: application/json
             "last_name": "Testerton",
             "is_active": true,
             "id": 2,
-            "email": "frank@example.com"
+            "email": "frank@example.com",
+            "role": {
+                    "id": "UR1",
+                    "name": "User"
+            }
         }],
         "groups": [{
             role: "User",
@@ -100,14 +104,22 @@ Content-Type: application/json
                 "last_name": "Testerton",
                 "is_active": true,
                 "id": 2,
-                "email": "frank@example.com"
+                "email": "frank@example.com",
+                "role": {
+                    "id": "UR1",
+                    "name": "User"
+                }
             },
             {
                 "first_name": "Linda",
                 "last_name": "Graham",
                 "is_active": false,
                 "id": 3,
-                "email": "linda@example.com"
+                "email": "linda@example.com",
+                "role": {
+                    "id": "UR1",
+                    "name": "User"
+                }
             },
 
         ]
@@ -198,12 +210,16 @@ Content-Type: application/json
         "last_name": "Testerton",
         "is_active": true,
         "id": 2,
-        "email": "frank@example.com"
+        "email": "frank@example.com",
+        "role": {
+            "id": "UR1",
+            "name": "User"
+        }
     }],
     "groups": [{
-        role: "User",
-        id: "G1",
-        name: "Example Group"
+        "role": "User",
+        "id": "G1",
+        "name": "Example Group"
     }]
 }
 ```
@@ -259,7 +275,11 @@ Content-Type: application/json
         "last_name": "Testerton",
         "is_active": true
         "id": 2,
-        "email": "frank@example.com"
+        "email": "frank@example.com",
+        "role": {
+            "id": "UR1",
+            "name": "User"
+        }
     }],
     "groups": [{
         "role": "User"
