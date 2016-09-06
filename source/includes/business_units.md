@@ -27,7 +27,11 @@ Content-Type: application/json
                 "email": "frank@sdelements.com",
                 "first_name": "Frank",
                 "last_name": "Testerton",
-                "is_active": true
+                "is_active": true,
+                "role": {
+                    id: "UR1",
+                    name: "User"
+                }
             }],
             "groups": [{
                 "id": "G64",
@@ -100,7 +104,11 @@ Content-Type: application/json
         "email": "frank@sdelements.com",
         "first_name": "Frank",
         "last_name": "Testerton",
-        "is_active": true
+        "is_active": true,
+        "role": {
+            id: "UR1",
+            name: "User"
+        }
     }],
     "groups": [{
         "id": "G64",
@@ -162,7 +170,11 @@ Content-Type: application/json
         "email": "test@example.com",
         "first_name": "Admin",
         "last_name": "Testerton",
-        "is_active": true
+        "is_active": true,
+        "role": {
+            id: "UR1",
+            name: "User"
+        }
     }],
     "groups": [{
         "id": "G1"
@@ -228,7 +240,11 @@ Content-Type: application/json
         "id": 1,
         "first_name": "Admin",
         "last_name": "Testerton",
-        "is_active": true
+        "is_active": true,
+        "role": {
+            id: "UR1",
+            name: "User"
+        }
     }],
     "groups": [{
         "id": "G1"
