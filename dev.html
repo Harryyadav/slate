@@ -887,40 +887,44 @@
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
-<span class="json">{
-    <span class="hljs-attr">"results"</span>: [
+<span class="clojure">{
+    <span class="hljs-string">"results"</span>: [
         {
-            <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
-            <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"example-business-unit-1"</span>,
-            <span class="hljs-attr">"name"</span>: <span class="hljs-string">"example business unit 1"</span>,
-            <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2015-09-30T18:28:37.214914Z"</span>,
-            <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-09-30T18:28:37.214959Z"</span>,
-            <span class="hljs-attr">"default_groups"</span>: [],
-            <span class="hljs-attr">"default_users"</span>: [],
-            <span class="hljs-attr">"users"</span>: [{
-                <span class="hljs-attr">"id"</span>: <span class="hljs-number">682</span>,
-                <span class="hljs-attr">"email"</span>: <span class="hljs-string">"frank@sdelements.com"</span>,
-                <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Frank"</span>,
-                <span class="hljs-attr">"last_name"</span>: <span class="hljs-string">"Testerton"</span>,
-                <span class="hljs-attr">"is_active"</span>: <span class="hljs-literal">true</span>
+            <span class="hljs-string">"id"</span>: <span class="hljs-number">1</span>,
+            <span class="hljs-string">"slug"</span>: <span class="hljs-string">"example-business-unit-1"</span>,
+            <span class="hljs-string">"name"</span>: <span class="hljs-string">"example business unit 1"</span>,
+            <span class="hljs-string">"created"</span>: <span class="hljs-string">"2015-09-30T18:28:37.214914Z"</span>,
+            <span class="hljs-string">"updated"</span>: <span class="hljs-string">"2015-09-30T18:28:37.214959Z"</span>,
+            <span class="hljs-string">"default_groups"</span>: [],
+            <span class="hljs-string">"default_users"</span>: [],
+            <span class="hljs-string">"users"</span>: [{
+                <span class="hljs-string">"id"</span>: <span class="hljs-number">682</span>,
+                <span class="hljs-string">"email"</span>: <span class="hljs-string">"frank@sdelements.com"</span>,
+                <span class="hljs-string">"first_name"</span>: <span class="hljs-string">"Frank"</span>,
+                <span class="hljs-string">"last_name"</span>: <span class="hljs-string">"Testerton"</span>,
+                <span class="hljs-string">"is_active"</span>: <span class="hljs-literal">true</span>,
+                <span class="hljs-string">"role"</span>: {
+                    id: <span class="hljs-string">"UR1"</span>,
+                    name: <span class="hljs-string">"User"</span>
+                }
             }],
-            <span class="hljs-attr">"groups"</span>: [{
-                <span class="hljs-attr">"id"</span>: <span class="hljs-string">"G64"</span>,
-                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Group Bar"</span>
+            <span class="hljs-string">"groups"</span>: [{
+                <span class="hljs-string">"id"</span>: <span class="hljs-string">"G64"</span>,
+                <span class="hljs-string">"name"</span>: <span class="hljs-string">"Group Bar"</span>
             }],
-            <span class="hljs-attr">"all_users"</span>: <span class="hljs-literal">false</span>
+            <span class="hljs-string">"all_users"</span>: <span class="hljs-literal">false</span>
         },
         {
-            <span class="hljs-attr">"id"</span>: <span class="hljs-number">2</span>,
-            <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"example-business-unit-2"</span>,
-            <span class="hljs-attr">"name"</span>: <span class="hljs-string">"example business unit 2"</span>,
-            <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2015-09-30T19:30:25.254036Z"</span>,
-            <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-09-30T19:30:25.254072Z"</span>,
-            <span class="hljs-attr">"default_users"</span>: [],
-            <span class="hljs-attr">"default_groups"</span>: [],
-            <span class="hljs-attr">"users"</span>: [],
-            <span class="hljs-attr">"groups"</span>: [],
-            <span class="hljs-attr">"all_users"</span>: <span class="hljs-literal">true</span>
+            <span class="hljs-string">"id"</span>: <span class="hljs-number">2</span>,
+            <span class="hljs-string">"slug"</span>: <span class="hljs-string">"example-business-unit-2"</span>,
+            <span class="hljs-string">"name"</span>: <span class="hljs-string">"example business unit 2"</span>,
+            <span class="hljs-string">"created"</span>: <span class="hljs-string">"2015-09-30T19:30:25.254036Z"</span>,
+            <span class="hljs-string">"updated"</span>: <span class="hljs-string">"2015-09-30T19:30:25.254072Z"</span>,
+            <span class="hljs-string">"default_users"</span>: [],
+            <span class="hljs-string">"default_groups"</span>: [],
+            <span class="hljs-string">"users"</span>: [],
+            <span class="hljs-string">"groups"</span>: [],
+            <span class="hljs-string">"all_users"</span>: <span class="hljs-literal">true</span>
         }
     ]
 }</span></code></pre>
@@ -955,26 +959,30 @@
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
-<span class="json">{
-    <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
-    <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"example-business-unit-1"</span>,
-    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"example business unit 1"</span>,
-    <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2015-09-30T18:28:37.214914Z"</span>,
-    <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-09-30T18:28:37.214959Z"</span>,
-    <span class="hljs-attr">"default_groups"</span>: [],
-    <span class="hljs-attr">"default_users"</span>: [],
-    <span class="hljs-attr">"users"</span>: [{
-        <span class="hljs-attr">"id"</span>: <span class="hljs-number">682</span>,
-        <span class="hljs-attr">"email"</span>: <span class="hljs-string">"frank@sdelements.com"</span>,
-        <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Frank"</span>,
-        <span class="hljs-attr">"last_name"</span>: <span class="hljs-string">"Testerton"</span>,
-        <span class="hljs-attr">"is_active"</span>: <span class="hljs-literal">true</span>
+<span class="clojure">{
+    <span class="hljs-string">"id"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-string">"slug"</span>: <span class="hljs-string">"example-business-unit-1"</span>,
+    <span class="hljs-string">"name"</span>: <span class="hljs-string">"example business unit 1"</span>,
+    <span class="hljs-string">"created"</span>: <span class="hljs-string">"2015-09-30T18:28:37.214914Z"</span>,
+    <span class="hljs-string">"updated"</span>: <span class="hljs-string">"2015-09-30T18:28:37.214959Z"</span>,
+    <span class="hljs-string">"default_groups"</span>: [],
+    <span class="hljs-string">"default_users"</span>: [],
+    <span class="hljs-string">"users"</span>: [{
+        <span class="hljs-string">"id"</span>: <span class="hljs-number">682</span>,
+        <span class="hljs-string">"email"</span>: <span class="hljs-string">"frank@sdelements.com"</span>,
+        <span class="hljs-string">"first_name"</span>: <span class="hljs-string">"Frank"</span>,
+        <span class="hljs-string">"last_name"</span>: <span class="hljs-string">"Testerton"</span>,
+        <span class="hljs-string">"is_active"</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-string">"role"</span>: {
+            id: <span class="hljs-string">"UR1"</span>,
+            name: <span class="hljs-string">"User"</span>
+        }
     }],
-    <span class="hljs-attr">"groups"</span>: [{
-        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"G64"</span>,
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Group Bar"</span>
+    <span class="hljs-string">"groups"</span>: [{
+        <span class="hljs-string">"id"</span>: <span class="hljs-string">"G64"</span>,
+        <span class="hljs-string">"name"</span>: <span class="hljs-string">"Group Bar"</span>
     }],
-    <span class="hljs-attr">"all_users"</span>: <span class="hljs-literal">false</span>
+    <span class="hljs-string">"all_users"</span>: <span class="hljs-literal">false</span>
 }</span></code></pre>
         <p>This endpoint retrieves a specific Business Unit resource, as specified by the id parameter.</p>
         <p><strong><code>GET /api/v2/business-units/{business_unit_id}/</code></strong></p>
@@ -1007,35 +1015,39 @@
 }</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
 <span class="hljs-attribute">Content-Type</span>: application/json
 
-<span class="json">{
-    <span class="hljs-attr">"id"</span>: <span class="hljs-number">541</span>,
-    <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"api-test"</span>,
-    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"API Test"</span>,
-    <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2015-09-30T18:28:37.214914Z"</span>,
-    <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-09-30T18:28:37.214959Z"</span>,
-    <span class="hljs-attr">"users"</span>: [{
-        <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
-        <span class="hljs-attr">"email"</span>: <span class="hljs-string">"test@example.com"</span>,
-        <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Admin"</span>,
-        <span class="hljs-attr">"last_name"</span>: <span class="hljs-string">"Testerton"</span>,
-        <span class="hljs-attr">"is_active"</span>: <span class="hljs-literal">true</span>
+<span class="clojure">{
+    <span class="hljs-string">"id"</span>: <span class="hljs-number">541</span>,
+    <span class="hljs-string">"slug"</span>: <span class="hljs-string">"api-test"</span>,
+    <span class="hljs-string">"name"</span>: <span class="hljs-string">"API Test"</span>,
+    <span class="hljs-string">"created"</span>: <span class="hljs-string">"2015-09-30T18:28:37.214914Z"</span>,
+    <span class="hljs-string">"updated"</span>: <span class="hljs-string">"2015-09-30T18:28:37.214959Z"</span>,
+    <span class="hljs-string">"users"</span>: [{
+        <span class="hljs-string">"id"</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-string">"email"</span>: <span class="hljs-string">"test@example.com"</span>,
+        <span class="hljs-string">"first_name"</span>: <span class="hljs-string">"Admin"</span>,
+        <span class="hljs-string">"last_name"</span>: <span class="hljs-string">"Testerton"</span>,
+        <span class="hljs-string">"is_active"</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-string">"role"</span>: {
+            id: <span class="hljs-string">"UR1"</span>,
+            name: <span class="hljs-string">"User"</span>
+        }
     }],
-    <span class="hljs-attr">"groups"</span>: [{
-        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"G1"</span>
+    <span class="hljs-string">"groups"</span>: [{
+        <span class="hljs-string">"id"</span>: <span class="hljs-string">"G1"</span>
     }],
-    <span class="hljs-attr">"default_users"</span>: [{
-        <span class="hljs-attr">"email"</span>: <span class="hljs-string">"test@example.com"</span>,
-        <span class="hljs-attr">"role"</span>: <span class="hljs-string">"PR4"</span>,
-        <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
-        <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Admin"</span>,
-        <span class="hljs-attr">"last_name"</span>: <span class="hljs-string">"Testerton"</span>,
-        <span class="hljs-attr">"is_active"</span>: <span class="hljs-literal">true</span>
+    <span class="hljs-string">"default_users"</span>: [{
+        <span class="hljs-string">"email"</span>: <span class="hljs-string">"test@example.com"</span>,
+        <span class="hljs-string">"role"</span>: <span class="hljs-string">"PR4"</span>,
+        <span class="hljs-string">"id"</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-string">"first_name"</span>: <span class="hljs-string">"Admin"</span>,
+        <span class="hljs-string">"last_name"</span>: <span class="hljs-string">"Testerton"</span>,
+        <span class="hljs-string">"is_active"</span>: <span class="hljs-literal">true</span>
     }],
-    <span class="hljs-attr">"default_groups"</span>: [{
-        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"G1"</span>,
-        <span class="hljs-attr">"role"</span>: <span class="hljs-string">"PR4"</span>
+    <span class="hljs-string">"default_groups"</span>: [{
+        <span class="hljs-string">"id"</span>: <span class="hljs-string">"G1"</span>,
+        <span class="hljs-string">"role"</span>: <span class="hljs-string">"PR4"</span>
     }],
-    <span class="hljs-attr">"all_users"</span>: <span class="hljs-literal">false</span>
+    <span class="hljs-string">"all_users"</span>: <span class="hljs-literal">false</span>
 }</span></code></pre>
         <table>
           <thead>
@@ -1089,35 +1101,39 @@
 }</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
-<span class="json">{
-    <span class="hljs-attr">"id"</span>: <span class="hljs-number">36</span>,
-    <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"api-test"</span>,
-    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"New BU Name"</span>,
-    <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2015-09-30T18:28:37.214914Z"</span>,
-    <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-09-30T18:28:37.214959Z"</span>,
-    <span class="hljs-attr">"users"</span>: [{
-        <span class="hljs-attr">"email"</span>: <span class="hljs-string">"test@example.com"</span>,
-        <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
-        <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Admin"</span>,
-        <span class="hljs-attr">"last_name"</span>: <span class="hljs-string">"Testerton"</span>,
-        <span class="hljs-attr">"is_active"</span>: <span class="hljs-literal">true</span>
+<span class="clojure">{
+    <span class="hljs-string">"id"</span>: <span class="hljs-number">36</span>,
+    <span class="hljs-string">"slug"</span>: <span class="hljs-string">"api-test"</span>,
+    <span class="hljs-string">"name"</span>: <span class="hljs-string">"New BU Name"</span>,
+    <span class="hljs-string">"created"</span>: <span class="hljs-string">"2015-09-30T18:28:37.214914Z"</span>,
+    <span class="hljs-string">"updated"</span>: <span class="hljs-string">"2015-09-30T18:28:37.214959Z"</span>,
+    <span class="hljs-string">"users"</span>: [{
+        <span class="hljs-string">"email"</span>: <span class="hljs-string">"test@example.com"</span>,
+        <span class="hljs-string">"id"</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-string">"first_name"</span>: <span class="hljs-string">"Admin"</span>,
+        <span class="hljs-string">"last_name"</span>: <span class="hljs-string">"Testerton"</span>,
+        <span class="hljs-string">"is_active"</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-string">"role"</span>: {
+            id: <span class="hljs-string">"UR1"</span>,
+            name: <span class="hljs-string">"User"</span>
+        }
     }],
-    <span class="hljs-attr">"groups"</span>: [{
-        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"G1"</span>
+    <span class="hljs-string">"groups"</span>: [{
+        <span class="hljs-string">"id"</span>: <span class="hljs-string">"G1"</span>
     }],
-    <span class="hljs-attr">"default_users"</span>: [{
-        <span class="hljs-attr">"email"</span>: <span class="hljs-string">"test@example.com"</span>,
-        <span class="hljs-attr">"role"</span>: <span class="hljs-string">"PR4"</span>,
-        <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
-        <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Admin"</span>,
-        <span class="hljs-attr">"last_name"</span>: <span class="hljs-string">"Testerton"</span>,
-        <span class="hljs-attr">"is_active"</span>: <span class="hljs-literal">true</span>
+    <span class="hljs-string">"default_users"</span>: [{
+        <span class="hljs-string">"email"</span>: <span class="hljs-string">"test@example.com"</span>,
+        <span class="hljs-string">"role"</span>: <span class="hljs-string">"PR4"</span>,
+        <span class="hljs-string">"id"</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-string">"first_name"</span>: <span class="hljs-string">"Admin"</span>,
+        <span class="hljs-string">"last_name"</span>: <span class="hljs-string">"Testerton"</span>,
+        <span class="hljs-string">"is_active"</span>: <span class="hljs-literal">true</span>
     }],
-    <span class="hljs-attr">"default_groups"</span>: [{
-        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"G1"</span>,
-        <span class="hljs-attr">"role"</span>: <span class="hljs-string">"PR4"</span>
+    <span class="hljs-string">"default_groups"</span>: [{
+        <span class="hljs-string">"id"</span>: <span class="hljs-string">"G1"</span>,
+        <span class="hljs-string">"role"</span>: <span class="hljs-string">"PR4"</span>
     }],
-    <span class="hljs-attr">"all_users"</span>: <span class="hljs-literal">false</span>
+    <span class="hljs-string">"all_users"</span>: <span class="hljs-literal">false</span>
 }</span></code></pre>
         <p>Update a single business unit by specifying the id. The fields <code>users</code>, <code>groups</code>, <code>name</code>, <code>default_users</code>, and <code>default_groups</code> can be updated.</p>
         <p><strong><code>PUT /api/v2/business-units/{business_unit_id}/</code></strong></p>
@@ -1641,7 +1657,11 @@ Authorization: Token: "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight 
             <span class="hljs-string">"last_name"</span>: <span class="hljs-string">"Testerton"</span>,
             <span class="hljs-string">"is_active"</span>: <span class="hljs-literal">true</span>,
             <span class="hljs-string">"id"</span>: <span class="hljs-number">2</span>,
-            <span class="hljs-string">"email"</span>: <span class="hljs-string">"frank@example.com"</span>
+            <span class="hljs-string">"email"</span>: <span class="hljs-string">"frank@example.com"</span>,
+            <span class="hljs-string">"role"</span>: {
+                    <span class="hljs-string">"id"</span>: <span class="hljs-string">"UR1"</span>,
+                    <span class="hljs-string">"name"</span>: <span class="hljs-string">"User"</span>
+            }
         }],
         <span class="hljs-string">"groups"</span>: [{
             role: <span class="hljs-string">"User"</span>,
@@ -1655,14 +1675,22 @@ Authorization: Token: "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight 
                 <span class="hljs-string">"last_name"</span>: <span class="hljs-string">"Testerton"</span>,
                 <span class="hljs-string">"is_active"</span>: <span class="hljs-literal">true</span>,
                 <span class="hljs-string">"id"</span>: <span class="hljs-number">2</span>,
-                <span class="hljs-string">"email"</span>: <span class="hljs-string">"frank@example.com"</span>
+                <span class="hljs-string">"email"</span>: <span class="hljs-string">"frank@example.com"</span>,
+                <span class="hljs-string">"role"</span>: {
+                    <span class="hljs-string">"id"</span>: <span class="hljs-string">"UR1"</span>,
+                    <span class="hljs-string">"name"</span>: <span class="hljs-string">"User"</span>
+                }
             },
             {
                 <span class="hljs-string">"first_name"</span>: <span class="hljs-string">"Linda"</span>,
                 <span class="hljs-string">"last_name"</span>: <span class="hljs-string">"Graham"</span>,
                 <span class="hljs-string">"is_active"</span>: <span class="hljs-literal">false</span>,
                 <span class="hljs-string">"id"</span>: <span class="hljs-number">3</span>,
-                <span class="hljs-string">"email"</span>: <span class="hljs-string">"linda@example.com"</span>
+                <span class="hljs-string">"email"</span>: <span class="hljs-string">"linda@example.com"</span>,
+                <span class="hljs-string">"role"</span>: {
+                    <span class="hljs-string">"id"</span>: <span class="hljs-string">"UR1"</span>,
+                    <span class="hljs-string">"name"</span>: <span class="hljs-string">"User"</span>
+                }
             },
 
         ]
@@ -1736,23 +1764,27 @@ Authorization: Token: "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight 
 }</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
 <span class="hljs-attribute">Content-Type</span>: application/json
 
-<span class="clojure">{
-    <span class="hljs-string">"id"</span>: <span class="hljs-string">"G2"</span>,
-    <span class="hljs-string">"name"</span>: <span class="hljs-string">"Group 2"</span>,
-    <span class="hljs-string">"updated"</span>: <span class="hljs-string">"2016-07-29T21:02:19.780768Z"</span>,
-    <span class="hljs-string">"description"</span>: <span class="hljs-string">""</span>,
-    <span class="hljs-string">"role"</span>: <span class="hljs-string">"UR5"</span>,
-    <span class="hljs-string">"users"</span>: [{
-        <span class="hljs-string">"first_name"</span>: <span class="hljs-string">"Frank"</span>,
-        <span class="hljs-string">"last_name"</span>: <span class="hljs-string">"Testerton"</span>,
-        <span class="hljs-string">"is_active"</span>: <span class="hljs-literal">true</span>,
-        <span class="hljs-string">"id"</span>: <span class="hljs-number">2</span>,
-        <span class="hljs-string">"email"</span>: <span class="hljs-string">"frank@example.com"</span>
+<span class="json">{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"G2"</span>,
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Group 2"</span>,
+    <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2016-07-29T21:02:19.780768Z"</span>,
+    <span class="hljs-attr">"description"</span>: <span class="hljs-string">""</span>,
+    <span class="hljs-attr">"role"</span>: <span class="hljs-string">"UR5"</span>,
+    <span class="hljs-attr">"users"</span>: [{
+        <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Frank"</span>,
+        <span class="hljs-attr">"last_name"</span>: <span class="hljs-string">"Testerton"</span>,
+        <span class="hljs-attr">"is_active"</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">"id"</span>: <span class="hljs-number">2</span>,
+        <span class="hljs-attr">"email"</span>: <span class="hljs-string">"frank@example.com"</span>,
+        <span class="hljs-attr">"role"</span>: {
+            <span class="hljs-attr">"id"</span>: <span class="hljs-string">"UR1"</span>,
+            <span class="hljs-attr">"name"</span>: <span class="hljs-string">"User"</span>
+        }
     }],
-    <span class="hljs-string">"groups"</span>: [{
-        role: <span class="hljs-string">"User"</span>,
-        id: <span class="hljs-string">"G1"</span>,
-        name: <span class="hljs-string">"Example Group"</span>
+    <span class="hljs-attr">"groups"</span>: [{
+        <span class="hljs-attr">"role"</span>: <span class="hljs-string">"User"</span>,
+        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"G1"</span>,
+        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Example Group"</span>
     }]
 }</span></code></pre>
         <p>Create a Group resource.</p>
@@ -1814,7 +1846,11 @@ Authorization: Token: "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight 
         <span class="hljs-attr">"last_name"</span>: <span class="hljs-string">"Testerton"</span>,
         <span class="hljs-attr">"is_active"</span>: <span class="hljs-literal">true</span>
         <span class="hljs-string">"id"</span>: <span class="hljs-number">2</span>,
-        <span class="hljs-attr">"email"</span>: <span class="hljs-string">"frank@example.com"</span>
+        <span class="hljs-attr">"email"</span>: <span class="hljs-string">"frank@example.com"</span>,
+        <span class="hljs-attr">"role"</span>: {
+            <span class="hljs-attr">"id"</span>: <span class="hljs-string">"UR1"</span>,
+            <span class="hljs-attr">"name"</span>: <span class="hljs-string">"User"</span>
+        }
     }],
     <span class="hljs-attr">"groups"</span>: [{
         <span class="hljs-attr">"role"</span>: <span class="hljs-string">"User"</span>
@@ -4185,8 +4221,15 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
     <span class="hljs-attr">"artifact_proxy"</span>: <span class="hljs-string">"ABC-XYZ"</span>,
     <span class="hljs-attr">"assigned_to"</span>: [
         {
+            <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Admin"</span>,
+            <span class="hljs-attr">"last_name"</span>: <span class="hljs-string">"Testerton"</span>,
+            <span class="hljs-attr">"is_active"</span>: <span class="hljs-literal">true</span>,
             <span class="hljs-attr">"email"</span>: <span class="hljs-string">"admin@example.com"</span>,
-            <span class="hljs-attr">"id"</span>: <span class="hljs-number">3</span>
+            <span class="hljs-attr">"role"</span>: {
+                <span class="hljs-attr">"id"</span>: <span class="hljs-string">"UR1"</span>,
+                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"User"</span>
+            },
+            <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>
         }
     ],
     <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Insecure forgotten password."</span>,
@@ -4212,7 +4255,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
 
 <span class="json">{
     <span class="hljs-attr">"artifact_proxy"</span>: <span class="hljs-string">"ABC-XYZ"</span>,
-    <span class="hljs-attr">"assigned_to"</span>: ['user1@example.com'],
+    <span class="hljs-attr">"assigned_to"</span>: ['admin@example.com'],
     <span class="hljs-attr">"phase"</span>: <span class="hljs-string">"X1"</span>,
     <span class="hljs-attr">"priority"</span>: <span class="hljs-number">9</span>,
     <span class="hljs-attr">"status"</span>: <span class="hljs-string">"TS1"</span>,
@@ -4227,8 +4270,15 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
     <span class="hljs-attr">"artifact_proxy"</span>: <span class="hljs-string">"ABC-XYZ"</span>,
     <span class="hljs-attr">"assigned_to"</span>: [
         {
-            <span class="hljs-attr">"email"</span>: <span class="hljs-string">"user1@example.com"</span>,
-            <span class="hljs-attr">"id"</span>: <span class="hljs-number">3</span>
+            <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Admin"</span>,
+            <span class="hljs-attr">"last_name"</span>: <span class="hljs-string">"Testerton"</span>,
+            <span class="hljs-attr">"is_active"</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-attr">"email"</span>: <span class="hljs-string">"admin@example.com"</span>,
+            <span class="hljs-attr">"role"</span>: {
+                <span class="hljs-attr">"id"</span>: <span class="hljs-string">"UR1"</span>,
+                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"User"</span>
+            },
+            <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>
         }
     ],
     <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Task Description"</span>,
@@ -4327,8 +4377,15 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
     <span class="hljs-attr">"artifact_proxy"</span>: <span class="hljs-string">"ABC-XYZ"</span>,
     <span class="hljs-attr">"assigned_to"</span>: [
         {
-            <span class="hljs-attr">"email"</span>: <span class="hljs-string">"user1@example.com"</span>,
-            <span class="hljs-attr">"id"</span>: <span class="hljs-number">3</span>
+            <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Admin"</span>,
+            <span class="hljs-attr">"last_name"</span>: <span class="hljs-string">"Testerton"</span>,
+            <span class="hljs-attr">"is_active"</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-attr">"email"</span>: <span class="hljs-string">"admin@example.com"</span>,
+            <span class="hljs-attr">"role"</span>: {
+                <span class="hljs-attr">"id"</span>: <span class="hljs-string">"UR1"</span>,
+                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"User"</span>
+            },
+            <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>
         }
     ],
     <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Insecure forgotten password."</span>,
