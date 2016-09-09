@@ -18,6 +18,8 @@
       <div class="title"> <span>API v2 Documentation</span> </div>
       <div class="versions">
         <p><span class="version">v: </span> <a href="index.html" class="active">
+                4.1
+              </a> <span>&middot;</span> <a href="4.0.html">
                 4.0
               </a> <span>&middot;</span> <a href="3.8.html">
                 3.8
@@ -1582,13 +1584,119 @@
 <span class="json">{
     <span class="hljs-attr">"results"</span>: [{
         <span class="hljs-attr">"id"</span>: <span class="hljs-string">"G64"</span>,
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Group2"</span>,
+        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Group 64"</span>,
+        <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2016-07-29T21:02:33.764620Z"</span>,
         <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Group description"</span>,
-        <span class="hljs-attr">"role"</span>: <span class="hljs-string">"Administrator"</span>
+        <span class="hljs-attr">"role"</span>: <span class="hljs-string">"UR4"</span>
     }]
 }</span></code></pre>
         <p>This endpoint returns a list of Group resources.</p>
         <p><strong><code>GET /api/v2/groups/</code></strong></p>
+        <hr>
+        <h3 id="expand-parameters">Expand Parameters</h3> <pre class="highlight http"><code>GET /api/v2/groups/?expand=role
+Accept: application/json
+Authorization: Token: "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="json">{
+    <span class="hljs-attr">"results"</span>: [{
+        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"G64"</span>,
+        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Group 64"</span>,
+        <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2016-07-29T21:02:19.780768Z"</span>,
+        <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Group description"</span>,
+        <span class="hljs-attr">"role"</span>: {
+            <span class="hljs-attr">"id"</span>: <span class="hljs-string">"UR1"</span>,
+            <span class="hljs-attr">"name"</span>: <span class="hljs-string">"User"</span>
+        }
+    }]
+}</span></code></pre>
+        <p>See the <a href="#expand-parameters">Expand Parameters</a> section for more details.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>role</td>
+              <td>Role field is expanded to include to id and name fields.</td>
+            </tr>
+          </tbody>
+        </table>
+        <hr>
+        <h3 id="include-parameters">Include Parameters</h3> <pre class="highlight http"><code>GET /api/v2/groups/?include=groups,users,all_users,total_user_count
+Accept: application/json
+Authorization: Token: "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="clojure">{
+    <span class="hljs-string">"results"</span>: [{
+        <span class="hljs-string">"id"</span>: <span class="hljs-string">"G64"</span>,
+        <span class="hljs-string">"name"</span>: <span class="hljs-string">"Group 64"</span>,
+        <span class="hljs-string">"updated"</span>: <span class="hljs-string">"2016-07-29T21:02:19.780768Z"</span>,
+        <span class="hljs-string">"description"</span>: <span class="hljs-string">"Group description"</span>,
+        <span class="hljs-string">"role"</span>: <span class="hljs-string">"UR4"</span>
+        <span class="hljs-string">"users"</span>: [{
+            <span class="hljs-string">"first_name"</span>: <span class="hljs-string">"Frank"</span>,
+            <span class="hljs-string">"last_name"</span>: <span class="hljs-string">"Testerton"</span>,
+            <span class="hljs-string">"is_active"</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-string">"id"</span>: <span class="hljs-number">2</span>,
+            <span class="hljs-string">"email"</span>: <span class="hljs-string">"frank@example.com"</span>
+        }],
+        <span class="hljs-string">"groups"</span>: [{
+            role: <span class="hljs-string">"User"</span>,
+            id: <span class="hljs-string">"G1"</span>,
+            name: <span class="hljs-string">"Example Group"</span>
+        }],
+        <span class="hljs-string">"total_user_count"</span>: <span class="hljs-number">2</span>,
+        <span class="hljs-string">"all_users"</span>: <span class="hljs-string">"users"</span>: [
+            {
+                <span class="hljs-string">"first_name"</span>: <span class="hljs-string">"Frank"</span>,
+                <span class="hljs-string">"last_name"</span>: <span class="hljs-string">"Testerton"</span>,
+                <span class="hljs-string">"is_active"</span>: <span class="hljs-literal">true</span>,
+                <span class="hljs-string">"id"</span>: <span class="hljs-number">2</span>,
+                <span class="hljs-string">"email"</span>: <span class="hljs-string">"frank@example.com"</span>
+            },
+            {
+                <span class="hljs-string">"first_name"</span>: <span class="hljs-string">"Linda"</span>,
+                <span class="hljs-string">"last_name"</span>: <span class="hljs-string">"Graham"</span>,
+                <span class="hljs-string">"is_active"</span>: <span class="hljs-literal">false</span>,
+                <span class="hljs-string">"id"</span>: <span class="hljs-number">3</span>,
+                <span class="hljs-string">"email"</span>: <span class="hljs-string">"linda@example.com"</span>
+            },
+
+        ]
+    }]
+}</span></code></pre>
+        <p>See the <a href="#include-parameters">Include Parameters</a> section for more details.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>groups</td>
+              <td>Includes a list of nested groups that are directly a member of the parent group</td>
+            </tr>
+            <tr>
+              <td>users</td>
+              <td>Includes a list of direct users a part of the group.</td>
+            </tr>
+            <tr>
+              <td>all_users</td>
+              <td>Include a list of direct and indirect users of the group.</td>
+            </tr>
+            <tr>
+              <td>total_user_count</td>
+              <td>Includes the total number of users (direct and indirect) in the group.</td>
+            </tr>
+          </tbody>
+        </table>
         <h2 id="get-a-specific-group">Get a Specific Group</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/groups/G64/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
@@ -1596,9 +1704,10 @@
 
 <span class="json">{
     <span class="hljs-attr">"id"</span>: <span class="hljs-string">"G64"</span>,
-    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Group2"</span>,
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Group 64"</span>,
+    <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2016-07-29T21:02:19.780768Z"</span>,
     <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Group description"</span>,
-    <span class="hljs-attr">"role"</span>: <span class="hljs-string">"Administrator"</span>
+    <span class="hljs-attr">"role"</span>: <span class="hljs-string">"UR4"</span>,
 }</span></code></pre>
         <p>This endpoint retreives a specific Group Resource as specified by the group_id.</p>
         <p><strong><code>GET /api/v2/groups/{group_id}/</code></strong></p>
@@ -1614,6 +1723,140 @@
             <tr>
               <td>group_id</td>
               <td>The id of the Group to retrieve</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="create-a-group">Create a Group</h2> <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/users/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
+
+<span class="json">{
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Group 2"</span>,
+    <span class="hljs-attr">"role"</span>: <span class="hljs-string">"UR5"</span>,
+    <span class="hljs-attr">"users"</span>: [{<span class="hljs-attr">"email"</span>: <span class="hljs-string">"frank@example.com"</span>}],
+    <span class="hljs-attr">"groups"</span>: [<span class="hljs-string">"G1"</span>]
+}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="clojure">{
+    <span class="hljs-string">"id"</span>: <span class="hljs-string">"G2"</span>,
+    <span class="hljs-string">"name"</span>: <span class="hljs-string">"Group 2"</span>,
+    <span class="hljs-string">"updated"</span>: <span class="hljs-string">"2016-07-29T21:02:19.780768Z"</span>,
+    <span class="hljs-string">"description"</span>: <span class="hljs-string">""</span>,
+    <span class="hljs-string">"role"</span>: <span class="hljs-string">"UR5"</span>,
+    <span class="hljs-string">"users"</span>: [{
+        <span class="hljs-string">"first_name"</span>: <span class="hljs-string">"Frank"</span>,
+        <span class="hljs-string">"last_name"</span>: <span class="hljs-string">"Testerton"</span>,
+        <span class="hljs-string">"is_active"</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-string">"id"</span>: <span class="hljs-number">2</span>,
+        <span class="hljs-string">"email"</span>: <span class="hljs-string">"frank@example.com"</span>
+    }],
+    <span class="hljs-string">"groups"</span>: [{
+        role: <span class="hljs-string">"User"</span>,
+        id: <span class="hljs-string">"G1"</span>,
+        name: <span class="hljs-string">"Example Group"</span>
+    }]
+}</span></code></pre>
+        <p>Create a Group resource.</p>
+        <p><strong><code>POST /api/v2/groups/</code></strong></p>
+        <table>
+          <thead>
+            <tr>
+              <th>Fields</th>
+              <th>Required</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>name</td>
+              <td>Yes</td>
+              <td>The name of the group resource</td>
+            </tr>
+            <tr>
+              <td>description</td>
+              <td>No</td>
+              <td>The description of the group</td>
+            </tr>
+            <tr>
+              <td>role</td>
+              <td>Yes</td>
+              <td>The role of the group</td>
+            </tr>
+            <tr>
+              <td>users</td>
+              <td>No</td>
+              <td>A list of dictionaries representing the users who are part of the business unit. Each dictionary has an email field.</td>
+            </tr>
+            <tr>
+              <td>groups</td>
+              <td>No</td>
+              <td>A list of group ids representing the nested groups who are part of the parent group.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="update-a-specific-group">Update a specific Group</h2> <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/groups/G2/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
+
+<span class="json">{
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"User Experience Group"</span>,
+    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Deals with designing user experiences"</span>
+}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="json">{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"G2"</span>,
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"User Experience Group"</span>,
+    <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2016-07-29T21:02:19.780768Z"</span>,
+    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Deals with designing user experiences"</span>,
+    <span class="hljs-attr">"role"</span>: <span class="hljs-string">"UR1"</span>
+    <span class="hljs-string">"users"</span>: [{
+        <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Frank"</span>,
+        <span class="hljs-attr">"last_name"</span>: <span class="hljs-string">"Testerton"</span>,
+        <span class="hljs-attr">"is_active"</span>: <span class="hljs-literal">true</span>
+        <span class="hljs-string">"id"</span>: <span class="hljs-number">2</span>,
+        <span class="hljs-attr">"email"</span>: <span class="hljs-string">"frank@example.com"</span>
+    }],
+    <span class="hljs-attr">"groups"</span>: [{
+        <span class="hljs-attr">"role"</span>: <span class="hljs-string">"User"</span>
+        <span class="hljs-string">"id"</span>: <span class="hljs-string">"G1"</span>,
+        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Example Group"</span>
+    }]
+}</span></code></pre>
+        <p>Update a specific Group resource.</p>
+        <p><strong><code>PUT /api/v2/users/{group_id}/</code></strong></p>
+        <h3 id="url-parameters">URL Parameters</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>group_id</td>
+              <td>The ID of the Group to update</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="delete-a-group">Delete a Group</h2> <pre class="highlight http"><code>DELETE api/v2/groups/G1/
+Accept: application/json
+Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">204</span> NO CONTENT</code></pre>
+        <p>This endpoint deletes a single Group resource, as specified by the id parameter.</p>
+        <p><strong> <code>DELETE /groups/{group_id}/</code></strong></p>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>group_id</td>
+              <td>The id of the group to delete</td>
             </tr>
           </tbody>
         </table>
@@ -2401,33 +2644,206 @@
         {
             <span class="hljs-attr">"id"</span>: <span class="hljs-string">"PR4"</span>,
             <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Manage Project"</span>,
-            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Can change project survey, ..."</span>
+            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Can change project survey, ..."</span>,
+            <span class="hljs-attr">"permissions"</span>: [
+                <span class="hljs-string">"edit_project_membership"</span>,
+                <span class="hljs-string">"archive_project"</span>,
+                <span class="hljs-string">"lock_project_survey"</span>,
+                <span class="hljs-string">"write_task_note"</span>,
+                <span class="hljs-string">"verify_task"</span>,
+                <span class="hljs-string">"sync_with_alm"</span>,
+                <span class="hljs-string">"edit_project_survey"</span>,
+                <span class="hljs-string">"edit_project_details"</span>,
+                <span class="hljs-string">"assign_task"</span>,
+                <span class="hljs-string">"mark_task"</span>,
+                <span class="hljs-string">"view_project"</span>,
+                <span class="hljs-string">"create_project_specific_task"</span>
+            ]
         },
         {
             <span class="hljs-attr">"id"</span>: <span class="hljs-string">"PR5"</span>,
             <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Normal"</span>,
-            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Can view project and update task statuses"</span>
+            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Can view project and update task statuses"</span>,
+            <span class="hljs-attr">"permissions"</span>: [
+                <span class="hljs-string">"verify_task"</span>,
+                <span class="hljs-string">"mark_task"</span>,
+                <span class="hljs-string">"view_project"</span>,
+                <span class="hljs-string">"write_task_note"</span>
+            ]
         },
         {
             <span class="hljs-attr">"id"</span>: <span class="hljs-string">"PR6"</span>,
             <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Read Only"</span>,
-            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Can view project, but not modify it"</span>
+            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Can view project, but not modify it"</span>,
+            <span class="hljs-attr">"permissions"</span>: [
+                <span class="hljs-string">"view_project"</span>
+            ]
         }
     ]
 }</span></code></pre>
         <p>This endpoint returns a list of Project Role resources.</p>
-        <h2 id="get-a-specific-project-role">Get a Specific Project Role</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/project-roles/PR4/</span> HTTP/1.1
+        <h2 id="get-a-specific-project-role">Get a Specific Project Role</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/project-roles/CPR1/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
-    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"PR4"</span>,
-    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Manage Project"</span>,
-    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Can change project survey, ..."</span>
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"CPR1"</span>,
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Custom Role"</span>,
+    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Can view project."</span>,
+    <span class="hljs-attr">"permissions"</span>: [
+        <span class="hljs-string">"view_project"</span>
+    ]
 }</span></code></pre>
-        <p>This endpoint returns a specific Project Role resource, specified its id.</p>
+        <p>This endpoint returns a specific Project Role resource, specified by its id.</p>
         <p><strong><code>GET /api/v2/project-roles/{project_role_id}/</code></strong></p>
+        <h3 id="url-parameters">URL Parameters</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>project_role_id</td>
+              <td>The id of the Project Role to retrieve.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="create-a-new-project-role">Create a New Project Role</h2> <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/project-roles/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
+
+<span class="json">{
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"New Project Role"</span>,
+    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Can view project!"</span>,
+    <span class="hljs-attr">"inherit_from"</span>: <span class="hljs-string">"PR6"</span>
+}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="json">{ 
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"CPR3"</span>,
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"New Project Role"</span>,
+    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Can view project!"</span>,
+    <span class="hljs-attr">"permissions"</span>: [
+        <span class="hljs-string">"view_project"</span>
+    ]
+}</span></code></pre><pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/project-roles/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
+
+<span class="json">{
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"New Project Role"</span>,
+    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Can view project!"</span>,
+    <span class="hljs-attr">"permissions"</span>: [
+        <span class="hljs-string">"view_project"</span>
+    ]
+}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="json">{ 
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"CPR3"</span>,
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"New Project Role"</span>,
+    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Can view project!"</span>,
+    <span class="hljs-attr">"permissions"</span>: [
+        <span class="hljs-string">"view_project"</span>
+    ]
+}</span></code></pre>
+        <table>
+          <thead>
+            <tr>
+              <th>Fields</th>
+              <th>Required</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>name</td>
+              <td>Yes</td>
+              <td>The name of the Project Role.</td>
+            </tr>
+            <tr>
+              <td>description</td>
+              <td>Yes</td>
+              <td>A description of the Project Role.</td>
+            </tr>
+            <tr>
+              <td>permissions</td>
+              <td>No</td>
+              <td>The permissions given to users who are assigned this Project Role.</td>
+            </tr>
+            <tr>
+              <td>inherit_from</td>
+              <td>No</td>
+              <td>If inherit_from field is passed, then the permissions field gets set with the permissions of the parent Project Role.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="update-a-project-role">Update a Project Role</h2> <pre class="highlight http"><code><span class="hljs-keyword">PATCH</span> <span class="hljs-string">/api/v2/project-roles/CPR3/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
+
+<span class="json">{
+    <span class="hljs-attr">"permissions"</span>: [<span class="hljs-string">"view_project"</span>, <span class="hljs-string">"archive_project"</span>]
+}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="json">{ 
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"CPR3"</span>,
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"New Project Role"</span>,
+    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Can view project!"</span>,
+    <span class="hljs-attr">"permissions"</span>: [
+        <span class="hljs-string">"view_project"</span>,
+        <span class="hljs-string">"archive_project"</span>
+    ]
+
+}</span></code></pre>
+        <p><strong><code>PATCH /api/v2/project-roles/{project_role_id}/</code></strong></p>
+        <h3 id="url-parameters">URL Parameters</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>project_role_id</td>
+              <td>The id of the Project Role to update</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 id="payload">Payload</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Fields</th>
+              <th>Required</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>name</td>
+              <td>No</td>
+              <td>The name of the Project Role.</td>
+            </tr>
+            <tr>
+              <td>description</td>
+              <td>No</td>
+              <td>Project Role description.</td>
+            </tr>
+            <tr>
+              <td>permissions</td>
+              <td>No</td>
+              <td>The permissions given to users who are assigned this Project Role.</td>
+            </tr>
+          </tbody>
+        </table>
         <h1 id="project-survey">Project Survey</h1>
         <h2 id="get-the-project-survey-of-a-project">Get the project survey of a project</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/survey/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
@@ -3845,7 +4261,7 @@
           <tbody>
             <tr>
               <td>project_id</td>
-              <td>The id of the project to edit this task belongs to</td>
+              <td>The id of the project the new task belongs to</td>
             </tr>
           </tbody>
         </table>
@@ -3945,7 +4361,7 @@
           <tbody>
             <tr>
               <td>project_id</td>
-              <td>The id of the project to edit this task belongs to</td>
+              <td>The id of the project this task belongs to</td>
             </tr>
             <tr>
               <td>id</td>
