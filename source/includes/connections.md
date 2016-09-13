@@ -15,6 +15,7 @@ Content-Type: application/json
 {
     "results": [{
         "id": 1,
+        "connector": 2,
         "project": 2,
         "system": "Rally",
         "alias": "Rally Integration",
@@ -80,6 +81,7 @@ Content-Type: application/json
 
 {
     "id": 1,
+    "connector": 2,
     "project": 2,
     "system": "Rally",
     "alias": "Rally Integration",
@@ -135,6 +137,7 @@ Content-Type: application/json
 {
     "results": [{
         "id": 1,
+        "connector": 1,
         "project": 1,
         "system": "WhiteHat",
         "alias": "WhiteHat Integration",
@@ -192,6 +195,7 @@ Content-Type: application/json
 
 {
     "id": 1,
+    "connector": 1,
     "project": 1,
     "system": "WhiteHat",
     "alias": "WhiteHat Integration",
