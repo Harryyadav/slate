@@ -260,12 +260,17 @@ Content-Type: application/json
     "accepted": true,
     "ad_hoc": false,
     "artifact_proxy": "ABC-XYZ",
-    "assigned_to": [
-        {
-            "email": "admin@example.com",
-            "id": 3
-        }
-    ],
+    "assigned_to": [{
+        "first_name": "Admin",
+        "last_name": "Testerton",
+        "is_active": true,
+        "email": "admin@example.com",
+        "role":{
+            "id": "UR4",
+            "name": "Administrator"
+        },
+        "id": 1
+    }],
     "text": "Insecure forgotten password.",
     "id": "1-T2",
     "library_task_created": "2010-10-20T17:46:50Z",
@@ -324,8 +329,15 @@ Content-Type: application/json
     "artifact_proxy": "ABC-XYZ",
     "assigned_to": [
         {
+            "first_name": "User",
+            "last_name": "Testerton",
+            "is_active": true,
             "email": "user1@example.com",
-            "id": 3
+            "role":{
+                "id": "UR4",
+                "name": "Administrator"
+            },
+            "id": 1
         }
     ],
     "text": "Task Description",
@@ -400,9 +412,28 @@ Content-Type: application/json
     "artifact_proxy": "ABC-XYZ",
     "assigned_to": [
         {
-            "email": "user1@example.com",
-            "id": 3
+            "first_name": "User",
+            "last_name": "Testerton",
+            "is_active": true,
+            "email": "uesr1@example.com",
+            "role":{
+                "id": "UR4",
+                "name": "Administrator"
+            },
+            "id": 1
+        },
+        {
+            "first_name": "User",
+            "last_name": "Second",
+            "is_active": true,
+            "email": "user2@example.com",
+            "role":{
+                "id": "UR4",
+                "name": "Administrator"
+            },
+            "id": 2
         }
+
     ],
     "text": "Insecure forgotten password.",
     "id": "1-T2",

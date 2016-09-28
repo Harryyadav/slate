@@ -86,7 +86,11 @@ Content-Type: application/json
             "last_name": "Testerton",
             "is_active": true,
             "id": 2,
-            "email": "frank@example.com"
+            "email": "frank@example.com",
+            "role": {
+                "id": "UR4",
+                "name": "Administrator"
+            },
         }],
         "groups": [{
             role: "User",
@@ -100,14 +104,22 @@ Content-Type: application/json
                 "last_name": "Testerton",
                 "is_active": true,
                 "id": 2,
-                "email": "frank@example.com"
+                "email": "frank@example.com",
+                "role": {
+                    "id": "UR4",
+                    "name": "Administrator"
+                },
             },
             {
                 "first_name": "Linda",
                 "last_name": "Graham",
                 "is_active": false,
                 "id": 3,
-                "email": "linda@example.com"
+                "email": "linda@example.com",
+                "role": {
+                    "id": "UR4",
+                    "name": "Administrator"
+                },
             },
 
         ]
@@ -198,7 +210,11 @@ Content-Type: application/json
         "last_name": "Testerton",
         "is_active": true,
         "id": 2,
-        "email": "frank@example.com"
+        "email": "frank@example.com",
+        "role": {
+            "id": "UR4",
+            "name": "Administrator"
+        },
     }],
     "groups": [{
         role: "User",
@@ -259,7 +275,11 @@ Content-Type: application/json
         "last_name": "Testerton",
         "is_active": true
         "id": 2,
-        "email": "frank@example.com"
+        "email": "frank@example.com",
+        "role": {
+            "id": "UR4",
+            "name": "Administrator"
+        },
     }],
     "groups": [{
         "role": "User"
