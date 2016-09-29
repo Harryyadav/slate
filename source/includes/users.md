@@ -30,7 +30,8 @@ Content-Type: application/json
                 "name": "Group1",
                 "role": "Project Lead"
             }
-        ]
+        ],
+        "password_reset_in_progress": false
     }]
 }
 ```
@@ -70,7 +71,8 @@ Content-Type: application/json
     "is_active": true,
     "is_superuser": false,
     "role": "No Role",
-    "groups": []
+    "groups": [],
+    "password_reset_in_progress": false
 }
 ```
 
@@ -134,7 +136,8 @@ Content-Type: application/json
             "name": "Group2",
             "role": "No Role"
         }
-    ]
+    ],
+    "password_reset_in_progress": true
 }
 ```
 
@@ -195,7 +198,8 @@ Content-Type: application/json
             "name": "Group2",
             "role": "No Role"
         }
-    ]
+    ],
+    "password_reset_in_progress": true
 }
 ```
 
