@@ -75,10 +75,20 @@
         <p>Consume long responses by enabling pagination on an endpoint. Specify a page size in the URL:</p>
         <p><code>/?page_size=100</code></p>
         <p>and use the <code>next</code> and <code>previous</code> values to move through the complete response.</p>
-        <h1 id="authentication">Authentication</h1> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/users/</span> HTTP/1.1
+        <h1 id="authentication">Authentication</h1>
+        <p>There are several ways to authenticate against SD Elements, which are outlined below.</p>
+        <h2 id="basic-authentication">Basic Authentication</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/users/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"</code></pre>
+        <p>To authenticate against SD Elements using basic authentication (username and password), you need to pass a Base64 encoding of your username:password as a header.</p>
+        <h2 id="session-authorization">Session Authorization</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/users/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Cookie</span>: sessionid="YOUR SESSION ID"</code></pre>
+        <p>To authenticate against SD Elements using session authentication, you need to pass in your session id as a cookie in the header.</p>
+        <h2 id="token-authentication">Token Authentication</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/users/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
-        <p>To authenticate against SD Elements, you need to pass an API access token via an <code>Authorization</code> header.</p>
+        <p>To authenticate against SD Elements using tokens, you need to pass an API access token via an <code>Authorization</code> header.</p>
         <p>A token can be generated as follows:</p>
         <ul>
           <li>Go to the menu option in the top right of SD Elements:
@@ -5065,7 +5075,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
                 <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Group1"</span>,
                 <span class="hljs-attr">"role"</span>: <span class="hljs-string">"Project Lead"</span>
             }
-        ]
+        ],
+        <span class="hljs-attr">"password_reset_in_progress"</span>: <span class="hljs-literal">false</span>
     }]
 }</span></code></pre>
         <p>This endpoint returns a list of User resources.</p>
@@ -5085,7 +5096,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
     <span class="hljs-attr">"is_active"</span>: <span class="hljs-literal">true</span>,
     <span class="hljs-attr">"is_superuser"</span>: <span class="hljs-literal">false</span>,
     <span class="hljs-attr">"role"</span>: <span class="hljs-string">"No Role"</span>,
-    <span class="hljs-attr">"groups"</span>: []
+    <span class="hljs-attr">"groups"</span>: [],
+    <span class="hljs-attr">"password_reset_in_progress"</span>: <span class="hljs-literal">false</span>
 }</span></code></pre>
         <p>This endpoint returns a specific User resource.</p>
         <p><strong><code>GET /api/v2/users/{user_id}/</code></strong></p>
@@ -5138,7 +5150,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
             <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Group2"</span>,
             <span class="hljs-attr">"role"</span>: <span class="hljs-string">"No Role"</span>
         }
-    ]
+    ],
+    <span class="hljs-attr">"password_reset_in_progress"</span>: <span class="hljs-literal">true</span>
 }</span></code></pre>
         <p>Create a User resource.</p>
         <p><strong><code>POST /api/v2/users/</code></strong></p>
@@ -5207,7 +5220,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
             <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Group2"</span>,
             <span class="hljs-attr">"role"</span>: <span class="hljs-string">"No Role"</span>
         }
-    ]
+    ],
+    <span class="hljs-attr">"password_reset_in_progress"</span>: <span class="hljs-literal">true</span>
 }</span></code></pre>
         <p>Update a specific User resource.</p>
         <p><strong><code>PUT /api/v2/users/{user_id}/</code></strong></p>
@@ -5577,6 +5591,26 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
             </tr>
           </tbody>
         </table>
+        <h1 id="reset-password">Reset Password</h1>
+        <h2 id="get-password-reset-info">Get Password Reset Info</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/users/1/reset-password/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
+<span class="hljs-attribute">Cookie</span>: sessionid="YOUR SESSION ID"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="json">{
+    <span class="hljs-attr">"password_reset_expiry_date"</span>: <span class="hljs-string">"2016-09-30T14:51:55.889Z"</span>,
+    <span class="hljs-attr">"password_reset_url"</span>: <span class="hljs-string">"http://example.com/accounts/new-password/12e33fbfc0f5774"</span>
+}</span></code></pre>
+        <p>This endpoint returns the password reset information for a specific user. This endpoint only uses either basic or session authentication.</p>
+        <p>Note: If the returned fields are null, then there is no password reset in progress.</p>
+        <p><strong><code>GET /api/v2/users/&lt;id&gt;/reset-password/</code></strong></p>
+        <h2 id="reset-user-password">Reset User Password</h2> <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/users/1/reset-password/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
+<span class="hljs-attribute">Cookie</span>: sessionid="YOUR SESSION ID"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK</code></pre>
+        <p>Request a password reset for a specific user.</p>
+        <p><strong><code>POST /api/v2/users/&lt;id&gt;/reset-password/</code></strong></p>
       </div>
       <div class="dark-box">
         <div class="lang-selector"> </div>
