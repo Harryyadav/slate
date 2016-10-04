@@ -41,6 +41,7 @@ includes:
  - users
  - user_activity
  - assigned_tasks
+ - reset_password
 
 search: true
 
