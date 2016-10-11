@@ -214,6 +214,90 @@ succeeded     | Yes      | Whether the job was run successfully.
 
 
 
+## Initiate an ALM Connection Sync Job
+
+```http
+POST /api/v2/projects/1/jobs/alm/ HTTP/1.1
+Accept: application/json
+Authorization: Token "YOUR SDE ACCESS TOKEN"
+
+{
+    "connection": 12,
+    "automatic": false,
+    "ready": false
+}
+```
+
+```http
+HTTP/1.1 201 CREATED
+Content-Type: application/json
+
+{
+
+    "id": 12,
+    "user": 1,
+    "succeeded": false,
+    "automatic": false,
+    "ready": false,
+    "result_message": "",
+    "last_run": "2015-04-15T20:27:24.396442Z",
+    "connection": {
+        "alias": "My Connection",
+        "command": "run_my_connection",
+        "frequency": "daily",
+        "id": 12,
+        "params": {
+            "sde_project": "Demo Project",
+            "alm_user": "rally_user",
+            "sde_verification_filter": "none,partial,pass,fail",
+            "rally_workspace": "Rally Workspace",
+            "alm_method": "https",
+            "alm_title_format": "$task_id $title",
+            "alm_server": "rally1.rallydev.com",
+            "sde_businessunit": "General",
+            "sde_application": "Demo Application",
+            "alm_project": "Rally Project",
+            "alm_pass": "rally_password",
+            "alm_phases": "requirements,architecture-design,development",
+            "sde_statuses_in_scope": "TODO",
+            "conflict_policy": "alm",
+            "sde_min_priority": 7
+        },
+        "project": 7,
+        "system": "Rally"
+    }
+}
+```
+
+Will add a sync job to the queue to be run.
+
+**`POST /api/v2/jobs/alm/`**
+
+Fields        | Required | Description
+--------------|----------|-------------
+automatic     | Yes      | Whether the job was run automatically.
+connection    | Yes      | The connection id associated with the job.
+ready         | Yes      | Whether the job is ready to post its result or not.  This field must be set to "false" in order for the import to commence.
+succeeded     | No       | Boolean Field. Use this along with the 'ready: true' to record when a job was successful/unsuccessful.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -398,3 +482,77 @@ automatic     | Yes      | Whether the job was run automatically.
 connection    | Yes      | The connection id associated with the job.
 result_message| Yes      | The result message of the job.
 succeeded     | Yes      | Whether the job was run successfully.
+ready         | False    | Whether the job is ready to post the result or not.  Defaults to True.
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Initiate an Analysis Connection Import Job
+
+```http
+POST /api/v2/projects/1/jobs/analysis/ HTTP/1.1
+Accept: application/json
+Authorization: Token "YOUR SDE ACCESS TOKEN"
+
+{
+    "connection": 12,
+    "automatic": false,
+    "ready": false
+}
+```
+
+```http
+HTTP/1.1 201 CREATED
+Content-Type: application/json
+
+{
+    "id": 12,
+    "user": 1,
+    "succeeded": false,
+    "automatic": false,
+    "ready": false,
+    "result_message": "",
+    "last_run": "2015-04-15T20:27:24.396442Z",
+    "connection": {
+        "alias": "My Connection",
+        "command": "run_my_connection",
+        "frequency": "daily",
+        "id": 23,
+        "params": {
+            "asset_name": "WebGoat Java",
+            "sde_project": "WhiteHat",
+            "sde_businessunit": "General",
+            "sde_application": "Demo Application",
+            "import_behaviour": "replace-scanner",
+            "analysis_server": "server.whitehatsec.com",
+            "task_status_mapping": "{}"
+        },
+        "project": 7,
+        "system": "Whitehat"
+    }
+}
+```
+
+Will put the import job on the queue to be run.
+
+**`POST /api/v2/jobs/analysis/`**
+
+Fields        | Required | Description
+--------------|----------|-------------
+automatic     | Yes      | Whether the job was run automatically.
+connection    | Yes      | The connection id associated with the job.
+ready         | Yes      | Whether the job is ready to post its result or not.  This field must be set to "false" in order for the import to commence.
+succeeded     | No       | Boolean Field. Use this along with the 'ready: true' to record when a job was successful/unsuccessful.
+
+
+
+
