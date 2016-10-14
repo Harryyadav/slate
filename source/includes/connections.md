@@ -437,7 +437,7 @@ Content-Type: application/json
 
 Fields              | Required | Description
 --------------------|----------|-------------
-alias               | Yes      | The name of the new connection.
+alias               | No       | The name of the new connection.  Will default to the name of the connector.
 connector           | Yes      | The id of the connector that this connection will use to connect with the ALM.
 project             | Yes      | The id of the SD Elements project that this connection will connect with.
 frequency           | No       | The frequency in which this connection will sync.  The available options for organizations with the advanced ALM feature are: "hourly", "daily", "weekly", "monthly" and "manually".  If unspecified, the frequency will default to "manually".  Organizations without the advanced ALM feature can only choose "manually".
