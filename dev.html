@@ -3161,6 +3161,25 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
     ]
 }</span></code></pre>
         <p>This endpoint returns a list of Project Role resources.</p>
+        <h3 id="url-parameters">URL Parameters</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ordering</td>
+              <td>Sort project roles by the specified field. Prefix field name with minus to sort descending. Sortable fields: name.</td>
+            </tr>
+            <tr>
+              <td>search</td>
+              <td>Filter project roles by performing a textual search on name.</td>
+            </tr>
+          </tbody>
+        </table>
         <h2 id="get-a-specific-project-role">Get a Specific Project Role</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/project-roles/CPR1/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
