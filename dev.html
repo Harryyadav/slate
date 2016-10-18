@@ -3323,6 +3323,46 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
             </tr>
           </tbody>
         </table>
+        <h2 id="delete-a-project-role">Delete a Project Role</h2> <pre class="highlight http"><code><span class="hljs-keyword">DELETE</span> <span class="hljs-string">/api/v2/project-roles/CP1/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
+
+<span class="json">{
+    <span class="hljs-attr">"replacement"</span>: <span class="hljs-string">"PR1"</span>
+}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">204</span> CONTENT_NOT_FOUND</code></pre>
+        <p><strong><code>DELETE /api/v2/project-roles/{project_role_id}/</code></strong></p>
+        <h3 id="url-parameters">URL Parameters</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>project_role_id</td>
+              <td>The id of the Project Role to delete</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 id="payload">Payload</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Fields</th>
+              <th>Required</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>replacement</td>
+              <td>Yes</td>
+              <td>The id of the Project Role to replace the one to be deleted.</td>
+            </tr>
+          </tbody>
+        </table>
         <h1 id="project-survey">Project Survey</h1>
         <h2 id="get-the-project-survey-of-a-project">Get the project survey of a project</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/survey/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
