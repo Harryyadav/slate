@@ -57,6 +57,12 @@ Content-Type: application/json
 ```
 
 This endpoint returns a list of Project Role resources.
+### URL Parameters
+
+Parameter     | Description
+------------- | -----------
+ordering      | Sort project roles by the specified field. Prefix field name with minus to sort descending. Sortable fields: name.
+search        | Filter project roles by performing a textual search on name.
 
 
 
