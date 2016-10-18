@@ -222,3 +222,42 @@ Fields        | Required | Description
 name          | No       | The name of the Project Role.
 description   | No       | Project Role description.
 permissions   | No       | The permissions given to users who are assigned this Project Role.
+
+
+
+
+
+
+
+
+
+## Delete a Project Role
+
+``` http
+DELETE /api/v2/project-roles/CP1/ HTTP/1.1
+Accept: application/json
+Authorization: Token "YOUR SDE ACCESS TOKEN"
+
+{
+    "replacement": "PR1"
+}
+```
+
+``` http
+HTTP/1.1 204 CONTENT_NOT_FOUND
+```
+
+**`DELETE /api/v2/project-roles/{project_role_id}/`**
+
+### URL Parameters
+
+Parameter       | Description
+--------------- | -----------
+project_role_id | The id of the Project Role to delete
+
+
+### Payload
+
+Fields        | Required | Description
+--------------|----------|---------------
+replacement   | Yes      | The id of the Project Role to replace the one to be deleted.
