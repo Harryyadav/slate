@@ -242,7 +242,7 @@ permissions   | No       | The permissions given to users who are assigned this 
 ## Delete a Project Role
 
 ``` http
-DELETE /api/v2/project-roles/CP1/ HTTP/1.1
+DELETE /api/v2/project-roles/CPR1/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 
@@ -252,7 +252,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
 
 ``` http
-HTTP/1.1 204 CONTENT_NOT_FOUND
+HTTP/1.1 204 NO CONTENT
 ```
 
 **`DELETE /api/v2/project-roles/{project_role_id}/`**
