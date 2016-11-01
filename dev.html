@@ -1783,6 +1783,199 @@
             </tr>
           </tbody>
         </table>
+        <h2 id="create-a-new-global-role">Create a New Global Role</h2> <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/global-roles/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
+
+<span class="json">{
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Global Role"</span>,
+    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Can participate in projects."</span>,
+    <span class="hljs-attr">"inherit_from"</span>: <span class="hljs-string">"UR1"</span>
+}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="json">{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"CUR1"</span>,
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Global Role"</span>,
+    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Can participate in projects."</span>,
+    <span class="hljs-attr">"permissions"</span>: [
+        <span class="hljs-string">"modify_self"</span>
+    ],
+    <span class="hljs-attr">"is_default"</span>: <span class="hljs-literal">false</span>
+}</span></code></pre><pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/global-roles/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
+
+<span class="json">{
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"New Global Role"</span>,
+    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Can create new applications and projects."</span>,
+    <span class="hljs-attr">"permissions"</span>: [
+        <span class="hljs-string">"add_project"</span>,
+        <span class="hljs-string">"add_application"</span>
+    ],
+    <span class="hljs-attr">"is_default"</span>: <span class="hljs-literal">true</span>
+}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="json">{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"CUR2"</span>,
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"New Global Role"</span>,
+    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Can create new applications and projects."</span>,
+    <span class="hljs-attr">"permissions"</span>: [
+        <span class="hljs-string">"add_project"</span>,
+        <span class="hljs-string">"add_application"</span>
+    ],
+    <span class="hljs-attr">"is_default"</span>: <span class="hljs-literal">true</span>
+}</span></code></pre>
+        <table>
+          <thead>
+            <tr>
+              <th>Fields</th>
+              <th>Required</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>name</td>
+              <td>Yes</td>
+              <td>The name of the Global Role.</td>
+            </tr>
+            <tr>
+              <td>description</td>
+              <td>Yes</td>
+              <td>A description of the Global Role.</td>
+            </tr>
+            <tr>
+              <td>permissions</td>
+              <td>No</td>
+              <td>The permissions given to users who are assigned this Global Role.</td>
+            </tr>
+            <tr>
+              <td>inherit_from</td>
+              <td>No</td>
+              <td>If inherit_from field is passed, then the permissions field gets set with the permissions of the parent Global Role.</td>
+            </tr>
+            <tr>
+              <td>is_default</td>
+              <td>No</td>
+              <td>Passing is_default as True will set the newly created Global Role as default role for the current organization.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="update-a-global-role">Update a Global Role</h2> <pre class="highlight http"><code><span class="hljs-keyword">PATCH</span> <span class="hljs-string">/api/v2/global-roles/CUR2/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
+
+<span class="json">{
+    <span class="hljs-attr">"permissions"</span>: [
+        <span class="hljs-string">"archive_application"</span>,
+        <span class="hljs-string">"add_project"</span>,
+        <span class="hljs-string">"add_application"</span>
+    ],
+    <span class="hljs-attr">"is_default"</span>: <span class="hljs-literal">true</span>
+}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="json">{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"CUR2"</span>,
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"New Global Role"</span>,
+    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Can create new applications and projects."</span>,
+    <span class="hljs-attr">"permissions"</span>: [
+        <span class="hljs-string">"archive_application"</span>,
+        <span class="hljs-string">"add_project"</span>,
+        <span class="hljs-string">"add_application"</span>
+    ],
+    <span class="hljs-attr">"is_default"</span>: <span class="hljs-literal">true</span>
+}</span></code></pre>
+        <p><strong><code>PATCH /api/v2/global-roles/{global_role_id}/</code></strong></p>
+        <h3 id="url-parameters">URL Parameters</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>global_role_id</td>
+              <td>The id of the Global Role to update</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 id="payload">Payload</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Fields</th>
+              <th>Required</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>name</td>
+              <td>No</td>
+              <td>The name of the Global Role.</td>
+            </tr>
+            <tr>
+              <td>description</td>
+              <td>No</td>
+              <td>Global Role description.</td>
+            </tr>
+            <tr>
+              <td>permissions</td>
+              <td>No</td>
+              <td>The permissions given to users who are assigned this Global Role.</td>
+            </tr>
+            <tr>
+              <td>is_default</td>
+              <td>No</td>
+              <td>Passing is_default as True will set the Global Role as default role for the current organization.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="delete-a-global-role">Delete a Global Role</h2> <pre class="highlight http"><code><span class="hljs-keyword">DELETE</span> <span class="hljs-string">/api/v2/global-roles/CUR1/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
+
+<span class="json">{
+    <span class="hljs-attr">"replacement"</span>: <span class="hljs-string">"UR1"</span>
+}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">204</span> NO CONTENT</code></pre>
+        <p><strong><code>DELETE /api/v2/global-roles/{global_role_id}/</code></strong></p>
+        <h3 id="url-parameters">URL Parameters</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>global_role_id</td>
+              <td>The id of the Global Role to delete</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 id="payload">Payload</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Fields</th>
+              <th>Required</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>replacement</td>
+              <td>Yes</td>
+              <td>The id of the Global Role to replace the one to be deleted.</td>
+            </tr>
+          </tbody>
+        </table>
         <h1 id="glossary-terms">Glossary Terms</h1>
         <h2 id="get-all-glossary-terms">Get all Glossary Terms</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/glossary-terms/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
@@ -3348,13 +3541,13 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
             </tr>
           </tbody>
         </table>
-        <h2 id="delete-a-project-role">Delete a Project Role</h2> <pre class="highlight http"><code><span class="hljs-keyword">DELETE</span> <span class="hljs-string">/api/v2/project-roles/CP1/</span> HTTP/1.1
+        <h2 id="delete-a-project-role">Delete a Project Role</h2> <pre class="highlight http"><code><span class="hljs-keyword">DELETE</span> <span class="hljs-string">/api/v2/project-roles/CPR1/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
 <span class="json">{
     <span class="hljs-attr">"replacement"</span>: <span class="hljs-string">"PR1"</span>
-}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">204</span> CONTENT_NOT_FOUND</code></pre>
+}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">204</span> NO CONTENT</code></pre>
         <p><strong><code>DELETE /api/v2/project-roles/{project_role_id}/</code></strong></p>
         <h3 id="url-parameters">URL Parameters</h3>
         <table>
