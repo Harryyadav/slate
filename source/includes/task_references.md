@@ -47,7 +47,6 @@ This endpoint returns a list of Task Reference resources.
 
 ## Get a Specific Reference
 
-
 ```http
 GET /api/v2/projects/1/tasks/1-T21/references/1/ HTTP/1.1
 Accept: application/json
@@ -114,6 +113,7 @@ alm_connection  | Yes      | The ID of the ALM connection the task is linked to
 reference       | Yes      | Internal reference to a linked artifact
 name            | No       | User-friendly identifier for the artifact
 link            | No       | User-facing reference, like a hyperlink used in a web app
+
 
 
 

@@ -74,7 +74,6 @@ Note: this endpoint uses the term 'standard' to reference what we call 'library 
 
 The application, business_unit, project, and standard fields have associated description fields, suffixed with '_desc'.  These fields contain a description of the related item, and can be used to filter if the related item has been deleted.
 
-
 ### Query Parameters
 
 The following parameters may be used to filter the activity resources in the response.
@@ -95,6 +94,10 @@ project_desc     | Returns a list of activities that reference the project with 
 user             | Returns a list of activities that reference the user with the specified user id (not to be confused with activities that are performed by this user).  The id used here is a number, for example `?user=1`.
 standard         | Returns a list of activities that reference the standard with the specified id.  The format of this parameter value is the standard id prefixed by a 'T' for builtin standards or 'CT' for custom standards.
 standard_desc    | Returns a list of activities that reference the standard with the specified standard's full name, for example: "T21: Ensure confidential data is sent over an encrypted channel".
+
+
+
+
 
 
 

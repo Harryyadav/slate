@@ -214,6 +214,9 @@ succeeded     | Yes      | Whether the job was run successfully.
 
 
 
+
+
+
 ## Initiate an ALM Connection Sync Job
 
 ```http
@@ -279,18 +282,6 @@ automatic     | Yes      | Whether the job was run automatically.
 connection    | Yes      | The connection id associated with the job.
 ready         | Yes      | Whether the job is ready to post its result or not.  This field must be set to "false" in order for the import to commence.
 succeeded     | No       | Boolean Field. Use this along with the 'ready: true' to record when a job was successful/unsuccessful.
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -493,9 +484,6 @@ ready         | False    | Whether the job is ready to post the result or not.  
 
 
 
-
-
-
 ## Initiate an Analysis Connection Import Job
 
 ```http
@@ -552,7 +540,4 @@ automatic     | Yes      | Whether the job was run automatically.
 connection    | Yes      | The connection id associated with the job.
 ready         | Yes      | Whether the job is ready to post its result or not.  This field must be set to "false" in order for the import to commence.
 succeeded     | No       | Boolean Field. Use this along with the 'ready: true' to record when a job was successful/unsuccessful.
-
-
-
 

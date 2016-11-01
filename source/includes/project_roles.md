@@ -185,6 +185,7 @@ inherit_from | No       | If inherit_from field is passed, then the permissions 
 
 
 
+
 ## Update a Project Role
 
 ```http
@@ -237,6 +238,7 @@ permissions   | No       | The permissions given to users who are assigned this 
 
 
 
+
 ## Delete a Project Role
 
 ``` http
@@ -260,7 +262,6 @@ HTTP/1.1 204 CONTENT_NOT_FOUND
 Parameter       | Description
 --------------- | -----------
 project_role_id | The id of the Project Role to delete
-
 
 ### Payload
 

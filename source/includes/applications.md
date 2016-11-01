@@ -79,7 +79,6 @@ Parameter      | Description
 ---------------|---------------
 business_unit  | Expand the business unit field of the application
 
-
 ### Include Parameters
 
 ```http

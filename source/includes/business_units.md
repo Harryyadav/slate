@@ -78,7 +78,6 @@ search    | Filter applications by performing a textual search on name.
 
 
 
-
 ## Get a Specific Business Unit
 
 ```http
@@ -119,7 +118,6 @@ Content-Type: application/json
 ```
 
 This endpoint retrieves a specific Business Unit resource, as specified by the id parameter.
-
 
 **`GET /api/v2/business-units/{business_unit_id}/`**
 
@@ -274,6 +272,10 @@ Update a single business unit by specifying the id. The fields `users`, `groups`
 Parameter         | Description
 ----------------- | -----------
 business_unit_id  | The id of the Business Unit to update.
+
+
+
+
 
 
 

@@ -119,6 +119,11 @@ Returns a specific ALM connection. The params are only displayed if you have the
 
 
 
+
+
+
+
+
 ## Create an ALM Connection
 
 ```http
@@ -136,7 +141,6 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
         "alm_parent_issue": "Parent"
     }
 }
-
 ```
 
 ```http
@@ -262,17 +266,6 @@ connection_id   | The ID of the ALM Connection to update
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## Get All Analysis Connections of All Projects
 
 ```http
@@ -333,13 +326,6 @@ system    | Returns all analysis connections associated with a particular system
 
 
 
-
-
-
-
-
-
-
 ## Get a Specific Analysis Connection
 
 ```http
@@ -383,6 +369,11 @@ Returns a specific analysis connection. The params are only displayed if you hav
 
 
 
+
+
+
+
+
 ## Create an Analysis Connection
 
 ```http
@@ -400,8 +391,6 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
         "import_behaviour": "combine"
     }
 }
-
-
 ```
 
 ```http
@@ -434,7 +423,6 @@ Content-Type: application/json
 
 **Only remote analysis connections can be created via the api.**
 
-
 Fields              | Required | Description
 --------------------|----------|-------------
 alias               | No       | The name of the new connection. Will default to the name of the connector.
@@ -443,6 +431,8 @@ project             | Yes      | The id of the SD Elements project that this con
 frequency           | No       | The frequency in which this connection will sync.  The available options for organizations with the advanced ALM feature are: "hourly", "daily", "weekly", "monthly" and "manually".  If unspecified, the frequency will default to "manually".  Organizations without the advanced ALM feature can only choose "manually".
 params              | Yes      | A dictionary containing connections options. Please refer to product documentation for more details or reach out to support.
 ---
+
+
 
 
 
@@ -504,7 +494,4 @@ Update a specific Analysis Connection resource.
 Parameter | Description
 --------- | -----------
 connection_id   | The ID of the Analysis Connection to update
-
-
-
 

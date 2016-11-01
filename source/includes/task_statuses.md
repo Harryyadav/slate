@@ -43,7 +43,6 @@ This endpoint returns a list of Task Status resources.
 
 **`GET /api/v2/task-statuses/`**
 
-
 ### Query Parameters
 
 The following parameters may be used to filter the task status resources in the response.

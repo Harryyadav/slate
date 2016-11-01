@@ -29,7 +29,6 @@ This endpoint returns a list of Group resources.
 
 ---
 
-
 ### Expand Parameters
 
 ```http
@@ -55,6 +54,7 @@ Content-Type: application/json
     }]
 }
 ```
+
 See the [Expand Parameters](#expand-parameters) section for more details.
 
 Parameter   | Description
@@ -141,6 +141,10 @@ total_user_count | Includes the total number of users (direct and indirect) in t
 
 
 
+
+
+
+
 ## Get a Specific Group
 
 ```http
@@ -171,6 +175,7 @@ This endpoint retreives a specific Group Resource as specified by the group_id.
 Parameter | Description
 --------- | -----------
 group_id  | The id of the Group to retrieve
+
 
 
 
@@ -245,8 +250,6 @@ groups        | No       | A list of group ids representing the nested groups wh
 
 
 
-
-
 ## Update a specific Group
 
 ```http
@@ -298,6 +301,13 @@ Update a specific Group resource.
 Parameter       | Description
 --------------- | -----------
 group_id        | The ID of the Group to update
+
+
+
+
+
+
+
 
 
 

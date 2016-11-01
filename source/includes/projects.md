@@ -70,7 +70,6 @@ slug        | Filter projects by slug.
 ordering    | Sort projects by the specified field. Prefix field name with minus to sort descending. Sortable fields: name, created, updated.
 search      | Filter projects by performing a textual search on name and profile name.
 
-
 ### Include Parameters
 
 ```http
@@ -161,7 +160,6 @@ Parameter     | Description
 --------------|---------------------
 permissions   | Includes a list of permissions the requesting user has for the project
 task_counts   | Includes counts of tasks broken down by priority and completeness for the project.<br>Priorities are: high (7-10), medium (4-6), low (1-3).
-
 
 ### Expand Parameters
 
@@ -386,6 +384,7 @@ locked      | No       | A boolean field to lock or unlock the project. It can o
 
 
 
+
 ## Update a Project
 
 ```http
@@ -467,6 +466,8 @@ tags          | No       | List of project tags.
 parent        | No       | Id of the parent project.
 users         | No       | A list of dictionaries per user that are to be assigned to the project. Each dictionary should contain the user's email and the desired role.
 groups        | No       | A list of dictionaries per group that are to be assigned to the project. Each dictionary should contain the group's id and the desired role.
+
+
 
 
 

@@ -62,6 +62,15 @@ answers   | answers in answers field are expanded to include id, cpe, text, sele
 
 # Project Survey Draft
 
+
+
+
+
+
+
+
+
+
 ## Get the current state of the project survey draft
 
 ```http
@@ -84,11 +93,11 @@ Content-Type: application/json
     "dirty": false
 }
 ```
+
 Returns the current state of the survey draft. All non-hidden answers are returned
 along with whether they are selected and whether they are valid for the current
 survey state. Dirty is a boolean representing whether the current draft state
 is different from the last saved survey.
-
 
 **`GET /api/v2/projects/{project_id}/survey/draft/`**
 
@@ -173,6 +182,15 @@ survey    | Includes a full representation of the survey structure with metadata
 
 ---
 
+
+
+
+
+
+
+
+
+
 ## Reset the draft
 
 ```http
@@ -201,6 +219,15 @@ Reverts changes to the draft to the last saved state.
 **`DELETE /api/v2/projects/{project_id}/survey/draft/`**
 
 ---
+
+
+
+
+
+
+
+
+
 
 ## Save the draft
 
@@ -232,6 +259,15 @@ other unaccepted changes to the tasks.
 **`POST /api/v2/projects/{project_id}/survey/draft/`**
 
 ---
+
+
+
+
+
+
+
+
+
 
 ## Modify an answer in the draft
 
@@ -269,6 +305,15 @@ selected | Yes      | Selects or unselects the specified answer
 
 ---
 
+
+
+
+
+
+
+
+
+
 ## Clone a profile to the draft
 
 ```http
@@ -302,5 +347,4 @@ the draft instead. Any unsaved changes will be lost.
 Field    | Required | Description
 -------- | -------- | ----------
 profile  | Yes      | Profile id of profile to clone from
-
 
