@@ -18,6 +18,8 @@
       <div class="title"> <span>API v2 Documentation</span> </div>
       <div class="versions">
         <p><span class="version">v: </span> <a href="index.html">
+                4.2
+              </a> <span>&middot;</span> <a href="4.1.html">
                 4.1
               </a> <span>&middot;</span> <a href="4.0.html">
                 4.0
@@ -1641,7 +1643,8 @@
     <span class="hljs-attr">"results"</span>: [{
         <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
         <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Rally Connector"</span>,
-        <span class="hljs-attr">"system"</span>: <span class="hljs-string">"Rally"</span>
+        <span class="hljs-attr">"system"</span>: <span class="hljs-string">"Rally"</span>,
+        <span class="hljs-attr">"inaccessible"</span>: <span class="hljs-literal">false</span>
     }]
 }</span></code></pre>
         <p>Returns a list of all ALM connectors available.</p>
@@ -1671,7 +1674,8 @@
 <span class="json">{
     <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
     <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Rally Connector"</span>,
-    <span class="hljs-attr">"system"</span>: <span class="hljs-string">"Rally"</span>
+    <span class="hljs-attr">"system"</span>: <span class="hljs-string">"Rally"</span>,
+    <span class="hljs-attr">"inaccessible"</span>: <span class="hljs-literal">false</span>
 }</span></code></pre>
         <p>Returns a specific ALM connector.</p>
         <p><strong><code>GET /api/v2/connectors/alm/{id}</code></strong></p>
@@ -1685,7 +1689,8 @@
     <span class="hljs-attr">"results"</span>: [{
         <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
         <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Fortify Connector"</span>,
-        <span class="hljs-attr">"system"</span>: <span class="hljs-string">"Fortify"</span>
+        <span class="hljs-attr">"system"</span>: <span class="hljs-string">"Fortify"</span>,
+        <span class="hljs-attr">"inaccessible"</span>: <span class="hljs-literal">false</span>
     }]
 }</span></code></pre>
         <p>Returns a list of all analysis connectors available.</p>
@@ -1715,7 +1720,8 @@
 <span class="json">{
     <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
     <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Fortify Connector"</span>,
-    <span class="hljs-attr">"system"</span>: <span class="hljs-string">"Fortify"</span>
+    <span class="hljs-attr">"system"</span>: <span class="hljs-string">"Fortify"</span>,
+    <span class="hljs-attr">"inaccessible"</span>: <span class="hljs-literal">false</span>
 }</span></code></pre>
         <p>Returns a specific analysis connector.</p>
         <p><strong><code>GET /api/v2/connectors/analysis/{id}</code></strong></p>
