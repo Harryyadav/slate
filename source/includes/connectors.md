@@ -16,7 +16,8 @@ Content-Type: application/json
     "results": [{
         "id": 1,
         "name": "Rally Connector",
-        "system": "Rally"
+        "system": "Rally",
+        "inaccessible": false
     }]
 }
 ```
@@ -59,7 +60,8 @@ Content-Type: application/json
 {
     "id": 1,
     "name": "Rally Connector",
-    "system": "Rally"
+    "system": "Rally",
+    "inaccessible": false
 }
 ```
 
@@ -94,7 +96,8 @@ Content-Type: application/json
     "results": [{
         "id": 1,
         "name": "Fortify Connector",
-        "system": "Fortify"
+        "system": "Fortify",
+        "inaccessible": false
     }]
 }
 ```
@@ -137,7 +140,8 @@ Content-Type: application/json
 {
     "id": 1,
     "name": "Fortify Connector",
-    "system": "Fortify"
+    "system": "Fortify",
+    "inaccessible": false
 }
 ```
 
