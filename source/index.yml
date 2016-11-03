@@ -41,6 +41,8 @@ includes:
  - users
  - user_activity
  - assigned_tasks
+ 
+ - changelog
 
 search: true
 
