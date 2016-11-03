@@ -36,7 +36,7 @@
     $(".page-wrapper").click(closeToc);
     $(".tocify-item").click(closeToc);
 
-    var headings = ['Introduction', 'Resources'];
+    var headings = ['Introduction', 'Resources', 'Changelog'];
 
     headings.forEach(function(heading) {
       $('ul > li > a:contains("' + heading + '")').addClass('section-header');
