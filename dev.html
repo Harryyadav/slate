@@ -5931,6 +5931,25 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
             </tr>
           </tbody>
         </table>
+        <h2 id="get-password-reset-info">Get Password Reset Info</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/users/1/reset-password/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
+<span class="hljs-attribute">Cookie</span>: sessionid="YOUR SESSION ID"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="json">{
+    <span class="hljs-attr">"expiry_date"</span>: <span class="hljs-string">"2016-09-30T14:51:55.889Z"</span>,
+    <span class="hljs-attr">"reset_url"</span>: <span class="hljs-string">"http://example.com/accounts/new-password/12e33fbfc0f5774"</span>
+}</span></code></pre>
+        <p>This endpoint returns the password reset information for a specific user. This endpoint only uses either basic or session authentication.</p>
+        <p>Note: If the returned fields are null, then there is no password reset in progress.</p>
+        <p><strong><code>GET /api/v2/users/{user_id}/reset-password/</code></strong></p>
+        <h2 id="reset-password">Reset Password</h2> <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/users/1/reset-password/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
+<span class="hljs-attribute">Cookie</span>: sessionid="YOUR SESSION ID"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK</code></pre>
+        <p>Request a password reset for a specific user.</p>
+        <p><strong><code>POST /api/v2/users/{user_id}/reset-password/</code></strong></p>
         <h1 id="user-activities">User Activities</h1>
         <h2 id="get-all-activities">Get all activities</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/users/me/activities/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
