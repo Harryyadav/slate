@@ -131,20 +131,85 @@ Content-Type: application/json
             "edit_project_survey"
         ],
         "task_counts": {
-            "high": {
-                "incomplete": 19,
-                "complete": 2,
-                "na": 0
+            "development": {
+                "high": {
+                    "na": 0,
+                    "total": 16,
+                    "complete": 2,
+                    "incomplete": 14
+                },
+                "medium": {
+                    "na": 0,
+                    "total": 15,
+                    "complete": 1,
+                    "incomplete": 14
+                },
+                "low": {
+                    "na": 0,
+                    "total": 3,
+                    "complete": 1,
+                    "incomplete": 2
+                }
             },
-            "medium": {
-                "incomplete": 4,
-                "complete": 3,
-                "na": 1
+            "testing": {
+                "high": {
+                    "na": 0,
+                    "total": 25,
+                    "complete": 2,
+                    "incomplete": 23
+                },
+                "medium": {
+                    "na": 0,
+                    "total": 33,
+                    "complete": 1,
+                    "incomplete": 32
+                },
+                "low": {
+                    "na": 0,
+                    "total": 14,
+                    "complete": 2,
+                    "incomplete": 12
+                }
             },
-            "low": {
-                "incomplete": 2,
-                "complete": 1,
-                "na": 0
+            "requirements": {
+                "high": {
+                    "na": 0,
+                    "total": 12,
+                    "complete": 4,
+                    "incomplete": 8
+                },
+                "medium": {
+                    "na": 0,
+                    "total": 26,
+                    "complete": 0,
+                    "incomplete": 26
+                },
+                "low": {
+                    "na": 0,
+                    "total": 10,
+                    "complete": 2,
+                    "incomplete": 8
+                }
+            },
+            "architecture-design": {
+                "high": {
+                    "na": 0,
+                    "total": 4,
+                    "complete": 1,
+                    "incomplete": 3
+                },
+                "medium": {
+                    "na": 0,
+                    "total": 3,
+                    "complete": 1,
+                    "incomplete": 2
+                },
+                "low": {
+                    "na": 0,
+                    "total": 1,
+                    "complete": 1,
+                    "incomplete": 0
+                }
             }
         },
         "locked_on": null,
