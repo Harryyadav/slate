@@ -28,6 +28,7 @@ includes:
  - profiles
  - project_roles
  - project_survey
+ - project_activity
  - projects
  - report_settings
  - server_info
