@@ -31,19 +31,6 @@ Content-Type: application/json
         "created": "2015-04-15T19:30:04.132712Z",
         "updated": "2015-04-15T19:57:15.042353Z",
         "parent": null,
-        "users": [{
-            "id": "1",
-            "email": "test@example.com",
-            "role": "PR4",
-            "first_name": "Admin",
-            "last_name": "Testerton",
-            "is_active": true
-        }],
-        "groups": [{
-            "id": "G1",
-            "name": "Devs",
-            "role": "PR4"
-        }],
         "custom_attributes": {
           "slug": "value"
         },
@@ -101,19 +88,6 @@ Content-Type: application/json
         "created": "2015-04-15T19:30:04.132712Z",
         "updated": "2015-04-15T19:57:15.042353Z",
         "parent": null,
-        "users": [{
-            "id": "1",
-            "email": "test@example.com",
-            "role": "PR4",
-            "first_name": "Admin",
-            "last_name": "Testerton",
-            "is_active": true
-        }],
-        "groups": [{
-            "id": "G1",
-            "name": "Devs",
-            "role": "PR4"
-        }],
         "custom_attributes": {
           "slug": "value"
         },
@@ -199,19 +173,6 @@ Content-Type: application/json
         "created": "2015-04-15T19:30:04.132712Z",
         "updated": "2015-04-15T19:57:15.042353Z",
         "parent": null,
-        "users": [{
-            "id": "1",
-            "email": "test@example.com",
-            "role": "PR4",
-            "first_name": "Admin",
-            "last_name": "Testerton",
-            "is_active": true
-        }],
-        "groups": [{
-            "id": "G1",
-            "name": "Devs",
-            "role": "PR4"
-        }],
         "custom_attributes": {
           "slug": "value"
         },
@@ -267,19 +228,6 @@ Content-Type: application/json
     "created": "2015-04-15T19:30:04.132712Z",
     "updated": "2015-04-15T19:57:15.042353Z",
     "parent": 1935,
-    "users": [{
-        "id": "1",
-        "email": "test@example.com",
-        "role": "PR4",
-        "first_name": "Admin",
-        "last_name": "Testerton",
-        "is_active": true
-    }],
-    "groups": [{
-        "id": "G1",
-        "name": "Devs",
-        "role": "PR4"
-    }],
     "custom_attributes": {
       "slug": "value"
     },
@@ -318,9 +266,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
 {
     "application": 1280,
     "name": "API Test",
-    "profile": "P9",
-    "users": [{"email": "test@example.com", "role": "PR4"}],
-    "groups": [{"id": "G1", "role": "PR4"}]
+    "profile": "P9"
 }
 ```
 
@@ -346,19 +292,6 @@ Content-Type: application/json
     "created": "2015-04-15T19:30:04.132712Z",
     "updated": "2015-04-15T19:57:15.042353Z",
     "parent": null,
-    "users": [{
-        "id": "1",
-        "email": "test@example.com",
-        "role": "PR4",
-        "first_name": "Admin",
-        "last_name": "Testerton",
-        "is_active": true
-    }],
-    "groups": [{
-        "id": "G1",
-        "name": "Devs",
-        "role": "PR4"
-    }],
     "custom_attributes": {
     },
     "locked_on": null,
@@ -370,10 +303,8 @@ Content-Type: application/json
 Fields      | Required | Description
 ------------|----------|-------------
 application | Yes      | The ID of the application the project should be created under.
-groups      | No       | A list of dictionaries per group that are to be assigned to the project. Each dictionary should contain the group's id and the desired role.
 name        | Yes      | The name of the new project.
 profile     | No       | The ID of the desired profile for the project.
-users       | No       | A list of dictionaries per user that are to be assigned to the project. Each dictionary should contain the user's email and the desired role.
 locked      | No       | A boolean field to lock or unlock the project. It can only be used by users that have lock_project_survey permission
 
 
@@ -420,19 +351,6 @@ Content-Type: application/json
     "created": "2015-04-15T19:30:04.132712Z",
     "updated": "2015-07-23T15:52:14.482992Z",
     "parent": null,
-    "users": [{
-        "id": "1",
-        "email": "test@example.com",
-        "role": "PR4",
-        "first_name": "Admin",
-        "last_name": "Testerton",
-        "is_active": true
-    }],
-    "groups": [{
-        "id": "G1",
-        "name": "Devs",
-        "role": "PR4"
-    }],
     "custom_attributes": {
       "slug": "value"
     },
@@ -464,8 +382,6 @@ name          | No       | The name of the project.
 description   | No       | Project description.
 tags          | No       | List of project tags.
 parent        | No       | Id of the parent project.
-users         | No       | A list of dictionaries per user that are to be assigned to the project. Each dictionary should contain the user's email and the desired role.
-groups        | No       | A list of dictionaries per group that are to be assigned to the project. Each dictionary should contain the group's id and the desired role.
 
 
 
