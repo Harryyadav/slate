@@ -20,7 +20,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-  "status": "SUCCESS",
+  "success": true,
   "details": ""
 }
 ```
@@ -49,9 +49,9 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
     "bind_password": "Password1",
     "start_tls": true,
     "username": "john@server.com",
-    "password: "password",
+    "password": "password",
     "base_dn": "DC=server,DC=com",
-    "scope": "subtree",
+    "scope": 2,
     "search_filter": "(mail=%(user)s)"
 }
 ```
@@ -61,7 +61,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-  "status": "SUCCESS",
+  "success": true,
   "details": ""
 }
 ```
@@ -79,5 +79,5 @@ start_tls     | No       | If checked, each connection to the LDAP server will e
 username      | Yes      | The username/email of the authenticating user.
 password      | Yes      | The password of the authenticating user.
 base_dn       | Yes      | The DN within which to search for the user.
-scope         | No       | The scope of the search. One of 'subtree', 'base', or 'one-level'. Defaults to 'subtree'.
-search_filter | No       | Used by SD Elements to look-up users on the LDAP server. Defaults to '(mail=%(user)s)'.
+scope         | No       | The scope of the search. A numberical value from 0 to 2 where 0 = base, 1 = one-level and 2 = subtree.
+search_filter | Yes      | Used by SD Elements to look-up users on the LDAP server. Should almost always be '(mail=%(user)s)'.
