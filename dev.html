@@ -4610,6 +4610,135 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
 }</span></code></pre>
         <p>This endpoint returns the status of all services used by SDElements. Available only for SDE super-users.</p>
         <p><strong><code>GET /api/v2/service-statuses/</code></strong></p>
+        <h1 id="single-sign-on">Single Sign On</h1>
+        <h2 id="test-ldap-connection-bind">Test LDAP Connection Bind</h2> <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/sso/ldap/test_connection/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
+
+<span class="json">{
+    <span class="hljs-attr">"server_uri"</span>: <span class="hljs-string">"ldaps://ldap.server.com:777"</span>,
+    <span class="hljs-attr">"bind_dn"</span>: <span class="hljs-string">"CN=Bind User,CN=Users,DC=server,DC=com"</span>,
+    <span class="hljs-attr">"bind_password"</span>: <span class="hljs-string">"Password1"</span>,
+    <span class="hljs-attr">"start_tls"</span>: <span class="hljs-literal">false</span>
+}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="json">{
+  <span class="hljs-attr">"success"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"details"</span>: <span class="hljs-string">""</span>
+}</span></code></pre>
+        <p>Performs a simple connection bind and query test against the LDAP server.</p>
+        <p><code>POST /api/v2/sso/ldap/test_connection</code></p>
+        <table>
+          <thead>
+            <tr>
+              <th>Fields</th>
+              <th>Required</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>server_uri</td>
+              <td>Yes</td>
+              <td>The URI of the LDAP server.</td>
+            </tr>
+            <tr>
+              <td>bind_dn</td>
+              <td>Yes</td>
+              <td>The distinguished name to use when binding to the LDAP server.</td>
+            </tr>
+            <tr>
+              <td>bind_password</td>
+              <td>Yes</td>
+              <td>The password used with the bind DN.</td>
+            </tr>
+            <tr>
+              <td>start_tls</td>
+              <td>No</td>
+              <td>If checked, each connection to the LDAP server will enable TLS encryption over the standard LDAP port.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="test-ldap-user-authentication">Test LDAP User Authentication</h2> <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/sso/ldap/test_auth/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
+
+<span class="json">{
+    <span class="hljs-attr">"server_uri"</span>: <span class="hljs-string">"ldaps://ldap.server.com:777"</span>,
+    <span class="hljs-attr">"bind_dn"</span>: <span class="hljs-string">"CN=Bind User,CN=Users,DC=server,DC=com"</span>,
+    <span class="hljs-attr">"bind_password"</span>: <span class="hljs-string">"Password1"</span>,
+    <span class="hljs-attr">"start_tls"</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">"username"</span>: <span class="hljs-string">"john@server.com"</span>,
+    <span class="hljs-attr">"password"</span>: <span class="hljs-string">"password"</span>,
+    <span class="hljs-attr">"base_dn"</span>: <span class="hljs-string">"DC=server,DC=com"</span>,
+    <span class="hljs-attr">"scope"</span>: <span class="hljs-number">2</span>,
+    <span class="hljs-attr">"search_filter"</span>: <span class="hljs-string">"(mail=%(user)s)"</span>
+}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="json">{
+  <span class="hljs-attr">"success"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"details"</span>: <span class="hljs-string">""</span>
+}</span></code></pre>
+        <p>Tests user authentication against an LDAP server from the SDE instance.</p>
+        <p><code>POST /api/v2/sso/ldap/test_auth</code></p>
+        <table>
+          <thead>
+            <tr>
+              <th>Fields</th>
+              <th>Required</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>server_uri</td>
+              <td>Yes</td>
+              <td>The URI of the LDAP server.</td>
+            </tr>
+            <tr>
+              <td>bind_dn</td>
+              <td>Yes</td>
+              <td>The distinguished name to use when binding to the LDAP server.</td>
+            </tr>
+            <tr>
+              <td>bind_password</td>
+              <td>Yes</td>
+              <td>The password used with the bind DN.</td>
+            </tr>
+            <tr>
+              <td>start_tls</td>
+              <td>No</td>
+              <td>If checked, each connection to the LDAP server will enable TLS encryption over the standard LDAP port.</td>
+            </tr>
+            <tr>
+              <td>username</td>
+              <td>Yes</td>
+              <td>The username/email of the authenticating user.</td>
+            </tr>
+            <tr>
+              <td>password</td>
+              <td>Yes</td>
+              <td>The password of the authenticating user.</td>
+            </tr>
+            <tr>
+              <td>base_dn</td>
+              <td>Yes</td>
+              <td>The DN within which to search for the user.</td>
+            </tr>
+            <tr>
+              <td>scope</td>
+              <td>No</td>
+              <td>The scope of the search. A numberical value from 0 to 2 where 0 = base, 1 = one-level and 2 = subtree.</td>
+            </tr>
+            <tr>
+              <td>search_filter</td>
+              <td>Yes</td>
+              <td>Used by SD Elements to look-up users on the LDAP server. Should almost always be &#39;(mail=%(user)s)&#39;.</td>
+            </tr>
+          </tbody>
+        </table>
         <h1 id="tags">Tags</h1>
         <h2 id="get-all-tags">Get all tags</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/tags/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
