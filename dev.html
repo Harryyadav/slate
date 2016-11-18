@@ -3831,6 +3831,89 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
             </tr>
           </tbody>
         </table>
+        <h1 id="project-activities">Project Activities</h1>
+        <h2 id="get-activities-associated-with-a-project">Get Activities associated with a Project</h2>
+        <p>This endpoint returns a list of Activities associated with a Project. Activities are events that have occurred in the application. The date the event occurred and some additional data is returned.</p>
+        <p><strong><code>GET /api/v2/projects/{project_id}/activities/</code></strong></p>
+        <h3 id="url-parameters">URL Parameters</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>project_id</td>
+              <td>The id of the Project to retrieve the activities of.</td>
+            </tr>
+          </tbody>
+        </table> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/{project_id}/activities/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="dts">{
+<span class="hljs-symbol">    count:</span> <span class="hljs-number">3</span>,
+<span class="hljs-symbol">    next:</span> null,
+<span class="hljs-symbol">    previous:</span> null,
+<span class="hljs-symbol">    results:</span> [
+        {
+<span class="hljs-symbol">            id:</span> <span class="hljs-number">4278</span>,
+<span class="hljs-symbol">            name:</span> <span class="hljs-string">"ModifiedProjectActivity"</span>,
+<span class="hljs-symbol">            actor:</span> <span class="hljs-number">1</span>,
+<span class="hljs-symbol">            text:</span> <span class="hljs-string">"Admin Testerton modified project 123444321443 in application Flipism"</span>,
+<span class="hljs-symbol">            date:</span> <span class="hljs-string">"2016-10-31T19:43:23.648726Z"</span>,
+<span class="hljs-symbol">            data:</span> {
+<span class="hljs-symbol">                project_desc:</span> <span class="hljs-string">"123444321443"</span>,
+<span class="hljs-symbol">                application_desc:</span> <span class="hljs-string">"Flipism"</span>,
+<span class="hljs-symbol">                project:</span> <span class="hljs-number">11</span>,
+<span class="hljs-symbol">                application:</span> <span class="hljs-number">5</span>,
+<span class="hljs-symbol">                business_unit:</span> <span class="hljs-number">1</span>,
+<span class="hljs-symbol">                business_unit_desc:</span> <span class="hljs-string">"Test BU"</span>
+            },
+<span class="hljs-symbol">            icon:</span> <span class="hljs-string">"modify"</span>,
+<span class="hljs-symbol">            log_level:</span> <span class="hljs-string">"modify"</span>
+        },
+        {
+<span class="hljs-symbol">            id:</span> <span class="hljs-number">4271</span>,
+<span class="hljs-symbol">            name:</span> <span class="hljs-string">"CreatedProjectActivity"</span>,
+<span class="hljs-symbol">            actor:</span> <span class="hljs-number">1</span>,
+<span class="hljs-symbol">            text:</span> <span class="hljs-string">"Admin Testerton created project 123444321 in application Flipism"</span>,
+<span class="hljs-symbol">            date:</span> <span class="hljs-string">"2016-10-31T19:20:13.887289Z"</span>,
+<span class="hljs-symbol">            data:</span> {
+<span class="hljs-symbol">                project_desc:</span> <span class="hljs-string">"123444321"</span>,
+<span class="hljs-symbol">                application_desc:</span> <span class="hljs-string">"Flipism"</span>,
+<span class="hljs-symbol">                project:</span> <span class="hljs-number">11</span>,
+<span class="hljs-symbol">                application:</span> <span class="hljs-number">5</span>,
+<span class="hljs-symbol">                business_unit:</span> <span class="hljs-number">1</span>,
+<span class="hljs-symbol">                business_unit_desc:</span> <span class="hljs-string">"Test BU"</span>
+            },
+<span class="hljs-symbol">            icon:</span> <span class="hljs-string">"createProject"</span>,
+<span class="hljs-symbol">            log_level:</span> <span class="hljs-string">"create"</span>
+        },
+        {
+<span class="hljs-symbol">            id:</span> <span class="hljs-number">4270</span>,
+<span class="hljs-symbol">            name:</span> <span class="hljs-string">"AddedUserToProjectActivity"</span>,
+<span class="hljs-symbol">            actor:</span> <span class="hljs-number">1</span>,
+<span class="hljs-symbol">            text:</span> <span class="hljs-string">"Admin Testerton added Admin Testerton to project 123444321 in application Flipism"</span>,
+<span class="hljs-symbol">            date:</span> <span class="hljs-string">"2016-10-31T19:20:12.570855Z"</span>,
+<span class="hljs-symbol">            data:</span> {
+<span class="hljs-symbol">                project_desc:</span> <span class="hljs-string">"123444321"</span>,
+<span class="hljs-symbol">                application_desc:</span> <span class="hljs-string">"Flipism"</span>,
+<span class="hljs-symbol">                project:</span> <span class="hljs-number">11</span>,
+<span class="hljs-symbol">                application:</span> <span class="hljs-number">5</span>,
+<span class="hljs-symbol">                business_unit:</span> <span class="hljs-number">1</span>,
+<span class="hljs-symbol">                user:</span> <span class="hljs-string">"U1"</span>,
+<span class="hljs-symbol">                user_desc:</span> <span class="hljs-string">"Admin Testerton"</span>,
+<span class="hljs-symbol">                business_unit_desc:</span> <span class="hljs-string">"Test BU"</span>
+            },
+<span class="hljs-symbol">            icon:</span> <span class="hljs-string">"personAdd"</span>,
+<span class="hljs-symbol">            log_level:</span> <span class="hljs-string">"user"</span>
+        }
+    ]
+}</span></code></pre>
         <h1 id="projects">Projects</h1>
         <h2 id="get-all-projects">Get All Projects</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
