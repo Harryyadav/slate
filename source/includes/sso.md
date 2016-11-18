@@ -3,7 +3,7 @@
 ## Test LDAP Connection Bind
 
 ```http
-POST /api/v2/sso/ldap/test_connection/ HTTP/1.1
+POST /api/v2/sso/ldap/connection-test/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 
@@ -27,7 +27,7 @@ Content-Type: application/json
 
 Performs a simple connection bind and query test against the LDAP server.
 
-`POST /api/v2/sso/ldap/test_connection`
+`POST /api/v2/sso/ldap/connection-test/`
 
 Fields        | Required | Description
 --------------|----------|-------------
@@ -39,7 +39,7 @@ start_tls     | No       | If checked, each connection to the LDAP server will e
 ## Test LDAP User Authentication
 
 ```http
-POST /api/v2/sso/ldap/test_auth/ HTTP/1.1
+POST /api/v2/sso/ldap/authentication-test/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 
@@ -68,7 +68,7 @@ Content-Type: application/json
 
 Tests user authentication against an LDAP server from the SDE instance.
 
-`POST /api/v2/sso/ldap/test_auth`
+`POST /api/v2/sso/ldap/authentication-test/`
 
 Fields        | Required | Description
 --------------|----------|-------------
