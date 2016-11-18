@@ -4694,7 +4694,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
         <p>This endpoint returns the status of all services used by SDElements. Available only for SDE super-users.</p>
         <p><strong><code>GET /api/v2/service-statuses/</code></strong></p>
         <h1 id="single-sign-on">Single Sign On</h1>
-        <h2 id="test-ldap-connection-bind">Test LDAP Connection Bind</h2> <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/sso/ldap/test_connection/</span> HTTP/1.1
+        <h2 id="test-ldap-connection-bind">Test LDAP Connection Bind</h2> <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/sso/ldap/connection-test/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
@@ -4711,7 +4711,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
   <span class="hljs-attr">"details"</span>: <span class="hljs-string">""</span>
 }</span></code></pre>
         <p>Performs a simple connection bind and query test against the LDAP server.</p>
-        <p><code>POST /api/v2/sso/ldap/test_connection</code></p>
+        <p><code>POST /api/v2/sso/ldap/connection-test/</code></p>
         <table>
           <thead>
             <tr>
@@ -4743,7 +4743,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
             </tr>
           </tbody>
         </table>
-        <h2 id="test-ldap-user-authentication">Test LDAP User Authentication</h2> <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/sso/ldap/test_auth/</span> HTTP/1.1
+        <h2 id="test-ldap-user-authentication">Test LDAP User Authentication</h2> <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/sso/ldap/authentication-test/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
@@ -4765,7 +4765,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
   <span class="hljs-attr">"details"</span>: <span class="hljs-string">""</span>
 }</span></code></pre>
         <p>Tests user authentication against an LDAP server from the SDE instance.</p>
-        <p><code>POST /api/v2/sso/ldap/test_auth</code></p>
+        <p><code>POST /api/v2/sso/ldap/authentication-test/</code></p>
         <table>
           <thead>
             <tr>
