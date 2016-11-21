@@ -32,8 +32,8 @@ Performs a simple connection bind and query test against the LDAP server.
 Fields        | Required | Description
 --------------|----------|-------------
 server_uri    | Yes      | The URI of the LDAP server.
-bind_dn       | Yes      | The distinguished name to use when binding to the LDAP server.
-bind_password | Yes      | The password used with the bind DN.
+bind_dn       | No       | The distinguished name to use when binding to the LDAP server. Leave empty for an anonymous bind.
+bind_password | No       | The password used with the bind DN. Leave empty for an anonymous bind.
 start_tls     | No       | If checked, each connection to the LDAP server will enable TLS encryption over the standard LDAP port.
 
 ## Test LDAP User Authentication
@@ -73,8 +73,8 @@ Tests user authentication against an LDAP server from the SDE instance.
 Fields        | Required | Description
 --------------|----------|-------------
 server_uri    | Yes      | The URI of the LDAP server.
-bind_dn       | Yes      | The distinguished name to use when binding to the LDAP server.
-bind_password | Yes      | The password used with the bind DN.
+bind_dn       | No       | The distinguished name to use when binding to the LDAP server. Leave empty for an anonymous bind.
+bind_password | No       | The password used with the bind DN. Leave empty for an anonymous bind.
 start_tls     | No       | If checked, each connection to the LDAP server will enable TLS encryption over the standard LDAP port.
 username      | Yes      | The username/email of the authenticating user.
 password      | Yes      | The password of the authenticating user.
