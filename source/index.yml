@@ -15,6 +15,7 @@ includes:
  - analysis_notes
  - analysis_sessions
  - applications
+ - api_tokens
  - business_units
  - connections
  - connectors
