@@ -1187,6 +1187,225 @@
           </tbody>
         </table>
         <h1 id="connections">Connections</h1>
+        <h2 id="get-ldap-connection-for-organization">Get LDAP Connection for organization</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/connections/ldap/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
+
+<span class="json">{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-number">15</span>,
+    <span class="hljs-attr">"alias"</span>: <span class="hljs-string">"LDAP"</span>,
+    <span class="hljs-attr">"system"</span>: <span class="hljs-string">"ldap"</span>,
+    <span class="hljs-attr">"frequency"</span>: <span class="hljs-string">"manually"</span>,
+    <span class="hljs-attr">"command"</span>: <span class="hljs-string">"sync_ldap"</span>,
+    <span class="hljs-attr">"params"</span>: {
+        <span class="hljs-attr">"ldap_filter"</span>: {
+            <span class="hljs-attr">"users"</span>: [
+                <span class="hljs-string">"user@example.org"</span>,
+                <span class="hljs-string">"user2@example.org"</span>
+            ],
+            <span class="hljs-attr">"groups"</span>: [
+                <span class="hljs-string">"LDAPGroup"</span>,
+                <span class="hljs-string">"LDAPGroup3"</span>
+            ]
+        },
+        <span class="hljs-attr">"group_query"</span>: <span class="hljs-string">"(objectClass=group)"</span>,
+        <span class="hljs-attr">"ldap_server"</span>: <span class="hljs-string">"ldapServer:12345"</span>,
+        <span class="hljs-attr">"deactivation"</span>: <span class="hljs-literal">false</span>,
+        <span class="hljs-attr">"user_schema"</span>: {
+            <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"gn"</span>,
+            <span class="hljs-attr">"last_name"</span>: <span class="hljs-string">"sn"</span>,
+            <span class="hljs-attr">"email"</span>: <span class="hljs-string">"mail"</span>,
+            <span class="hljs-attr">"full_name"</span>: <span class="hljs-string">"cn"</span>
+        },
+        <span class="hljs-attr">"bind_dn"</span>: <span class="hljs-string">"cn=Administrator,cn=Users,dc=example,dc=org"</span>,
+        <span class="hljs-attr">"bind_password"</span>: <span class="hljs-string">"pass"</span>,
+        <span class="hljs-attr">"base_dn"</span>: <span class="hljs-string">"dc=example,dc=org"</span>,
+        <span class="hljs-attr">"group_mapping"</span>: {
+            <span class="hljs-attr">"ldap_group2"</span>: <span class="hljs-string">"sde_group2"</span>,
+            <span class="hljs-attr">"ldap_group1"</span>: <span class="hljs-string">"sde_group1"</span>
+        },
+        <span class="hljs-attr">"ldap_method"</span>: <span class="hljs-string">"LDAP"</span>,
+        <span class="hljs-attr">"ldap_validate_cert"</span>: <span class="hljs-literal">true</span>
+    },
+    <span class="hljs-attr">"inaccessible"</span>: <span class="hljs-literal">false</span>
+}</span></code></pre>
+        <p>Returns the LDAP connection associated to the organizaiton. </p>
+        <p><strong><code>GET /api/v2/connections/ldap/</code></strong></p>
+        <hr>
+        <h2 id="create-an-ldap-connection">Create an LDAP Connection</h2> <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/connections/ldap/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
+
+<span class="json">{
+    <span class="hljs-attr">"alias"</span>: <span class="hljs-string">"LDAP"</span>,
+    <span class="hljs-attr">"params"</span>: {
+        <span class="hljs-attr">"ldap_server"</span>: <span class="hljs-string">"ldapServer:12345"</span>,
+        <span class="hljs-attr">"ldap_method"</span>: <span class="hljs-string">"LDAP"</span>,
+        <span class="hljs-attr">"group_mapping"</span>: {
+            <span class="hljs-attr">"ldap_group1"</span>: <span class="hljs-string">"sde_group1"</span>,
+            <span class="hljs-attr">"ldap_group2"</span>: <span class="hljs-string">"sde_group2"</span>
+        },
+        <span class="hljs-attr">"ldap_filter"</span>: {
+            <span class="hljs-attr">"groups"</span>: [<span class="hljs-string">"LDAPGroup"</span>, <span class="hljs-string">"LDAPGroup3"</span>],
+            <span class="hljs-attr">"users"</span>: [<span class="hljs-string">"user@example.org"</span>, <span class="hljs-string">"user2@example.org"</span>]
+        },
+        <span class="hljs-attr">"user_schema"</span>: {
+            <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"gn"</span>,
+            <span class="hljs-attr">"last_name"</span>: <span class="hljs-string">"sn"</span>,
+            <span class="hljs-attr">"full_name"</span>: <span class="hljs-string">"cn"</span>,
+            <span class="hljs-attr">"email"</span>: <span class="hljs-string">"mail"</span>
+        },
+        <span class="hljs-attr">"deactivation"</span>: <span class="hljs-literal">false</span>,
+        <span class="hljs-attr">"group_query"</span>: <span class="hljs-string">"(objectClass=group)"</span>,
+        <span class="hljs-attr">"bind_dn"</span>: <span class="hljs-string">"cn=Administrator,cn=Users,dc=example,dc=org"</span>,
+        <span class="hljs-attr">"base_dn"</span>: <span class="hljs-string">"dc=example,dc=org"</span>,
+        <span class="hljs-attr">"bind_password"</span>: <span class="hljs-string">"pass"</span>
+    }
+}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="json">{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-number">15</span>,
+    <span class="hljs-attr">"alias"</span>: <span class="hljs-string">"LDAP"</span>,
+    <span class="hljs-attr">"system"</span>: <span class="hljs-string">"ldap"</span>,
+    <span class="hljs-attr">"frequency"</span>: <span class="hljs-string">"manually"</span>,
+    <span class="hljs-attr">"command"</span>: <span class="hljs-string">"sync_ldap"</span>,
+    <span class="hljs-attr">"params"</span>: {
+        <span class="hljs-attr">"ldap_filter"</span>: {
+            <span class="hljs-attr">"users"</span>: [
+                <span class="hljs-string">"user@example.org"</span>,
+                <span class="hljs-string">"user2@example.org"</span>
+            ],
+            <span class="hljs-attr">"groups"</span>: [
+                <span class="hljs-string">"LDAPGroup"</span>,
+                <span class="hljs-string">"LDAPGroup3"</span>
+            ]
+        },
+        <span class="hljs-attr">"group_query"</span>: <span class="hljs-string">"(objectClass=group)"</span>,
+        <span class="hljs-attr">"ldap_server"</span>: <span class="hljs-string">"ldapServer:12345"</span>,
+        <span class="hljs-attr">"deactivation"</span>: <span class="hljs-literal">false</span>,
+        <span class="hljs-attr">"user_schema"</span>: {
+            <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"gn"</span>,
+            <span class="hljs-attr">"last_name"</span>: <span class="hljs-string">"sn"</span>,
+            <span class="hljs-attr">"email"</span>: <span class="hljs-string">"mail"</span>,
+            <span class="hljs-attr">"full_name"</span>: <span class="hljs-string">"cn"</span>
+        },
+        <span class="hljs-attr">"bind_dn"</span>: <span class="hljs-string">"cn=Administrator,cn=Users,dc=example,dc=org"</span>,
+        <span class="hljs-attr">"bind_password"</span>: <span class="hljs-string">"pass"</span>,
+        <span class="hljs-attr">"base_dn"</span>: <span class="hljs-string">"dc=example,dc=org"</span>,
+        <span class="hljs-attr">"group_mapping"</span>: {
+            <span class="hljs-attr">"ldap_group2"</span>: <span class="hljs-string">"sde_group2"</span>,
+            <span class="hljs-attr">"ldap_group1"</span>: <span class="hljs-string">"sde_group1"</span>
+        },
+        <span class="hljs-attr">"ldap_method"</span>: <span class="hljs-string">"LDAP"</span>,
+        <span class="hljs-attr">"ldap_validate_cert"</span>: <span class="hljs-literal">true</span>
+    },
+    <span class="hljs-attr">"inaccessible"</span>: <span class="hljs-literal">false</span>
+}</span></code></pre>
+        <table>
+          <thead>
+            <tr>
+              <th>Fields</th>
+              <th>Required</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>alias</td>
+              <td>Yes</td>
+              <td>The name of the new connection.</td>
+            </tr>
+            <tr>
+              <td>frequency</td>
+              <td>No</td>
+              <td>The frequency in which this connection will sync. The available options are: &quot;hourly&quot;, &quot;daily&quot;, &quot;weekly&quot;, &quot;monthly&quot; and &quot;manually&quot;. If unspecified, the frequency will default to &quot;manually&quot;.</td>
+            </tr>
+            <tr>
+              <td>params</td>
+              <td>Yes</td>
+              <td>A dictionary containing connections options. Please refer to the table below</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 id="params-fields">Params fields</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Fields</th>
+              <th>Required</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ldap_server</td>
+              <td>Yes</td>
+              <td>The address of the LDAP server.</td>
+            </tr>
+            <tr>
+              <td>ldap_method</td>
+              <td>No</td>
+              <td>The method used to connect to the LDAP server (defaults to ldaps).</td>
+            </tr>
+            <tr>
+              <td>group_mapping</td>
+              <td>Yes</td>
+              <td>Object that maps LDAP to SDE groups.</td>
+            </tr>
+            <tr>
+              <td>ldap_filter</td>
+              <td>No</td>
+              <td>Fine-grained control for users and groups during synchronization</td>
+            </tr>
+            <tr>
+              <td>ldap_validate_cert</td>
+              <td>No</td>
+              <td>Determines whether or not to validate the SSL certificate for the LDAP server (defaults to True).</td>
+            </tr>
+            <tr>
+              <td>user_schema</td>
+              <td>No</td>
+              <td>Define a custom user schema.</td>
+            </tr>
+            <tr>
+              <td>deactivation</td>
+              <td>No</td>
+              <td>Automatically deactivate groupless users in SDE.</td>
+            </tr>
+            <tr>
+              <td>bind_dn</td>
+              <td>Yes</td>
+              <td>The bind dn</td>
+            </tr>
+            <tr>
+              <td>bind_password</td>
+              <td>Yes</td>
+              <td>The bind password</td>
+            </tr>
+            <tr>
+              <td>page_size</td>
+              <td>No</td>
+              <td>Number of users to return per page. (defaults to 1000)</td>
+            </tr>
+            <tr>
+              <td>group_member_query</td>
+              <td>No</td>
+              <td>Gives the users of the specified group </td>
+            </tr>
+            <tr>
+              <td>group_query</td>
+              <td>Yes</td>
+              <td>Specify groups to return</td>
+            </tr>
+            <tr>
+              <td>base_dn</td>
+              <td>No</td>
+              <td>The base dn (will be computed from bind_dn if unspecified)</td>
+            </tr>
+          </tbody>
+        </table>
+        <hr>
         <h2 id="get-all-alm-connections-of-all-projects">Get All ALM Connections of All Projects</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/connections/alm/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
