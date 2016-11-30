@@ -1,5 +1,12 @@
 # Changelog
 
+## feature/sdetools_refactor
+
+- Add endpoint plugins/alm/ that returns the currently available
+alm systems and all necessary information to display a connection form
+for that system, and validate it.
+
+
 ## v4.5
 
 - Phases can be created, edited, or deleted.
