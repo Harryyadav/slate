@@ -1,5 +1,11 @@
 # Changelog
 
+## feature/sdetools_refactor
+
+- Add endpoint plugins/alm/ that returns the currently available
+alm systems and all necessary information to display a connection form
+for that system, and validate it.
+
 ## v4.3
 
 - Initiate a password reset via the API (session / basic authentication only)
