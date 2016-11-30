@@ -1,5 +1,161 @@
 # Connections
 
+## Get LDAP Connection for organization
+
+```http
+GET /api/v2/connections/ldap/ HTTP/1.1
+Accept: application/json
+Authorization: Token "YOUR SDE ACCESS TOKEN"
+
+{
+    "id": 15,
+    "alias": "LDAP",
+    "system": "ldap",
+    "frequency": "manually",
+    "command": "sync_ldap",
+    "params": {
+        "ldap_filter": {
+            "users": [
+                "user@example.org",
+                "user2@example.org"
+            ],
+            "groups": [
+                "LDAPGroup",
+                "LDAPGroup3"
+            ]
+        },
+        "group_query": "(objectClass=group)",
+        "ldap_server": "ldapServer:12345",
+        "deactivation": false,
+        "user_schema": {
+            "first_name": "gn",
+            "last_name": "sn",
+            "email": "mail",
+            "full_name": "cn"
+        },
+        "bind_dn": "cn=Administrator,cn=Users,dc=example,dc=org",
+        "bind_password": "pass",
+        "base_dn": "dc=example,dc=org",
+        "group_mapping": {
+            "ldap_group2": "sde_group2",
+            "ldap_group1": "sde_group1"
+        },
+        "ldap_method": "LDAP",
+        "ldap_validate_cert": true
+    },
+    "inaccessible": false
+}
+```
+Returns the LDAP connection associated to the organizaiton. 
+
+**`GET /api/v2/connections/ldap/`**
+
+---
+
+## Create an LDAP Connection
+
+```http
+POST /api/v2/connections/ldap/ HTTP/1.1
+Accept: application/json
+Authorization: Token "YOUR SDE ACCESS TOKEN"
+
+{
+	"alias": "LDAP",
+	"params": {
+		"ldap_server": "ldapServer:12345",
+		"ldap_method": "LDAP",
+		"group_mapping": {
+			"ldap_group1": "sde_group1",
+			"ldap_group2": "sde_group2"
+		},
+		"ldap_filter": {
+			"groups": ["LDAPGroup", "LDAPGroup3"],
+			"users": ["user@example.org", "user2@example.org"]
+		},
+		"user_schema": {
+			"first_name": "gn",
+			"last_name": "sn",
+			"full_name": "cn",
+			"email": "mail"
+		},
+		"deactivation": false,
+		"group_query": "(objectClass=group)",
+		"bind_dn": "cn=Administrator,cn=Users,dc=example,dc=org",
+		"base_dn": "dc=example,dc=org",
+		"bind_password": "pass"
+	}
+}
+```
+```http
+HTTP/1.1 201 CREATED
+Content-Type: application/json
+
+{
+    "id": 15,
+    "alias": "LDAP",
+    "system": "ldap",
+    "frequency": "manually",
+    "command": "sync_ldap",
+    "params": {
+        "ldap_filter": {
+            "users": [
+                "user@example.org",
+                "user2@example.org"
+            ],
+            "groups": [
+                "LDAPGroup",
+                "LDAPGroup3"
+            ]
+        },
+        "group_query": "(objectClass=group)",
+        "ldap_server": "ldapServer:12345",
+        "deactivation": false,
+        "user_schema": {
+            "first_name": "gn",
+            "last_name": "sn",
+            "email": "mail",
+            "full_name": "cn"
+        },
+        "bind_dn": "cn=Administrator,cn=Users,dc=example,dc=org",
+        "bind_password": "pass",
+        "base_dn": "dc=example,dc=org",
+        "group_mapping": {
+            "ldap_group2": "sde_group2",
+            "ldap_group1": "sde_group1"
+        },
+        "ldap_method": "LDAP",
+        "ldap_validate_cert": true
+    },
+    "inaccessible": false
+}
+
+```
+Fields              | Required | Description
+--------------------|----------|-------------
+alias               | Yes      | The name of the new connection.
+frequency           | No       | The frequency in which this connection will sync.  The available options are: "hourly", "daily", "weekly", "monthly" and "manually".  If unspecified, the frequency will default to "manually".
+params              | Yes      | A dictionary containing connections options. Please refer to the table below
+
+### Params fields
+
+Fields              | Required | Description
+--------------------|----------|-------------
+ldap_server         | Yes      | The address of the LDAP server.
+ldap_method         | No       | The method used to connect to the LDAP server (defaults to ldaps).
+group_mapping       | Yes      | Object that maps LDAP to SDE groups.
+ldap_filter         | No       | Fine-grained control for users and groups during synchronization
+ldap_validate_cert  | No       | Determines whether or not to validate the SSL certificate for the LDAP server (defaults to True).
+user_schema         | No       | Define a custom user schema.
+deactivation        | No       | Automatically deactivate groupless users in SDE.
+bind_dn             | Yes      | The bind dn
+bind_password       | Yes      | The bind password
+page_size           | No       | Number of users to return per page. (defaults to 1000)
+group_member_query  | No       | Gives the users of the specified group 
+group_query         | Yes      | Specify groups to return
+base_dn             | No       | The base dn (will be computed from bind_dn if unspecified)
+
+---
+
 ## Get All ALM Connections of All Projects
 
 ```http
