@@ -5152,74 +5152,105 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
           </tbody>
         </table>
         <hr>
-        <h3 id="include-parameters">Include Parameters</h3> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/tasks/?include=tags,related,problem,how_tos,references</span> HTTP/1.1
+        <h3 id="include-parameters">Include Parameters</h3> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/tasks/?include=tags,related,problem,how_tos,references,training</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
-<span class="json">{
-    <span class="hljs-attr">"results"</span>: [{
-        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"1-T2"</span>,
-        <span class="hljs-attr">"task_id"</span>: <span class="hljs-string">"T2"</span>,
-        <span class="hljs-attr">"url"</span>: <span class="hljs-string">"http://example.com/bunits/new-business-unit/..."</span>,
-        <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Secure forgotten password"</span>,
-        <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Insecure forgotten password and password reset..."</span>,
-        <span class="hljs-attr">"priority"</span>: <span class="hljs-number">8</span>,
-        <span class="hljs-attr">"phase"</span>: <span class="hljs-string">"Requirements"</span>,
-        <span class="hljs-attr">"ad_hoc"</span>: <span class="hljs-literal">false</span>,
-        <span class="hljs-attr">"relevant"</span>: <span class="hljs-literal">true</span>,
-        <span class="hljs-attr">"accepted"</span>: <span class="hljs-literal">true</span>,
-        <span class="hljs-attr">"assigned_to"</span>: [],
-        <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-06-16T19:37:44.710100Z"</span>,
-        <span class="hljs-attr">"library_task_created"</span>: <span class="hljs-string">"2015-06-16T19:36:57.863684Z"</span>,
-        <span class="hljs-attr">"library_task_updated"</span>: <span class="hljs-string">"2015-06-16T19:36:57.836874Z"</span>,
-        <span class="hljs-attr">"verification_status"</span>: <span class="hljs-literal">null</span>,
-        <span class="hljs-attr">"status"</span>: <span class="hljs-string">"TS2"</span>,
-        <span class="hljs-attr">"note_count"</span>: <span class="hljs-number">0</span>,
-        <span class="hljs-attr">"artifact_proxy"</span>: <span class="hljs-literal">null</span>,
-        <span class="hljs-attr">"tags"</span>: [<span class="hljs-string">"tag1"</span>, <span class="hljs-string">"tag2"</span>],
-        <span class="hljs-attr">"related"</span>: [<span class="hljs-string">"1-T31"</span>, <span class="hljs-string">"1-T32"</span>, <span class="hljs-string">"1-T34"</span>, <span class="hljs-string">"1-T98"</span>],
-        <span class="hljs-attr">"problem"</span>: {
-            <span class="hljs-attr">"id"</span>: <span class="hljs-string">"P526"</span>,
-            <span class="hljs-attr">"title"</span>: <span class="hljs-string">"P526: Weak Password Recovery Mechanism..."</span>,
-            <span class="hljs-attr">"text"</span>: <span class="hljs-string">"It is common for an application..."</span>,
-            <span class="hljs-attr">"cwe"</span>: [
+<span class="clojure">{
+    <span class="hljs-string">"results"</span>: [{
+        <span class="hljs-string">"id"</span>: <span class="hljs-string">"1-T2"</span>,
+        <span class="hljs-string">"task_id"</span>: <span class="hljs-string">"T2"</span>,
+        <span class="hljs-string">"url"</span>: <span class="hljs-string">"http://example.com/bunits/new-business-unit/..."</span>,
+        <span class="hljs-string">"title"</span>: <span class="hljs-string">"Secure forgotten password"</span>,
+        <span class="hljs-string">"text"</span>: <span class="hljs-string">"Insecure forgotten password and password reset..."</span>,
+        <span class="hljs-string">"priority"</span>: <span class="hljs-number">8</span>,
+        <span class="hljs-string">"phase"</span>: <span class="hljs-string">"Requirements"</span>,
+        <span class="hljs-string">"ad_hoc"</span>: <span class="hljs-literal">false</span>,
+        <span class="hljs-string">"relevant"</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-string">"accepted"</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-string">"assigned_to"</span>: [],
+        <span class="hljs-string">"updated"</span>: <span class="hljs-string">"2015-06-16T19:37:44.710100Z"</span>,
+        <span class="hljs-string">"library_task_created"</span>: <span class="hljs-string">"2015-06-16T19:36:57.863684Z"</span>,
+        <span class="hljs-string">"library_task_updated"</span>: <span class="hljs-string">"2015-06-16T19:36:57.836874Z"</span>,
+        <span class="hljs-string">"verification_status"</span>: null,
+        <span class="hljs-string">"status"</span>: <span class="hljs-string">"TS2"</span>,
+        <span class="hljs-string">"note_count"</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-string">"artifact_proxy"</span>: null,
+        <span class="hljs-string">"tags"</span>: [<span class="hljs-string">"tag1"</span>, <span class="hljs-string">"tag2"</span>],
+        <span class="hljs-string">"related"</span>: [<span class="hljs-string">"1-T31"</span>, <span class="hljs-string">"1-T32"</span>, <span class="hljs-string">"1-T34"</span>, <span class="hljs-string">"1-T98"</span>],
+        <span class="hljs-string">"problem"</span>: {
+            <span class="hljs-string">"id"</span>: <span class="hljs-string">"P526"</span>,
+            <span class="hljs-string">"title"</span>: <span class="hljs-string">"P526: Weak Password Recovery Mechanism..."</span>,
+            <span class="hljs-string">"text"</span>: <span class="hljs-string">"It is common for an application..."</span>,
+            <span class="hljs-string">"cwe"</span>: [
                 {
-                    <span class="hljs-attr">"url"</span>: <span class="hljs-string">"http://example.com/640"</span>,
-                    <span class="hljs-attr">"id"</span>: <span class="hljs-number">640</span>,
-                    <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Weak Password Recovery..."</span>
+                    <span class="hljs-string">"url"</span>: <span class="hljs-string">"http://example.com/640"</span>,
+                    <span class="hljs-string">"id"</span>: <span class="hljs-number">640</span>,
+                    <span class="hljs-string">"title"</span>: <span class="hljs-string">"Weak Password Recovery..."</span>
                 }
             ]
         },
-        <span class="hljs-attr">"how_tos"</span>: [
+        <span class="hljs-string">"how_tos"</span>: [
             {
-                <span class="hljs-attr">"id"</span>: <span class="hljs-string">"I131"</span>,
-                <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Manually with browser"</span>,
-                <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"test-account-lockout-manually-browser"</span>,
-                <span class="hljs-attr">"url"</span>: <span class="hljs-string">"http://a7069ccda519b00c4/...."</span>,
-                <span class="hljs-attr">"text"</span>: <span class="hljs-string">"1. Open your web browser ..."</span>
+                <span class="hljs-string">"id"</span>: <span class="hljs-string">"I131"</span>,
+                <span class="hljs-string">"title"</span>: <span class="hljs-string">"Manually with browser"</span>,
+                <span class="hljs-string">"slug"</span>: <span class="hljs-string">"test-account-lockout-manually-browser"</span>,
+                <span class="hljs-string">"url"</span>: <span class="hljs-string">"http://a7069ccda519b00c4/...."</span>,
+                <span class="hljs-string">"text"</span>: <span class="hljs-string">"1. Open your web browser ..."</span>
             }
         ],
-        <span class="hljs-attr">"regulation_sections"</span> : [
+        <span class="hljs-string">"regulation_sections"</span>: [
             {
-                <span class="hljs-attr">"id"</span>: <span class="hljs-string">"RS1026"</span>,
-                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"CR2.7 (L3 and higher)"</span>,
-                <span class="hljs-attr">"regulation"</span>: <span class="hljs-string">"CR45"</span>
+                <span class="hljs-string">"id"</span>: <span class="hljs-string">"RS1026"</span>,
+                <span class="hljs-string">"name"</span>: <span class="hljs-string">"CR2.7 (L3 and higher)"</span>,
+                <span class="hljs-string">"regulation"</span>: <span class="hljs-string">"CR45"</span>
             },
             {
-                <span class="hljs-attr">"id"</span>: <span class="hljs-string">"RS642"</span>,
-                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"SR2.7 (L3 and higher)"</span>,
-                <span class="hljs-attr">"regulation"</span>: <span class="hljs-string">"CR39"</span>
+                <span class="hljs-string">"id"</span>: <span class="hljs-string">"RS642"</span>,
+                <span class="hljs-string">"name"</span>: <span class="hljs-string">"SR2.7 (L3 and higher)"</span>,
+                <span class="hljs-string">"regulation"</span>: <span class="hljs-string">"CR39"</span>
             }
         ],
-        <span class="hljs-attr">"references"</span> : [
+        <span class="hljs-string">"references"</span>: [
             {
-              <span class="hljs-attr">"id"</span>: <span class="hljs-number">10</span>,
-              <span class="hljs-attr">"alm_connection"</span>: <span class="hljs-number">1</span>,
-              <span class="hljs-attr">"reference"</span>: <span class="hljs-string">"47300"</span>,
-              <span class="hljs-attr">"name"</span>: <span class="hljs-string">"US451"</span>,
-              <span class="hljs-attr">"link"</span>: <span class="hljs-string">"https://sdetest.atlassian.net/rest/api/2/issue/47300"</span>
+              <span class="hljs-string">"id"</span>: <span class="hljs-number">10</span>,
+              <span class="hljs-string">"alm_connection"</span>: <span class="hljs-number">1</span>,
+              <span class="hljs-string">"reference"</span>: <span class="hljs-string">"47300"</span>,
+              <span class="hljs-string">"name"</span>: <span class="hljs-string">"US451"</span>,
+              <span class="hljs-string">"link"</span>: <span class="hljs-string">"https://sdetest.atlassian.net/rest/api/2/issue/47300"</span>
+            }
+        ],
+        <span class="hljs-string">"training"</span>: [
+            {
+              <span class="hljs-string">"title"</span>: <span class="hljs-string">"OWASP Top 10 2013"</span>,
+              <span class="hljs-string">"id"</span>: <span class="hljs-string">"TR1"</span>,
+              <span class="hljs-string">"modules"</span>: [
+                  {
+                     <span class="hljs-string">"title"</span>: <span class="hljs-string">"Cross-site request forgery (CSRF)"</span>,
+                     <span class="hljs-string">"id"</span>: <span class="hljs-string">"M5"</span>,
+                     <span class="hljs-string">"link"</span>: <span class="hljs-string">"/static/05_CSRF/story_html5.html?tincan=true&amp;endpoint=%2Ftincan%2F&amp;enrollment_id=1"</span>,
+                     <span class="hljs-string">"completed"</span>: <span class="hljs-literal">false</span>
+                  },
+                  {
+                     <span class="hljs-string">"title"</span>: <span class="hljs-string">"Broken authentication and session management"</span>,
+                     <span class="hljs-string">"id: "</span>M7<span class="hljs-string">",
+                     "</span>link<span class="hljs-string">": "</span>/static/07_Broken_Auth/story_html5.html?tincan=true&amp;endpoint=%<span class="hljs-number">2</span>Ftincan%<span class="hljs-number">2</span>F&amp;enrollment_id=1<span class="hljs-string">",
+                     "</span>completed<span class="hljs-string">": true
+                  }
             },
+            {
+              "</span>title<span class="hljs-string">": "</span>Development<span class="hljs-string">",
+              "</span>id<span class="hljs-string">": "</span>TR6<span class="hljs-string">",
+              "</span>modules<span class="hljs-string">": [
+                  {
+                     "</span>title<span class="hljs-string">": "</span>Software Development, Operation, Maintenance &amp; Disposal<span class="hljs-string">",
+                     "</span>id: <span class="hljs-string">"M8"</span>,
+                     <span class="hljs-string">"link"</span>: <span class="hljs-string">"/static/08_Software_dev/story_html5.html?tincan=true&amp;endpoint=%2Ftincan%2F&amp;enrollment_id=1"</span>,
+                     <span class="hljs-string">"completed"</span>: <span class="hljs-literal">true</span>
+                  }
+              ]
+            }
         ]
     }]
 }</span></code></pre>
@@ -5255,6 +5286,10 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
             <tr>
               <td>references</td>
               <td>Includes a list of task references linked to this task</td>
+            </tr>
+            <tr>
+              <td>training</td>
+              <td>Includes a list of training courses/modules linked to this task</td>
             </tr>
           </tbody>
         </table>
