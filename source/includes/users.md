@@ -174,7 +174,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
     "first_name": "Bob",
     "last_name": "Smith",
     "groups": ["G2"],
-    "role": "UR2"”"
+    "role": "UR2"
 }
 ```
 
@@ -273,3 +273,172 @@ HTTP/1.1 200 OK
 Request a password reset for a specific user.
 
 **`POST /api/v2/users/{user_id}/reset-password/`**
+
+
+
+
+
+
+
+
+
+
+## Change Password
+
+```http
+POST /api/v2/users/me/password/ HTTP/1.1
+Accept: application/json
+Authorization: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
+Cookie: sessionid="YOUR SESSION ID"
+
+{
+    "current_password": "hunter2",
+    "new_password": "superstrongpassword123"
+}
+```
+
+```http
+HTTP/1.1 200 OK
+
+{"last_password_change":"2016-12-14T18:47:04.544Z"}
+```
+
+Changes the password for the current user.
+
+This endpoint only uses either basic or session authentication.
+
+**`POST /api/v2/users/me/password/`**
+
+
+
+
+
+
+
+
+
+## Get Password Metadata
+
+```http
+GET /api/v2/users/me/password/ HTTP/1.1
+Accept: application/json
+Authorization: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
+Cookie: sessionid="YOUR SESSION ID"
+
+
+```http
+HTTP/1.1 200 OK
+
+{"last_password_change":"2016-12-14T18:47:04.544Z"}
+```
+
+Gets metadata regarding the password for the current user.
+
+This endpoint only uses either basic or session authentication.
+
+**`GET /api/v2/users/me/password/`**
+
+
+
+
+
+
+
+
+
+
+## Get Password Reset Questions
+
+```http
+GET /api/v2/users/me/password-reset-questions/ HTTP/1.1
+Accept: application/json
+Authorization: Token "YOUR SDE ACCESS TOKEN"
+Cookie: sessionid="YOUR SESSION ID"
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "last_modified": "2017-01-24T22:23:23.448047Z",
+    "questions": [
+        {
+          "id": 1,
+          "question": "What was your childhood nickname?"
+        },
+        {
+          "id": 2,
+          "question": "What is the street name of the house you grew up in?"
+        },
+        {
+          "id": 3,
+          "question": "What is your mothers middle name?"
+        }
+    ]
+}
+
+```
+
+Get the password reset questions for the current user.
+Note: answers will not be returned.
+
+
+**`GET /api/v2/users/me/password-reset-questions/`**
+
+
+
+# Change Password Reset Questions
+
+```http
+PATCH /api/v2/users/me/password-reset-questions/ HTTP/1.1
+Accept: application/json
+Authorization: Token "YOUR SDE ACCESS TOKEN"
+
+{
+    "current_password": "Hunter2",
+    "questions": [
+        {
+            "question": "What was your childhood nickname?",
+            "answer": "Hunter2"
+        },
+        {
+            "question": "What is the street name of the house you grew up in?",
+            "answer": "Younge"
+        },
+        {
+            "question": "What is your mothers middle name?",
+            "answer": "Jane"
+        }
+    ]
+}
+```
+
+```http
+HTTP/1.1 200 OK
+
+{
+    "last_modified": "2017-01-24T22:23:23.448047Z",
+    "questions": [
+        {
+          "id": 1,
+          "question": "What was your childhood nickname?"
+        },
+        {
+          "id": 2,
+          "question": "What is the street name of the house you grew up in?"
+        },
+        {
+          "id": 3,
+          "question": "What is your mothers middle name?"
+        }
+    ]
+}
+```
+
+Changes the password reset questions for the current user.
+
+Note: Any existing question not included will be overwritten. To exclude
+a question from being overwritten/deleted, include it without a new answer.
+
+**`PATCH /api/v2/users/me/password-reset-questions/`**
