@@ -1,5 +1,9 @@
 # Changelog
 
+## v4.5
+
+- Add documentation for User Profile endpoint (/users/me/profile/).
+
 ## v4.2
 
 - Add documentation for session and basic authentication.

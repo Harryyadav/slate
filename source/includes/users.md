@@ -222,6 +222,86 @@ user_id   | The ID of the User to update
 
 
 
+## Get your User Profile
+
+```http
+GET /api/v2/users/me/profile/ HTTP/1.1
+Accept: application/json
+Authorization: Token "YOUR SDE ACCESS TOKEN"
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "plaintext_emails_only": false,
+  "notify_on_task_status_changed": true,
+  "notify_on_task_note_added": true,
+  "notify_on_job_failed": true,
+  "notify_on_new_relevant_tasks_in_project": true,
+  "plaintext_emails_only": false,
+  "notify_on_task_assigned": true,
+  "notify_on_task_added_to_project": true,
+  "notify_on_task_team_changed": true
+}
+```
+
+
+
+
+
+
+
+
+
+
+## Update your User Profile
+```http
+PATCH /api/v2/users/me/profile/ HTTP/1.1
+Accept: application/json
+Authorization: Token "YOUR SDE ACCESS TOKEN"
+Content-Type: application/json
+
+{
+  "plaintext_emails_only": false,
+  "notify_on_task_status_changed": false,
+  "notify_on_task_note_added": false,
+  "notify_on_job_failed": true,
+  "notify_on_new_relevant_tasks_in_project": true,
+  "plaintext_emails_only": false,
+  "notify_on_task_assigned": true,
+  "notify_on_task_added_to_project": true,
+  "notify_on_task_team_changed": true
+}
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "plaintext_emails_only": false,
+  "notify_on_task_status_changed": true,
+  "notify_on_task_note_added": true,
+  "notify_on_job_failed": true,
+  "notify_on_new_relevant_tasks_in_project": true,
+  "plaintext_emails_only": false,
+  "notify_on_task_assigned": true,
+  "notify_on_task_added_to_project": true,
+  "notify_on_task_team_changed": true
+}
+```
+
+
+
+
+
+
+
+
+
+
 ## Get Password Reset Info
 
 ```http
