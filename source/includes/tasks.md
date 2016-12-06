@@ -100,7 +100,7 @@ phase       | Phase field is expanded into id, name, slug, description and tip s
 ### Include Parameters
 
 ```http
-GET /api/v2/projects/1/tasks/?include=tags,related,problem,how_tos,references HTTP/1.1
+GET /api/v2/projects/1/tasks/?include=tags,related,problem,how_tos,references,training HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
@@ -152,7 +152,7 @@ Content-Type: application/json
                 "text": "1. Open your web browser ..."
             }
         ],
-        "regulation_sections" : [
+        "regulation_sections": [
             {
                 "id": "RS1026",
                 "name": "CR2.7 (L3 and higher)",
@@ -164,14 +164,45 @@ Content-Type: application/json
                 "regulation": "CR39"
             }
         ],
-        "references" : [
+        "references": [
             {
               "id": 10,
               "alm_connection": 1,
               "reference": "47300",
               "name": "US451",
               "link": "https://sdetest.atlassian.net/rest/api/2/issue/47300"
+            }
+        ],
+        "training": [
+            {
+              "title": "OWASP Top 10 2013",
+              "id": "TR1",
+              "modules": [
+                  {
+                     "title": "Cross-site request forgery (CSRF)",
+                     "id": "M5",
+                     "link": "/static/05_CSRF/story_html5.html?tincan=true&endpoint=%2Ftincan%2F&enrollment_id=1",
+                     "completed": false
+                  },
+                  {
+                     "title": "Broken authentication and session management",
+                     "id: "M7",
+                     "link": "/static/07_Broken_Auth/story_html5.html?tincan=true&endpoint=%2Ftincan%2F&enrollment_id=1",
+                     "completed": true
+                  }
             },
+            {
+              "title": "Development",
+              "id": "TR6",
+              "modules": [
+                  {
+                     "title": "Software Development, Operation, Maintenance & Disposal",
+                     "id: "M8",
+                     "link": "/static/08_Software_dev/story_html5.html?tincan=true&endpoint=%2Ftincan%2F&enrollment_id=1",
+                     "completed": true
+                  }
+              ]
+            }
         ]
     }]
 }
@@ -187,6 +218,7 @@ related             | Includes a list of related tasks
 tags                | Includes a list of tags associated to the task
 regulation_sections | Includes a list of regulation sections to which this task belongs
 references          | Includes a list of task references linked to this task
+training            | Includes a list of training courses/modules linked to this task
 ---
 
 ### Filter Parameters
