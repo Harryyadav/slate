@@ -61,6 +61,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
 
 {
 	"alias": "LDAP",
+	"active": true,
 	"params": {
 		"ldap_server": "ldapServer:12345",
 		"ldap_method": "LDAP",
@@ -93,6 +94,7 @@ Content-Type: application/json
 {
     "id": 15,
     "alias": "LDAP",
+    "active": true,
     "system": "ldap",
     "frequency": "manually",
     "command": "sync_ldap",
@@ -132,27 +134,28 @@ Content-Type: application/json
 ```
 Fields              | Required | Description
 --------------------|----------|-------------
+active              | No       | A boolean value specifying whether or not this connection is active. There is a maximum of 1 active connections per organization. Defaults to false.
 alias               | Yes      | The name of the new connection.
-frequency           | No       | The frequency in which this connection will sync.  The available options are: "hourly", "daily", "weekly", "monthly" and "manually".  If unspecified, the frequency will default to "manually".
-params              | Yes      | A dictionary containing connections options. Please refer to the table below
+frequency           | No       | The frequency in which this connection will sync. The available options are: "hourly", "daily", "weekly", "monthly" and "manually".  If unspecified, the frequency will default to "manually".
+params              | Yes      | A dictionary containing connections options. Please refer to the table below.
 
 ### Params fields
 
 Fields              | Required | Description
 --------------------|----------|-------------
 ldap_server         | Yes      | The address of the LDAP server.
-ldap_method         | No       | The method used to connect to the LDAP server (defaults to ldaps).
+ldap_method         | No       | The method used to connect to the LDAP server. Defaults to ldaps.
 group_mapping       | Yes      | Object that maps LDAP to SDE groups.
-ldap_filter         | No       | Fine-grained control for users and groups during synchronization
-ldap_validate_cert  | No       | Determines whether or not to validate the SSL certificate for the LDAP server (defaults to True).
+ldap_filter         | No       | Fine-grained control for users and groups during synchronization.
+ldap_validate_cert  | No       | Determines whether or not to validate the SSL certificate for the LDAP server. Defaults to True.
 user_schema         | No       | Define a custom user schema.
 deactivation        | No       | Automatically deactivate groupless users in SDE.
-bind_dn             | Yes      | The bind dn
-bind_password       | Yes      | The bind password
-page_size           | No       | Number of users to return per page. (defaults to 1000)
-group_member_query  | No       | Gives the users of the specified group 
-group_query         | Yes      | Specify groups to return
-base_dn             | No       | The base dn (will be computed from bind_dn if unspecified)
+bind_dn             | Yes      | DN of LDAP user.
+bind_password       | Yes      | Password of LDAP user.
+page_size           | No       | Number of users to return per page. Defaults to 1000.
+group_member_query  | No       | LDAP query to get all groups.
+group_query         | Yes      | LDAP query to get all members of a given group. Use %s in place of the group DN. Defaults to (&(objectClass=user)(memberOf=%s)).
+base_dn             | No       | Base DN of LDAP server. Will be computed from bind_dn if unspecified.
 
 ---
 
@@ -175,6 +178,7 @@ Content-Type: application/json
         "project": 2,
         "system": "Rally",
         "alias": "Rally Integration",
+        "active": false,
         "frequency": "manually",
         "command": "sync_rally",
         "params": {
