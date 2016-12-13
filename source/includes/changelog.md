@@ -5,6 +5,8 @@
 - Add endpoint plugins/alm/ that returns the currently available
 alm systems and all necessary information to display a connection form
 for that system, and validate it.
+- Add params field to connector endpoint & make connector endpoint writeable.
+
 
 
 ## v4.5
