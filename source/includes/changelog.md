@@ -6,6 +6,7 @@
 - Remove `business_unit` as expand filter
 - Expand instances of `business_unit` in `applications` by default
 - Add ALM plugins endpoint, which returns metadata for each ALM integration. Used to render ALM forms.
+- Add params field to connector endpoint & make connector endpoint writeable.
 
 ## v4.7
 - Add `base` (original project that spawned any number of new releases) to the Project endpoint. (Note: this field will be renamed to `base_project` in v4.8)
