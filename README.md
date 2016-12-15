@@ -29,6 +29,3 @@ npm start
 Travis CI automatically builds and deploys the documentation, when any updates are pushed to master or a release branch.
 
 
-## Writing Documentation
-
-The content for our API docs are all located in the `source/includes` folder of this repo. You will likely create a new markdown file here, or extend an existing on to write your documentation. Be sure to update `changelog.md` also located in that folder whenever you make changes to the API documentation.
