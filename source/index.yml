@@ -41,6 +41,7 @@ includes:
  - task_references
  - task_updates
  - users
+ - user_profile
  - user_activity
  - assigned_tasks
  
