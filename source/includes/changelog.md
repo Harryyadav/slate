@@ -1,5 +1,9 @@
 # Changelog
 
+## v4.4
+
+- Added include field `last_job` for connections returned by the ALM, Analysis and LDAP Connection endpoints.
+
 ## v4.3
 
 - Initiate a password reset via the API (session / basic authentication only)
