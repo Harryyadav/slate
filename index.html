@@ -81,15 +81,18 @@
         <p>and use the <code>next</code> and <code>previous</code> values to move through the complete response.</p>
         <h1 id="authentication">Authentication</h1>
         <p>There are several ways to authenticate against SD Elements, which are outlined below.</p>
-        <h2 id="basic-authentication">Basic Authentication</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/users/</span> HTTP/1.1
+        <h2 id="basic-authentication">Basic Authentication</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/users/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"</code></pre>
         <p>To authenticate against SD Elements using basic authentication (username and password), you need to pass a Base64 encoding of your username:password as a header.</p>
-        <h2 id="session-authorization">Session Authorization</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/users/</span> HTTP/1.1
+        <h2 id="session-authorization">Session Authorization</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/users/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Cookie</span>: sessionid="YOUR SESSION ID"</code></pre>
         <p>To authenticate against SD Elements using session authentication, you need to pass in your session id as a cookie in the header.</p>
-        <h2 id="token-authentication">Token Authentication</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/users/</span> HTTP/1.1
+        <h2 id="token-authentication">Token Authentication</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/users/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <p>To authenticate against SD Elements using tokens, you need to pass an API access token via an <code>Authorization</code> header.</p>
@@ -154,9 +157,11 @@
         <p>The most common types of resources obtained from this API are <em>Collections</em> and <em>Elements</em>. A collection represents the set of all resources of a particular type (such as &quot;projects&quot; or &quot;applications&quot;). An element
           resource represents an individual member of a collection. Each element consists of a set of name/value pairs.</p>
         <h1 id="activities">Activities</h1>
-        <h2 id="get-all-activities">Get all activities</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/activities/</span> HTTP/1.1
+        <h2 id="get-all-activities">Get all activities</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/activities/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="dts">{
@@ -283,9 +288,11 @@
             </tr>
           </tbody>
         </table>
-        <h2 id="get-a-specific-activity">Get a Specific Activity</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/activities/2/</span> HTTP/1.1
+        <h2 id="get-a-specific-activity">Get a Specific Activity</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/activities/2/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -317,9 +324,11 @@
           </tbody>
         </table>
         <h1 id="analysis-notes">Analysis Notes</h1>
-        <h2 id="get-all-analysis-notes">Get All Analysis Notes</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1936/tasks/1-T2/analysis-notes/</span> HTTP/1.1
+        <h2 id="get-all-analysis-notes">Get All Analysis Notes</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1936/tasks/1-T2/analysis-notes/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -341,9 +350,11 @@
 }</span></code></pre>
         <p>This endpoint returns a list of Analysis Note resources for a specific project task.</p>
         <p><strong><code>GET /api/v2/projects/{project_id}/tasks/{task_id}/analysis-notes/</code></strong></p>
-        <h2 id="get-a-specific-analysis-note">Get a Specific Analysis Note</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1936/tasks/1-T2/analysis-notes/682/</span> HTTP/1.1
+        <h2 id="get-a-specific-analysis-note">Get a Specific Analysis Note</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1936/tasks/1-T2/analysis-notes/682/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -363,7 +374,8 @@
 }</span></code></pre>
         <p>This endpoint returns a specific Analysis Note resource.</p>
         <p><strong><code>GET /api/v2/projects/{project_id}/tasks/{task_id}/analysis-notes/{note_id}/</code></strong></p>
-        <h2 id="create-an-analysis-note">Create an Analysis Note</h2> <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/project/1/tasks/1-T12/analysis-notes/</span> HTTP/1.1
+        <h2 id="create-an-analysis-note">Create an Analysis Note</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/project/1/tasks/1-T12/analysis-notes/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
@@ -374,7 +386,8 @@
     <span class="hljs-attr">"findings"</span>: {},
     <span class="hljs-attr">"finding_ref"</span>: <span class="hljs-string">"my_ref"</span>,
     <span class="hljs-attr">"status"</span>: <span class="hljs-string">"pass"</span>
-}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -476,9 +489,11 @@
         <p>An example:</p>
         <p><code>{ &quot;pass&quot;: &quot;DONE&quot;, &quot;fail&quot;: &quot;TODO&quot; }</code></p>
         <h1 id="analysis-sessions">Analysis Sessions</h1>
-        <h2 id="get-all-analysis-sessions">Get All Analysis Sessions</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/analysis-sessions/</span> HTTP/1.1
+        <h2 id="get-all-analysis-sessions">Get All Analysis Sessions</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/analysis-sessions/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -494,9 +509,11 @@
 }</span></code></pre>
         <p>This endpoint returns a list of Analysis Session resources.</p>
         <p><strong><code>GET /api/v2/projects/{project_id}/analysis-sessions/</code></strong></p>
-        <h2 id="get-a-specific-analysis-session">Get a Specific Analysis Session</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/analysis-sessions/1/</span> HTTP/1.1
+        <h2 id="get-a-specific-analysis-session">Get a Specific Analysis Session</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/analysis-sessions/1/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -510,14 +527,16 @@
 }</span></code></pre>
         <p>This endpoint returns a specific Analysis Session resource.</p>
         <p><strong><code>GET /api/v2/projects/{project_id}/analysis-sessions/{analysis_session_id}/</code></strong></p>
-        <h2 id="create-an-analysis-session">Create an Analysis Session</h2> <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/projects/1/analysis-sessions/</span> HTTP/1.1
+        <h2 id="create-an-analysis-session">Create an Analysis Session</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/projects/1/analysis-sessions/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
 <span class="json">{
     <span class="hljs-attr">"analysis_ref"</span>: <span class="hljs-string">"zero.webappsecurity.com"</span>,
     <span class="hljs-attr">"analysis_type"</span>: <span class="hljs-string">"webinspect"</span>
-}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -568,7 +587,8 @@
           </tbody>
         </table>
         <hr>
-        <h3 id="create-an-analysis-session-with-embedded-notes">Create an Analysis Session with embedded Notes</h3> <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/projects/1/analysis-sessions/</span> HTTP/1.1
+        <h3 id="create-an-analysis-session-with-embedded-notes">Create an Analysis Session with embedded Notes</h3>
+        <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/projects/1/analysis-sessions/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
@@ -585,7 +605,8 @@
           <span class="hljs-attr">"status"</span>: <span class="hljs-string">"pass"</span>
       }
     ]
-}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -598,9 +619,11 @@
     <span class="hljs-attr">"updater"</span>: <span class="hljs-number">1</span>
 }</span></code></pre>
         <h1 id="applications">Applications</h1>
-        <h2 id="get-all-applications">Get All Applications</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/applications/</span> HTTP/1.1
+        <h2 id="get-all-applications">Get All Applications</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/applications/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -653,9 +676,11 @@
           </tbody>
         </table>
         <hr>
-        <h3 id="expand-parameters">Expand Parameters</h3> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/applications/?expand=business_unit</span> HTTP/1.1
+        <h3 id="expand-parameters">Expand Parameters</h3>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/applications/?expand=business_unit</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -688,9 +713,11 @@
             </tr>
           </tbody>
         </table>
-        <h3 id="include-parameters">Include Parameters</h3> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/applications/?include=projects</span> HTTP/1.1
+        <h3 id="include-parameters">Include Parameters</h3>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/applications/?include=projects</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -731,9 +758,11 @@
             </tr>
           </tbody>
         </table>
-        <h2 id="get-a-specific-application">Get a Specific Application</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/applications/3/</span> HTTP/1.1
+        <h2 id="get-a-specific-application">Get a Specific Application</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/applications/3/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -765,14 +794,16 @@
           </tbody>
         </table>
         <p><em>All of the expand and include parameters for the &#39;Get all Applications&#39; endpoint apply here as well.</em></p>
-        <h2 id="create-a-new-application">Create a New Application</h2> <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/applications/</span> HTTP/1.1
+        <h2 id="create-a-new-application">Create a New Application</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/applications/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
 <span class="json">{
     <span class="hljs-attr">"business_unit"</span>: <span class="hljs-number">1</span>,
     <span class="hljs-attr">"name"</span>:<span class="hljs-string">"API Test"</span>
-}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -812,14 +843,16 @@
             </tr>
           </tbody>
         </table>
-        <h2 id="update-an-application">Update an Application</h2> <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/applications/1/</span> HTTP/1.1
+        <h2 id="update-an-application">Update an Application</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/applications/1/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
 <span class="json">{
     <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Edit Test"</span>,
     <span class="hljs-attr">"business_unit"</span>: <span class="hljs-number">2</span>
-}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -877,9 +910,11 @@
             </tr>
           </tbody>
         </table>
-        <h2 id="delete-an-application">Delete an Application</h2> <pre class="highlight http"><code><span class="hljs-keyword">DELETE</span> <span class="hljs-string">/api/v2/applications/1/</span> HTTP/1.1
+        <h2 id="delete-an-application">Delete an Application</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">DELETE</span> <span class="hljs-string">/api/v2/applications/1/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">204</span> NO CONTENT</code></pre>
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">204</span> NO CONTENT</code></pre>
         <p>This endpoint deletes a single Application resource, as specified by the id parameter.</p>
         <p><strong><code>DELETE /applications/{application_id}/</code></strong></p>
         <h3 id="url-parameters">URL Parameters</h3>
@@ -898,9 +933,11 @@
           </tbody>
         </table>
         <h1 id="business-units">Business Units</h1>
-        <h2 id="get-all-business-units">Get All Business Units</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/business-units/</span> HTTP/1.1
+        <h2 id="get-all-business-units">Get All Business Units</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/business-units/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="clojure">{
@@ -970,9 +1007,11 @@
             </tr>
           </tbody>
         </table>
-        <h2 id="get-a-specific-business-unit">Get a Specific Business Unit</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/business-units/1/</span> HTTP/1.1
+        <h2 id="get-a-specific-business-unit">Get a Specific Business Unit</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/business-units/1/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="clojure">{
@@ -1017,7 +1056,8 @@
             </tr>
           </tbody>
         </table>
-        <h2 id="create-a-new-business-unit">Create a New Business Unit</h2> <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/business-units/</span> HTTP/1.1
+        <h2 id="create-a-new-business-unit">Create a New Business Unit</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/business-units/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
@@ -1028,7 +1068,8 @@
     <span class="hljs-attr">"default_users"</span>: [{<span class="hljs-attr">"email"</span>: <span class="hljs-string">"test@example.com"</span>, <span class="hljs-attr">"role"</span>: <span class="hljs-string">"PR4"</span>}],
     <span class="hljs-attr">"default_groups"</span>: [{<span class="hljs-attr">"id"</span>: <span class="hljs-string">"G1"</span>, <span class="hljs-attr">"role"</span>: <span class="hljs-string">"PR4"</span>}],
     <span class="hljs-attr">"all_users"</span>: <span class="hljs-literal">false</span>,
-}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="clojure">{
@@ -1108,13 +1149,15 @@
             </tr>
           </tbody>
         </table>
-        <h2 id="update-a-business-unit">Update a Business Unit</h2> <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/business-units/36/</span> HTTP/1.1
+        <h2 id="update-a-business-unit">Update a Business Unit</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/business-units/36/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
 <span class="json">{
     <span class="hljs-attr">"name"</span>: <span class="hljs-string">"New BU Name"</span>
-}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="clojure">{
@@ -1168,9 +1211,11 @@
             </tr>
           </tbody>
         </table>
-        <h2 id="delete-a-business-unit">Delete a Business Unit</h2> <pre class="highlight http"><code><span class="hljs-keyword">DELETE</span> <span class="hljs-string">/api/v2/business-units/1/</span> HTTP/1.1
+        <h2 id="delete-a-business-unit">Delete a Business Unit</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">DELETE</span> <span class="hljs-string">/api/v2/business-units/1/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">204</span> NO CONTENT</code></pre>
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">204</span> NO CONTENT</code></pre>
         <p>This endpoint deletes a single Business Unit resource, as specified by the id parameter.</p>
         <p><strong><code>DELETE /business-units/{business_unit_id}/</code></strong></p>
         <h3 id="url-parameters">URL Parameters</h3>
@@ -1189,9 +1234,11 @@
           </tbody>
         </table>
         <h1 id="connections">Connections</h1>
-        <h2 id="get-all-alm-connections-of-all-projects">Get All ALM Connections of All Projects</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/connections/alm/</span> HTTP/1.1
+        <h2 id="get-all-alm-connections-of-all-projects">Get All ALM Connections of All Projects</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/connections/alm/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -1250,9 +1297,11 @@
           </tbody>
         </table>
         <hr>
-        <h2 id="get-a-specific-alm-connection">Get a Specific ALM Connection</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/connections/alm/{connection_id}/</span> HTTP/1.1
+        <h2 id="get-a-specific-alm-connection">Get a Specific ALM Connection</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/connections/alm/{connection_id}/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -1285,7 +1334,8 @@
         <p>Returns a specific ALM connection. The params are only displayed if you have the &#39;Edit ALM connections&#39; permission.</p>
         <p><strong><code>GET /api/v2/connections/alm/{connection_id}/</code></strong></p>
         <hr>
-        <h2 id="create-an-alm-connection">Create an ALM Connection</h2> <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/connections/alm/</span> HTTP/1.1
+        <h2 id="create-an-alm-connection">Create an ALM Connection</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/connections/alm/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
@@ -1298,7 +1348,8 @@
         <span class="hljs-attr">"alm_project"</span>: <span class="hljs-string">"Example Project"</span>,
         <span class="hljs-attr">"alm_parent_issue"</span>: <span class="hljs-string">"Parent"</span>
     }
-}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -1367,7 +1418,8 @@
           </tbody>
         </table>
         <hr>
-        <h2 id="update-a-specific-alm-connection">Update a specific ALM Connection</h2> <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/connections/alm/1/</span> HTTP/1.1
+        <h2 id="update-a-specific-alm-connection">Update a specific ALM Connection</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/connections/alm/1/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
@@ -1377,7 +1429,8 @@
     <span class="hljs-attr">"project"</span>: <span class="hljs-number">1</span>,
     <span class="hljs-attr">"frequency"</span>: <span class="hljs-string">"manually"</span>,
     <span class="hljs-attr">"params"</span>: {<span class="hljs-attr">"alm_project"</span>: <span class="hljs-string">"Project Name"</span>}
-}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -1426,9 +1479,11 @@
           </tbody>
         </table>
         <hr>
-        <h2 id="get-all-analysis-connections-of-all-projects">Get All Analysis Connections of All Projects</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/connections/analysis/</span> HTTP/1.1
+        <h2 id="get-all-analysis-connections-of-all-projects">Get All Analysis Connections of All Projects</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/connections/analysis/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="1c">{
@@ -1479,9 +1534,11 @@
           </tbody>
         </table>
         <hr>
-        <h2 id="get-a-specific-analysis-connection">Get a Specific Analysis Connection</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/connections/analysis/{connection_id}/</span> HTTP/1.1
+        <h2 id="get-a-specific-analysis-connection">Get a Specific Analysis Connection</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/connections/analysis/{connection_id}/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="1c">{
@@ -1506,7 +1563,8 @@
         <p>Returns a specific analysis connection. The params are only displayed if you have the &#39;Edit security tool connections&#39; permission.</p>
         <p><strong><code>GET /api/v2/connections/analysis/{connection_id}/</code></strong></p>
         <hr>
-        <h2 id="create-an-analysis-connection">Create an Analysis Connection</h2> <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/connections/analysis/</span> HTTP/1.1
+        <h2 id="create-an-analysis-connection">Create an Analysis Connection</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/connections/analysis/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
@@ -1519,7 +1577,8 @@
         <span class="hljs-attr">"task_status_mapping"</span>: <span class="hljs-string">"{\"pass\": \"DONE\"}"</span>,
         <span class="hljs-attr">"import_behaviour"</span>: <span class="hljs-string">"combine"</span>
     }
-}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -1583,7 +1642,8 @@
           </tbody>
         </table>
         <hr>
-        <h2 id="update-a-specific-analysis-connection">Update a specific Analysis Connection</h2> <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/connections/analysis/2/</span> HTTP/1.1
+        <h2 id="update-a-specific-analysis-connection">Update a specific Analysis Connection</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/connections/analysis/2/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
@@ -1593,7 +1653,8 @@
     <span class="hljs-attr">"project"</span>: <span class="hljs-number">1</span>,
     <span class="hljs-attr">"frequency"</span>: <span class="hljs-string">"hourly"</span>,
     <span class="hljs-attr">"params"</span>: {}
-}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -1636,9 +1697,11 @@
           </tbody>
         </table>
         <h1 id="connectors">Connectors</h1>
-        <h2 id="get-all-alm-connectors">Get All ALM Connectors</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/connectors/alm/</span> HTTP/1.1
+        <h2 id="get-all-alm-connectors">Get All ALM Connectors</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/connectors/alm/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -1668,9 +1731,11 @@
           </tbody>
         </table>
         <hr>
-        <h2 id="get-a-specific-alm-connector">Get a Specific ALM Connector</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/connectors/alm/1/</span> HTTP/1.1
+        <h2 id="get-a-specific-alm-connector">Get a Specific ALM Connector</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/connectors/alm/1/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -1682,9 +1747,11 @@
         <p>Returns a specific ALM connector.</p>
         <p><strong><code>GET /api/v2/connectors/alm/{id}</code></strong></p>
         <hr>
-        <h2 id="get-all-analysis-connectors">Get All Analysis Connectors</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/connectors/analysis/</span> HTTP/1.1
+        <h2 id="get-all-analysis-connectors">Get All Analysis Connectors</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/connectors/analysis/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -1714,9 +1781,11 @@
           </tbody>
         </table>
         <hr>
-        <h2 id="get-a-specific-analysis-connector">Get a Specific Analysis Connector</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/connectors/analysis/1/</span> HTTP/1.1
+        <h2 id="get-a-specific-analysis-connector">Get a Specific Analysis Connector</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/connectors/analysis/1/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -1728,9 +1797,11 @@
         <p>Returns a specific analysis connector.</p>
         <p><strong><code>GET /api/v2/connectors/analysis/{id}</code></strong></p>
         <h1 id="global-roles">Global Roles</h1>
-        <h2 id="get-all-global-roles">Get All Global Roles</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/global-roles/</span> HTTP/1.1
+        <h2 id="get-all-global-roles">Get All Global Roles</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/global-roles/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -1758,9 +1829,11 @@
     ]
 }</span></code></pre>
         <p>This endpoint returns a list of Global Role resources.</p>
-        <h2 id="get-a-specific-global-role">Get a Specific Global Role</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/global-roles/UR4/</span> HTTP/1.1
+        <h2 id="get-a-specific-global-role">Get a Specific Global Role</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/global-roles/UR4/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -1785,7 +1858,8 @@
             </tr>
           </tbody>
         </table>
-        <h2 id="create-a-new-global-role">Create a New Global Role</h2> <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/global-roles/</span> HTTP/1.1
+        <h2 id="create-a-new-global-role">Create a New Global Role</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/global-roles/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
@@ -1793,7 +1867,8 @@
     <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Global Role"</span>,
     <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Can participate in projects."</span>,
     <span class="hljs-attr">"inherit_from"</span>: <span class="hljs-string">"UR1"</span>
-}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -1804,7 +1879,8 @@
         <span class="hljs-string">"modify_self"</span>
     ],
     <span class="hljs-attr">"is_default"</span>: <span class="hljs-literal">false</span>
-}</span></code></pre><pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/global-roles/</span> HTTP/1.1
+}</span></code></pre>
+        <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/global-roles/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
@@ -1816,7 +1892,8 @@
         <span class="hljs-string">"add_application"</span>
     ],
     <span class="hljs-attr">"is_default"</span>: <span class="hljs-literal">true</span>
-}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -1865,7 +1942,8 @@
             </tr>
           </tbody>
         </table>
-        <h2 id="update-a-global-role">Update a Global Role</h2> <pre class="highlight http"><code><span class="hljs-keyword">PATCH</span> <span class="hljs-string">/api/v2/global-roles/CUR2/</span> HTTP/1.1
+        <h2 id="update-a-global-role">Update a Global Role</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">PATCH</span> <span class="hljs-string">/api/v2/global-roles/CUR2/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
@@ -1876,7 +1954,8 @@
         <span class="hljs-string">"add_application"</span>
     ],
     <span class="hljs-attr">"is_default"</span>: <span class="hljs-literal">true</span>
-}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -1938,13 +2017,15 @@
             </tr>
           </tbody>
         </table>
-        <h2 id="delete-a-global-role">Delete a Global Role</h2> <pre class="highlight http"><code><span class="hljs-keyword">DELETE</span> <span class="hljs-string">/api/v2/global-roles/CUR1/</span> HTTP/1.1
+        <h2 id="delete-a-global-role">Delete a Global Role</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">DELETE</span> <span class="hljs-string">/api/v2/global-roles/CUR1/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
 <span class="json">{
     <span class="hljs-attr">"replacement"</span>: <span class="hljs-string">"UR1"</span>
-}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">204</span> NO CONTENT</code></pre>
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">204</span> NO CONTENT</code></pre>
         <p><strong><code>DELETE /api/v2/global-roles/{global_role_id}/</code></strong></p>
         <h3 id="url-parameters">URL Parameters</h3>
         <table>
@@ -1979,9 +2060,11 @@
           </tbody>
         </table>
         <h1 id="glossary-terms">Glossary Terms</h1>
-        <h2 id="get-all-glossary-terms">Get all Glossary Terms</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/glossary-terms/</span> HTTP/1.1
+        <h2 id="get-all-glossary-terms">Get all Glossary Terms</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/glossary-terms/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -2005,9 +2088,11 @@
     ]
 }</span></code></pre>
         <p>This endpoint returns a list of Glossary Term resources.</p>
-        <h2 id="get-a-specific-glossary-term">Get a Specific Glossary Term</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/glossary-terms/G2/</span> HTTP/1.1
+        <h2 id="get-a-specific-glossary-term">Get a Specific Glossary Term</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/glossary-terms/G2/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -2035,7 +2120,8 @@
             </tr>
           </tbody>
         </table>
-        <h2 id="create-a-new-glossary-term">Create a New Glossary Term</h2> <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/glossary-terms/</span> HTTP/1.1
+        <h2 id="create-a-new-glossary-term">Create a New Glossary Term</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/glossary-terms/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
@@ -2043,7 +2129,8 @@
     <span class="hljs-attr">"title"</span>: <span class="hljs-string">"New Glossary Term"</span>,
     <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Full description of the term goes here."</span>,
     <span class="hljs-attr">"summary"</span>: <span class="hljs-string">"The summary of the glossary term goes here."</span>
-}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -2082,9 +2169,11 @@
           </tbody>
         </table>
         <h1 id="groups">Groups</h1>
-        <h2 id="get-all-groups">Get All Groups</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/groups/</span> HTTP/1.1
+        <h2 id="get-all-groups">Get All Groups</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/groups/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -2099,9 +2188,11 @@
         <p>This endpoint returns a list of Group resources.</p>
         <p><strong><code>GET /api/v2/groups/</code></strong></p>
         <hr>
-        <h3 id="expand-parameters">Expand Parameters</h3> <pre class="highlight http"><code>GET /api/v2/groups/?expand=role
+        <h3 id="expand-parameters">Expand Parameters</h3>
+        <pre class="highlight http"><code>GET /api/v2/groups/?expand=role
 Accept: application/json
-Authorization: Token: "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+Authorization: Token: "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -2132,9 +2223,11 @@ Authorization: Token: "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight 
           </tbody>
         </table>
         <hr>
-        <h3 id="include-parameters">Include Parameters</h3> <pre class="highlight http"><code>GET /api/v2/groups/?include=groups,users,all_users,total_user_count
+        <h3 id="include-parameters">Include Parameters</h3>
+        <pre class="highlight http"><code>GET /api/v2/groups/?include=groups,users,all_users,total_user_count
 Accept: application/json
-Authorization: Token: "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+Authorization: Token: "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="clojure">{
@@ -2215,9 +2308,11 @@ Authorization: Token: "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight 
             </tr>
           </tbody>
         </table>
-        <h2 id="get-a-specific-group">Get a Specific Group</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/groups/G64/</span> HTTP/1.1
+        <h2 id="get-a-specific-group">Get a Specific Group</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/groups/G64/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -2244,7 +2339,8 @@ Authorization: Token: "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight 
             </tr>
           </tbody>
         </table>
-        <h2 id="create-a-group">Create a Group</h2> <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/users/</span> HTTP/1.1
+        <h2 id="create-a-group">Create a Group</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/users/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
@@ -2253,7 +2349,8 @@ Authorization: Token: "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight 
     <span class="hljs-attr">"role"</span>: <span class="hljs-string">"UR5"</span>,
     <span class="hljs-attr">"users"</span>: [{<span class="hljs-attr">"email"</span>: <span class="hljs-string">"frank@example.com"</span>}],
     <span class="hljs-attr">"groups"</span>: [<span class="hljs-string">"G1"</span>]
-}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -2317,14 +2414,16 @@ Authorization: Token: "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight 
             </tr>
           </tbody>
         </table>
-        <h2 id="update-a-specific-group">Update a specific Group</h2> <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/groups/G2/</span> HTTP/1.1
+        <h2 id="update-a-specific-group">Update a specific Group</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/groups/G2/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
 <span class="json">{
     <span class="hljs-attr">"name"</span>: <span class="hljs-string">"User Experience Group"</span>,
     <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Deals with designing user experiences"</span>
-}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -2367,9 +2466,11 @@ Authorization: Token: "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight 
             </tr>
           </tbody>
         </table>
-        <h2 id="delete-a-group">Delete a Group</h2> <pre class="highlight http"><code>DELETE api/v2/groups/G1/
+        <h2 id="delete-a-group">Delete a Group</h2>
+        <pre class="highlight http"><code>DELETE api/v2/groups/G1/
 Accept: application/json
-Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">204</span> NO CONTENT</code></pre>
+Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">204</span> NO CONTENT</code></pre>
         <p>This endpoint deletes a single Group resource, as specified by the id parameter.</p>
         <p><strong> <code>DELETE /groups/{group_id}/</code></strong></p>
         <table>
@@ -2387,9 +2488,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
           </tbody>
         </table>
         <h1 id="jobs">Jobs</h1>
-        <h2 id="get-all-alm-jobs-of-all-projects">Get All ALM Jobs of All Projects</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/jobs/alm/</span> HTTP/1.1
+        <h2 id="get-all-alm-jobs-of-all-projects">Get All ALM Jobs of All Projects</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/jobs/alm/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -2463,9 +2566,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
           </tbody>
         </table>
         <hr>
-        <h2 id="get-a-specific-alm-job">Get a Specific ALM Job</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/jobs/alm/{job_id}</span> HTTP/1.1
+        <h2 id="get-a-specific-alm-job">Get a Specific ALM Job</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/jobs/alm/{job_id}</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -2505,7 +2610,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
         <p>Returns a specific alm job. Note that the params are only shown if you have &#39;Edit ALM connections&#39; permission.</p>
         <p><strong><code>GET /api/v2/jobs/alm/{job_id}</code></strong></p>
         <hr>
-        <h2 id="post-results-of-an-alm-job-of-a-project">Post Results of an ALM Job of a Project</h2> <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/projects/1/jobs/alm/</span> HTTP/1.1
+        <h2 id="post-results-of-an-alm-job-of-a-project">Post Results of an ALM Job of a Project</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/projects/1/jobs/alm/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
@@ -2514,7 +2620,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
     <span class="hljs-attr">"result_message"</span>: <span class="hljs-string">"My Message"</span>,
     <span class="hljs-attr">"succeeded"</span>: <span class="hljs-literal">true</span>,
     <span class="hljs-attr">"automatic"</span>: <span class="hljs-literal">true</span>
-}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -2585,7 +2692,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
           </tbody>
         </table>
         <hr>
-        <h2 id="initiate-an-alm-connection-sync-job">Initiate an ALM Connection Sync Job</h2> <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/projects/1/jobs/alm/</span> HTTP/1.1
+        <h2 id="initiate-an-alm-connection-sync-job">Initiate an ALM Connection Sync Job</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/projects/1/jobs/alm/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
@@ -2593,7 +2701,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
     <span class="hljs-attr">"connection"</span>: <span class="hljs-number">12</span>,
     <span class="hljs-attr">"automatic"</span>: <span class="hljs-literal">false</span>,
     <span class="hljs-attr">"ready"</span>: <span class="hljs-literal">false</span>
-}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -2664,9 +2773,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
             </tr>
           </tbody>
         </table>
-        <h2 id="get-all-analysis-jobs-for-all-projects">Get All Analysis Jobs for All Projects</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/jobs/analysis/</span> HTTP/1.1
+        <h2 id="get-all-analysis-jobs-for-all-projects">Get All Analysis Jobs for All Projects</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/jobs/analysis/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -2732,9 +2843,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
           </tbody>
         </table>
         <hr>
-        <h2 id="get-a-specific-analysis-job">Get a Specific Analysis Job</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/jobs/analysis/{job_id}</span> HTTP/1.1
+        <h2 id="get-a-specific-analysis-job">Get a Specific Analysis Job</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/jobs/analysis/{job_id}</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -2766,7 +2879,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
         <p>Returns a specific analysis job. Note that the params are only shown if you have &#39;Edit security tool connections&#39; permission.</p>
         <p><strong><code>GET /api/v2/jobs/analysis/{job_id}</code></strong></p>
         <hr>
-        <h2 id="post-results-of-an-analysis-job-of-a-project">Post Results of an Analysis Job of a Project</h2> <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/projects/1/jobs/analysis/</span> HTTP/1.1
+        <h2 id="post-results-of-an-analysis-job-of-a-project">Post Results of an Analysis Job of a Project</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/projects/1/jobs/analysis/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
@@ -2775,7 +2889,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
     <span class="hljs-attr">"result_message"</span>: <span class="hljs-string">"My Message"</span>,
     <span class="hljs-attr">"succeeded"</span>: <span class="hljs-literal">true</span>,
     <span class="hljs-attr">"automatic"</span>: <span class="hljs-literal">true</span>
-}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -2842,7 +2957,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
             </tr>
           </tbody>
         </table>
-        <h2 id="initiate-an-analysis-connection-import-job">Initiate an Analysis Connection Import Job</h2> <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/projects/1/jobs/analysis/</span> HTTP/1.1
+        <h2 id="initiate-an-analysis-connection-import-job">Initiate an Analysis Connection Import Job</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/projects/1/jobs/analysis/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
@@ -2850,7 +2966,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
     <span class="hljs-attr">"connection"</span>: <span class="hljs-number">12</span>,
     <span class="hljs-attr">"automatic"</span>: <span class="hljs-literal">false</span>,
     <span class="hljs-attr">"ready"</span>: <span class="hljs-literal">false</span>
-}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -2913,9 +3030,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
           </tbody>
         </table>
         <h1 id="library-tasks">Library Tasks</h1>
-        <h2 id="get-all-library-tasks">Get All Library Tasks</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/library/tasks/</span> HTTP/1.1
+        <h2 id="get-all-library-tasks">Get All Library Tasks</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/library/tasks/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -2948,9 +3067,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
           </tbody>
         </table>
         <hr>
-        <h3 id="expand-parameters">Expand Parameters</h3> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/library/tasks/?expand=problem</span> HTTP/1.1
+        <h3 id="expand-parameters">Expand Parameters</h3>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/library/tasks/?expand=problem</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -2990,9 +3111,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
           </tbody>
         </table>
         <hr>
-        <h3 id="include-parameters">Include Parameters</h3> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/library/tasks/?include=verification_coverage,categories,tags,how_tos,amendments</span> HTTP/1.1
+        <h3 id="include-parameters">Include Parameters</h3>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/library/tasks/?include=verification_coverage,categories,tags,how_tos,amendments</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -3056,9 +3179,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
             </tr>
           </tbody>
         </table>
-        <h2 id="get-a-specific-library-task">Get a Specific Library Task</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/library/tasks/T3/</span> HTTP/1.1
+        <h2 id="get-a-specific-library-task">Get a Specific Library Task</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/library/tasks/T3/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -3092,9 +3217,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
         </table>
         <p><em>All of the expand and include parameters for the &#39;Get All Library Tasks&#39; endpoint apply here as well.</em></p>
         <h1 id="library-problems">Library Problems</h1>
-        <h2 id="get-all-library-problems">Get All Library Problems</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/library/problems/</span> HTTP/1.1
+        <h2 id="get-all-library-problems">Get All Library Problems</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/library/problems/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -3125,9 +3252,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
           </tbody>
         </table>
         <hr>
-        <h3 id="include-parameters">Include Parameters</h3> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/library/problems/?include=related_tasks,category,cwe</span> HTTP/1.1
+        <h3 id="include-parameters">Include Parameters</h3>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/library/problems/?include=related_tasks,category,cwe</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -3174,9 +3303,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
             </tr>
           </tbody>
         </table>
-        <h2 id="get-a-specific-library-problem">Get a Specific Library Problem</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/library/problems/P3/</span> HTTP/1.1
+        <h2 id="get-a-specific-library-problem">Get a Specific Library Problem</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/library/problems/P3/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -3206,9 +3337,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
         </table>
         <p><em>All of the expand and include parameters for the &#39;Get All Library Problems&#39; endpoint apply here as well.</em></p>
         <h1 id="phases">Phases</h1>
-        <h2 id="get-all-phases">Get All Phases</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/phases/</span> HTTP/1.1
+        <h2 id="get-all-phases">Get All Phases</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/phases/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -3244,9 +3377,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
             </tr>
           </tbody>
         </table>
-        <h2 id="get-a-specific-phase">Get a Specific Phase</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/phases/X1/</span> HTTP/1.1
+        <h2 id="get-a-specific-phase">Get a Specific Phase</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/phases/X1/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -3274,9 +3409,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
           </tbody>
         </table>
         <h1 id="profiles">Profiles</h1>
-        <h2 id="get-all-profiles">Get All Profiles</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/profiles/</span> HTTP/1.1
+        <h2 id="get-all-profiles">Get All Profiles</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/profiles/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -3314,9 +3451,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
           </tbody>
         </table>
         <h1 id="project-roles">Project Roles</h1>
-        <h2 id="get-all-project-roles">Get All Project Roles</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/project-roles/</span> HTTP/1.1
+        <h2 id="get-all-project-roles">Get All Project Roles</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/project-roles/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -3381,9 +3520,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
             </tr>
           </tbody>
         </table>
-        <h2 id="get-a-specific-project-role">Get a Specific Project Role</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/project-roles/CPR1/</span> HTTP/1.1
+        <h2 id="get-a-specific-project-role">Get a Specific Project Role</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/project-roles/CPR1/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -3411,7 +3552,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
             </tr>
           </tbody>
         </table>
-        <h2 id="create-a-new-project-role">Create a New Project Role</h2> <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/project-roles/</span> HTTP/1.1
+        <h2 id="create-a-new-project-role">Create a New Project Role</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/project-roles/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
@@ -3419,7 +3561,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
     <span class="hljs-attr">"name"</span>: <span class="hljs-string">"New Project Role"</span>,
     <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Can view project!"</span>,
     <span class="hljs-attr">"inherit_from"</span>: <span class="hljs-string">"PR6"</span>
-}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{ 
@@ -3429,7 +3572,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
     <span class="hljs-attr">"permissions"</span>: [
         <span class="hljs-string">"view_project"</span>
     ]
-}</span></code></pre><pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/project-roles/</span> HTTP/1.1
+}</span></code></pre>
+        <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/project-roles/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
@@ -3439,7 +3583,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
     <span class="hljs-attr">"permissions"</span>: [
         <span class="hljs-string">"view_project"</span>
     ]
-}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{ 
@@ -3481,13 +3626,15 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
             </tr>
           </tbody>
         </table>
-        <h2 id="update-a-project-role">Update a Project Role</h2> <pre class="highlight http"><code><span class="hljs-keyword">PATCH</span> <span class="hljs-string">/api/v2/project-roles/CPR3/</span> HTTP/1.1
+        <h2 id="update-a-project-role">Update a Project Role</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">PATCH</span> <span class="hljs-string">/api/v2/project-roles/CPR3/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
 <span class="json">{
     <span class="hljs-attr">"permissions"</span>: [<span class="hljs-string">"view_project"</span>, <span class="hljs-string">"archive_project"</span>]
-}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{ 
@@ -3543,13 +3690,15 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
             </tr>
           </tbody>
         </table>
-        <h2 id="delete-a-project-role">Delete a Project Role</h2> <pre class="highlight http"><code><span class="hljs-keyword">DELETE</span> <span class="hljs-string">/api/v2/project-roles/CPR1/</span> HTTP/1.1
+        <h2 id="delete-a-project-role">Delete a Project Role</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">DELETE</span> <span class="hljs-string">/api/v2/project-roles/CPR1/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
 <span class="json">{
     <span class="hljs-attr">"replacement"</span>: <span class="hljs-string">"PR1"</span>
-}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">204</span> NO CONTENT</code></pre>
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">204</span> NO CONTENT</code></pre>
         <p><strong><code>DELETE /api/v2/project-roles/{project_role_id}/</code></strong></p>
         <h3 id="url-parameters">URL Parameters</h3>
         <table>
@@ -3584,9 +3733,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
           </tbody>
         </table>
         <h1 id="project-survey">Project Survey</h1>
-        <h2 id="get-the-project-survey-of-a-project">Get the project survey of a project</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/survey/</span> HTTP/1.1
+        <h2 id="get-the-project-survey-of-a-project">Get the project survey of a project</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/survey/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -3599,9 +3750,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
         <p>This endpoint returns data relevant to the profile for the current project</p>
         <p><strong><code>GET /api/v2/projects/{project_id}/survey/</code></strong></p>
         <hr>
-        <h3 id="expand-filters">Expand Filters</h3> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/survey/?expand=answers</span> HTTP/1.1
+        <h3 id="expand-filters">Expand Filters</h3>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/survey/?expand=answers</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -3633,9 +3786,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
         </table>
         <hr>
         <h1 id="project-survey-draft">Project Survey Draft</h1>
-        <h2 id="get-the-current-state-of-the-project-survey-draft">Get the current state of the project survey draft</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/survey/draft/</span> HTTP/1.1
+        <h2 id="get-the-current-state-of-the-project-survey-draft">Get the current state of the project survey draft</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/survey/draft/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -3650,9 +3805,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
         <p>Returns the current state of the survey draft. All non-hidden answers are returned along with whether they are selected and whether they are valid for the current survey state. Dirty is a boolean representing whether the current draft state is
           different from the last saved survey.</p>
         <p><strong><code>GET /api/v2/projects/{project_id}/survey/draft/</code></strong></p>
-        <h3 id="include-filters">Include Filters</h3> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/survey/draft/?include=survey</span> HTTP/1.1
+        <h3 id="include-filters">Include Filters</h3>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/survey/draft/?include=survey</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="openscad">{
@@ -3730,9 +3887,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
           </tbody>
         </table>
         <hr>
-        <h2 id="reset-the-draft">Reset the draft</h2> <pre class="highlight http"><code><span class="hljs-keyword">DELETE</span> <span class="hljs-string">/api/v2/projects/1/survey/draft/</span> HTTP/1.1
+        <h2 id="reset-the-draft">Reset the draft</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">DELETE</span> <span class="hljs-string">/api/v2/projects/1/survey/draft/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -3747,9 +3906,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
         <p>Reverts changes to the draft to the last saved state.</p>
         <p><strong><code>DELETE /api/v2/projects/{project_id}/survey/draft/</code></strong></p>
         <hr>
-        <h2 id="save-the-draft">Save the draft</h2> <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/projects/1/survey/draft/</span> HTTP/1.1
+        <h2 id="save-the-draft">Save the draft</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/projects/1/survey/draft/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -3764,11 +3925,13 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
         <p>This saves the current changes to the draft to the project. This may cause changes in the applicable tasks &amp; other content for the project as well as accepting any other unaccepted changes to the tasks.</p>
         <p><strong><code>POST /api/v2/projects/{project_id}/survey/draft/</code></strong></p>
         <hr>
-        <h2 id="modify-an-answer-in-the-draft">Modify an answer in the draft</h2> <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/projects/1/survey/draft/A21/</span> HTTP/1.1
+        <h2 id="modify-an-answer-in-the-draft">Modify an answer in the draft</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/projects/1/survey/draft/A21/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
-<span class="json">{<span class="hljs-attr">"selected"</span>: <span class="hljs-literal">true</span>}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="json">{<span class="hljs-attr">"selected"</span>: <span class="hljs-literal">true</span>}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -3799,11 +3962,13 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
           </tbody>
         </table>
         <hr>
-        <h2 id="clone-a-profile-to-the-draft">Clone a profile to the draft</h2> <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/projects/1/survey/draft/</span> HTTP/1.1
+        <h2 id="clone-a-profile-to-the-draft">Clone a profile to the draft</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/projects/1/survey/draft/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
-<span class="json">{<span class="hljs-attr">"profile"</span>: <span class="hljs-string">"P21"</span>}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="json">{<span class="hljs-attr">"profile"</span>: <span class="hljs-string">"P21"</span>}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -3834,9 +3999,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
           </tbody>
         </table>
         <h1 id="projects">Projects</h1>
-        <h2 id="get-all-projects">Get All Projects</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/</span> HTTP/1.1
+        <h2 id="get-all-projects">Get All Projects</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -3913,9 +4080,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
             </tr>
           </tbody>
         </table>
-        <h3 id="include-parameters">Include Parameters</h3> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/tasks/?include=permissions,task_counts</span> HTTP/1.1
+        <h3 id="include-parameters">Include Parameters</h3>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/tasks/?include=permissions,task_counts</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -4007,9 +4176,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
             </tr>
           </tbody>
         </table>
-        <h3 id="expand-parameters">Expand Parameters</h3> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/?expand=creator</span> HTTP/1.1
+        <h3 id="expand-parameters">Expand Parameters</h3>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/?expand=creator</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -4074,9 +4245,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
             </tr>
           </tbody>
         </table>
-        <h2 id="get-a-specific-project">Get a Specific Project</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1936/</span> HTTP/1.1
+        <h2 id="get-a-specific-project">Get a Specific Project</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1936/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -4134,7 +4307,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
             </tr>
           </tbody>
         </table>
-        <h2 id="create-a-new-project">Create a New Project</h2> <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/projects/</span> HTTP/1.1
+        <h2 id="create-a-new-project">Create a New Project</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/projects/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
@@ -4144,7 +4318,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
     <span class="hljs-attr">"profile"</span>: <span class="hljs-string">"P9"</span>,
     <span class="hljs-attr">"users"</span>: [{<span class="hljs-attr">"email"</span>: <span class="hljs-string">"test@example.com"</span>, <span class="hljs-attr">"role"</span>: <span class="hljs-string">"PR4"</span>}],
     <span class="hljs-attr">"groups"</span>: [{<span class="hljs-attr">"id"</span>: <span class="hljs-string">"G1"</span>, <span class="hljs-attr">"role"</span>: <span class="hljs-string">"PR4"</span>}]
-}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -4225,14 +4400,16 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
             </tr>
           </tbody>
         </table>
-        <h2 id="update-a-project">Update a Project</h2> <pre class="highlight http"><code><span class="hljs-keyword">PATCH</span> <span class="hljs-string">/api/v2/projects/1936/</span> HTTP/1.1
+        <h2 id="update-a-project">Update a Project</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">PATCH</span> <span class="hljs-string">/api/v2/projects/1936/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
 <span class="json">{
     <span class="hljs-attr">"application"</span>: <span class="hljs-number">1</span>,
     <span class="hljs-attr">"name"</span>: <span class="hljs-string">"This is the project's new name!"</span>
-}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -4352,9 +4529,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
             </tr>
           </tbody>
         </table>
-        <h2 id="delete-a-project">Delete a Project</h2> <pre class="highlight http"><code><span class="hljs-keyword">DELETE</span> <span class="hljs-string">/api/v2/projects/10/</span> HTTP/1.1
+        <h2 id="delete-a-project">Delete a Project</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">DELETE</span> <span class="hljs-string">/api/v2/projects/10/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">204</span> NO CONTENT</code></pre>
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">204</span> NO CONTENT</code></pre>
         <p>This endpoint deletes a specific project, specified by the project id.</p>
         <p><strong><code>DELETE /api/v2/projects/{project_id}/</code></strong></p>
         <h3 id="url-parameters">URL Parameters</h3>
@@ -4373,9 +4552,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
           </tbody>
         </table>
         <h1 id="report-settings">Report Settings</h1>
-        <h2 id="get-all-report-settings">Get All Report Settings</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/report-settings/</span> HTTP/1.1
+        <h2 id="get-all-report-settings">Get All Report Settings</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/report-settings/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -4433,9 +4614,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
             </tr>
           </tbody>
         </table>
-        <h2 id="get-a-specific-report-setting">Get a Specific Report Setting</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/report-settings/CR1/</span> HTTP/1.1
+        <h2 id="get-a-specific-report-setting">Get a Specific Report Setting</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/report-settings/CR1/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -4492,14 +4675,16 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
             </tr>
           </tbody>
         </table>
-        <h2 id="create-a-new-report-setting">Create A New Report Setting</h2> <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/report-settings/</span> HTTP/1.1
+        <h2 id="create-a-new-report-setting">Create A New Report Setting</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/report-settings/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
 <span class="json">{
     <span class="hljs-attr">"template"</span>: <span class="hljs-string">"project"</span>,
     <span class="hljs-attr">"title"</span>: <span class="hljs-string">"API Test Report Settings"</span>
-}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -4543,9 +4728,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
             </tr>
           </tbody>
         </table>
-        <h2 id="delete-a-report-setting">Delete a Report Setting</h2> <pre class="highlight http"><code><span class="hljs-keyword">DELETE</span> <span class="hljs-string">/api/v2/report-settings/CR1/</span> HTTP/1.1
+        <h2 id="delete-a-report-setting">Delete a Report Setting</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">DELETE</span> <span class="hljs-string">/api/v2/report-settings/CR1/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json</code></pre>
         <p>This endpoint deletes a specific Report Setting as identified by the id.</p>
         <p><strong><code>DELETE /api/v2/report-settings/{report-settings_id}/</code></strong></p>
@@ -4564,9 +4751,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
           </tbody>
         </table>
         <h1 id="server-information">Server Information</h1>
-        <h2 id="get-server-information">Get Server Information</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/server-info/</span> HTTP/1.1
+        <h2 id="get-server-information">Get Server Information</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/server-info/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -4625,9 +4814,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
           for SDE super-users.</p>
         <p><strong><code>GET /api/v2/server-info/</code></strong></p>
         <h1 id="service-status">Service Status</h1>
-        <h2 id="get-service-statuses">Get Service Statuses</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/service-statuses/</span> HTTP/1.1
+        <h2 id="get-service-statuses">Get Service Statuses</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/service-statuses/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -4648,9 +4839,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
         <p>This endpoint returns the status of all services used by SDElements. Available only for SDE super-users.</p>
         <p><strong><code>GET /api/v2/service-statuses/</code></strong></p>
         <h1 id="tags">Tags</h1>
-        <h2 id="get-all-tags">Get all tags</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/tags/</span> HTTP/1.1
+        <h2 id="get-all-tags">Get all tags</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/tags/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -4667,9 +4860,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
         <p>This endpoint returns a list of Tag resources.</p>
         <p><strong><code>GET /api/v2/tags/</code></strong></p>
         <h1 id="tasks">Tasks</h1>
-        <h2 id="get-all-tasks-of-a-project">Get all tasks of a project</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/tasks/</span> HTTP/1.1
+        <h2 id="get-all-tasks-of-a-project">Get all tasks of a project</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/tasks/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -4697,9 +4892,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
         <p>This endpoint returns a list of Task resources associated with the project having id &quot;project_id&quot;.</p>
         <p><strong><code>GET /api/v2/projects/{project_id}/tasks/</code></strong></p>
         <hr>
-        <h3 id="expand-parameters">Expand Parameters</h3> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/tasks/?expand=status,text</span> HTTP/1.1
+        <h3 id="expand-parameters">Expand Parameters</h3>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/tasks/?expand=status,text</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -4758,9 +4955,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
           </tbody>
         </table>
         <hr>
-        <h3 id="include-parameters">Include Parameters</h3> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/tasks/?include=tags,related,problem,how_tos,references</span> HTTP/1.1
+        <h3 id="include-parameters">Include Parameters</h3>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/tasks/?include=tags,related,problem,how_tos,references</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -4865,9 +5064,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
           </tbody>
         </table>
         <hr>
-        <h3 id="filter-parameters">Filter Parameters</h3> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/tasks/?accepted=true&amp;relevant=false</span> HTTP/1.1
+        <h3 id="filter-parameters">Filter Parameters</h3>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/tasks/?accepted=true&amp;relevant=false</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -4915,9 +5116,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
           </tbody>
         </table>
         <hr>
-        <h2 id="get-a-specific-task">Get a Specific Task</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/tasks/1-T2/</span> HTTP/1.1
+        <h2 id="get-a-specific-task">Get a Specific Task</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/tasks/1-T2/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -4954,7 +5157,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
 }</span></code></pre>
         <p>This endpoint retrieves a single Task resource, as specified by the id parameter.</p>
         <p><strong><code>GET /api/v2/projects/{project_id}/tasks/{task_id}/</code></strong></p>
-        <h2 id="create-a-new-project-specific-task">Create a New Project Specific Task</h2> <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/projects/1/tasks/</span> HTTP/1.1
+        <h2 id="create-a-new-project-specific-task">Create a New Project Specific Task</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/projects/1/tasks/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
@@ -4966,7 +5170,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
     <span class="hljs-attr">"status"</span>: <span class="hljs-string">"TS1"</span>,
     <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Task Description"</span>,
     <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Project Specific Task"</span>
-}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -5065,7 +5270,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
             </tr>
           </tbody>
         </table>
-        <h2 id="update-a-specific-task">Update a Specific Task</h2> <pre class="highlight http"><code><span class="hljs-keyword">PATCH</span> <span class="hljs-string">/api/v2/projects/1/tasks/1-T2/</span> HTTP/1.1
+        <h2 id="update-a-specific-task">Update a Specific Task</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">PATCH</span> <span class="hljs-string">/api/v2/projects/1/tasks/1-T2/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
@@ -5073,7 +5279,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
     <span class="hljs-attr">"artifact_proxy"</span>: <span class="hljs-string">"ABC-XYZ"</span>,
     <span class="hljs-attr">"assigned_to"</span>: ['user1@example.com', 'user2@example.com'],
     <span class="hljs-attr">"status"</span>: <span class="hljs-string">"TS1"</span>
-}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -5177,9 +5384,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
           </tbody>
         </table>
         <h1 id="task-notes">Task Notes</h1>
-        <h2 id="get-all-task-notes">Get All Task Notes</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/tasks/1-T2/notes/</span> HTTP/1.1
+        <h2 id="get-all-task-notes">Get All Task Notes</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/tasks/1-T2/notes/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -5214,9 +5423,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
             </tr>
           </tbody>
         </table>
-        <h2 id="get-a-specific-task-note">Get a Specific Task Note</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/tasks/1-T2/notes/682/</span> HTTP/1.1
+        <h2 id="get-a-specific-task-note">Get a Specific Task Note</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/tasks/1-T2/notes/682/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -5253,13 +5464,15 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
             </tr>
           </tbody>
         </table>
-        <h2 id="create-a-task-note">Create a Task Note</h2> <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/projects/1/tasks/1-T2/notes/</span> HTTP/1.1
+        <h2 id="create-a-task-note">Create a Task Note</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/projects/1/tasks/1-T2/notes/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
 <span class="json">{
     <span class="hljs-attr">"text"</span>: <span class="hljs-string">"This task is on-hold until we..."</span>
-}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -5314,13 +5527,15 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
             </tr>
           </tbody>
         </table>
-        <h2 id="update-a-task-note">Update a Task Note</h2> <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/projects/1/tasks/1-T2/notes/682/</span> HTTP/1.1
+        <h2 id="update-a-task-note">Update a Task Note</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/projects/1/tasks/1-T2/notes/682/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
 <span class="json">{
     <span class="hljs-attr">"text"</span>: <span class="hljs-string">"This task is on-hold until we..."</span>
-}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -5379,9 +5594,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
             </tr>
           </tbody>
         </table>
-        <h2 id="delete-a-specific-task-note">Delete a Specific Task Note</h2> <pre class="highlight http"><code><span class="hljs-keyword">DELETE</span> <span class="hljs-string">/api/v2/projects/1/tasks/1-T2/notes/682/</span> HTTP/1.1
+        <h2 id="delete-a-specific-task-note">Delete a Specific Task Note</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">DELETE</span> <span class="hljs-string">/api/v2/projects/1/tasks/1-T2/notes/682/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">204</span> NO CONTENT</code></pre>
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">204</span> NO CONTENT</code></pre>
         <p>This endpoint deletes a specific Task Note resource.</p>
         <p><strong><code>DELETE /api/v2/projects/{project_id}/tasks/{task_id}/notes/{note_id}/</code></strong></p>
         <h3 id="url-parameters">URL Parameters</h3>
@@ -5408,9 +5625,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
           </tbody>
         </table>
         <h1 id="task-statuses">Task Statuses</h1>
-        <h2 id="get-all-task-statuses">Get all Task Statuses</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/task-statuses/</span> HTTP/1.1
+        <h2 id="get-all-task-statuses">Get all Task Statuses</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/task-statuses/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -5457,9 +5676,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
           </tbody>
         </table>
         <h1 id="task-references">Task References</h1>
-        <h2 id="get-all-references-of-a-task">Get all references of a task</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/tasks/1-T21/references/</span> HTTP/1.1
+        <h2 id="get-all-references-of-a-task">Get all references of a task</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/tasks/1-T21/references/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -5482,9 +5703,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
 }</span></code></pre>
         <p>This endpoint returns a list of Task Reference resources.</p>
         <p><strong><code>GET /api/v2/projects/{project_id}/tasks/{task_id}/references/</code></strong></p>
-        <h2 id="get-a-specific-reference">Get a Specific Reference</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/tasks/1-T21/references/1/</span> HTTP/1.1
+        <h2 id="get-a-specific-reference">Get a Specific Reference</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/tasks/1-T21/references/1/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -5496,7 +5719,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
 }</span></code></pre>
         <p>This endpoint retrieves a single Task Reference resource, as specified by the id parameter.</p>
         <p><strong><code>GET /api/v2/projects/{project_id}/tasks/{task_id}/references/{reference_id}/</code></strong></p>
-        <h2 id="create-a-new-task-reference">Create a New Task Reference</h2> <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/projects/1/tasks/1-T21/references/</span> HTTP/1.1
+        <h2 id="create-a-new-task-reference">Create a New Task Reference</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/projects/1/tasks/1-T21/references/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
@@ -5505,7 +5729,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
   <span class="hljs-attr">"reference"</span>: <span class="hljs-string">"47300"</span>,
   <span class="hljs-attr">"name"</span>: <span class="hljs-string">"PROJ-450"</span>,
   <span class="hljs-attr">"link"</span>: <span class="hljs-string">"https://atlassian.net/browse/PROJ-450"</span>
-}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -5546,7 +5771,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
             </tr>
           </tbody>
         </table>
-        <h2 id="update-a-task-reference">Update a Task Reference</h2> <pre class="highlight http"><code><span class="hljs-keyword">PATCH</span> <span class="hljs-string">/api/v2/projects/1/tasks/1-T21/references/</span> HTTP/1.1
+        <h2 id="update-a-task-reference">Update a Task Reference</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">PATCH</span> <span class="hljs-string">/api/v2/projects/1/tasks/1-T21/references/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
@@ -5554,7 +5780,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
   <span class="hljs-attr">"reference"</span>: <span class="hljs-string">"47300"</span>,
   <span class="hljs-attr">"name"</span>: <span class="hljs-string">"PROJ-450"</span>,
   <span class="hljs-attr">"link"</span>: <span class="hljs-string">"https://atlassian.net/browse/PROJ-450"</span>
-}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -5616,9 +5843,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
             </tr>
           </tbody>
         </table>
-        <h2 id="delete-a-task-reference">Delete a Task Reference</h2> <pre class="highlight http"><code><span class="hljs-keyword">DELETE</span> <span class="hljs-string">/api/v2/projects/1/tasks/1-T21/references/1/</span> HTTP/1.1
+        <h2 id="delete-a-task-reference">Delete a Task Reference</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">DELETE</span> <span class="hljs-string">/api/v2/projects/1/tasks/1-T21/references/1/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">204</span> NO CONTENT</code></pre>
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">204</span> NO CONTENT</code></pre>
         <p>This endpoint deletes a specific task reference, specified by the reference id.</p>
         <p><strong><code>DELETE /api/v2/projects/{project_id}/tasks/{task_id}/references/{reference_id}/</code></strong></p>
         <h3 id="url-parameters">URL Parameters</h3>
@@ -5645,9 +5874,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
           </tbody>
         </table>
         <h1 id="task-updates">Task Updates</h1>
-        <h2 id="retrieve-the-list-of-tasks-whose-inclusion-state-does-not-match-its-relevance">Retrieve the list of tasks whose inclusion state does not match its relevance</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/task-updates/</span> HTTP/1.1
+        <h2 id="retrieve-the-list-of-tasks-whose-inclusion-state-does-not-match-its-relevance">Retrieve the list of tasks whose inclusion state does not match its relevance</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/task-updates/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -5684,9 +5915,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
             </tr>
           </tbody>
         </table>
-        <h2 id="accept-task-changes-for-a-project">Accept task changes for a project</h2> <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/projects/1/task-updates/</span> HTTP/1.1
+        <h2 id="accept-task-changes-for-a-project">Accept task changes for a project</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/projects/1/task-updates/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK</code></pre>
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK</code></pre>
         <p>Will accept all changes to the project tasks. This will add all relevant tasks to the project, and it will remove all no longer relevant tasks from the project.</p>
         <p><strong><code>POST /api/v2/projects/{project_id}/task-updates/</code></strong></p>
         <h3 id="url-parameters">URL Parameters</h3>
@@ -5704,9 +5937,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
             </tr>
           </tbody>
         </table>
-        <h2 id="get-specific-updated-task">Get specific updated task</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/task-updates/1-T2/</span> HTTP/1.1
+        <h2 id="get-specific-updated-task">Get specific updated task</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/task-updates/1-T2/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -5745,9 +5980,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
           </tbody>
         </table>
         <h1 id="users">Users</h1>
-        <h2 id="get-all-users">Get All Users</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/users/</span> HTTP/1.1
+        <h2 id="get-all-users">Get All Users</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/users/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -5774,9 +6011,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
 }</span></code></pre>
         <p>This endpoint returns a list of User resources.</p>
         <p><strong><code>GET /api/v2/users/</code></strong></p>
-        <h2 id="get-a-specific-user">Get a Specific User</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/users/599/</span> HTTP/1.1
+        <h2 id="get-a-specific-user">Get a Specific User</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/users/599/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -5809,7 +6048,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
             </tr>
           </tbody>
         </table>
-        <h2 id="create-a-user">Create a User</h2> <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/users/</span> HTTP/1.1
+        <h2 id="create-a-user">Create a User</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/users/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
@@ -5819,7 +6059,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
     <span class="hljs-attr">"last_name"</span>: <span class="hljs-string">"Smith"</span>,
     <span class="hljs-attr">"role"</span>: <span class="hljs-string">"UR5"</span>,
     <span class="hljs-attr">"groups"</span>: [<span class="hljs-string">"G1"</span>, <span class="hljs-string">"G2"</span>]
-}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -5884,7 +6125,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
             </tr>
           </tbody>
         </table>
-        <h2 id="update-a-specific-user">Update a specific User</h2> <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/users/599/</span> HTTP/1.1
+        <h2 id="update-a-specific-user">Update a specific User</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/users/599/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
@@ -5894,7 +6136,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
     <span class="hljs-string">"last_name"</span>: <span class="hljs-string">"Smith"</span>,
     <span class="hljs-string">"groups"</span>: [<span class="hljs-string">"G2"</span>],
     <span class="hljs-string">"role"</span>: <span class="hljs-string">"UR2"</span>”<span class="hljs-string">"</span>
-}</span></code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -5933,10 +6176,12 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
             </tr>
           </tbody>
         </table>
-        <h2 id="get-password-reset-info">Get Password Reset Info</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/users/1/reset-password/</span> HTTP/1.1
+        <h2 id="get-password-reset-info">Get Password Reset Info</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/users/1/reset-password/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
-<span class="hljs-attribute">Cookie</span>: sessionid="YOUR SESSION ID"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Cookie</span>: sessionid="YOUR SESSION ID"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -5946,16 +6191,20 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
         <p>This endpoint returns the password reset information for a specific user. This endpoint only uses either basic or session authentication.</p>
         <p>Note: If the returned fields are null, then there is no password reset in progress.</p>
         <p><strong><code>GET /api/v2/users/{user_id}/reset-password/</code></strong></p>
-        <h2 id="reset-password">Reset Password</h2> <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/users/1/reset-password/</span> HTTP/1.1
+        <h2 id="reset-password">Reset Password</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/users/1/reset-password/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
-<span class="hljs-attribute">Cookie</span>: sessionid="YOUR SESSION ID"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK</code></pre>
+<span class="hljs-attribute">Cookie</span>: sessionid="YOUR SESSION ID"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK</code></pre>
         <p>Request a password reset for a specific user.</p>
         <p><strong><code>POST /api/v2/users/{user_id}/reset-password/</code></strong></p>
         <h1 id="user-activities">User Activities</h1>
-        <h2 id="get-all-activities">Get all activities</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/users/me/activities/</span> HTTP/1.1
+        <h2 id="get-all-activities">Get all activities</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/users/me/activities/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -6084,9 +6333,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
             </tr>
           </tbody>
         </table>
-        <h2 id="get-a-specific-activity">Get a Specific Activity</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/users/me/activities/2/</span> HTTP/1.1
+        <h2 id="get-a-specific-activity">Get a Specific Activity</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/users/me/activities/2/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -6117,9 +6368,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
           </tbody>
         </table>
         <h1 id="user-assigned-tasks">User Assigned Tasks</h1>
-        <h2 id="get-all-assigned-tasks">Get all assigned tasks</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/users/me/tasks/</span> HTTP/1.1
+        <h2 id="get-all-assigned-tasks">Get all assigned tasks</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/users/me/tasks/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -6169,9 +6422,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
             </tr>
           </tbody>
         </table>
-        <h3 id="expand-parameters">Expand Parameters</h3> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/users/me/tasks/?expand=project</span> HTTP/1.1
+        <h3 id="expand-parameters">Expand Parameters</h3>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/users/me/tasks/?expand=project</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
@@ -6254,9 +6509,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight h
             </tr>
           </tbody>
         </table>
-        <h2 id="get-a-specific-assigned-task">Get a Specific Assigned Task</h2> <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/users/me/tasks/1-T2/</span> HTTP/1.1
+        <h2 id="get-a-specific-assigned-task">Get a Specific Assigned Task</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/users/me/tasks/1-T2/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre><pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
 <span class="json">{
