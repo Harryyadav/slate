@@ -24,6 +24,7 @@ includes:
  - jobs
  - library_tasks
  - library_problems
+ - plugins_alm
  - phases
  - profiles
  - project_roles
