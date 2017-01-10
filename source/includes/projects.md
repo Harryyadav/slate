@@ -37,7 +37,8 @@ Content-Type: application/json
             "role": "PR4",
             "first_name": "Admin",
             "last_name": "Testerton",
-            "is_active": true
+            "is_active": true,
+            "is_creator": true
         }],
         "groups": [{
             "id": "G1",
@@ -107,7 +108,8 @@ Content-Type: application/json
             "role": "PR4",
             "first_name": "Admin",
             "last_name": "Testerton",
-            "is_active": true
+            "is_active": true,
+            "is_creator": true
         }],
         "groups": [{
             "id": "G1",
@@ -338,7 +340,8 @@ Content-Type: application/json
         "role": "PR4",
         "first_name": "Admin",
         "last_name": "Testerton",
-        "is_active": true
+        "is_active": true,
+        "is_creator": true
     }],
     "groups": [{
         "id": "G1",
@@ -417,7 +420,8 @@ Content-Type: application/json
         "role": "PR4",
         "first_name": "Admin",
         "last_name": "Testerton",
-        "is_active": true
+        "is_active": true,
+        "is_creator": true
     }],
     "groups": [{
         "id": "G1",
@@ -491,7 +495,8 @@ Content-Type: application/json
         "role": "PR4",
         "first_name": "Admin",
         "last_name": "Testerton",
-        "is_active": true
+        "is_active": true,
+        "is_creator": true
     }],
     "groups": [{
         "id": "G1",

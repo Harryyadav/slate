@@ -1,5 +1,9 @@
 # Changelog
 
+## v4.4
+
+- Add is_creator to users in Projects endpoint.
+
 ## v4.3
 
 - Initiate a password reset via the API (session / basic authentication only)
