@@ -1,6 +1,6 @@
 # Connections
 
-## Get LDAP Connection for organization
+## Get LDAP Connections for the current organization
 
 ```http
 GET /api/v2/connections/ldap/ HTTP/1.1
@@ -8,47 +8,122 @@ Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 
 {
-    "id": 15,
-    "alias": "LDAP",
-    "system": "ldap",
-    "frequency": "manually",
-    "command": "sync_ldap",
-    "params": {
-        "ldap_filter": {
-            "users": [
-                "user@example.org",
-                "user2@example.org"
-            ],
-            "groups": [
-                "LDAPGroup",
-                "LDAPGroup3"
-            ]
+    "results": [{
+        "id": 15,
+        "alias": "LDAP",
+        "system": "ldap",
+        "frequency": "manually",
+        "command": "sync_ldap",
+        "params": {
+            "ldap_filter": {
+                "users": [
+                    "user@example.org",
+                    "user2@example.org"
+                ],
+                "groups": [
+                    "LDAPGroup",
+                    "LDAPGroup3"
+                ]
+            },
+            "group_query": "(objectClass=group)",
+            "ldap_server": "ldapServer:12345",
+            "deactivation": false,
+            "user_schema": {
+                "first_name": "gn",
+                "last_name": "sn",
+                "email": "mail",
+                "full_name": "cn"
+            },
+            "bind_dn": "cn=Administrator,cn=Users,dc=example,dc=org",
+            "bind_password": "pass",
+            "base_dn": "dc=example,dc=org",
+            "group_mapping": {
+                "ldap_group2": "sde_group2",
+                "ldap_group1": "sde_group1"
+            },
+            "ldap_method": "LDAP",
+            "ldap_validate_cert": true
         },
-        "group_query": "(objectClass=group)",
-        "ldap_server": "ldapServer:12345",
-        "deactivation": false,
-        "user_schema": {
-            "first_name": "gn",
-            "last_name": "sn",
-            "email": "mail",
-            "full_name": "cn"
-        },
-        "bind_dn": "cn=Administrator,cn=Users,dc=example,dc=org",
-        "bind_password": "pass",
-        "base_dn": "dc=example,dc=org",
-        "group_mapping": {
-            "ldap_group2": "sde_group2",
-            "ldap_group1": "sde_group1"
-        },
-        "ldap_method": "LDAP",
-        "ldap_validate_cert": true
-    },
-    "inaccessible": false
+        "inaccessible": false
+    }]
 }
 ```
-Returns the LDAP connection associated to the organizaiton. 
+Returns a list of all LDAP integration connections in the current organization.
+
+Note, this is different from the LDAP connection configured for Single Sign-On.
 
 **`GET /api/v2/connections/ldap/`**
+
+
+### Include Parameters
+
+```http
+GET /api/v2/connections/ldap/?include=last_job HTTP/1.1
+Accept: application/json
+Authorization: Token "YOUR SDE ACCESS TOKEN"
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "results": [{
+        "id": 15,
+        "alias": "LDAP",
+        "system": "ldap",
+        "frequency": "manually",
+        "command": "sync_ldap",
+        "params": {
+            "ldap_filter": {
+                "users": [
+                    "user@example.org",
+                    "user2@example.org"
+                ],
+                "groups": [
+                    "LDAPGroup",
+                    "LDAPGroup3"
+                ]
+            },
+            "group_query": "(objectClass=group)",
+            "ldap_server": "ldapServer:12345",
+            "deactivation": false,
+            "user_schema": {
+                "first_name": "gn",
+                "last_name": "sn",
+                "email": "mail",
+                "full_name": "cn"
+            },
+            "bind_dn": "cn=Administrator,cn=Users,dc=example,dc=org",
+            "bind_password": "pass",
+            "base_dn": "dc=example,dc=org",
+            "group_mapping": {
+                "ldap_group2": "sde_group2",
+                "ldap_group1": "sde_group1"
+            },
+            "ldap_method": "LDAP",
+            "ldap_validate_cert": true
+        },
+        "inaccessible": false,
+        "last_job": {
+            "succeeded": false,
+            "last_run": "2016-12-15T22:45:27.412Z",
+            "result_message": "Error Message",
+            "user": 1,
+            "ready": true,
+            "automatic": false,
+            "id": 4
+        }
+    }]
+}
+```
+
+See the [Include Parameters](#include-parameters) section for more details.
+
+Parameter | Description
+----------|---------------
+last_job  | Include the details of the last job executed for this connection.
+
 
 ---
 
@@ -218,7 +293,63 @@ system    | Returns all ALM connections associated with a particular system.
 
 
 
+### Include Parameters
 
+```http
+GET /api/v2/connections/alm/?include=last_job HTTP/1.1
+Accept: application/json
+Authorization: Token "YOUR SDE ACCESS TOKEN"
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "results": [{
+        "id": 1,
+        "connector": 2,
+        "project": 2,
+        "system": "Rally",
+        "alias": "Rally Integration",
+        "frequency": "manually",
+        "command": "sync_rally",
+        "params": {
+            "sde_project": "Demo Project",
+            "alm_user": "rally_user",
+            "sde_verification_filter": "none,partial,pass,fail",
+            "rally_workspace": "Rally Workspace",
+            "alm_method": "https",
+            "alm_title_format": "$task_id $title",
+            "alm_server": "rally1.rallydev.com",
+            "sde_businessunit": "General",
+            "sde_application": "Demo Application",
+            "alm_project": "Rally Project",
+            "alm_pass": "rally_password",
+            "alm_phases": "requirements,architecture-design,development",
+            "sde_statuses_in_scope": "TODO",
+            "conflict_policy": "alm",
+            "sde_min_priority": 7
+        },
+        "inaccessible": false,
+         "last_job": {
+            "succeeded": false,
+            "last_run": "2016-12-15T22:45:27.412Z",
+            "result_message": "Error Message",
+            "user": 1,
+            "ready": true,
+            "automatic": false,
+            "id": 4
+        }
+    }]
+}
+```
+
+See the [Include Parameters](#include-parameters) section for more details.
+
+Parameter | Description
+----------|---------------
+last_job  | Include the details of the last job executed for this connection.
 
 
 
@@ -476,7 +607,55 @@ system    | Returns all analysis connections associated with a particular system
 
 
 
+### Include Parameters
 
+```http
+GET /api/v2/connections/analysis/?include=last_job HTTP/1.1
+Accept: application/json
+Authorization: Token "YOUR SDE ACCESS TOKEN"
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "results": [{
+        "id": 1,
+        "connector": 1,
+        "project": 1,
+        "system": "WhiteHat",
+        "alias": "WhiteHat Integration",
+        "frequency": "manually",
+        "command": "sync_whitehat",
+        "params": {
+            "asset_name": "WebGoat Java",
+            "sde_project": "WhiteHat",
+            "sde_businessunit": "General",
+            "sde_application": "Demo Application",
+            "import_behaviour": "replace-scanner",
+            "analysis_server": "server.whitehatsec.com",
+            "task_status_mapping": "{}"
+        },
+        inaccessible": false
+         "last_job": {
+            "succeeded": false,
+            "last_run": "2016-12-15T22:45:27.412Z",
+            "result_message": "Error Message",
+            "user": 1,
+            "ready": true,
+            "automatic": false,
+            "id": 4
+        }
+    }]
+}
+```
+
+See the [Include Parameters](#include-parameters) section for more details.
+
+Parameter | Description
+----------|---------------
+last_job  | Include the details of the last job executed for this connection.
 
 
 
