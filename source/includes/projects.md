@@ -60,7 +60,7 @@ search      | Filter projects by performing a textual search on name and profile
 ### Include Parameters
 
 ```http
-GET /api/v2/projects/1/tasks/?include=permissions,task_counts HTTP/1.1
+GET /api/v2/projects/1/?include=permissions,task_counts HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
