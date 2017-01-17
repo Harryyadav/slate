@@ -91,7 +91,9 @@ Content-Type: application/json
         "alm_project": "YO",
         "token": "UYO",
         "server": "abc"
-    }
+    },
+    "fields_editable_on_project": null
+
 }
 ```
 
@@ -121,7 +123,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
         "alm_method": "https",
         "server": "github.com",
         "conflict_policy": "sde"
-    }
+    },
+    "fields_editable_on_project": ['alm_project', 'repo_owner']
 }
 
 
@@ -141,7 +144,9 @@ Content-Type: application/json
         "alm_method": "https",
         "server": "github.com",
         "conflict_policy": "sde"
-    }
+    },
+    "fields_editable_on_project": ['alm_project', 'repo_owner']
+
 }
 ```
 Fields              | Required | Description
@@ -150,6 +155,7 @@ name                | Yes      | The name of the new connector.
 system              | Yes      | The id of the ALM system that this connection will connect with.
 inaccessible        | No       | Specifies whether the alm server specific is accessible from the SDE server. Defaults to false.
 params              | Yes      | A dictionary containing connections options. Please refer to product documentation for more details or reach out to support.  Required params will return appropriate errors when unspecified.
+fields_editable_on_project | No | A list of field names which should be editable on the project level.  By default this is set to null, meaning the default 'editable on project' fields defined in the SDE Tools plugin will be used.
 
 
 
@@ -188,7 +194,8 @@ Content-Type: application/json
         "alm_method": "https",
         "server": "github.com",
         "conflict_policy": "sde"
-    }
+    },
+    "editable_on_project": null
 }
 ```
 
