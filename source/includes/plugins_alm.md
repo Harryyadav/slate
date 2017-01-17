@@ -28,6 +28,7 @@ Content-Type: application/json
         "max_length": 255,
         "required": true,
         "placeholder": null,
+        "editable_on_project": true,
         "options": []
       },
       "sections": [
@@ -45,6 +46,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": null,
+              "editable_on_project": false,
               "options": [
                 {
                   "label": "https",
@@ -68,6 +70,7 @@ Content-Type: application/json
               "max_length": null,
               "required": true,
               "placeholder": "bugs.server.com",
+              "editable_on_project": false,
               "options": []
             },
             {
@@ -80,6 +83,7 @@ Content-Type: application/json
               "max_length": null,
               "required": true,
               "placeholder": "apitoken",
+              "editable_on_project": false,
               "options": []
             },
             {
@@ -92,6 +96,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": null,
+              "editable_on_project": false,
               "options": []
             },
             {
@@ -104,6 +109,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": "/",
+              "editable_on_project": false,
               "options": []
             }
           ]
@@ -122,6 +128,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": "duplicate",
+              "editable_on_project": false,
               "options": []
             },
             {
@@ -134,6 +141,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": null,
+              "editable_on_project": false,
               "options": []
             }
           ]
@@ -152,6 +160,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": null,
+              "editable_on_project": false,
               "options": [
                 {
                   "label": "ALM",
@@ -180,18 +189,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": null,
-              "options": []
-            },
-            {
-              "name": "inaccessible",
-              "label": "This server is not accessible from the SD Elements server",
-              "description": "This ALM is not accessible from the SD Elements server. This connection will be used by external tools that can reach both SD Elements and this ALM.",
-              "field_type": "boolean",
-              "default": "False",
-              "disabled": false,
-              "max_length": null,
-              "required": false,
-              "placeholder": null,
+              "editable_on_project": false,
               "options": []
             }
           ]
@@ -210,6 +208,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": null,
+              "editable_on_project": false,
               "options": [
                 {
                   "label": "10 - High Minimum Priority to Import",
@@ -273,6 +272,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": null,
+              "editable_on_project": false,
               "options": [
                 {
                   "label": "Done",
@@ -301,6 +301,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": null,
+              "editable_on_project": false,
               "options": [
                 {
                   "label": "Requirements",
@@ -334,6 +335,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": "New Tag...",
+              "editable_on_project": false,
               "options": []
             },
             {
@@ -346,6 +348,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": null,
+              "editable_on_project": false,
               "options": [
                 {
                   "label": "No Status",
@@ -385,6 +388,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": null,
+              "editable_on_project": false,
               "options": [
                 {
                   "label": "TI: Task title",
@@ -418,6 +422,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": null,
+              "editable_on_project": false,
               "options": []
             },
             {
@@ -430,6 +435,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": null,
+              "editable_on_project": true,
               "options": []
             }
           ]
@@ -450,6 +456,7 @@ Content-Type: application/json
         "max_length": 255,
         "required": true,
         "placeholder": null,
+        "editable_on_project": false,
         "options": []
       },
       "sections": [
@@ -467,6 +474,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": null,
+              "editable_on_project": false,
               "options": [
                 {
                   "label": "https",
@@ -490,6 +498,7 @@ Content-Type: application/json
               "max_length": null,
               "required": true,
               "placeholder": "bugs.server.com",
+              "editable_on_project": false,
               "options": []
             },
             {
@@ -502,6 +511,7 @@ Content-Type: application/json
               "max_length": null,
               "required": true,
               "placeholder": "username",
+              "editable_on_project": false,
               "options": []
             },
             {
@@ -514,6 +524,7 @@ Content-Type: application/json
               "max_length": null,
               "required": true,
               "placeholder": "password",
+              "editable_on_project": false,
               "options": []
             },
             {
@@ -526,6 +537,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": "/",
+              "editable_on_project": false,
               "options": []
             }
           ]
@@ -544,6 +556,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": null,
+              "editable_on_project": false,
               "options": [
                 {
                   "label": "4",
@@ -567,6 +580,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": "Resolved,Closed",
+              "editable_on_project": false,
               "options": []
             },
             {
@@ -579,6 +593,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": "Bug",
+              "editable_on_project": false,
               "options": []
             },
             {
@@ -591,6 +606,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": "Reopen Issue",
+              "editable_on_project": false,
               "options": []
             },
             {
@@ -603,6 +619,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": "Close Issue",
+              "editable_on_project": false,
               "options": []
             }
           ]
@@ -621,6 +638,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": null,
+              "editable_on_project": false,
               "options": [
                 {
                   "label": "ALM",
@@ -649,18 +667,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": null,
-              "options": []
-            },
-            {
-              "name": "inaccessible",
-              "label": "This server is not accessible from the SD Elements server",
-              "description": "This ALM is not accessible from the SD Elements server. This connection will be used by external tools that can reach both SD Elements and this ALM.",
-              "field_type": "boolean",
-              "default": "False",
-              "disabled": false,
-              "max_length": null,
-              "required": false,
-              "placeholder": null,
+              "editable_on_project": false,
               "options": []
             }
           ]
@@ -679,6 +686,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": null,
+              "editable_on_project": false,
               "options": [
                 {
                   "label": "10 - High Minimum Priority to Import",
@@ -742,6 +750,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": null,
+              "editable_on_project": false,
               "options": [
                 {
                   "label": "Done",
@@ -770,6 +779,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": null,
+              "editable_on_project": false,
               "options": [
                 {
                   "label": "Requirements",
@@ -803,6 +813,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": "New Tag...",
+              "editable_on_project": false,
               "options": []
             },
             {
@@ -815,6 +826,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": null,
+              "editable_on_project": false,
               "options": [
                 {
                   "label": "No Status",
@@ -854,6 +866,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": null,
+              "editable_on_project": false,
               "options": [
                 {
                   "label": "TI: Task title",
@@ -887,6 +900,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": null,
+              "editable_on_project": false,
               "options": []
             },
             {
@@ -899,6 +913,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": "SD-Elements",
+              "editable_on_project": false,
               "options": []
             },
             {
@@ -911,6 +926,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": null,
+              "editable_on_project": true,
               "options": []
             },
             {
@@ -923,6 +939,7 @@ Content-Type: application/json
               "max_length": 1024,
               "required": false,
               "placeholder": null,
+              "editable_on_project": false,
               "options": []
             },
             {
@@ -935,6 +952,7 @@ Content-Type: application/json
               "max_length": 1024,
               "required": false,
               "placeholder": null,
+              "editable_on_project": true,
               "options": []
             },
             {
@@ -947,6 +965,7 @@ Content-Type: application/json
               "max_length": 1024,
               "required": false,
               "placeholder": null,
+              "editable_on_project": false,
               "options": []
             },
             {
@@ -959,6 +978,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": null,
+              "editable_on_project": true,
               "options": []
             }
           ]
@@ -979,6 +999,7 @@ Content-Type: application/json
         "max_length": 255,
         "required": true,
         "placeholder": null,
+        "editable_on_project": true,
         "options": []
       },
       "sections": [
@@ -996,6 +1017,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": null,
+              "editable_on_project": false,
               "options": [
                 {
                   "label": "https",
@@ -1019,6 +1041,7 @@ Content-Type: application/json
               "max_length": null,
               "required": true,
               "placeholder": "bugs.server.com",
+              "editable_on_project": false,
               "options": []
             },
             {
@@ -1031,6 +1054,7 @@ Content-Type: application/json
               "max_length": null,
               "required": true,
               "placeholder": "username",
+              "editable_on_project": false,
               "options": []
             },
             {
@@ -1043,6 +1067,7 @@ Content-Type: application/json
               "max_length": null,
               "required": true,
               "placeholder": "password",
+              "editable_on_project": false,
               "options": []
             },
             {
@@ -1055,6 +1080,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": "/",
+              "editable_on_project": false,
               "options": []
             }
           ]
@@ -1073,6 +1099,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": "task",
+              "editable_on_project": false,
               "options": []
             },
             {
@@ -1085,6 +1112,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": "Completed,Done",
+              "editable_on_project": false,
               "options": []
             }
           ]
@@ -1103,6 +1131,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": null,
+              "editable_on_project": false,
               "options": [
                 {
                   "label": "ALM",
@@ -1131,18 +1160,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": null,
-              "options": []
-            },
-            {
-              "name": "inaccessible",
-              "label": "This server is not accessible from the SD Elements server",
-              "description": "This ALM is not accessible from the SD Elements server. This connection will be used by external tools that can reach both SD Elements and this ALM.",
-              "field_type": "boolean",
-              "default": "False",
-              "disabled": false,
-              "max_length": null,
-              "required": false,
-              "placeholder": null,
+              "editable_on_project": false,
               "options": []
             }
           ]
@@ -1161,6 +1179,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": null,
+              "editable_on_project": false,
               "options": [
                 {
                   "label": "10 - High Minimum Priority to Import",
@@ -1224,6 +1243,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": null,
+              "editable_on_project": false,
               "options": [
                 {
                   "label": "Done",
@@ -1252,6 +1272,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": null,
+              "editable_on_project": false,
               "options": [
                 {
                   "label": "Requirements",
@@ -1285,6 +1306,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": "New Tag...",
+              "editable_on_project": false,
               "options": []
             },
             {
@@ -1297,6 +1319,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": null,
+              "editable_on_project": false,
               "options": [
                 {
                   "label": "No Status",
@@ -1336,6 +1359,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": null,
+              "editable_on_project": false,
               "options": [
                 {
                   "label": "TI: Task title",
@@ -1369,6 +1393,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": null,
+              "editable_on_project": false,
               "options": []
             },
             {
@@ -1381,6 +1406,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": "SD-Elements",
+              "editable_on_project": false,
               "options": []
             },
             {
@@ -1393,6 +1419,7 @@ Content-Type: application/json
               "max_length": 1024,
               "required": false,
               "placeholder": null,
+              "editable_on_project": false,
               "options": []
             },
             {
@@ -1405,6 +1432,7 @@ Content-Type: application/json
               "max_length": 1024,
               "required": false,
               "placeholder": null,
+              "editable_on_project": true,
               "options": []
             },
             {
@@ -1417,6 +1445,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": null,
+              "editable_on_project": true,
               "options": []
             }
           ]
@@ -1437,6 +1466,7 @@ Content-Type: application/json
         "max_length": 255,
         "required": true,
         "placeholder": null,
+        "editable_on_project": true,
         "options": []
       },
       "sections": [
@@ -1454,6 +1484,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": null,
+              "editable_on_project": false,
               "options": [
                 {
                   "label": "https",
@@ -1477,6 +1508,7 @@ Content-Type: application/json
               "max_length": null,
               "required": true,
               "placeholder": "bugs.server.com",
+              "editable_on_project": false,
               "options": []
             },
             {
@@ -1489,6 +1521,7 @@ Content-Type: application/json
               "max_length": null,
               "required": true,
               "placeholder": "username",
+              "editable_on_project": false,
               "options": []
             },
             {
@@ -1501,6 +1534,7 @@ Content-Type: application/json
               "max_length": null,
               "required": true,
               "placeholder": "password",
+              "editable_on_project": false,
               "options": []
             },
             {
@@ -1513,6 +1547,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": "/",
+              "editable_on_project": false,
               "options": []
             }
           ]
@@ -1531,6 +1566,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": "Story",
+              "editable_on_project": false,
               "options": []
             },
             {
@@ -1543,6 +1579,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": "Signoff,Accepted",
+              "editable_on_project": false,
               "options": []
             },
             {
@@ -1555,6 +1592,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": "New",
+              "editable_on_project": false,
               "options": []
             }
           ]
@@ -1573,6 +1611,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": null,
+              "editable_on_project": false,
               "options": [
                 {
                   "label": "ALM",
@@ -1601,18 +1640,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": null,
-              "options": []
-            },
-            {
-              "name": "inaccessible",
-              "label": "This server is not accessible from the SD Elements server",
-              "description": "This ALM is not accessible from the SD Elements server. This connection will be used by external tools that can reach both SD Elements and this ALM.",
-              "field_type": "boolean",
-              "default": "False",
-              "disabled": false,
-              "max_length": null,
-              "required": false,
-              "placeholder": null,
+              "editable_on_project": false,
               "options": []
             }
           ]
@@ -1631,6 +1659,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": null,
+              "editable_on_project": false,
               "options": [
                 {
                   "label": "10 - High Minimum Priority to Import",
@@ -1694,6 +1723,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": null,
+              "editable_on_project": false,
               "options": [
                 {
                   "label": "Done",
@@ -1722,6 +1752,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": null,
+              "editable_on_project": false,
               "options": [
                 {
                   "label": "Requirements",
@@ -1755,6 +1786,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": "New Tag...",
+              "editable_on_project": false,
               "options": []
             },
             {
@@ -1767,6 +1799,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": null,
+              "editable_on_project": false,
               "options": [
                 {
                   "label": "No Status",
@@ -1806,6 +1839,7 @@ Content-Type: application/json
               "max_length": null,
               "required": false,
               "placeholder": null,
+              "editable_on_project": true,
               "options": []
             }
           ]
@@ -1846,6 +1880,7 @@ Content-Type: application/json
     "max_length": 255,
     "required": true,
     "placeholder": null,
+    "editable_on_project": true,
     "options": []
   },
   "sections": [
@@ -1863,6 +1898,7 @@ Content-Type: application/json
           "max_length": null,
           "required": false,
           "placeholder": null,
+          "editable_on_project": false,
           "options": [
             {
               "label": "https",
@@ -1886,6 +1922,7 @@ Content-Type: application/json
           "max_length": null,
           "required": true,
           "placeholder": "bugs.server.com",
+          "editable_on_project": false,
           "options": []
         },
         {
@@ -1898,6 +1935,7 @@ Content-Type: application/json
           "max_length": null,
           "required": true,
           "placeholder": "username",
+          "editable_on_project": false,
           "options": []
         },
         {
@@ -1910,6 +1948,7 @@ Content-Type: application/json
           "max_length": null,
           "required": true,
           "placeholder": "password",
+          "editable_on_project": false,
           "options": []
         },
         {
@@ -1922,6 +1961,7 @@ Content-Type: application/json
           "max_length": null,
           "required": false,
           "placeholder": "/",
+          "editable_on_project": false,
           "options": []
         }
       ]
@@ -1940,6 +1980,7 @@ Content-Type: application/json
           "max_length": null,
           "required": false,
           "placeholder": "Story",
+          "editable_on_project": false,
           "options": []
         },
         {
@@ -1952,6 +1993,7 @@ Content-Type: application/json
           "max_length": null,
           "required": false,
           "placeholder": "Signoff,Accepted",
+          "editable_on_project": false,
           "options": []
         },
         {
@@ -1964,6 +2006,7 @@ Content-Type: application/json
           "max_length": null,
           "required": false,
           "placeholder": "New",
+          "editable_on_project": false,
           "options": []
         }
       ]
@@ -1982,6 +2025,7 @@ Content-Type: application/json
           "max_length": null,
           "required": false,
           "placeholder": null,
+          "editable_on_project": false,
           "options": [
             {
               "label": "ALM",
@@ -2010,18 +2054,7 @@ Content-Type: application/json
           "max_length": null,
           "required": false,
           "placeholder": null,
-          "options": []
-        },
-        {
-          "name": "inaccessible",
-          "label": "This server is not accessible from the SD Elements server",
-          "description": "This ALM is not accessible from the SD Elements server. This connection will be used by external tools that can reach both SD Elements and this ALM.",
-          "field_type": "boolean",
-          "default": "False",
-          "disabled": false,
-          "max_length": null,
-          "required": false,
-          "placeholder": null,
+          "editable_on_project": false,
           "options": []
         }
       ]
@@ -2040,6 +2073,7 @@ Content-Type: application/json
           "max_length": null,
           "required": false,
           "placeholder": null,
+          "editable_on_project": false,
           "options": [
             {
               "label": "10 - High Minimum Priority to Import",
@@ -2103,6 +2137,7 @@ Content-Type: application/json
           "max_length": null,
           "required": false,
           "placeholder": null,
+          "editable_on_project": false,
           "options": [
             {
               "label": "Done",
@@ -2131,6 +2166,7 @@ Content-Type: application/json
           "max_length": null,
           "required": false,
           "placeholder": null,
+          "editable_on_project": false,
           "options": [
             {
               "label": "Requirements",
@@ -2164,6 +2200,7 @@ Content-Type: application/json
           "max_length": null,
           "required": false,
           "placeholder": "New Tag...",
+          "editable_on_project": false,
           "options": []
         },
         {
@@ -2176,6 +2213,7 @@ Content-Type: application/json
           "max_length": null,
           "required": false,
           "placeholder": null,
+          "editable_on_project": false,
           "options": [
             {
               "label": "No Status",
@@ -2215,6 +2253,7 @@ Content-Type: application/json
           "max_length": null,
           "required": false,
           "placeholder": null,
+          "editable_on_project": true,
           "options": []
         }
       ]
