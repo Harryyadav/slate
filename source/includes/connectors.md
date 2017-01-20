@@ -23,7 +23,8 @@ Content-Type: application/json
                 "alm_project": "YO",
                 "token": "UYO",
                 "server": "abc"
-            }
+            },
+            "fields_editable_on_project": ["alm_project"]
         },
         {
             "id": 7,
@@ -41,7 +42,8 @@ Content-Type: application/json
                 "sde_statuses_in_scope": "TODO",
                 "conflict_policy": "alm",
                 "sde_min_priority": 7
-            }
+            },
+            "fields_editable_on_project": []
         }
     ]
 }
