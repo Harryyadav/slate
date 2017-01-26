@@ -19,11 +19,11 @@
       <div class="versions">
         <p><span class="version">v: </span> <a href="index.html">
                 4.4
-              </a> <span>&middot;</span> <a href="4.3.html">
+              </a> <span>&middot;</span> <a href="4.3.html" class="active">
                 4.3
               </a> <span>&middot;</span> <a href="4.2.html">
                 4.2
-              </a> <span>&middot;</span> <a href="4.1.html" class="active">
+              </a> <span>&middot;</span> <a href="4.1.html">
                 4.1
               </a> <span>&middot;</span> <a href="4.0.html">
                 4.0
@@ -82,10 +82,22 @@
         <p><code>/?page_size=100</code></p>
         <p>and use the <code>next</code> and <code>previous</code> values to move through the complete response.</p>
         <h1 id="authentication">Authentication</h1>
+        <p>There are several ways to authenticate against SD Elements, which are outlined below.</p>
+        <h2 id="basic-authentication">Basic Authentication</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/users/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"</code></pre>
+        <p>To authenticate against SD Elements using basic authentication (username and password), you need to pass a Base64 encoding of your username:password as a header.</p>
+        <h2 id="session-authorization">Session Authorization</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/users/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Cookie</span>: sessionid="YOUR SESSION ID"</code></pre>
+        <p>To authenticate against SD Elements using session authentication, you need to pass in your session id as a cookie in the header.</p>
+        <h2 id="token-authentication">Token Authentication</h2>
         <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/users/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
-        <p>To authenticate against SD Elements, you need to pass an API access token via an <code>Authorization</code> header.</p>
+        <p>To authenticate against SD Elements using tokens, you need to pass an API access token via an <code>Authorization</code> header.</p>
         <p>A token can be generated as follows:</p>
         <ul>
           <li>Go to the menu option in the top right of SD Elements:
@@ -930,40 +942,44 @@
         <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
-<span class="json">{
-    <span class="hljs-attr">"results"</span>: [
+<span class="clojure">{
+    <span class="hljs-string">"results"</span>: [
         {
-            <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
-            <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"example-business-unit-1"</span>,
-            <span class="hljs-attr">"name"</span>: <span class="hljs-string">"example business unit 1"</span>,
-            <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2015-09-30T18:28:37.214914Z"</span>,
-            <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-09-30T18:28:37.214959Z"</span>,
-            <span class="hljs-attr">"default_groups"</span>: [],
-            <span class="hljs-attr">"default_users"</span>: [],
-            <span class="hljs-attr">"users"</span>: [{
-                <span class="hljs-attr">"id"</span>: <span class="hljs-number">682</span>,
-                <span class="hljs-attr">"email"</span>: <span class="hljs-string">"frank@sdelements.com"</span>,
-                <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Frank"</span>,
-                <span class="hljs-attr">"last_name"</span>: <span class="hljs-string">"Testerton"</span>,
-                <span class="hljs-attr">"is_active"</span>: <span class="hljs-literal">true</span>
+            <span class="hljs-string">"id"</span>: <span class="hljs-number">1</span>,
+            <span class="hljs-string">"slug"</span>: <span class="hljs-string">"example-business-unit-1"</span>,
+            <span class="hljs-string">"name"</span>: <span class="hljs-string">"example business unit 1"</span>,
+            <span class="hljs-string">"created"</span>: <span class="hljs-string">"2015-09-30T18:28:37.214914Z"</span>,
+            <span class="hljs-string">"updated"</span>: <span class="hljs-string">"2015-09-30T18:28:37.214959Z"</span>,
+            <span class="hljs-string">"default_groups"</span>: [],
+            <span class="hljs-string">"default_users"</span>: [],
+            <span class="hljs-string">"users"</span>: [{
+                <span class="hljs-string">"id"</span>: <span class="hljs-number">682</span>,
+                <span class="hljs-string">"email"</span>: <span class="hljs-string">"frank@sdelements.com"</span>,
+                <span class="hljs-string">"first_name"</span>: <span class="hljs-string">"Frank"</span>,
+                <span class="hljs-string">"last_name"</span>: <span class="hljs-string">"Testerton"</span>,
+                <span class="hljs-string">"is_active"</span>: <span class="hljs-literal">true</span>,
+                <span class="hljs-string">"role"</span>: {
+                    id: <span class="hljs-string">"UR1"</span>,
+                    name: <span class="hljs-string">"User"</span>
+                }
             }],
-            <span class="hljs-attr">"groups"</span>: [{
-                <span class="hljs-attr">"id"</span>: <span class="hljs-string">"G64"</span>,
-                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Group Bar"</span>
+            <span class="hljs-string">"groups"</span>: [{
+                <span class="hljs-string">"id"</span>: <span class="hljs-string">"G64"</span>,
+                <span class="hljs-string">"name"</span>: <span class="hljs-string">"Group Bar"</span>
             }],
-            <span class="hljs-attr">"all_users"</span>: <span class="hljs-literal">false</span>
+            <span class="hljs-string">"all_users"</span>: <span class="hljs-literal">false</span>
         },
         {
-            <span class="hljs-attr">"id"</span>: <span class="hljs-number">2</span>,
-            <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"example-business-unit-2"</span>,
-            <span class="hljs-attr">"name"</span>: <span class="hljs-string">"example business unit 2"</span>,
-            <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2015-09-30T19:30:25.254036Z"</span>,
-            <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-09-30T19:30:25.254072Z"</span>,
-            <span class="hljs-attr">"default_users"</span>: [],
-            <span class="hljs-attr">"default_groups"</span>: [],
-            <span class="hljs-attr">"users"</span>: [],
-            <span class="hljs-attr">"groups"</span>: [],
-            <span class="hljs-attr">"all_users"</span>: <span class="hljs-literal">true</span>
+            <span class="hljs-string">"id"</span>: <span class="hljs-number">2</span>,
+            <span class="hljs-string">"slug"</span>: <span class="hljs-string">"example-business-unit-2"</span>,
+            <span class="hljs-string">"name"</span>: <span class="hljs-string">"example business unit 2"</span>,
+            <span class="hljs-string">"created"</span>: <span class="hljs-string">"2015-09-30T19:30:25.254036Z"</span>,
+            <span class="hljs-string">"updated"</span>: <span class="hljs-string">"2015-09-30T19:30:25.254072Z"</span>,
+            <span class="hljs-string">"default_users"</span>: [],
+            <span class="hljs-string">"default_groups"</span>: [],
+            <span class="hljs-string">"users"</span>: [],
+            <span class="hljs-string">"groups"</span>: [],
+            <span class="hljs-string">"all_users"</span>: <span class="hljs-literal">true</span>
         }
     ]
 }</span></code></pre>
@@ -1000,26 +1016,30 @@
         <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
-<span class="json">{
-    <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
-    <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"example-business-unit-1"</span>,
-    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"example business unit 1"</span>,
-    <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2015-09-30T18:28:37.214914Z"</span>,
-    <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-09-30T18:28:37.214959Z"</span>,
-    <span class="hljs-attr">"default_groups"</span>: [],
-    <span class="hljs-attr">"default_users"</span>: [],
-    <span class="hljs-attr">"users"</span>: [{
-        <span class="hljs-attr">"id"</span>: <span class="hljs-number">682</span>,
-        <span class="hljs-attr">"email"</span>: <span class="hljs-string">"frank@sdelements.com"</span>,
-        <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Frank"</span>,
-        <span class="hljs-attr">"last_name"</span>: <span class="hljs-string">"Testerton"</span>,
-        <span class="hljs-attr">"is_active"</span>: <span class="hljs-literal">true</span>
+<span class="clojure">{
+    <span class="hljs-string">"id"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-string">"slug"</span>: <span class="hljs-string">"example-business-unit-1"</span>,
+    <span class="hljs-string">"name"</span>: <span class="hljs-string">"example business unit 1"</span>,
+    <span class="hljs-string">"created"</span>: <span class="hljs-string">"2015-09-30T18:28:37.214914Z"</span>,
+    <span class="hljs-string">"updated"</span>: <span class="hljs-string">"2015-09-30T18:28:37.214959Z"</span>,
+    <span class="hljs-string">"default_groups"</span>: [],
+    <span class="hljs-string">"default_users"</span>: [],
+    <span class="hljs-string">"users"</span>: [{
+        <span class="hljs-string">"id"</span>: <span class="hljs-number">682</span>,
+        <span class="hljs-string">"email"</span>: <span class="hljs-string">"frank@sdelements.com"</span>,
+        <span class="hljs-string">"first_name"</span>: <span class="hljs-string">"Frank"</span>,
+        <span class="hljs-string">"last_name"</span>: <span class="hljs-string">"Testerton"</span>,
+        <span class="hljs-string">"is_active"</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-string">"role"</span>: {
+            id: <span class="hljs-string">"UR1"</span>,
+            name: <span class="hljs-string">"User"</span>
+        }
     }],
-    <span class="hljs-attr">"groups"</span>: [{
-        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"G64"</span>,
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Group Bar"</span>
+    <span class="hljs-string">"groups"</span>: [{
+        <span class="hljs-string">"id"</span>: <span class="hljs-string">"G64"</span>,
+        <span class="hljs-string">"name"</span>: <span class="hljs-string">"Group Bar"</span>
     }],
-    <span class="hljs-attr">"all_users"</span>: <span class="hljs-literal">false</span>
+    <span class="hljs-string">"all_users"</span>: <span class="hljs-literal">false</span>
 }</span></code></pre>
         <p>This endpoint retrieves a specific Business Unit resource, as specified by the id parameter.</p>
         <p><strong><code>GET /api/v2/business-units/{business_unit_id}/</code></strong></p>
@@ -1054,35 +1074,39 @@
         <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
 <span class="hljs-attribute">Content-Type</span>: application/json
 
-<span class="json">{
-    <span class="hljs-attr">"id"</span>: <span class="hljs-number">541</span>,
-    <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"api-test"</span>,
-    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"API Test"</span>,
-    <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2015-09-30T18:28:37.214914Z"</span>,
-    <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-09-30T18:28:37.214959Z"</span>,
-    <span class="hljs-attr">"users"</span>: [{
-        <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
-        <span class="hljs-attr">"email"</span>: <span class="hljs-string">"test@example.com"</span>,
-        <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Admin"</span>,
-        <span class="hljs-attr">"last_name"</span>: <span class="hljs-string">"Testerton"</span>,
-        <span class="hljs-attr">"is_active"</span>: <span class="hljs-literal">true</span>
+<span class="clojure">{
+    <span class="hljs-string">"id"</span>: <span class="hljs-number">541</span>,
+    <span class="hljs-string">"slug"</span>: <span class="hljs-string">"api-test"</span>,
+    <span class="hljs-string">"name"</span>: <span class="hljs-string">"API Test"</span>,
+    <span class="hljs-string">"created"</span>: <span class="hljs-string">"2015-09-30T18:28:37.214914Z"</span>,
+    <span class="hljs-string">"updated"</span>: <span class="hljs-string">"2015-09-30T18:28:37.214959Z"</span>,
+    <span class="hljs-string">"users"</span>: [{
+        <span class="hljs-string">"id"</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-string">"email"</span>: <span class="hljs-string">"test@example.com"</span>,
+        <span class="hljs-string">"first_name"</span>: <span class="hljs-string">"Admin"</span>,
+        <span class="hljs-string">"last_name"</span>: <span class="hljs-string">"Testerton"</span>,
+        <span class="hljs-string">"is_active"</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-string">"role"</span>: {
+            id: <span class="hljs-string">"UR1"</span>,
+            name: <span class="hljs-string">"User"</span>
+        }
     }],
-    <span class="hljs-attr">"groups"</span>: [{
-        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"G1"</span>
+    <span class="hljs-string">"groups"</span>: [{
+        <span class="hljs-string">"id"</span>: <span class="hljs-string">"G1"</span>
     }],
-    <span class="hljs-attr">"default_users"</span>: [{
-        <span class="hljs-attr">"email"</span>: <span class="hljs-string">"test@example.com"</span>,
-        <span class="hljs-attr">"role"</span>: <span class="hljs-string">"PR4"</span>,
-        <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
-        <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Admin"</span>,
-        <span class="hljs-attr">"last_name"</span>: <span class="hljs-string">"Testerton"</span>,
-        <span class="hljs-attr">"is_active"</span>: <span class="hljs-literal">true</span>
+    <span class="hljs-string">"default_users"</span>: [{
+        <span class="hljs-string">"email"</span>: <span class="hljs-string">"test@example.com"</span>,
+        <span class="hljs-string">"role"</span>: <span class="hljs-string">"PR4"</span>,
+        <span class="hljs-string">"id"</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-string">"first_name"</span>: <span class="hljs-string">"Admin"</span>,
+        <span class="hljs-string">"last_name"</span>: <span class="hljs-string">"Testerton"</span>,
+        <span class="hljs-string">"is_active"</span>: <span class="hljs-literal">true</span>
     }],
-    <span class="hljs-attr">"default_groups"</span>: [{
-        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"G1"</span>,
-        <span class="hljs-attr">"role"</span>: <span class="hljs-string">"PR4"</span>
+    <span class="hljs-string">"default_groups"</span>: [{
+        <span class="hljs-string">"id"</span>: <span class="hljs-string">"G1"</span>,
+        <span class="hljs-string">"role"</span>: <span class="hljs-string">"PR4"</span>
     }],
-    <span class="hljs-attr">"all_users"</span>: <span class="hljs-literal">false</span>
+    <span class="hljs-string">"all_users"</span>: <span class="hljs-literal">false</span>
 }</span></code></pre>
         <table>
           <thead>
@@ -1138,35 +1162,39 @@
         <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
-<span class="json">{
-    <span class="hljs-attr">"id"</span>: <span class="hljs-number">36</span>,
-    <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"api-test"</span>,
-    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"New BU Name"</span>,
-    <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2015-09-30T18:28:37.214914Z"</span>,
-    <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-09-30T18:28:37.214959Z"</span>,
-    <span class="hljs-attr">"users"</span>: [{
-        <span class="hljs-attr">"email"</span>: <span class="hljs-string">"test@example.com"</span>,
-        <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
-        <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Admin"</span>,
-        <span class="hljs-attr">"last_name"</span>: <span class="hljs-string">"Testerton"</span>,
-        <span class="hljs-attr">"is_active"</span>: <span class="hljs-literal">true</span>
+<span class="clojure">{
+    <span class="hljs-string">"id"</span>: <span class="hljs-number">36</span>,
+    <span class="hljs-string">"slug"</span>: <span class="hljs-string">"api-test"</span>,
+    <span class="hljs-string">"name"</span>: <span class="hljs-string">"New BU Name"</span>,
+    <span class="hljs-string">"created"</span>: <span class="hljs-string">"2015-09-30T18:28:37.214914Z"</span>,
+    <span class="hljs-string">"updated"</span>: <span class="hljs-string">"2015-09-30T18:28:37.214959Z"</span>,
+    <span class="hljs-string">"users"</span>: [{
+        <span class="hljs-string">"email"</span>: <span class="hljs-string">"test@example.com"</span>,
+        <span class="hljs-string">"id"</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-string">"first_name"</span>: <span class="hljs-string">"Admin"</span>,
+        <span class="hljs-string">"last_name"</span>: <span class="hljs-string">"Testerton"</span>,
+        <span class="hljs-string">"is_active"</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-string">"role"</span>: {
+            id: <span class="hljs-string">"UR1"</span>,
+            name: <span class="hljs-string">"User"</span>
+        }
     }],
-    <span class="hljs-attr">"groups"</span>: [{
-        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"G1"</span>
+    <span class="hljs-string">"groups"</span>: [{
+        <span class="hljs-string">"id"</span>: <span class="hljs-string">"G1"</span>
     }],
-    <span class="hljs-attr">"default_users"</span>: [{
-        <span class="hljs-attr">"email"</span>: <span class="hljs-string">"test@example.com"</span>,
-        <span class="hljs-attr">"role"</span>: <span class="hljs-string">"PR4"</span>,
-        <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
-        <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Admin"</span>,
-        <span class="hljs-attr">"last_name"</span>: <span class="hljs-string">"Testerton"</span>,
-        <span class="hljs-attr">"is_active"</span>: <span class="hljs-literal">true</span>
+    <span class="hljs-string">"default_users"</span>: [{
+        <span class="hljs-string">"email"</span>: <span class="hljs-string">"test@example.com"</span>,
+        <span class="hljs-string">"role"</span>: <span class="hljs-string">"PR4"</span>,
+        <span class="hljs-string">"id"</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-string">"first_name"</span>: <span class="hljs-string">"Admin"</span>,
+        <span class="hljs-string">"last_name"</span>: <span class="hljs-string">"Testerton"</span>,
+        <span class="hljs-string">"is_active"</span>: <span class="hljs-literal">true</span>
     }],
-    <span class="hljs-attr">"default_groups"</span>: [{
-        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"G1"</span>,
-        <span class="hljs-attr">"role"</span>: <span class="hljs-string">"PR4"</span>
+    <span class="hljs-string">"default_groups"</span>: [{
+        <span class="hljs-string">"id"</span>: <span class="hljs-string">"G1"</span>,
+        <span class="hljs-string">"role"</span>: <span class="hljs-string">"PR4"</span>
     }],
-    <span class="hljs-attr">"all_users"</span>: <span class="hljs-literal">false</span>
+    <span class="hljs-string">"all_users"</span>: <span class="hljs-literal">false</span>
 }</span></code></pre>
         <p>Update a single business unit by specifying the id. The fields <code>users</code>, <code>groups</code>, <code>name</code>, <code>default_users</code>, and <code>default_groups</code> can be updated.</p>
         <p><strong><code>PUT /api/v2/business-units/{business_unit_id}/</code></strong></p>
@@ -1218,6 +1246,7 @@
 <span class="json">{
     <span class="hljs-attr">"results"</span>: [{
         <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-attr">"connector"</span>: <span class="hljs-number">2</span>,
         <span class="hljs-attr">"project"</span>: <span class="hljs-number">2</span>,
         <span class="hljs-attr">"system"</span>: <span class="hljs-string">"Rally"</span>,
         <span class="hljs-attr">"alias"</span>: <span class="hljs-string">"Rally Integration"</span>,
@@ -1239,7 +1268,8 @@
             <span class="hljs-attr">"sde_statuses_in_scope"</span>: <span class="hljs-string">"TODO"</span>,
             <span class="hljs-attr">"conflict_policy"</span>: <span class="hljs-string">"alm"</span>,
             <span class="hljs-attr">"sde_min_priority"</span>: <span class="hljs-number">7</span>
-        }
+        },
+        <span class="hljs-attr">"inaccessible"</span>: <span class="hljs-literal">false</span>,
     }]
 }</span></code></pre>
         <p>Returns a list of all ALM connections associated with all projects. The params are only displayed if you have the &#39;Edit ALM connections&#39; permission.</p>
@@ -1278,6 +1308,7 @@
 
 <span class="json">{
     <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">"connector"</span>: <span class="hljs-number">2</span>,
     <span class="hljs-attr">"project"</span>: <span class="hljs-number">2</span>,
     <span class="hljs-attr">"system"</span>: <span class="hljs-string">"Rally"</span>,
     <span class="hljs-attr">"alias"</span>: <span class="hljs-string">"Rally Integration"</span>,
@@ -1299,10 +1330,156 @@
         <span class="hljs-attr">"sde_statuses_in_scope"</span>: <span class="hljs-string">"TODO"</span>,
         <span class="hljs-attr">"conflict_policy"</span>: <span class="hljs-string">"alm"</span>,
         <span class="hljs-attr">"sde_min_priority"</span>: <span class="hljs-number">7</span>
-    }
+    },
+    <span class="hljs-attr">"inaccessible"</span>: <span class="hljs-literal">false</span>,
 }</span></code></pre>
         <p>Returns a specific ALM connection. The params are only displayed if you have the &#39;Edit ALM connections&#39; permission.</p>
         <p><strong><code>GET /api/v2/connections/alm/{connection_id}/</code></strong></p>
+        <hr>
+        <h2 id="create-an-alm-connection">Create an ALM Connection</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/connections/alm/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
+
+<span class="json">{
+    <span class="hljs-attr">"alias"</span>: <span class="hljs-string">"Example Connection"</span>,
+    <span class="hljs-attr">"connector"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">"project"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">"frequency"</span>: <span class="hljs-string">"hourly"</span>,
+    <span class="hljs-attr">"params"</span>:{
+        <span class="hljs-attr">"alm_project"</span>: <span class="hljs-string">"Example Project"</span>,
+        <span class="hljs-attr">"alm_parent_issue"</span>: <span class="hljs-string">"Parent"</span>
+    }
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="json">{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-number">5</span>,
+    <span class="hljs-attr">"connector"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">"alias"</span>: <span class="hljs-string">"Example Connection"</span>,
+    <span class="hljs-attr">"system"</span>: <span class="hljs-string">"JIRA"</span>,
+    <span class="hljs-attr">"project"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">"frequency"</span>: <span class="hljs-string">"hourly"</span>,
+    <span class="hljs-attr">"command"</span>: <span class="hljs-string">"sync_jira"</span>,
+    <span class="hljs-attr">"params"</span>:{
+        <span class="hljs-attr">"sde_project"</span>: <span class="hljs-string">"Proj 1"</span>,
+        <span class="hljs-attr">"alm_user"</span>: <span class="hljs-string">"Sindy"</span>,
+        <span class="hljs-attr">"sde_verification_filter"</span>: <span class="hljs-string">"none,partial,pass,fail"</span>,
+        <span class="hljs-attr">"jira_version"</span>: <span class="hljs-string">"5"</span>,
+        <span class="hljs-attr">"alm_method"</span>: <span class="hljs-string">"https"</span>,
+        <span class="hljs-attr">"alm_title_format"</span>: <span class="hljs-string">"$task_id $title"</span>,
+        <span class="hljs-attr">"alm_server"</span>: <span class="hljs-string">"bugs.server.co"</span>,
+        <span class="hljs-attr">"sde_businessunit"</span>: <span class="hljs-string">"BU"</span>,
+        <span class="hljs-attr">"sde_application"</span>: <span class="hljs-string">"Finance App"</span>,
+        <span class="hljs-attr">"alm_project"</span>: <span class="hljs-string">"Example Project"</span>,
+        <span class="hljs-attr">"alm_pass"</span>: <span class="hljs-string">"id"</span>,
+        <span class="hljs-attr">"alm_phases"</span>: <span class="hljs-string">"requirements,architecture-design,development"</span>,
+        <span class="hljs-attr">"sde_statuses_in_scope"</span>: <span class="hljs-string">"TODO"</span>,
+        <span class="hljs-attr">"conflict_policy"</span>: <span class="hljs-string">"alm"</span>,
+        <span class="hljs-attr">"sde_min_priority"</span>: <span class="hljs-number">7</span>,
+        <span class="hljs-attr">"alm_reference_context"</span>: <span class="hljs-number">5</span>
+    },
+    <span class="hljs-attr">"inaccessible"</span>: <span class="hljs-literal">false</span>
+}</span></code></pre>
+        <table>
+          <thead>
+            <tr>
+              <th>Fields</th>
+              <th>Required</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>alias</td>
+              <td>Yes</td>
+              <td>The name of the new connection.</td>
+            </tr>
+            <tr>
+              <td>connector</td>
+              <td>Yes</td>
+              <td>The id of the connector that this connection will use to connect with the ALM.</td>
+            </tr>
+            <tr>
+              <td>project</td>
+              <td>Yes</td>
+              <td>The id of the SD Elements project that this connection will connect with.</td>
+            </tr>
+            <tr>
+              <td>frequency</td>
+              <td>No</td>
+              <td>The frequency in which this connection will sync. The available options for organizations with the advanced ALM feature are: &quot;hourly&quot;, &quot;daily&quot;, &quot;weekly&quot;, &quot;monthly&quot; and &quot;manually&quot;. If unspecified,
+                the frequency will default to &quot;manually&quot;. Organizations without the advanced ALM feature can only choose &quot;manually&quot;.</td>
+            </tr>
+            <tr>
+              <td>params</td>
+              <td>Yes</td>
+              <td>A dictionary containing connections options. Please refer to product documentation for more details or reach out to support.</td>
+            </tr>
+          </tbody>
+        </table>
+        <hr>
+        <h2 id="update-a-specific-alm-connection">Update a specific ALM Connection</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/connections/alm/1/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
+
+<span class="json">{
+    <span class="hljs-attr">"alias"</span>: <span class="hljs-string">"Example Connection Updated Name"</span>,
+    <span class="hljs-attr">"connector"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">"project"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">"frequency"</span>: <span class="hljs-string">"manually"</span>,
+    <span class="hljs-attr">"params"</span>: {<span class="hljs-attr">"alm_project"</span>: <span class="hljs-string">"Project Name"</span>}
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="json">{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-number">5</span>,
+    <span class="hljs-attr">"connector"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">"alias"</span>: <span class="hljs-string">"Example Connection Updated Name"</span>,
+    <span class="hljs-attr">"system"</span>: <span class="hljs-string">"JIRA"</span>,
+    <span class="hljs-attr">"project"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">"frequency"</span>: <span class="hljs-string">"manually"</span>,
+    <span class="hljs-attr">"command"</span>: <span class="hljs-string">"sync_jira"</span>,
+    <span class="hljs-attr">"params"</span>:{
+        <span class="hljs-attr">"sde_project"</span>: <span class="hljs-string">"Proj 1"</span>,
+        <span class="hljs-attr">"alm_user"</span>: <span class="hljs-string">"Sindy"</span>,
+        <span class="hljs-attr">"sde_verification_filter"</span>: <span class="hljs-string">"none,partial,pass,fail"</span>,
+        <span class="hljs-attr">"jira_version"</span>: <span class="hljs-string">"5"</span>,
+        <span class="hljs-attr">"alm_method"</span>: <span class="hljs-string">"https"</span>,
+        <span class="hljs-attr">"alm_title_format"</span>: <span class="hljs-string">"$task_id $title"</span>,
+        <span class="hljs-attr">"alm_server"</span>: <span class="hljs-string">"bugs.server.co"</span>,
+        <span class="hljs-attr">"sde_businessunit"</span>: <span class="hljs-string">"BU"</span>,
+        <span class="hljs-attr">"sde_application"</span>: <span class="hljs-string">"Finance App"</span>,
+        <span class="hljs-attr">"alm_project"</span>: <span class="hljs-string">"Project Name"</span>,
+        <span class="hljs-attr">"alm_pass"</span>: <span class="hljs-string">"id"</span>,
+        <span class="hljs-attr">"alm_phases"</span>: <span class="hljs-string">"requirements,architecture-design,development"</span>,
+        <span class="hljs-attr">"sde_statuses_in_scope"</span>: <span class="hljs-string">"TODO"</span>,
+        <span class="hljs-attr">"conflict_policy"</span>: <span class="hljs-string">"alm"</span>,
+        <span class="hljs-attr">"sde_min_priority"</span>: <span class="hljs-number">7</span>,
+        <span class="hljs-attr">"alm_reference_context"</span>: <span class="hljs-number">5</span>
+    },
+    <span class="hljs-attr">"inaccessible"</span>: <span class="hljs-literal">false</span>
+}</span></code></pre>
+        <p>Update a specific ALM Connection resource.</p>
+        <p><strong><code>PUT /api/v2/connections/alm/{connection_id}/</code></strong></p>
+        <h3 id="url-parameters">URL Parameters</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>connection_id</td>
+              <td>The ID of the ALM Connection to update</td>
+            </tr>
+          </tbody>
+        </table>
         <hr>
         <h2 id="get-all-analysis-connections-of-all-projects">Get All Analysis Connections of All Projects</h2>
         <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/connections/analysis/</span> HTTP/1.1
@@ -1311,23 +1488,25 @@
         <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
-<span class="json">{
-    <span class="hljs-attr">"results"</span>: [{
-        <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
-        <span class="hljs-attr">"project"</span>: <span class="hljs-number">1</span>,
-        <span class="hljs-attr">"system"</span>: <span class="hljs-string">"WhiteHat"</span>,
-        <span class="hljs-attr">"alias"</span>: <span class="hljs-string">"WhiteHat Integration"</span>,
-        <span class="hljs-attr">"frequency"</span>: <span class="hljs-string">"manually"</span>,
-        <span class="hljs-attr">"command"</span>: <span class="hljs-string">"sync_whitehat"</span>,
-        <span class="hljs-attr">"params"</span>: {
-            <span class="hljs-attr">"asset_name"</span>: <span class="hljs-string">"WebGoat Java"</span>,
-            <span class="hljs-attr">"sde_project"</span>: <span class="hljs-string">"WhiteHat"</span>,
-            <span class="hljs-attr">"sde_businessunit"</span>: <span class="hljs-string">"General"</span>,
-            <span class="hljs-attr">"sde_application"</span>: <span class="hljs-string">"Demo Application"</span>,
-            <span class="hljs-attr">"import_behaviour"</span>: <span class="hljs-string">"replace-scanner"</span>,
-            <span class="hljs-attr">"analysis_server"</span>: <span class="hljs-string">"server.whitehatsec.com"</span>,
-            <span class="hljs-attr">"task_status_mapping"</span>: <span class="hljs-string">"{}"</span>
-        }
+<span class="1c">{
+    <span class="hljs-string">"results"</span>: [{
+        <span class="hljs-string">"id"</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-string">"connector"</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-string">"project"</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-string">"system"</span>: <span class="hljs-string">"WhiteHat"</span>,
+        <span class="hljs-string">"alias"</span>: <span class="hljs-string">"WhiteHat Integration"</span>,
+        <span class="hljs-string">"frequency"</span>: <span class="hljs-string">"manually"</span>,
+        <span class="hljs-string">"command"</span>: <span class="hljs-string">"sync_whitehat"</span>,
+        <span class="hljs-string">"params"</span>: {
+            <span class="hljs-string">"asset_name"</span>: <span class="hljs-string">"WebGoat Java"</span>,
+            <span class="hljs-string">"sde_project"</span>: <span class="hljs-string">"WhiteHat"</span>,
+            <span class="hljs-string">"sde_businessunit"</span>: <span class="hljs-string">"General"</span>,
+            <span class="hljs-string">"sde_application"</span>: <span class="hljs-string">"Demo Application"</span>,
+            <span class="hljs-string">"import_behaviour"</span>: <span class="hljs-string">"replace-scanner"</span>,
+            <span class="hljs-string">"analysis_server"</span>: <span class="hljs-string">"server.whitehatsec.com"</span>,
+            <span class="hljs-string">"task_status_mapping"</span>: <span class="hljs-string">"{}"</span>
+        },
+        inaccessible<span class="hljs-string">": false</span>
     }]
 }</span></code></pre>
         <p>Returns a list of all analysis connections associated with all projects. The params are only displayed if you have the &#39;Edit security tool connections&#39; permission.</p>
@@ -1364,25 +1543,161 @@
         <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
-<span class="json">{
-    <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
-    <span class="hljs-attr">"project"</span>: <span class="hljs-number">1</span>,
-    <span class="hljs-attr">"system"</span>: <span class="hljs-string">"WhiteHat"</span>,
-    <span class="hljs-attr">"alias"</span>: <span class="hljs-string">"WhiteHat Integration"</span>,
-    <span class="hljs-attr">"frequency"</span>: <span class="hljs-string">"manually"</span>,
-    <span class="hljs-attr">"command"</span>: <span class="hljs-string">"sync_whitehat"</span>,
-    <span class="hljs-attr">"params"</span>: {
-        <span class="hljs-attr">"asset_name"</span>: <span class="hljs-string">"WebGoat Java"</span>,
-        <span class="hljs-attr">"sde_project"</span>: <span class="hljs-string">"WhiteHat"</span>,
-        <span class="hljs-attr">"sde_businessunit"</span>: <span class="hljs-string">"General"</span>,
-        <span class="hljs-attr">"sde_application"</span>: <span class="hljs-string">"Demo Application"</span>,
-        <span class="hljs-attr">"import_behaviour"</span>: <span class="hljs-string">"replace-scanner"</span>,
-        <span class="hljs-attr">"analysis_server"</span>: <span class="hljs-string">"server.whitehatsec.com"</span>,
-        <span class="hljs-attr">"task_status_mapping"</span>: <span class="hljs-string">"{}"</span>
-    }
+<span class="1c">{
+    <span class="hljs-string">"id"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-string">"connector"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-string">"project"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-string">"system"</span>: <span class="hljs-string">"WhiteHat"</span>,
+    <span class="hljs-string">"alias"</span>: <span class="hljs-string">"WhiteHat Integration"</span>,
+    <span class="hljs-string">"frequency"</span>: <span class="hljs-string">"manually"</span>,
+    <span class="hljs-string">"command"</span>: <span class="hljs-string">"sync_whitehat"</span>,
+    <span class="hljs-string">"params"</span>: {
+        <span class="hljs-string">"asset_name"</span>: <span class="hljs-string">"WebGoat Java"</span>,
+        <span class="hljs-string">"sde_project"</span>: <span class="hljs-string">"WhiteHat"</span>,
+        <span class="hljs-string">"sde_businessunit"</span>: <span class="hljs-string">"General"</span>,
+        <span class="hljs-string">"sde_application"</span>: <span class="hljs-string">"Demo Application"</span>,
+        <span class="hljs-string">"import_behaviour"</span>: <span class="hljs-string">"replace-scanner"</span>,
+        <span class="hljs-string">"analysis_server"</span>: <span class="hljs-string">"server.whitehatsec.com"</span>,
+        <span class="hljs-string">"task_status_mapping"</span>: <span class="hljs-string">"{}"</span>
+    },
+    inaccessible<span class="hljs-string">": false</span>
 }</span></code></pre>
         <p>Returns a specific analysis connection. The params are only displayed if you have the &#39;Edit security tool connections&#39; permission.</p>
         <p><strong><code>GET /api/v2/connections/analysis/{connection_id}/</code></strong></p>
+        <hr>
+        <h2 id="create-an-analysis-connection">Create an Analysis Connection</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/connections/analysis/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
+
+<span class="json">{
+    <span class="hljs-attr">"alias"</span>: <span class="hljs-string">"Example Analysis Connection"</span>,
+    <span class="hljs-attr">"connector"</span>: <span class="hljs-number">2</span>,
+    <span class="hljs-attr">"project"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">"frequency"</span>: <span class="hljs-string">"daily"</span>,
+    <span class="hljs-attr">"params"</span>: {
+        <span class="hljs-attr">"task_status_mapping"</span>: <span class="hljs-string">"{\"pass\": \"DONE\"}"</span>,
+        <span class="hljs-attr">"import_behaviour"</span>: <span class="hljs-string">"combine"</span>
+    }
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="json">{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-number">9</span>,
+    <span class="hljs-attr">"connector"</span>: <span class="hljs-number">2</span>,
+    <span class="hljs-attr">"alias"</span>: <span class="hljs-string">"Example Analysis Connection"</span>,
+    <span class="hljs-attr">"system"</span>: <span class="hljs-string">"Veracode"</span>,
+    <span class="hljs-attr">"project"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">"frequency"</span>: <span class="hljs-string">"daily"</span>,
+    <span class="hljs-attr">"command"</span>: <span class="hljs-string">"import_veracode"</span>,
+    <span class="hljs-attr">"params"</span>:{
+        <span class="hljs-attr">"integration_mode"</span>: <span class="hljs-string">"api"</span>,
+        <span class="hljs-attr">"analysis_user"</span>: <span class="hljs-string">"Code"</span>,
+        <span class="hljs-attr">"analysis_pass"</span>: <span class="hljs-string">"Name"</span>,
+        <span class="hljs-attr">"sde_businessunit"</span>: <span class="hljs-string">"BU"</span>,
+        <span class="hljs-attr">"sde_application"</span>: <span class="hljs-string">"Financial App"</span>,
+        <span class="hljs-attr">"sde_project"</span>: <span class="hljs-string">"Example Project"</span>,
+        <span class="hljs-attr">"analysis_server"</span>: <span class="hljs-string">"vera"</span>,
+        <span class="hljs-attr">"task_status_mapping"</span>: <span class="hljs-string">"{\"pass\": \"DONE\"}"</span>,
+        <span class="hljs-attr">"import_behaviour"</span>: <span class="hljs-string">"combine"</span>,
+        <span class="hljs-attr">"analysis_method"</span>: <span class="hljs-string">"http"</span>
+        },
+    <span class="hljs-attr">"inaccessible"</span>: <span class="hljs-literal">false</span>
+}</span></code></pre>
+        <p><strong>Only remote analysis connections can be created via the api.</strong></p>
+        <table>
+          <thead>
+            <tr>
+              <th>Fields</th>
+              <th>Required</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>alias</td>
+              <td>No</td>
+              <td>The name of the new connection. Will default to the name of the connector.</td>
+            </tr>
+            <tr>
+              <td>connector</td>
+              <td>Yes</td>
+              <td>The id of the connector that this connection will use to connect with the ALM.</td>
+            </tr>
+            <tr>
+              <td>project</td>
+              <td>Yes</td>
+              <td>The id of the SD Elements project that this connection will connect with.</td>
+            </tr>
+            <tr>
+              <td>frequency</td>
+              <td>No</td>
+              <td>The frequency in which this connection will sync. The available options for organizations with the advanced ALM feature are: &quot;hourly&quot;, &quot;daily&quot;, &quot;weekly&quot;, &quot;monthly&quot; and &quot;manually&quot;. If unspecified,
+                the frequency will default to &quot;manually&quot;. Organizations without the advanced ALM feature can only choose &quot;manually&quot;.</td>
+            </tr>
+            <tr>
+              <td>params</td>
+              <td>Yes</td>
+              <td>A dictionary containing connections options. Please refer to product documentation for more details or reach out to support.</td>
+            </tr>
+          </tbody>
+        </table>
+        <hr>
+        <h2 id="update-a-specific-analysis-connection">Update a specific Analysis Connection</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/connections/analysis/2/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
+
+<span class="json">{
+    <span class="hljs-attr">"alias"</span>: <span class="hljs-string">"Example Analysis Connection Updated Name"</span>,
+    <span class="hljs-attr">"connector"</span>: <span class="hljs-number">2</span>,
+    <span class="hljs-attr">"project"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">"frequency"</span>: <span class="hljs-string">"hourly"</span>,
+    <span class="hljs-attr">"params"</span>: {}
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="json">{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-number">9</span>,
+    <span class="hljs-attr">"connector"</span>: <span class="hljs-number">2</span>,
+    <span class="hljs-attr">"alias"</span>: <span class="hljs-string">"Example Analysis Connection Updated Name"</span>,
+    <span class="hljs-attr">"system"</span>: <span class="hljs-string">"Veracode"</span>,
+    <span class="hljs-attr">"project"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">"frequency"</span>: <span class="hljs-string">"hourly"</span>,
+    <span class="hljs-attr">"command"</span>: <span class="hljs-string">"import_veracode"</span>,
+    <span class="hljs-attr">"params"</span>:{
+        <span class="hljs-attr">"integration_mode"</span>: <span class="hljs-string">"api"</span>,
+        <span class="hljs-attr">"analysis_user"</span>: <span class="hljs-string">"Code"</span>,
+        <span class="hljs-attr">"analysis_pass"</span>: <span class="hljs-string">"Name"</span>,
+        <span class="hljs-attr">"sde_businessunit"</span>: <span class="hljs-string">"BU"</span>,
+        <span class="hljs-attr">"sde_application"</span>: <span class="hljs-string">"Financial App"</span>,
+        <span class="hljs-attr">"sde_project"</span>: <span class="hljs-string">"Example Project"</span>,
+        <span class="hljs-attr">"analysis_server"</span>: <span class="hljs-string">"vera"</span>,
+        <span class="hljs-attr">"task_status_mapping"</span>: <span class="hljs-string">""</span>,
+        <span class="hljs-attr">"import_behaviour"</span>: <span class="hljs-string">"replace-scanner"</span>,
+        <span class="hljs-attr">"analysis_method"</span>: <span class="hljs-string">"http"</span>
+        },
+    <span class="hljs-attr">"inaccessible"</span>: <span class="hljs-literal">false</span>
+}</span></code></pre>
+        <p>Update a specific Analysis Connection resource.</p>
+        <p><strong><code>PUT /api/v2/connections/analysis/{connection_id}/</code></strong></p>
+        <h3 id="url-parameters">URL Parameters</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>connection_id</td>
+              <td>The ID of the Analysis Connection to update</td>
+            </tr>
+          </tbody>
+        </table>
         <h1 id="connectors">Connectors</h1>
         <h2 id="get-all-alm-connectors">Get All ALM Connectors</h2>
         <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/connectors/alm/</span> HTTP/1.1
@@ -1395,7 +1710,8 @@
     <span class="hljs-attr">"results"</span>: [{
         <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
         <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Rally Connector"</span>,
-        <span class="hljs-attr">"system"</span>: <span class="hljs-string">"Rally"</span>
+        <span class="hljs-attr">"system"</span>: <span class="hljs-string">"Rally"</span>,
+        <span class="hljs-attr">"inaccessible"</span>: <span class="hljs-literal">false</span>
     }]
 }</span></code></pre>
         <p>Returns a list of all ALM connectors available.</p>
@@ -1427,7 +1743,8 @@
 <span class="json">{
     <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
     <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Rally Connector"</span>,
-    <span class="hljs-attr">"system"</span>: <span class="hljs-string">"Rally"</span>
+    <span class="hljs-attr">"system"</span>: <span class="hljs-string">"Rally"</span>,
+    <span class="hljs-attr">"inaccessible"</span>: <span class="hljs-literal">false</span>
 }</span></code></pre>
         <p>Returns a specific ALM connector.</p>
         <p><strong><code>GET /api/v2/connectors/alm/{id}</code></strong></p>
@@ -1443,7 +1760,8 @@
     <span class="hljs-attr">"results"</span>: [{
         <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
         <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Fortify Connector"</span>,
-        <span class="hljs-attr">"system"</span>: <span class="hljs-string">"Fortify"</span>
+        <span class="hljs-attr">"system"</span>: <span class="hljs-string">"Fortify"</span>,
+        <span class="hljs-attr">"inaccessible"</span>: <span class="hljs-literal">false</span>
     }]
 }</span></code></pre>
         <p>Returns a list of all analysis connectors available.</p>
@@ -1475,7 +1793,8 @@
 <span class="json">{
     <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
     <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Fortify Connector"</span>,
-    <span class="hljs-attr">"system"</span>: <span class="hljs-string">"Fortify"</span>
+    <span class="hljs-attr">"system"</span>: <span class="hljs-string">"Fortify"</span>,
+    <span class="hljs-attr">"inaccessible"</span>: <span class="hljs-literal">false</span>
 }</span></code></pre>
         <p>Returns a specific analysis connector.</p>
         <p><strong><code>GET /api/v2/connectors/analysis/{id}</code></strong></p>
@@ -1538,6 +1857,207 @@
             <tr>
               <td>global_role_id</td>
               <td>The id of the Global Role to retrieve</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="create-a-new-global-role">Create a New Global Role</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/global-roles/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
+
+<span class="json">{
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Global Role"</span>,
+    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Can participate in projects."</span>,
+    <span class="hljs-attr">"inherit_from"</span>: <span class="hljs-string">"UR1"</span>
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="json">{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"CUR1"</span>,
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Global Role"</span>,
+    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Can participate in projects."</span>,
+    <span class="hljs-attr">"permissions"</span>: [
+        <span class="hljs-string">"modify_self"</span>
+    ],
+    <span class="hljs-attr">"is_default"</span>: <span class="hljs-literal">false</span>
+}</span></code></pre>
+        <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/global-roles/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
+
+<span class="json">{
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"New Global Role"</span>,
+    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Can create new applications and projects."</span>,
+    <span class="hljs-attr">"permissions"</span>: [
+        <span class="hljs-string">"add_project"</span>,
+        <span class="hljs-string">"add_application"</span>
+    ],
+    <span class="hljs-attr">"is_default"</span>: <span class="hljs-literal">true</span>
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="json">{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"CUR2"</span>,
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"New Global Role"</span>,
+    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Can create new applications and projects."</span>,
+    <span class="hljs-attr">"permissions"</span>: [
+        <span class="hljs-string">"add_project"</span>,
+        <span class="hljs-string">"add_application"</span>
+    ],
+    <span class="hljs-attr">"is_default"</span>: <span class="hljs-literal">true</span>
+}</span></code></pre>
+        <table>
+          <thead>
+            <tr>
+              <th>Fields</th>
+              <th>Required</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>name</td>
+              <td>Yes</td>
+              <td>The name of the Global Role.</td>
+            </tr>
+            <tr>
+              <td>description</td>
+              <td>Yes</td>
+              <td>A description of the Global Role.</td>
+            </tr>
+            <tr>
+              <td>permissions</td>
+              <td>No</td>
+              <td>The permissions given to users who are assigned this Global Role.</td>
+            </tr>
+            <tr>
+              <td>inherit_from</td>
+              <td>No</td>
+              <td>If inherit_from field is passed, then the permissions field gets set with the permissions of the parent Global Role.</td>
+            </tr>
+            <tr>
+              <td>is_default</td>
+              <td>No</td>
+              <td>Passing is_default as True will set the newly created Global Role as default role for the current organization.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="update-a-global-role">Update a Global Role</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">PATCH</span> <span class="hljs-string">/api/v2/global-roles/CUR2/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
+
+<span class="json">{
+    <span class="hljs-attr">"permissions"</span>: [
+        <span class="hljs-string">"archive_application"</span>,
+        <span class="hljs-string">"add_project"</span>,
+        <span class="hljs-string">"add_application"</span>
+    ],
+    <span class="hljs-attr">"is_default"</span>: <span class="hljs-literal">true</span>
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="json">{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"CUR2"</span>,
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"New Global Role"</span>,
+    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Can create new applications and projects."</span>,
+    <span class="hljs-attr">"permissions"</span>: [
+        <span class="hljs-string">"archive_application"</span>,
+        <span class="hljs-string">"add_project"</span>,
+        <span class="hljs-string">"add_application"</span>
+    ],
+    <span class="hljs-attr">"is_default"</span>: <span class="hljs-literal">true</span>
+}</span></code></pre>
+        <p><strong><code>PATCH /api/v2/global-roles/{global_role_id}/</code></strong></p>
+        <h3 id="url-parameters">URL Parameters</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>global_role_id</td>
+              <td>The id of the Global Role to update</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 id="payload">Payload</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Fields</th>
+              <th>Required</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>name</td>
+              <td>No</td>
+              <td>The name of the Global Role.</td>
+            </tr>
+            <tr>
+              <td>description</td>
+              <td>No</td>
+              <td>Global Role description.</td>
+            </tr>
+            <tr>
+              <td>permissions</td>
+              <td>No</td>
+              <td>The permissions given to users who are assigned this Global Role.</td>
+            </tr>
+            <tr>
+              <td>is_default</td>
+              <td>No</td>
+              <td>Passing is_default as True will set the Global Role as default role for the current organization.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="delete-a-global-role">Delete a Global Role</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">DELETE</span> <span class="hljs-string">/api/v2/global-roles/CUR1/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
+
+<span class="json">{
+    <span class="hljs-attr">"replacement"</span>: <span class="hljs-string">"UR1"</span>
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">204</span> NO CONTENT</code></pre>
+        <p><strong><code>DELETE /api/v2/global-roles/{global_role_id}/</code></strong></p>
+        <h3 id="url-parameters">URL Parameters</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>global_role_id</td>
+              <td>The id of the Global Role to delete</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 id="payload">Payload</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Fields</th>
+              <th>Required</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>replacement</td>
+              <td>Yes</td>
+              <td>The id of the Global Role to replace the one to be deleted.</td>
             </tr>
           </tbody>
         </table>
@@ -1724,7 +2244,11 @@ Authorization: Token: "YOUR SDE ACCESS TOKEN"</code></pre>
             <span class="hljs-string">"last_name"</span>: <span class="hljs-string">"Testerton"</span>,
             <span class="hljs-string">"is_active"</span>: <span class="hljs-literal">true</span>,
             <span class="hljs-string">"id"</span>: <span class="hljs-number">2</span>,
-            <span class="hljs-string">"email"</span>: <span class="hljs-string">"frank@example.com"</span>
+            <span class="hljs-string">"email"</span>: <span class="hljs-string">"frank@example.com"</span>,
+            <span class="hljs-string">"role"</span>: {
+                    <span class="hljs-string">"id"</span>: <span class="hljs-string">"UR1"</span>,
+                    <span class="hljs-string">"name"</span>: <span class="hljs-string">"User"</span>
+            }
         }],
         <span class="hljs-string">"groups"</span>: [{
             role: <span class="hljs-string">"User"</span>,
@@ -1738,14 +2262,22 @@ Authorization: Token: "YOUR SDE ACCESS TOKEN"</code></pre>
                 <span class="hljs-string">"last_name"</span>: <span class="hljs-string">"Testerton"</span>,
                 <span class="hljs-string">"is_active"</span>: <span class="hljs-literal">true</span>,
                 <span class="hljs-string">"id"</span>: <span class="hljs-number">2</span>,
-                <span class="hljs-string">"email"</span>: <span class="hljs-string">"frank@example.com"</span>
+                <span class="hljs-string">"email"</span>: <span class="hljs-string">"frank@example.com"</span>,
+                <span class="hljs-string">"role"</span>: {
+                    <span class="hljs-string">"id"</span>: <span class="hljs-string">"UR1"</span>,
+                    <span class="hljs-string">"name"</span>: <span class="hljs-string">"User"</span>
+                }
             },
             {
                 <span class="hljs-string">"first_name"</span>: <span class="hljs-string">"Linda"</span>,
                 <span class="hljs-string">"last_name"</span>: <span class="hljs-string">"Graham"</span>,
                 <span class="hljs-string">"is_active"</span>: <span class="hljs-literal">false</span>,
                 <span class="hljs-string">"id"</span>: <span class="hljs-number">3</span>,
-                <span class="hljs-string">"email"</span>: <span class="hljs-string">"linda@example.com"</span>
+                <span class="hljs-string">"email"</span>: <span class="hljs-string">"linda@example.com"</span>,
+                <span class="hljs-string">"role"</span>: {
+                    <span class="hljs-string">"id"</span>: <span class="hljs-string">"UR1"</span>,
+                    <span class="hljs-string">"name"</span>: <span class="hljs-string">"User"</span>
+                }
             },
 
         ]
@@ -1823,23 +2355,27 @@ Authorization: Token: "YOUR SDE ACCESS TOKEN"</code></pre>
         <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
 <span class="hljs-attribute">Content-Type</span>: application/json
 
-<span class="clojure">{
-    <span class="hljs-string">"id"</span>: <span class="hljs-string">"G2"</span>,
-    <span class="hljs-string">"name"</span>: <span class="hljs-string">"Group 2"</span>,
-    <span class="hljs-string">"updated"</span>: <span class="hljs-string">"2016-07-29T21:02:19.780768Z"</span>,
-    <span class="hljs-string">"description"</span>: <span class="hljs-string">""</span>,
-    <span class="hljs-string">"role"</span>: <span class="hljs-string">"UR5"</span>,
-    <span class="hljs-string">"users"</span>: [{
-        <span class="hljs-string">"first_name"</span>: <span class="hljs-string">"Frank"</span>,
-        <span class="hljs-string">"last_name"</span>: <span class="hljs-string">"Testerton"</span>,
-        <span class="hljs-string">"is_active"</span>: <span class="hljs-literal">true</span>,
-        <span class="hljs-string">"id"</span>: <span class="hljs-number">2</span>,
-        <span class="hljs-string">"email"</span>: <span class="hljs-string">"frank@example.com"</span>
+<span class="json">{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"G2"</span>,
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Group 2"</span>,
+    <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2016-07-29T21:02:19.780768Z"</span>,
+    <span class="hljs-attr">"description"</span>: <span class="hljs-string">""</span>,
+    <span class="hljs-attr">"role"</span>: <span class="hljs-string">"UR5"</span>,
+    <span class="hljs-attr">"users"</span>: [{
+        <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Frank"</span>,
+        <span class="hljs-attr">"last_name"</span>: <span class="hljs-string">"Testerton"</span>,
+        <span class="hljs-attr">"is_active"</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">"id"</span>: <span class="hljs-number">2</span>,
+        <span class="hljs-attr">"email"</span>: <span class="hljs-string">"frank@example.com"</span>,
+        <span class="hljs-attr">"role"</span>: {
+            <span class="hljs-attr">"id"</span>: <span class="hljs-string">"UR1"</span>,
+            <span class="hljs-attr">"name"</span>: <span class="hljs-string">"User"</span>
+        }
     }],
-    <span class="hljs-string">"groups"</span>: [{
-        role: <span class="hljs-string">"User"</span>,
-        id: <span class="hljs-string">"G1"</span>,
-        name: <span class="hljs-string">"Example Group"</span>
+    <span class="hljs-attr">"groups"</span>: [{
+        <span class="hljs-attr">"role"</span>: <span class="hljs-string">"User"</span>,
+        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"G1"</span>,
+        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Example Group"</span>
     }]
 }</span></code></pre>
         <p>Create a Group resource.</p>
@@ -1903,7 +2439,11 @@ Authorization: Token: "YOUR SDE ACCESS TOKEN"</code></pre>
         <span class="hljs-attr">"last_name"</span>: <span class="hljs-string">"Testerton"</span>,
         <span class="hljs-attr">"is_active"</span>: <span class="hljs-literal">true</span>
         <span class="hljs-string">"id"</span>: <span class="hljs-number">2</span>,
-        <span class="hljs-attr">"email"</span>: <span class="hljs-string">"frank@example.com"</span>
+        <span class="hljs-attr">"email"</span>: <span class="hljs-string">"frank@example.com"</span>,
+        <span class="hljs-attr">"role"</span>: {
+            <span class="hljs-attr">"id"</span>: <span class="hljs-string">"UR1"</span>,
+            <span class="hljs-attr">"name"</span>: <span class="hljs-string">"User"</span>
+        }
     }],
     <span class="hljs-attr">"groups"</span>: [{
         <span class="hljs-attr">"role"</span>: <span class="hljs-string">"User"</span>
@@ -2154,6 +2694,87 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
           </tbody>
         </table>
         <hr>
+        <h2 id="initiate-an-alm-connection-sync-job">Initiate an ALM Connection Sync Job</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/projects/1/jobs/alm/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
+
+<span class="json">{
+    <span class="hljs-attr">"connection"</span>: <span class="hljs-number">12</span>,
+    <span class="hljs-attr">"automatic"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">"ready"</span>: <span class="hljs-literal">false</span>
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="json">{
+
+    <span class="hljs-attr">"id"</span>: <span class="hljs-number">12</span>,
+    <span class="hljs-attr">"user"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">"succeeded"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">"automatic"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">"ready"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">"result_message"</span>: <span class="hljs-string">""</span>,
+    <span class="hljs-attr">"last_run"</span>: <span class="hljs-string">"2015-04-15T20:27:24.396442Z"</span>,
+    <span class="hljs-attr">"connection"</span>: {
+        <span class="hljs-attr">"alias"</span>: <span class="hljs-string">"My Connection"</span>,
+        <span class="hljs-attr">"command"</span>: <span class="hljs-string">"run_my_connection"</span>,
+        <span class="hljs-attr">"frequency"</span>: <span class="hljs-string">"daily"</span>,
+        <span class="hljs-attr">"id"</span>: <span class="hljs-number">12</span>,
+        <span class="hljs-attr">"params"</span>: {
+            <span class="hljs-attr">"sde_project"</span>: <span class="hljs-string">"Demo Project"</span>,
+            <span class="hljs-attr">"alm_user"</span>: <span class="hljs-string">"rally_user"</span>,
+            <span class="hljs-attr">"sde_verification_filter"</span>: <span class="hljs-string">"none,partial,pass,fail"</span>,
+            <span class="hljs-attr">"rally_workspace"</span>: <span class="hljs-string">"Rally Workspace"</span>,
+            <span class="hljs-attr">"alm_method"</span>: <span class="hljs-string">"https"</span>,
+            <span class="hljs-attr">"alm_title_format"</span>: <span class="hljs-string">"$task_id $title"</span>,
+            <span class="hljs-attr">"alm_server"</span>: <span class="hljs-string">"rally1.rallydev.com"</span>,
+            <span class="hljs-attr">"sde_businessunit"</span>: <span class="hljs-string">"General"</span>,
+            <span class="hljs-attr">"sde_application"</span>: <span class="hljs-string">"Demo Application"</span>,
+            <span class="hljs-attr">"alm_project"</span>: <span class="hljs-string">"Rally Project"</span>,
+            <span class="hljs-attr">"alm_pass"</span>: <span class="hljs-string">"rally_password"</span>,
+            <span class="hljs-attr">"alm_phases"</span>: <span class="hljs-string">"requirements,architecture-design,development"</span>,
+            <span class="hljs-attr">"sde_statuses_in_scope"</span>: <span class="hljs-string">"TODO"</span>,
+            <span class="hljs-attr">"conflict_policy"</span>: <span class="hljs-string">"alm"</span>,
+            <span class="hljs-attr">"sde_min_priority"</span>: <span class="hljs-number">7</span>
+        },
+        <span class="hljs-attr">"project"</span>: <span class="hljs-number">7</span>,
+        <span class="hljs-attr">"system"</span>: <span class="hljs-string">"Rally"</span>
+    }
+}</span></code></pre>
+        <p>Will add a sync job to the queue to be run.</p>
+        <p><strong><code>POST /api/v2/jobs/alm/</code></strong></p>
+        <table>
+          <thead>
+            <tr>
+              <th>Fields</th>
+              <th>Required</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>automatic</td>
+              <td>Yes</td>
+              <td>Whether the job was run automatically.</td>
+            </tr>
+            <tr>
+              <td>connection</td>
+              <td>Yes</td>
+              <td>The connection id associated with the job.</td>
+            </tr>
+            <tr>
+              <td>ready</td>
+              <td>Yes</td>
+              <td>Whether the job is ready to post its result or not. This field must be set to &quot;false&quot; in order for the import to commence.</td>
+            </tr>
+            <tr>
+              <td>succeeded</td>
+              <td>No</td>
+              <td>Boolean Field. Use this along with the &#39;ready: true&#39; to record when a job was successful/unsuccessful.</td>
+            </tr>
+          </tbody>
+        </table>
         <h2 id="get-all-analysis-jobs-for-all-projects">Get All Analysis Jobs for All Projects</h2>
         <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/jobs/analysis/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
@@ -2330,6 +2951,83 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
               <td>succeeded</td>
               <td>Yes</td>
               <td>Whether the job was run successfully.</td>
+            </tr>
+            <tr>
+              <td>ready</td>
+              <td>False</td>
+              <td>Whether the job is ready to post the result or not. Defaults to True.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="initiate-an-analysis-connection-import-job">Initiate an Analysis Connection Import Job</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/projects/1/jobs/analysis/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
+
+<span class="json">{
+    <span class="hljs-attr">"connection"</span>: <span class="hljs-number">12</span>,
+    <span class="hljs-attr">"automatic"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">"ready"</span>: <span class="hljs-literal">false</span>
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="json">{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-number">12</span>,
+    <span class="hljs-attr">"user"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">"succeeded"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">"automatic"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">"ready"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">"result_message"</span>: <span class="hljs-string">""</span>,
+    <span class="hljs-attr">"last_run"</span>: <span class="hljs-string">"2015-04-15T20:27:24.396442Z"</span>,
+    <span class="hljs-attr">"connection"</span>: {
+        <span class="hljs-attr">"alias"</span>: <span class="hljs-string">"My Connection"</span>,
+        <span class="hljs-attr">"command"</span>: <span class="hljs-string">"run_my_connection"</span>,
+        <span class="hljs-attr">"frequency"</span>: <span class="hljs-string">"daily"</span>,
+        <span class="hljs-attr">"id"</span>: <span class="hljs-number">23</span>,
+        <span class="hljs-attr">"params"</span>: {
+            <span class="hljs-attr">"asset_name"</span>: <span class="hljs-string">"WebGoat Java"</span>,
+            <span class="hljs-attr">"sde_project"</span>: <span class="hljs-string">"WhiteHat"</span>,
+            <span class="hljs-attr">"sde_businessunit"</span>: <span class="hljs-string">"General"</span>,
+            <span class="hljs-attr">"sde_application"</span>: <span class="hljs-string">"Demo Application"</span>,
+            <span class="hljs-attr">"import_behaviour"</span>: <span class="hljs-string">"replace-scanner"</span>,
+            <span class="hljs-attr">"analysis_server"</span>: <span class="hljs-string">"server.whitehatsec.com"</span>,
+            <span class="hljs-attr">"task_status_mapping"</span>: <span class="hljs-string">"{}"</span>
+        },
+        <span class="hljs-attr">"project"</span>: <span class="hljs-number">7</span>,
+        <span class="hljs-attr">"system"</span>: <span class="hljs-string">"Whitehat"</span>
+    }
+}</span></code></pre>
+        <p>Will put the import job on the queue to be run.</p>
+        <p><strong><code>POST /api/v2/jobs/analysis/</code></strong></p>
+        <table>
+          <thead>
+            <tr>
+              <th>Fields</th>
+              <th>Required</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>automatic</td>
+              <td>Yes</td>
+              <td>Whether the job was run automatically.</td>
+            </tr>
+            <tr>
+              <td>connection</td>
+              <td>Yes</td>
+              <td>The connection id associated with the job.</td>
+            </tr>
+            <tr>
+              <td>ready</td>
+              <td>Yes</td>
+              <td>Whether the job is ready to post its result or not. This field must be set to &quot;false&quot; in order for the import to commence.</td>
+            </tr>
+            <tr>
+              <td>succeeded</td>
+              <td>No</td>
+              <td>Boolean Field. Use this along with the &#39;ready: true&#39; to record when a job was successful/unsuccessful.</td>
             </tr>
           </tbody>
         </table>
@@ -2805,6 +3503,25 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
     ]
 }</span></code></pre>
         <p>This endpoint returns a list of Project Role resources.</p>
+        <h3 id="url-parameters">URL Parameters</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ordering</td>
+              <td>Sort project roles by the specified field. Prefix field name with minus to sort descending. Sortable fields: name.</td>
+            </tr>
+            <tr>
+              <td>search</td>
+              <td>Filter project roles by performing a textual search on name.</td>
+            </tr>
+          </tbody>
+        </table>
         <h2 id="get-a-specific-project-role">Get a Specific Project Role</h2>
         <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/project-roles/CPR1/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
@@ -2972,6 +3689,48 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
               <td>permissions</td>
               <td>No</td>
               <td>The permissions given to users who are assigned this Project Role.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="delete-a-project-role">Delete a Project Role</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">DELETE</span> <span class="hljs-string">/api/v2/project-roles/CPR1/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
+
+<span class="json">{
+    <span class="hljs-attr">"replacement"</span>: <span class="hljs-string">"PR1"</span>
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">204</span> NO CONTENT</code></pre>
+        <p><strong><code>DELETE /api/v2/project-roles/{project_role_id}/</code></strong></p>
+        <h3 id="url-parameters">URL Parameters</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>project_role_id</td>
+              <td>The id of the Project Role to delete</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 id="payload">Payload</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Fields</th>
+              <th>Required</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>replacement</td>
+              <td>Yes</td>
+              <td>The id of the Project Role to replace the one to be deleted.</td>
             </tr>
           </tbody>
         </table>
@@ -4372,8 +5131,15 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
     <span class="hljs-attr">"artifact_proxy"</span>: <span class="hljs-string">"ABC-XYZ"</span>,
     <span class="hljs-attr">"assigned_to"</span>: [
         {
+            <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Admin"</span>,
+            <span class="hljs-attr">"last_name"</span>: <span class="hljs-string">"Testerton"</span>,
+            <span class="hljs-attr">"is_active"</span>: <span class="hljs-literal">true</span>,
             <span class="hljs-attr">"email"</span>: <span class="hljs-string">"admin@example.com"</span>,
-            <span class="hljs-attr">"id"</span>: <span class="hljs-number">3</span>
+            <span class="hljs-attr">"role"</span>: {
+                <span class="hljs-attr">"id"</span>: <span class="hljs-string">"UR1"</span>,
+                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"User"</span>
+            },
+            <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>
         }
     ],
     <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Insecure forgotten password."</span>,
@@ -4400,7 +5166,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
 
 <span class="json">{
     <span class="hljs-attr">"artifact_proxy"</span>: <span class="hljs-string">"ABC-XYZ"</span>,
-    <span class="hljs-attr">"assigned_to"</span>: ['user1@example.com'],
+    <span class="hljs-attr">"assigned_to"</span>: ['admin@example.com'],
     <span class="hljs-attr">"phase"</span>: <span class="hljs-string">"X1"</span>,
     <span class="hljs-attr">"priority"</span>: <span class="hljs-number">9</span>,
     <span class="hljs-attr">"status"</span>: <span class="hljs-string">"TS1"</span>,
@@ -4416,8 +5182,15 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
     <span class="hljs-attr">"artifact_proxy"</span>: <span class="hljs-string">"ABC-XYZ"</span>,
     <span class="hljs-attr">"assigned_to"</span>: [
         {
-            <span class="hljs-attr">"email"</span>: <span class="hljs-string">"user1@example.com"</span>,
-            <span class="hljs-attr">"id"</span>: <span class="hljs-number">3</span>
+            <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Admin"</span>,
+            <span class="hljs-attr">"last_name"</span>: <span class="hljs-string">"Testerton"</span>,
+            <span class="hljs-attr">"is_active"</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-attr">"email"</span>: <span class="hljs-string">"admin@example.com"</span>,
+            <span class="hljs-attr">"role"</span>: {
+                <span class="hljs-attr">"id"</span>: <span class="hljs-string">"UR1"</span>,
+                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"User"</span>
+            },
+            <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>
         }
     ],
     <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Task Description"</span>,
@@ -4518,8 +5291,15 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
     <span class="hljs-attr">"artifact_proxy"</span>: <span class="hljs-string">"ABC-XYZ"</span>,
     <span class="hljs-attr">"assigned_to"</span>: [
         {
-            <span class="hljs-attr">"email"</span>: <span class="hljs-string">"user1@example.com"</span>,
-            <span class="hljs-attr">"id"</span>: <span class="hljs-number">3</span>
+            <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Admin"</span>,
+            <span class="hljs-attr">"last_name"</span>: <span class="hljs-string">"Testerton"</span>,
+            <span class="hljs-attr">"is_active"</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-attr">"email"</span>: <span class="hljs-string">"admin@example.com"</span>,
+            <span class="hljs-attr">"role"</span>: {
+                <span class="hljs-attr">"id"</span>: <span class="hljs-string">"UR1"</span>,
+                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"User"</span>
+            },
+            <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>
         }
     ],
     <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Insecure forgotten password."</span>,
@@ -5227,7 +6007,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
                 <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Group1"</span>,
                 <span class="hljs-attr">"role"</span>: <span class="hljs-string">"Project Lead"</span>
             }
-        ]
+        ],
+        <span class="hljs-attr">"password_reset_in_progress"</span>: <span class="hljs-literal">false</span>
     }]
 }</span></code></pre>
         <p>This endpoint returns a list of User resources.</p>
@@ -5249,7 +6030,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
     <span class="hljs-attr">"is_active"</span>: <span class="hljs-literal">true</span>,
     <span class="hljs-attr">"is_superuser"</span>: <span class="hljs-literal">false</span>,
     <span class="hljs-attr">"role"</span>: <span class="hljs-string">"No Role"</span>,
-    <span class="hljs-attr">"groups"</span>: []
+    <span class="hljs-attr">"groups"</span>: [],
+    <span class="hljs-attr">"password_reset_in_progress"</span>: <span class="hljs-literal">false</span>
 }</span></code></pre>
         <p>This endpoint returns a specific User resource.</p>
         <p><strong><code>GET /api/v2/users/{user_id}/</code></strong></p>
@@ -5304,7 +6086,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
             <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Group2"</span>,
             <span class="hljs-attr">"role"</span>: <span class="hljs-string">"No Role"</span>
         }
-    ]
+    ],
+    <span class="hljs-attr">"password_reset_in_progress"</span>: <span class="hljs-literal">true</span>
 }</span></code></pre>
         <p>Create a User resource.</p>
         <p><strong><code>POST /api/v2/users/</code></strong></p>
@@ -5375,7 +6158,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
             <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Group2"</span>,
             <span class="hljs-attr">"role"</span>: <span class="hljs-string">"No Role"</span>
         }
-    ]
+    ],
+    <span class="hljs-attr">"password_reset_in_progress"</span>: <span class="hljs-literal">true</span>
 }</span></code></pre>
         <p>Update a specific User resource.</p>
         <p><strong><code>PUT /api/v2/users/{user_id}/</code></strong></p>
@@ -5394,6 +6178,29 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
             </tr>
           </tbody>
         </table>
+        <h2 id="get-password-reset-info">Get Password Reset Info</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/users/1/reset-password/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
+<span class="hljs-attribute">Cookie</span>: sessionid="YOUR SESSION ID"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="json">{
+    <span class="hljs-attr">"expiry_date"</span>: <span class="hljs-string">"2016-09-30T14:51:55.889Z"</span>,
+    <span class="hljs-attr">"reset_url"</span>: <span class="hljs-string">"http://example.com/accounts/new-password/12e33fbfc0f5774"</span>
+}</span></code></pre>
+        <p>This endpoint returns the password reset information for a specific user. This endpoint only uses either basic or session authentication.</p>
+        <p>Note: If the returned fields are null, then there is no password reset in progress.</p>
+        <p><strong><code>GET /api/v2/users/{user_id}/reset-password/</code></strong></p>
+        <h2 id="reset-password">Reset Password</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/users/1/reset-password/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
+<span class="hljs-attribute">Cookie</span>: sessionid="YOUR SESSION ID"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK</code></pre>
+        <p>Request a password reset for a specific user.</p>
+        <p><strong><code>POST /api/v2/users/{user_id}/reset-password/</code></strong></p>
         <h1 id="user-activities">User Activities</h1>
         <h2 id="get-all-activities">Get all activities</h2>
         <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/users/me/activities/</span> HTTP/1.1
@@ -5755,6 +6562,29 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
             </tr>
           </tbody>
         </table>
+        <h1 id="changelog">Changelog</h1>
+        <h2 id="v4-3">v4.3</h2>
+        <ul>
+          <li>Initiate a password reset via the API (session / basic authentication only)</li>
+          <li>Global roles can be created, edited, or deleted.</li>
+        </ul>
+        <h2 id="v4-2">v4.2</h2>
+        <ul>
+          <li>Add documentation for session and basic authentication.</li>
+          <li>Business Units, Groups, and Tasks includes the role of the users the resource returns.</li>
+          <li>Include the first name, last name for the users returned by the tasks endpoint.</li>
+          <li>ALM and Analysis Connections include whether they are accessible or not, and the id of their parent Connector.</li>
+          <li>ALM and Analysis Connections can be created, edited, or deleted.</li>
+          <li>ALM sync jobs can be initiated by POSTing to the alm jobs endpoint.</li>
+          <li>Analysis import jobs can be initiated by POSTing to the analysis jobs endpoint.</li>
+          <li>Project Role can be ordered and searched for by name.</li>
+          <li>(Customer created) Project Roles can be deleted.</li>
+          <li>Users endpoint returns if a password reset is in progress.</li>
+        </ul>
+        <h2 id="v4-1-v4-0-v3-9-etc-">v4.1, v4.0, v3.9, etc.</h2>
+        <ul>
+          <li>The dark times where we had no change log.</li>
+        </ul>
       </div>
       <div class="dark-box">
         <div class="lang-selector"> </div>
