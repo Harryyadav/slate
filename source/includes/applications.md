@@ -104,12 +104,14 @@ Content-Type: application/json
             {
                 "id": "1",
                 "name": "Project 1",
-                "slug": "project-1"
+                "slug": "project-1",
+                "url": "http://example.com/bunits/test-bu/application-test/project-1/"
             },
             {
                 "id": "2",
                 "name": "Project 2",
-                "slug": "project-2"
+                "slug": "project-2",
+                "url": "http://example.com/bunits/test-bu/application-test/project-2/"
             }
         ]
     }]
