@@ -63,6 +63,9 @@
 - Added documentation for LDAP connections and jobs
 - LDAP Connections can be created, edited, or deleted.
 - LDAP Jobs can be initiated or the results may be submitted.
+- Global Roles can be deleted.
+- Projects endpoint now has include parameter to get the completion data by phases.
+- Added Project Activity endpoint
 
 ## v4.3
 
