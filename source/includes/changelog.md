@@ -3,6 +3,7 @@
 ## v4.4
 
 - Added include field `last_job` for connections returned by the ALM, Analysis and LDAP Connection endpoints.
+- Added `updater`field tasks returned from the `tasks` endpoint.
 
 ## v4.3
 
