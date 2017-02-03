@@ -1598,6 +1598,7 @@
     <span class="hljs-attr">"ldap_validate_cert"</span>: <span class="hljs-literal">true</span>
   }
 }</span></code></pre>
+        <p>=======</p>
         <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
@@ -1654,6 +1655,109 @@
             <tr>
               <td>connection_id</td>
               <td>The ID of the LDAP Connection to update</td>
+            </tr>
+          </tbody>
+        </table>
+        <table>
+          <thead>
+            <tr>
+              <th>Fields</th>
+              <th>Required</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>alias</td>
+              <td>Yes</td>
+              <td>The name of the new connection.</td>
+            </tr>
+            <tr>
+              <td>frequency</td>
+              <td>No</td>
+              <td>The frequency in which this connection will sync. The available options are: &quot;hourly&quot;, &quot;daily&quot;, &quot;weekly&quot;, &quot;monthly&quot; and &quot;manually&quot;. If unspecified, the frequency will default to &quot;manually&quot;.</td>
+            </tr>
+            <tr>
+              <td>params</td>
+              <td>Yes</td>
+              <td>A dictionary containing connections options. Please refer to the table below</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 id="params-fields">Params fields</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Fields</th>
+              <th>Required</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ldap_server</td>
+              <td>Yes</td>
+              <td>The address of the LDAP server.</td>
+            </tr>
+            <tr>
+              <td>ldap_method</td>
+              <td>No</td>
+              <td>The method used to connect to the LDAP server (defaults to ldaps).</td>
+            </tr>
+            <tr>
+              <td>group_mapping</td>
+              <td>Yes</td>
+              <td>Object that maps LDAP to SDE groups.</td>
+            </tr>
+            <tr>
+              <td>ldap_filter</td>
+              <td>No</td>
+              <td>Fine-grained control for users and groups during synchronization</td>
+            </tr>
+            <tr>
+              <td>ldap_validate_cert</td>
+              <td>No</td>
+              <td>Determines whether or not to validate the SSL certificate for the LDAP server (defaults to True).</td>
+            </tr>
+            <tr>
+              <td>user_schema</td>
+              <td>No</td>
+              <td>Define a custom user schema.</td>
+            </tr>
+            <tr>
+              <td>deactivation</td>
+              <td>No</td>
+              <td>Automatically deactivate groupless users in SDE.</td>
+            </tr>
+            <tr>
+              <td>bind_dn</td>
+              <td>Yes</td>
+              <td>The bind dn</td>
+            </tr>
+            <tr>
+              <td>bind_password</td>
+              <td>Yes</td>
+              <td>The bind password</td>
+            </tr>
+            <tr>
+              <td>page_size</td>
+              <td>No</td>
+              <td>Number of users to return per page. (defaults to 1000)</td>
+            </tr>
+            <tr>
+              <td>group_member_query</td>
+              <td>No</td>
+              <td>Gives the users of the specified group </td>
+            </tr>
+            <tr>
+              <td>group_query</td>
+              <td>Yes</td>
+              <td>Specify groups to return</td>
+            </tr>
+            <tr>
+              <td>base_dn</td>
+              <td>No</td>
+              <td>The base dn (will be computed from bind_dn if unspecified)</td>
             </tr>
           </tbody>
         </table>
