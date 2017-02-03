@@ -301,6 +301,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
 }
 ```
 
+=======
+
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -355,6 +357,31 @@ Update a specific LDAP Connection resource.
 Parameter       | Description
 --------------- | -----------
 connection_id   | The ID of the LDAP Connection to update
+
+
+Fields              | Required | Description
+--------------------|----------|-------------
+alias               | Yes      | The name of the new connection.
+frequency           | No       | The frequency in which this connection will sync.  The available options are: "hourly", "daily", "weekly", "monthly" and "manually".  If unspecified, the frequency will default to "manually".
+params              | Yes      | A dictionary containing connections options. Please refer to the table below
+
+### Params fields
+
+Fields              | Required | Description
+--------------------|----------|-------------
+ldap_server         | Yes      | The address of the LDAP server.
+ldap_method         | No       | The method used to connect to the LDAP server (defaults to ldaps).
+group_mapping       | Yes      | Object that maps LDAP to SDE groups.
+ldap_filter         | No       | Fine-grained control for users and groups during synchronization
+ldap_validate_cert  | No       | Determines whether or not to validate the SSL certificate for the LDAP server (defaults to True).
+user_schema         | No       | Define a custom user schema.
+deactivation        | No       | Automatically deactivate groupless users in SDE.
+bind_dn             | Yes      | The bind dn
+bind_password       | Yes      | The bind password
+page_size           | No       | Number of users to return per page. (defaults to 1000)
+group_member_query  | No       | Gives the users of the specified group 
+group_query         | Yes      | Specify groups to return
+base_dn             | No       | The base dn (will be computed from bind_dn if unspecified)
 
 ---
 
