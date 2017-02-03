@@ -1534,6 +1534,130 @@
           </tbody>
         </table>
         <hr>
+        <h2 id="delete-an-ldap-connection">Delete an LDAP Connection</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">DELETE</span> <span class="hljs-string">/api/v2/connections/ldap/{connection_id}/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
+
+<span class="http">HTTP/1.1 <span class="hljs-number">204</span> NO Content</span></code></pre>
+        <p>This endpoint deletes a single LDAP Connection resource, as specified by the id parameter.</p>
+        <p><strong><code>DELETE /api/v2/connections/ldap/{connection_id}/</code></strong></p>
+        <h3 id="url-parameters">URL Parameters</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>connection_id</td>
+              <td>The id of the LDAP Connection to delete. </td>
+            </tr>
+          </tbody>
+        </table>
+        <hr>
+        <h2 id="update-a-specific-ldap-connection">Update a specific LDAP Connection</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/connections/ldap/31/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
+
+<span class="json">{
+  <span class="hljs-attr">"alias"</span>: <span class="hljs-string">"Example Connection Updated Name"</span>,
+  <span class="hljs-attr">"frequency"</span>: <span class="hljs-string">"daily"</span>,
+  <span class="hljs-attr">"params"</span>: {
+    <span class="hljs-attr">"ldap_filter"</span>: {
+      <span class="hljs-attr">"users"</span>: [
+        <span class="hljs-string">"user@example.org"</span>,
+        <span class="hljs-string">"user2@example.org"</span>
+      ],
+      <span class="hljs-attr">"groups"</span>: [
+        <span class="hljs-string">"LDAPGroup"</span>,
+        <span class="hljs-string">"LDAPGroup3"</span>
+      ]
+    },
+    <span class="hljs-attr">"group_query"</span>: <span class="hljs-string">"(objectClass=group)"</span>,
+    <span class="hljs-attr">"ldap_server"</span>: <span class="hljs-string">"ldapServer:12345"</span>,
+    <span class="hljs-attr">"bind_dn"</span>: <span class="hljs-string">"cn=Administrator,cn=Users,dc=example,dc=org"</span>,
+    <span class="hljs-attr">"user_schema"</span>: {
+      <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"gn"</span>,
+      <span class="hljs-attr">"last_name"</span>: <span class="hljs-string">"sn"</span>,
+      <span class="hljs-attr">"email"</span>: <span class="hljs-string">"mail"</span>,
+      <span class="hljs-attr">"full_name"</span>: <span class="hljs-string">"cn"</span>
+    },
+    <span class="hljs-attr">"deactivation"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">"group_member_query"</span>: <span class="hljs-string">"(&amp;(objectClass=user)(memberOf=%s))"</span>,
+    <span class="hljs-attr">"page_size"</span>: <span class="hljs-number">1000</span>,
+    <span class="hljs-attr">"bind_password"</span>: <span class="hljs-string">"pass"</span>,
+    <span class="hljs-attr">"base_dn"</span>: <span class="hljs-string">"dc=example,dc=org"</span>,
+    <span class="hljs-attr">"group_mapping"</span>: {
+      <span class="hljs-attr">"group"</span>: <span class="hljs-string">"group1"</span>
+    },
+    <span class="hljs-attr">"ldap_method"</span>: <span class="hljs-string">"LDAP"</span>,
+    <span class="hljs-attr">"ldap_validate_cert"</span>: <span class="hljs-literal">true</span>
+  }
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="json">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-number">31</span>,
+  <span class="hljs-attr">"alias"</span>: <span class="hljs-string">"Example Connection Updated Name"</span>,
+  <span class="hljs-attr">"system"</span>: <span class="hljs-string">"LDAP"</span>,
+  <span class="hljs-attr">"frequency"</span>: <span class="hljs-string">"daily"</span>,
+  <span class="hljs-attr">"command"</span>: <span class="hljs-string">"sync_ldap"</span>,
+  <span class="hljs-attr">"params"</span>: {
+    <span class="hljs-attr">"ldap_filter"</span>: {
+      <span class="hljs-attr">"users"</span>: [
+        <span class="hljs-string">"user@example.org"</span>,
+        <span class="hljs-string">"user2@example.org"</span>
+      ],
+      <span class="hljs-attr">"groups"</span>: [
+        <span class="hljs-string">"LDAPGroup"</span>,
+        <span class="hljs-string">"LDAPGroup3"</span>
+      ]
+    },
+    <span class="hljs-attr">"group_query"</span>: <span class="hljs-string">"(objectClass=group)"</span>,
+    <span class="hljs-attr">"ldap_server"</span>: <span class="hljs-string">"ldapServer:12345"</span>,
+    <span class="hljs-attr">"bind_dn"</span>: <span class="hljs-string">"cn=Administrator,cn=Users,dc=example,dc=org"</span>,
+    <span class="hljs-attr">"user_schema"</span>: {
+      <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"gn"</span>,
+      <span class="hljs-attr">"last_name"</span>: <span class="hljs-string">"sn"</span>,
+      <span class="hljs-attr">"email"</span>: <span class="hljs-string">"mail"</span>,
+      <span class="hljs-attr">"full_name"</span>: <span class="hljs-string">"cn"</span>
+    },
+    <span class="hljs-attr">"deactivation"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">"group_member_query"</span>: <span class="hljs-string">"(&amp;(objectClass=user)(memberOf=%s))"</span>,
+    <span class="hljs-attr">"page_size"</span>: <span class="hljs-number">1000</span>,
+    <span class="hljs-attr">"bind_password"</span>: <span class="hljs-string">"pass"</span>,
+    <span class="hljs-attr">"base_dn"</span>: <span class="hljs-string">"dc=example,dc=org"</span>,
+    <span class="hljs-attr">"group_mapping"</span>: {
+      <span class="hljs-attr">"group"</span>: <span class="hljs-string">"group1"</span>
+    },
+    <span class="hljs-attr">"ldap_method"</span>: <span class="hljs-string">"LDAP"</span>,
+    <span class="hljs-attr">"ldap_validate_cert"</span>: <span class="hljs-literal">true</span>
+  },
+  <span class="hljs-attr">"inaccessible"</span>: <span class="hljs-literal">false</span>
+}</span></code></pre>
+        <p>Update a specific LDAP Connection resource.</p>
+        <p><strong><code>PUT /api/v2/connections/ldap/{connection_id}/</code></strong></p>
+        <h3 id="url-parameters">URL Parameters</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>connection_id</td>
+              <td>The ID of the LDAP Connection to update</td>
+            </tr>
+          </tbody>
+        </table>
+        <hr>
         <h2 id="get-all-alm-connections-of-all-projects">Get All ALM Connections of All Projects</h2>
         <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/connections/alm/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
@@ -7523,6 +7647,9 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <h2 id="v4-4">v4.4</h2>
         <ul>
           <li>Added include field <code>last_job</code> for connections returned by the ALM, Analysis and LDAP Connection endpoints.</li>
+          <li>Added documentation for LDAP connections and jobs</li>
+          <li>LDAP Connections can be created, edited, or deleted.</li>
+          <li>LDAP Jobs can be initiated or the results may be submitted.</li>
         </ul>
         <h2 id="v4-3">v4.3</h2>
         <ul>
