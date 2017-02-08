@@ -231,6 +231,158 @@ base_dn             | No       | The base dn (will be computed from bind_dn if u
 
 ---
 
+## Delete an LDAP Connection
+
+```http
+DELETE /api/v2/connections/ldap/{connection_id}/ HTTP/1.1
+Accept: application/json
+Authorization: Token "YOUR SDE ACCESS TOKEN"
+
+HTTP/1.1 204 NO Content
+
+```
+
+This endpoint deletes a single LDAP Connection resource, as specified by the id parameter.
+
+
+**`DELETE /api/v2/connections/ldap/{connection_id}/`**
+
+
+### URL Parameters
+
+Parameter           | Description
+--------------------|---------------
+connection_id       | The id of the LDAP Connection to delete. 
+
+
+---
+
+## Update a specific LDAP Connection
+
+```http
+PUT /api/v2/connections/ldap/31/ HTTP/1.1
+Accept: application/json
+Authorization: Token "YOUR SDE ACCESS TOKEN"
+
+{
+  "alias": "Example Connection Updated Name",
+  "frequency": "daily",
+  "params": {
+    "ldap_filter": {
+      "users": [
+        "user@example.org",
+        "user2@example.org"
+      ],
+      "groups": [
+        "LDAPGroup",
+        "LDAPGroup3"
+      ]
+    },
+    "group_query": "(objectClass=group)",
+    "ldap_server": "ldapServer:12345",
+    "bind_dn": "cn=Administrator,cn=Users,dc=example,dc=org",
+    "user_schema": {
+      "first_name": "gn",
+      "last_name": "sn",
+      "email": "mail",
+      "full_name": "cn"
+    },
+    "deactivation": false,
+    "group_member_query": "(&(objectClass=user)(memberOf=%s))",
+    "page_size": 1000,
+    "bind_password": "pass",
+    "base_dn": "dc=example,dc=org",
+    "group_mapping": {
+      "group": "group1"
+    },
+    "ldap_method": "LDAP",
+    "ldap_validate_cert": true
+  }
+}
+```
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "id": 31,
+  "alias": "Example Connection Updated Name",
+  "system": "LDAP",
+  "frequency": "daily",
+  "command": "sync_ldap",
+  "params": {
+    "ldap_filter": {
+      "users": [
+        "user@example.org",
+        "user2@example.org"
+      ],
+      "groups": [
+        "LDAPGroup",
+        "LDAPGroup3"
+      ]
+    },
+    "group_query": "(objectClass=group)",
+    "ldap_server": "ldapServer:12345",
+    "bind_dn": "cn=Administrator,cn=Users,dc=example,dc=org",
+    "user_schema": {
+      "first_name": "gn",
+      "last_name": "sn",
+      "email": "mail",
+      "full_name": "cn"
+    },
+    "deactivation": false,
+    "group_member_query": "(&(objectClass=user)(memberOf=%s))",
+    "page_size": 1000,
+    "bind_password": "pass",
+    "base_dn": "dc=example,dc=org",
+    "group_mapping": {
+      "group": "group1"
+    },
+    "ldap_method": "LDAP",
+    "ldap_validate_cert": true
+  },
+  "inaccessible": false
+}
+```
+
+Update a specific LDAP Connection resource.
+
+**`PUT /api/v2/connections/ldap/{connection_id}/`**
+
+### URL Parameters
+
+Parameter       | Description
+--------------- | -----------
+connection_id   | The ID of the LDAP Connection to update
+
+
+Fields              | Required | Description
+--------------------|----------|-------------
+alias               | Yes      | The name of the new connection.
+frequency           | No       | The frequency in which this connection will sync.  The available options are: "hourly", "daily", "weekly", "monthly" and "manually".  If unspecified, the frequency will default to "manually".
+params              | Yes      | A dictionary containing connections options. Please refer to the table below
+
+### Params fields
+
+Fields              | Required | Description
+--------------------|----------|-------------
+ldap_server         | Yes      | The address of the LDAP server.
+ldap_method         | No       | The method used to connect to the LDAP server (defaults to ldaps).
+group_mapping       | Yes      | Object that maps LDAP to SDE groups.
+ldap_filter         | No       | Fine-grained control for users and groups during synchronization
+ldap_validate_cert  | No       | Determines whether or not to validate the SSL certificate for the LDAP server (defaults to True).
+user_schema         | No       | Define a custom user schema.
+deactivation        | No       | Automatically deactivate groupless users in SDE.
+bind_dn             | Yes      | The bind dn
+bind_password       | Yes      | The bind password
+page_size           | No       | Number of users to return per page. (defaults to 1000)
+group_member_query  | No       | Gives the users of the specified group 
+group_query         | Yes      | Specify groups to return
+base_dn             | No       | The base dn (will be computed from bind_dn if unspecified)
+
+---
+
+
 ## Get All ALM Connections of All Projects
 
 ```http
