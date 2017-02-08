@@ -3,10 +3,10 @@
 ## v4.4
 
 - Added include field `last_job` for connections returned by the ALM, Analysis and LDAP Connection endpoints.
+- Added `updater`field tasks returned from the `tasks` endpoint.
 - Added documentation for LDAP connections and jobs
 - LDAP Connections can be created, edited, or deleted.
 - LDAP Jobs can be initiated or the results may be submitted.
-
 
 ## v4.3
 

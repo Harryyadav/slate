@@ -26,6 +26,7 @@ Content-Type: application/json
         "accepted": true,
         "assigned_to": [],
         "updated": "2015-06-16T19:37:44.710100Z",
+        "updater": 7,
         "library_task_created": "2015-06-16T19:36:57.863684Z",
         "library_task_updated": "2015-06-16T19:36:57.836874Z",
         "verification_status": null,
@@ -45,7 +46,7 @@ This endpoint returns a list of Task resources associated with the project havin
 ### Expand Parameters
 
 ```http
-GET /api/v2/projects/1/tasks/?expand=status,text HTTP/1.1
+GET /api/v2/projects/1/tasks/?expand=description,status,text,updater HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
@@ -71,6 +72,17 @@ Content-Type: application/json
         "accepted": true,
         "assigned_to": [],
         "updated": "2015-06-16T19:37:44.710100Z",
+        "updater": {
+            "first_name": "Hamish",
+            "last_name": "Stout",
+            "is_active": true,
+            "email": "hamish.stout@example.com",
+            "role": {
+                "id": "UR1",
+                "name": "User"
+            },
+            "id": 7
+        },
         "library_task_created": "2015-06-16T19:36:57.863684Z",
         "library_task_updated": "2015-06-16T19:36:57.836874Z",
         "verification_status": null,
@@ -95,6 +107,7 @@ Parameter   | Description
 description | Description field is expanded into content and amendments sub-fields.
 status      | Status field is expanded into id, meaning, icon, name and slug sub-fields.
 phase       | Phase field is expanded into id, name, slug, description and tip sub-fields.
+updater     | Updater field is expanded into id, first name, last name, email, role, and active status sub-fields.
 ---
 
 ### Include Parameters
@@ -123,6 +136,7 @@ Content-Type: application/json
         "accepted": true,
         "assigned_to": [],
         "updated": "2015-06-16T19:37:44.710100Z",
+        "updater": 7,
         "library_task_created": "2015-06-16T19:36:57.863684Z",
         "library_task_updated": "2015-06-16T19:36:57.836874Z",
         "verification_status": null,
@@ -247,6 +261,7 @@ Content-Type: application/json
         "accepted": true,
         "assigned_to": [],
         "updated": "2015-06-16T19:37:44.710100Z",
+        "updater": 7,
         "library_task_created": "2015-06-16T19:36:57.863684Z",
         "library_task_updated": "2015-06-16T19:36:57.836874Z",
         "verification_status": null,
@@ -317,6 +332,7 @@ Content-Type: application/json
     "task_id": "T2",
     "title": "Secure forgotten password",
     "updated": "2015-07-08T02:16:33.923315Z",
+    "updater": 7,
     "url": "http://example.com/bunits/bu1/app1/proj1/tasks/phase/requirements/1-T2",
     "verification_status": null
 }
@@ -385,6 +401,7 @@ Content-Type: application/json
     "status": "TS1",
     "task_id": "PT1",
     "title": "Project Specific Task",
+    "updater": 7,
     "updated": "2015-05-07T18:58:26.732000Z",
     "url": "http://example.com/.../1-PT1",
     "verification_status": null
@@ -469,6 +486,7 @@ Content-Type: application/json
     "task_id": "T2",
     "title": "Secure forgotten password",
     "updated": "2015-07-08T02:16:33.923315Z",
+    "updater": 7,
     "url": "http://example.com/.../1-T2",
     "verification_status": null
 }
