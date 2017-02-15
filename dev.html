@@ -79,8 +79,9 @@
         <p><code>/?include={field1},{field2}&amp;expand={field3},{field4}</code></p>
         <h1 id="pagination">Pagination</h1>
         <p>Consume long responses by enabling pagination on an endpoint. Specify a page size in the URL:</p>
-        <p><code>/?page_size=100</code></p>
-        <p>and use the <code>next</code> and <code>previous</code> values to move through the complete response.</p>
+        <p><code>/?page_size=10</code></p>
+        <p>This will limit the result set down to 10 (or fewer) elmenets. There will be a few additional values returned in addtion to the results list. <code>next</code> and <code>previous</code> are URLs you can request to get the next or previous result
+          set. <code>count</code> is the total number of resources available.</p>
         <h1 id="authentication">Authentication</h1>
         <p>There are several ways to authenticate against SD Elements, which are outlined below.</p>
         <h2 id="basic-authentication">Basic Authentication</h2>
