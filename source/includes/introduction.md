@@ -34,6 +34,6 @@ Some endpoints allow users to *expand* a field that is already present in the re
 
 Consume long responses by enabling pagination on an endpoint. Specify a page size in the URL:
 
-`/?page_size=100`
+`/?page_size=10`
 
-and use the `next` and `previous` values to move through the complete response.
+This will limit the result set down to 10 (or fewer) elmenets. There will be a few additional values returned in addtion to the results list. `next` and `previous` are URLs you can request to get the next or previous result set. `count` is the total number of resources available.
