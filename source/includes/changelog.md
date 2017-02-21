@@ -3,6 +3,7 @@
 ## v4.5
 
 - Phases can be created, edited, or deleted.
+- Changed the value of user to email instead of id, since we filter users by email.
 
 ## v4.4
 
