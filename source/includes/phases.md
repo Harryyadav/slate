@@ -19,7 +19,9 @@ Content-Type: application/json
             "description": "Application security requirements, generally used to assist requirements analysts.",
             "name": "Requirements",
             "slug": "requirements",
-            "tip": "One-time tasks that you can verify. Similar to traditional functional requirements or user stories."
+            "tip": "One-time tasks that you can verify. Similar to traditional functional requirements or user stories.",
+            "ordinal": 0,
+            "active": true
         }
     ]
 }
@@ -64,7 +66,9 @@ Content-Type: application/json
     "description": "Application security requirements, generally used to assist requirements analysts.",
     "name": "Requirements",
     "slug": "requirements",
-    "tip": "One-time tasks that you can verify. Similar to traditional functional requirements or user stories."
+    "tip": "One-time tasks that you can verify. Similar to traditional functional requirements or user stories.",
+    "ordinal": 0,
+    "active": true
 }
 ```
 
