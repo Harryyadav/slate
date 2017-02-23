@@ -1,5 +1,8 @@
 # Changelog
 
+## v4.5
+- Add 'ordinal' and 'active' fields to phases returned by endpoint
+
 ## v4.4
 
 - Added include field `last_job` for connections returned by the ALM, Analysis and LDAP Connection endpoints.
