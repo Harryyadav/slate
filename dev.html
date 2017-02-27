@@ -4322,7 +4322,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
             <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"requirements"</span>,
             <span class="hljs-attr">"tip"</span>: <span class="hljs-string">"One-time tasks that you can verify. Similar to traditional functional requirements or user stories."</span>,
             <span class="hljs-attr">"ordinal"</span>: <span class="hljs-number">0</span>,
-            <span class="hljs-attr">"active"</span>: <span class="hljs-literal">true</span>
+            <span class="hljs-attr">"active"</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-attr">"is_custom"</span>: <span class="hljs-literal">false</span>
         }
     ]
 }</span></code></pre>
@@ -4362,7 +4363,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
     <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"requirements"</span>,
     <span class="hljs-attr">"tip"</span>: <span class="hljs-string">"One-time tasks that you can verify. Similar to traditional functional requirements or user stories."</span>,
     <span class="hljs-attr">"ordinal"</span>: <span class="hljs-number">0</span>,
-    <span class="hljs-attr">"active"</span>: <span class="hljs-literal">true</span>
+    <span class="hljs-attr">"active"</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">"is_custom"</span>: <span class="hljs-literal">false</span>
 }</span></code></pre>
         <p>This endpoint retrieves a specific Phase resource, as specified by the id parameter.</p>
         <p><strong><code>GET /api/v2/phases/{phase_id}/</code></strong></p>
@@ -7875,7 +7877,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <h1 id="changelog">Changelog</h1>
         <h2 id="v4-5">v4.5</h2>
         <ul>
-          <li>Add &#39;ordinal&#39; and &#39;active&#39; fields to phases returned by endpoint</li>
+          <li>Add &#39;ordinal&#39;, &#39;active&#39;, and &#39;is_custom&#39; fields to phases returned by endpoint</li>
         </ul>
         <h2 id="v4-4">v4.4</h2>
         <ul>
