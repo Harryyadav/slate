@@ -21,7 +21,8 @@ Content-Type: application/json
             "slug": "requirements",
             "tip": "One-time tasks that you can verify. Similar to traditional functional requirements or user stories.",
             "ordinal": 0,
-            "active": true
+            "active": true,
+            "is_custom": false
         }
     ]
 }
@@ -68,7 +69,8 @@ Content-Type: application/json
     "slug": "requirements",
     "tip": "One-time tasks that you can verify. Similar to traditional functional requirements or user stories.",
     "ordinal": 0,
-    "active": true
+    "active": true,
+    "is_custom": false
 }
 ```
 

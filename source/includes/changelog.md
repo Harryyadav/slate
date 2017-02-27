@@ -1,7 +1,7 @@
 # Changelog
 
 ## v4.5
-- Add 'ordinal' and 'active' fields to phases returned by endpoint
+- Add 'ordinal', 'active', and 'is_custom' fields to phases returned by endpoint
 
 ## v4.4
 
