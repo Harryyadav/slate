@@ -1,7 +1,8 @@
 # Changelog
 
 ## v4.5
-- Add 'ordinal', 'active', and 'is_custom' fields to phases returned by endpoint
+
+- Phases can be created, edited, or deleted.
 
 ## v4.4
 
