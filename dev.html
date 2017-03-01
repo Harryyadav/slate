@@ -4321,9 +4321,10 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
             <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Requirements"</span>,
             <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"requirements"</span>,
             <span class="hljs-attr">"tip"</span>: <span class="hljs-string">"One-time tasks that you can verify. Similar to traditional functional requirements or user stories."</span>,
-            <span class="hljs-attr">"ordinal"</span>: <span class="hljs-number">0</span>,
-            <span class="hljs-attr">"active"</span>: <span class="hljs-literal">true</span>,
-            <span class="hljs-attr">"is_custom"</span>: <span class="hljs-literal">false</span>
+            <span class="hljs-attr">"ordinal"</span>: <span class="hljs-number">1</span>,
+            <span class="hljs-attr">"active"</span>: <span class="hljs-string">"true"</span>,
+            <span class="hljs-attr">"retain"</span>: <span class="hljs-string">"true"</span>,
+            <span class="hljs-attr">"persist_open_tasks"</span>: <span class="hljs-string">"false"</span>
         }
     ]
 }</span></code></pre>
@@ -4362,9 +4363,10 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
     <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Requirements"</span>,
     <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"requirements"</span>,
     <span class="hljs-attr">"tip"</span>: <span class="hljs-string">"One-time tasks that you can verify. Similar to traditional functional requirements or user stories."</span>,
-    <span class="hljs-attr">"ordinal"</span>: <span class="hljs-number">0</span>,
-    <span class="hljs-attr">"active"</span>: <span class="hljs-literal">true</span>,
-    <span class="hljs-attr">"is_custom"</span>: <span class="hljs-literal">false</span>
+    <span class="hljs-attr">"ordinal"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">"active"</span>: <span class="hljs-string">"true"</span>,
+    <span class="hljs-attr">"retain"</span>: <span class="hljs-string">"true"</span>,
+    <span class="hljs-attr">"persist_open_tasks"</span>: <span class="hljs-string">"false"</span>
 }</span></code></pre>
         <p>This endpoint retrieves a specific Phase resource, as specified by the id parameter.</p>
         <p><strong><code>GET /api/v2/phases/{phase_id}/</code></strong></p>
@@ -4380,6 +4382,265 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
             <tr>
               <td>phase_id</td>
               <td>The id of the phase to retrieve</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="create-a-phase">Create a Phase</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/phases/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
+
+<span class="json">{
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"New Phase"</span>,
+    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"description"</span>,
+    <span class="hljs-attr">"tip"</span>: <span class="hljs-string">"tip"</span>,
+    <span class="hljs-attr">"ordinal"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">"active"</span>: <span class="hljs-string">"true"</span>,
+    <span class="hljs-attr">"retain"</span>: <span class="hljs-string">"true"</span>,
+    <span class="hljs-attr">"persist_open_tasks"</span>: <span class="hljs-string">"false"</span>
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="json">{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"CX1"</span>,
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"New Phase"</span>,
+    <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"new_phase"</span>,
+    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"description"</span>,
+    <span class="hljs-attr">"tip"</span>: <span class="hljs-string">"tip"</span>,
+    <span class="hljs-attr">"ordinal"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">"active"</span>: <span class="hljs-string">"true"</span>,
+    <span class="hljs-attr">"retain"</span>: <span class="hljs-string">"true"</span>,
+    <span class="hljs-attr">"persist_open_tasks"</span>: <span class="hljs-string">"false"</span>
+}</span></code></pre>
+        <p>This endpoint creates a new Phase resource.</p>
+        <p><strong><code>POST /api/v2/phases/{phase_id}/</code></strong></p>
+        <table>
+          <thead>
+            <tr>
+              <th>Fields</th>
+              <th>Required</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>name</td>
+              <td>Yes</td>
+              <td>The name of the phase.</td>
+            </tr>
+            <tr>
+              <td>description</td>
+              <td>No</td>
+              <td>The description of the phase.</td>
+            </tr>
+            <tr>
+              <td>tip</td>
+              <td>No</td>
+              <td>The tooltip for the phase.</td>
+            </tr>
+            <tr>
+              <td>ordinal</td>
+              <td>No</td>
+              <td>The order of the phase.</td>
+            </tr>
+            <tr>
+              <td>active</td>
+              <td>No</td>
+              <td>Whether or not the phase is active.</td>
+            </tr>
+            <tr>
+              <td>retain</td>
+              <td>No</td>
+              <td>Determines whether this phase carries over statuses and notes by default. </td>
+            </tr>
+            <tr>
+              <td>persist_open_tasks</td>
+              <td>No</td>
+              <td>Persist the open tasks of the phase when creating a new release. </td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="update-a-phase">Update a Phase</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/phases/CX1/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
+
+<span class="json">{
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Updated Requirements"</span>,
+    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Updated Application security requirements"</span>,
+    <span class="hljs-attr">"tip"</span>: <span class="hljs-string">"updated tip"</span>,
+    <span class="hljs-attr">"ordinal"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">"active"</span>: <span class="hljs-string">"true"</span>,
+    <span class="hljs-attr">"retain"</span>: <span class="hljs-string">"true"</span>,
+    <span class="hljs-attr">"persist_open_tasks"</span>: <span class="hljs-string">"false"</span>
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="json">{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"CX1"</span>,
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Updated Requirements"</span>,
+    <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"updated_requirements"</span>,
+    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Updated Application security requirements"</span>,
+    <span class="hljs-attr">"tip"</span>: <span class="hljs-string">"updated tip"</span>,
+    <span class="hljs-attr">"ordinal"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">"active"</span>: <span class="hljs-string">"true"</span>,
+    <span class="hljs-attr">"retain"</span>: <span class="hljs-string">"true"</span>,
+    <span class="hljs-attr">"persist_open_tasks"</span>: <span class="hljs-string">"false"</span>
+}</span></code></pre>
+        <p>This endpoint updates a specific Phase resource, as specified by the id parameter.</p>
+        <p><strong><code>PUT /api/v2/phases/{phase_id}/</code></strong></p>
+        <table>
+          <thead>
+            <tr>
+              <th>Fields</th>
+              <th>Required</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>name</td>
+              <td>Yes</td>
+              <td>The name of the phase.</td>
+            </tr>
+            <tr>
+              <td>description</td>
+              <td>Yes</td>
+              <td>The description of the phase.</td>
+            </tr>
+            <tr>
+              <td>tip</td>
+              <td>Yes</td>
+              <td>The tooltip for the phase.</td>
+            </tr>
+            <tr>
+              <td>ordinal</td>
+              <td>Yes</td>
+              <td>The order of the phase.</td>
+            </tr>
+            <tr>
+              <td>active</td>
+              <td>Yes</td>
+              <td>Whether or not the phase is active.</td>
+            </tr>
+            <tr>
+              <td>retain</td>
+              <td>Yes</td>
+              <td>Determines whether this phase carries over statuses and notes by default.</td>
+            </tr>
+            <tr>
+              <td>persist_open_tasks</td>
+              <td>Yes</td>
+              <td>Persist the open tasks of the phase when creating a new release. </td>
+            </tr>
+          </tbody>
+        </table>
+        <p><strong><code>PATCH /api/v2/phases/{phase_id}/</code></strong></p>
+        <table>
+          <thead>
+            <tr>
+              <th>Fields</th>
+              <th>Required</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>name</td>
+              <td>No</td>
+              <td>The name of the phase.</td>
+            </tr>
+            <tr>
+              <td>description</td>
+              <td>No</td>
+              <td>The description of the phase.</td>
+            </tr>
+            <tr>
+              <td>tip</td>
+              <td>No</td>
+              <td>The tooltip for the phase.</td>
+            </tr>
+            <tr>
+              <td>ordinal</td>
+              <td>No</td>
+              <td>The order of the phase.</td>
+            </tr>
+            <tr>
+              <td>active</td>
+              <td>No</td>
+              <td>Whether or not the phase is active.</td>
+            </tr>
+            <tr>
+              <td>retain</td>
+              <td>No</td>
+              <td>Determines whether this phase carries over statuses and notes by default.</td>
+            </tr>
+            <tr>
+              <td>persist_open_tasks</td>
+              <td>No</td>
+              <td>Persist the open tasks of the phase when creating a new release. </td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 id="url-parameters">URL Parameters</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>phase_id</td>
+              <td>The id of the phase to update</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="delete-a-phase">Delete a Phase</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">DELETE</span> <span class="hljs-string">/api/v2/phases/CX1/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
+
+<span class="json">{
+    <span class="hljs-attr">"replacement"</span>: <span class="hljs-string">"CX2"</span>
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">204</span> NO CONTENT
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="clojure">{}</span></code></pre>
+        <p>This endpoint deletes a specific Phase resource, as specified by the id parameter.</p>
+        <p><strong><code>DELETE /api/v2/phases/{phase_id}/</code></strong></p>
+        <table>
+          <thead>
+            <tr>
+              <th>Fields</th>
+              <th>Required</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>replacement</td>
+              <td>Yes</td>
+              <td>The phase to move the tasks of the current phase to.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 id="url-parameters">URL Parameters</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>phase_id</td>
+              <td>The id of the phase to delete</td>
             </tr>
           </tbody>
         </table>
@@ -7877,7 +8138,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <h1 id="changelog">Changelog</h1>
         <h2 id="v4-5">v4.5</h2>
         <ul>
-          <li>Add &#39;ordinal&#39;, &#39;active&#39;, and &#39;is_custom&#39; fields to phases returned by endpoint</li>
+          <li>Phases can be created, edited, or deleted.</li>
         </ul>
         <h2 id="v4-4">v4.4</h2>
         <ul>
