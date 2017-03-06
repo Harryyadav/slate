@@ -15,7 +15,7 @@ Content-Type: application/json
 {
     "results": [{
         "id": 12,
-        "user": 1,
+        "user": "admin@example.com",
         "succeeded": true,
         "automatic": true,
         "ready": true,
@@ -91,7 +91,7 @@ Content-Type: application/json
 
 {
     "id": 12,
-    "user": 1,
+    "user": "admin@example.com",
     "succeeded": true,
     "automatic": true,
     "ready": true,
@@ -161,7 +161,7 @@ Content-Type: application/json
 
 {
     "id": 12,
-    "user": 1,
+    "user": "admin@example.com",
     "succeeded": true,
     "automatic": true,
     "ready": true,
@@ -238,7 +238,7 @@ Content-Type: application/json
 {
 
     "id": 12,
-    "user": 1,
+    "user": "admin@example.com",
     "succeeded": false,
     "automatic": false,
     "ready": false,
@@ -307,7 +307,7 @@ Content-Type: application/json
 {
     "results": [{
         "id": 12,
-        "user": 1,
+        "user": "admin@example.com",
         "succeeded": true,
         "automatic": true,
         "ready": true,
@@ -375,7 +375,7 @@ Content-Type: application/json
 
 {
     "id": 12,
-    "user": 1,
+    "user": "admin@example.com",
     "succeeded": true,
     "automatic": true,
     "ready": true,
@@ -437,7 +437,7 @@ Content-Type: application/json
 
 {
     "id": 12,
-    "user": 1,
+    "user": "admin@example.com",
     "succeeded": true,
     "automatic": true,
     "ready": true,
@@ -504,7 +504,7 @@ Content-Type: application/json
 
 {
     "id": 12,
-    "user": 1,
+    "user": "admin@example.com",
     "succeeded": false,
     "automatic": false,
     "ready": false,
@@ -597,7 +597,7 @@ Content-Type: application/json
         "ready": true,
         "result_message": "",
         "succeeded": true,
-        "user": 1
+        "user": "admin@example.com" 
     }]
 }
 ```
@@ -839,7 +839,7 @@ Content-Type: application/json
     "ready": true,
     "result_message": "",
     "succeeded": true,
-    "user": 1
+    "user": "admin@example.com" 
 }
 ```
 
