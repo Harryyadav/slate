@@ -26,6 +26,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
                 ]
             },
             "group_query": "(objectClass=group)",
+            "start_tls": true,
             "ldap_server": "ldapServer:12345",
             "deactivation": false,
             "user_schema": {
@@ -35,7 +36,6 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
                 "full_name": "cn"
             },
             "bind_dn": "cn=Administrator,cn=Users,dc=example,dc=org",
-            "bind_password": "pass",
             "base_dn": "dc=example,dc=org",
             "group_mapping": {
                 "ldap_group2": "sde_group2",
@@ -44,7 +44,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
             "ldap_method": "LDAP",
             "ldap_validate_cert": true
         },
-        "inaccessible": false
+        "inaccessible": true
     }]
 }
 ```
@@ -86,6 +86,7 @@ Content-Type: application/json
                 ]
             },
             "group_query": "(objectClass=group)",
+            "start_tls": true,
             "ldap_server": "ldapServer:12345",
             "deactivation": false,
             "user_schema": {
@@ -95,7 +96,6 @@ Content-Type: application/json
                 "full_name": "cn"
             },
             "bind_dn": "cn=Administrator,cn=Users,dc=example,dc=org",
-            "bind_password": "pass",
             "base_dn": "dc=example,dc=org",
             "group_mapping": {
                 "ldap_group2": "sde_group2",
@@ -104,7 +104,7 @@ Content-Type: application/json
             "ldap_method": "LDAP",
             "ldap_validate_cert": true
         },
-        "inaccessible": false,
+        "inaccessible": true,
         "last_job": {
             "succeeded": false,
             "last_run": "2016-12-15T22:45:27.412Z",
@@ -157,7 +157,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
 		"group_query": "(objectClass=group)",
 		"bind_dn": "cn=Administrator,cn=Users,dc=example,dc=org",
 		"base_dn": "dc=example,dc=org",
-		"bind_password": "pass"
+        "bind_password": "pass",
+        "start_tls": true
 	}
 }
 ```
@@ -183,6 +184,7 @@ Content-Type: application/json
             ]
         },
         "group_query": "(objectClass=group)",
+        "start_tls": true,
         "ldap_server": "ldapServer:12345",
         "deactivation": false,
         "user_schema": {
@@ -192,7 +194,6 @@ Content-Type: application/json
             "full_name": "cn"
         },
         "bind_dn": "cn=Administrator,cn=Users,dc=example,dc=org",
-        "bind_password": "pass",
         "base_dn": "dc=example,dc=org",
         "group_mapping": {
             "ldap_group2": "sde_group2",
@@ -228,6 +229,7 @@ page_size           | No       | Number of users to return per page. (defaults t
 group_member_query  | No       | Gives the users of the specified group 
 group_query         | Yes      | Specify groups to return
 base_dn             | No       | The base dn (will be computed from bind_dn if unspecified)
+start_tls           | No       | If checked, each connection to the LDAP server will enable TLS encryption over the standard LDAP port.
 
 ---
 
@@ -279,6 +281,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
       ]
     },
     "group_query": "(objectClass=group)",
+    "start_tls": true,
     "ldap_server": "ldapServer:12345",
     "bind_dn": "cn=Administrator,cn=Users,dc=example,dc=org",
     "user_schema": {
@@ -322,6 +325,7 @@ Content-Type: application/json
       ]
     },
     "group_query": "(objectClass=group)",
+    "start_tls": true,
     "ldap_server": "ldapServer:12345",
     "bind_dn": "cn=Administrator,cn=Users,dc=example,dc=org",
     "user_schema": {
@@ -333,7 +337,6 @@ Content-Type: application/json
     "deactivation": false,
     "group_member_query": "(&(objectClass=user)(memberOf=%s))",
     "page_size": 1000,
-    "bind_password": "pass",
     "base_dn": "dc=example,dc=org",
     "group_mapping": {
       "group": "group1"
@@ -374,11 +377,12 @@ ldap_validate_cert  | No       | Determines whether or not to validate the SSL c
 user_schema         | No       | Define a custom user schema.
 deactivation        | No       | Automatically deactivate groupless users in SDE.
 bind_dn             | Yes      | The bind dn
-bind_password       | Yes      | The bind password
+bind_password       | No       | The bind password
 page_size           | No       | Number of users to return per page. (defaults to 1000)
 group_member_query  | No       | Gives the users of the specified group 
 group_query         | Yes      | Specify groups to return
 base_dn             | No       | The base dn (will be computed from bind_dn if unspecified)
+start_tls           | No       | If checked, each connection to the LDAP server will enable TLS encryption over the standard LDAP port.
 
 ---
 
