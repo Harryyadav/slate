@@ -14,6 +14,7 @@ includes:
  - activity
  - analysis_notes
  - analysis_sessions
+ - api_tokens
  - applications
  - business_units
  - connections
@@ -41,6 +42,7 @@ includes:
  - task_references
  - task_updates
  - users
+ - user_profile
  - user_activity
  - assigned_tasks
  

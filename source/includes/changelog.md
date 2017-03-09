@@ -4,6 +4,11 @@
 
 - Phases can be created, edited, or deleted.
 - Changed the value of user to email instead of id, since we filter users by email.
+- Password can be changed, password metadata retrieved on GET (session / basic authentication only)
+- Password reset questions can be created, edited, or deleted
+- API tokens can be generated, revoked or regenerated
+- Email notification settings can be updated
+- User Profile can be retrieved or updated
 
 ## v4.4
 
