@@ -621,6 +621,85 @@
     <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2014-12-15T20:10:51.900775Z"</span>,
     <span class="hljs-attr">"updater"</span>: <span class="hljs-number">1</span>
 }</span></code></pre>
+        <h1 id="api-tokens">API Tokens</h1>
+        <h2 id="generate-an-api-token">Generate an API Token</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/users/{user_id}/api-token/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="json">{
+    <span class="hljs-attr">"token"</span>: <span class="hljs-string">"1234567890abcdefghijklmnopqrstuvwxyz"</span>,
+    <span class="hljs-attr">"connection_string"</span>: <span class="hljs-string">"1234567890abcdefghijklmnopqrstuvwxyz@example.com"</span>
+}</span></code></pre>
+        <p>This endpoint returns a newly generated API Token. Note: if the user already has a token, it will be regenerated.</p>
+        <p><strong><code>POST /api/v2/users/{user_id}/api-token/</code></strong></p>
+        <h3 id="url-parameters">URL Parameters</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>user_id</td>
+              <td>The ID of the User to retrieve</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="regenerate-an-api-token">Regenerate an API Token</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/users/{user_id}/api-token/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="json">{
+    <span class="hljs-attr">"token"</span>: <span class="hljs-string">"1234567890abcdefghijklmnopqrstuvwxyz"</span>,
+    <span class="hljs-attr">"connection_string"</span>: <span class="hljs-string">"1234567890abcdefghijklmnopqrstuvwxyz@example.com"</span>
+}</span></code></pre>
+        <p>This endpoint revokes and then regenerates an API Token.</p>
+        <p><strong><code>PUT /api/v2/users/{user_id}/api-token/</code></strong></p>
+        <h3 id="url-parameters">URL Parameters</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>user_id</td>
+              <td>The ID of the User to retrieve</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="revoke-an-api-token">Revoke an API Token</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">DELETE</span> <span class="hljs-string">/api/v2/users/{user_id}/api-token/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">204</span> NO CONTENT</code></pre>
+        <p>This endpoint revokes the users current API Token.</p>
+        <p><strong><code>DELETE /api/v2/users/{user_id}/api-token/</code></strong></p>
+        <h3 id="url-parameters">URL Parameters</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>user_id</td>
+              <td>The ID of the User to retrieve</td>
+            </tr>
+          </tbody>
+        </table>
         <h1 id="applications">Applications</h1>
         <h2 id="get-all-applications">Get All Applications</h2>
         <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/applications/</span> HTTP/1.1
@@ -7717,12 +7796,12 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
-<span class="1c">{
-    <span class="hljs-string">"email"</span>: <span class="hljs-string">"user@example.com"</span>,
-    <span class="hljs-string">"first_name"</span>: <span class="hljs-string">"Bob"</span>,
-    <span class="hljs-string">"last_name"</span>: <span class="hljs-string">"Smith"</span>,
-    <span class="hljs-string">"groups"</span>: [<span class="hljs-string">"G2"</span>],
-    <span class="hljs-string">"role"</span>: <span class="hljs-string">"UR2"</span>”<span class="hljs-string">"</span>
+<span class="json">{
+    <span class="hljs-attr">"email"</span>: <span class="hljs-string">"user@example.com"</span>,
+    <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Bob"</span>,
+    <span class="hljs-attr">"last_name"</span>: <span class="hljs-string">"Smith"</span>,
+    <span class="hljs-attr">"groups"</span>: [<span class="hljs-string">"G2"</span>],
+    <span class="hljs-attr">"role"</span>: <span class="hljs-string">"UR2"</span>
 }</span></code></pre>
         <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
@@ -7786,6 +7865,161 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK</code></pre>
         <p>Request a password reset for a specific user.</p>
         <p><strong><code>POST /api/v2/users/{user_id}/reset-password/</code></strong></p>
+        <h2 id="change-password">Change Password</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/users/me/password/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
+<span class="hljs-attribute">Cookie</span>: sessionid="YOUR SESSION ID"
+
+<span class="json">{
+    <span class="hljs-attr">"current_password"</span>: <span class="hljs-string">"hunter2"</span>,
+    <span class="hljs-attr">"new_password"</span>: <span class="hljs-string">"superstrongpassword123"</span>
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+
+<span class="json">{<span class="hljs-attr">"last_password_change"</span>:<span class="hljs-string">"2016-12-14T18:47:04.544Z"</span>}</span></code></pre>
+        <p>Changes the password for the current user.</p>
+        <p>This endpoint only uses either basic or session authentication.</p>
+        <p><strong><code>POST /api/v2/users/me/password/</code></strong></p>
+        <h2 id="get-password-metadata">Get Password Metadata</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/users/me/password/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
+<span class="hljs-attribute">Cookie</span>: sessionid="YOUR SESSION ID"
+
+<span class="clean">
+```http
+HTTP/<span class="hljs-number">1.1</span> <span class="hljs-number">200</span> OK
+
+{<span class="hljs-string">"last_password_change"</span>:<span class="hljs-string">"2016-12-14T18:47:04.544Z"</span>}</span></code></pre>
+        <p>Gets metadata regarding the password for the current user.</p>
+        <p>This endpoint only uses either basic or session authentication.</p>
+        <p><strong><code>GET /api/v2/users/me/password/</code></strong></p>
+        <h2 id="get-password-reset-questions">Get Password Reset Questions</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/users/me/password-reset-questions/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
+<span class="hljs-attribute">Cookie</span>: sessionid="YOUR SESSION ID"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="json">{
+    <span class="hljs-attr">"last_modified"</span>: <span class="hljs-string">"2017-01-24T22:23:23.448047Z"</span>,
+    <span class="hljs-attr">"questions"</span>: [
+        {
+          <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
+          <span class="hljs-attr">"question"</span>: <span class="hljs-string">"What was your childhood nickname?"</span>
+        },
+        {
+          <span class="hljs-attr">"id"</span>: <span class="hljs-number">2</span>,
+          <span class="hljs-attr">"question"</span>: <span class="hljs-string">"What is the street name of the house you grew up in?"</span>
+        },
+        {
+          <span class="hljs-attr">"id"</span>: <span class="hljs-number">3</span>,
+          <span class="hljs-attr">"question"</span>: <span class="hljs-string">"What is your mothers middle name?"</span>
+        }
+    ]
+}</span></code></pre>
+        <p>Get the password reset questions for the current user. Note: answers will not be returned.</p>
+        <p><strong><code>GET /api/v2/users/me/password-reset-questions/</code></strong></p>
+        <h1 id="change-password-reset-questions">Change Password Reset Questions</h1>
+        <pre class="highlight http"><code><span class="hljs-keyword">PATCH</span> <span class="hljs-string">/api/v2/users/me/password-reset-questions/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
+
+<span class="json">{
+    <span class="hljs-attr">"current_password"</span>: <span class="hljs-string">"Hunter2"</span>,
+    <span class="hljs-attr">"questions"</span>: [
+        {
+            <span class="hljs-attr">"question"</span>: <span class="hljs-string">"What was your childhood nickname?"</span>,
+            <span class="hljs-attr">"answer"</span>: <span class="hljs-string">"Hunter2"</span>
+        },
+        {
+            <span class="hljs-attr">"question"</span>: <span class="hljs-string">"What is the street name of the house you grew up in?"</span>,
+            <span class="hljs-attr">"answer"</span>: <span class="hljs-string">"Younge"</span>
+        },
+        {
+            <span class="hljs-attr">"question"</span>: <span class="hljs-string">"What is your mothers middle name?"</span>,
+            <span class="hljs-attr">"answer"</span>: <span class="hljs-string">"Jane"</span>
+        }
+    ]
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+
+<span class="json">{
+    <span class="hljs-attr">"last_modified"</span>: <span class="hljs-string">"2017-01-24T22:23:23.448047Z"</span>,
+    <span class="hljs-attr">"questions"</span>: [
+        {
+          <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
+          <span class="hljs-attr">"question"</span>: <span class="hljs-string">"What was your childhood nickname?"</span>
+        },
+        {
+          <span class="hljs-attr">"id"</span>: <span class="hljs-number">2</span>,
+          <span class="hljs-attr">"question"</span>: <span class="hljs-string">"What is the street name of the house you grew up in?"</span>
+        },
+        {
+          <span class="hljs-attr">"id"</span>: <span class="hljs-number">3</span>,
+          <span class="hljs-attr">"question"</span>: <span class="hljs-string">"What is your mothers middle name?"</span>
+        }
+    ]
+}</span></code></pre>
+        <p>Changes the password reset questions for the current user.</p>
+        <p>Note: Any existing question not included will be overwritten. To exclude a question from being overwritten/deleted, include it without a new answer.</p>
+        <p><strong><code>PATCH /api/v2/users/me/password-reset-questions/</code></strong></p>
+        <h1 id="user-profile">User Profile</h1>
+        <h2 id="get-user-profile">Get User Profile</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/users/me/profile/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="json">{
+  <span class="hljs-attr">"plaintext_emails_only"</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-attr">"notify_on_task_status_changed"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"notify_on_task_note_added"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"notify_on_job_failed"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"notify_on_new_relevant_tasks_in_project"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"notify_on_task_assigned"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"notify_on_task_added_to_project"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"notify_on_task_team_changed"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"notify_tasks"</span>: [<span class="hljs-string">"T1"</span>, <span class="hljs-string">"T2"</span>]
+}</span></code></pre>
+        <p>This endpoint returns the profile data of the current user.</p>
+        <p><strong><code>GET /api/v2/users/me/profile/</code></strong></p>
+        <h2 id="update-user-profile">Update User Profile</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">PATCH</span> <span class="hljs-string">/api/v2/users/me/profile/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="json">{
+  <span class="hljs-attr">"plaintext_emails_only"</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-attr">"notify_on_task_status_changed"</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-attr">"notify_on_task_note_added"</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-attr">"notify_on_job_failed"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"notify_on_new_relevant_tasks_in_project"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"notify_on_task_assigned"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"notify_on_task_added_to_project"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"notify_on_task_team_changed"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"notify_tasks"</span>: [<span class="hljs-string">"T1"</span>, <span class="hljs-string">"T2"</span>, <span class="hljs-string">"T3"</span>]
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="json">{
+  <span class="hljs-attr">"plaintext_emails_only"</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-attr">"notify_on_task_status_changed"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"notify_on_task_note_added"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"notify_on_job_failed"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"notify_on_new_relevant_tasks_in_project"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"notify_on_task_assigned"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"notify_on_task_added_to_project"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"notify_on_task_team_changed"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"notify_tasks"</span>: [<span class="hljs-string">"T1"</span>, <span class="hljs-string">"T2"</span>, <span class="hljs-string">"T3"</span>]
+}</span></code></pre>
+        <p>Update the current user&#39;s profile.</p>
+        <p><strong><code>PATCH /api/v2/users/me/profile/</code></strong></p>
         <h1 id="user-activities">User Activities</h1>
         <h2 id="get-all-activities">Get all activities</h2>
         <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/users/me/activities/</span> HTTP/1.1
@@ -8152,6 +8386,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <ul>
           <li>Phases can be created, edited, or deleted.</li>
           <li>Changed the value of user to email instead of id, since we filter users by email.</li>
+          <li>Password can be changed, password metadata retrieved on GET (session / basic authentication only)</li>
+          <li>Password reset questions can be created, edited, or deleted</li>
+          <li>API tokens can be generated, revoked or regenerated</li>
+          <li>Email notification settings can be updated</li>
+          <li>User Profile can be retrieved or updated</li>
         </ul>
         <h2 id="v4-4">v4.4</h2>
         <ul>
