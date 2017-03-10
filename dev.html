@@ -7898,7 +7898,7 @@ HTTP/<span class="hljs-number">1.1</span> <span class="hljs-number">200</span> O
         <h2 id="get-password-reset-questions">Get Password Reset Questions</h2>
         <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/users/me/password-reset-questions/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
+<span class="hljs-attribute">Authorization</span>: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
 <span class="hljs-attribute">Cookie</span>: sessionid="YOUR SESSION ID"</code></pre>
         <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
@@ -7922,10 +7922,11 @@ HTTP/<span class="hljs-number">1.1</span> <span class="hljs-number">200</span> O
 }</span></code></pre>
         <p>Get the password reset questions for the current user. Note: answers will not be returned.</p>
         <p><strong><code>GET /api/v2/users/me/password-reset-questions/</code></strong></p>
-        <h1 id="change-password-reset-questions">Change Password Reset Questions</h1>
+        <h2 id="change-password-reset-questions">Change Password Reset Questions</h2>
         <pre class="highlight http"><code><span class="hljs-keyword">PATCH</span> <span class="hljs-string">/api/v2/users/me/password-reset-questions/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
+<span class="hljs-attribute">Authorization</span>: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
+<span class="hljs-attribute">Cookie</span>: sessionid="YOUR SESSION ID"
 
 <span class="json">{
     <span class="hljs-attr">"current_password"</span>: <span class="hljs-string">"Hunter2"</span>,
