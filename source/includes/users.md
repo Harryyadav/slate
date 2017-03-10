@@ -352,7 +352,7 @@ This endpoint only uses either basic or session authentication.
 ```http
 GET /api/v2/users/me/password-reset-questions/ HTTP/1.1
 Accept: application/json
-Authorization: Token "YOUR SDE ACCESS TOKEN"
+Authorization: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
 Cookie: sessionid="YOUR SESSION ID"
 ```
 
@@ -388,12 +388,13 @@ Note: answers will not be returned.
 
 
 
-# Change Password Reset Questions
+## Change Password Reset Questions
 
 ```http
 PATCH /api/v2/users/me/password-reset-questions/ HTTP/1.1
 Accept: application/json
-Authorization: Token "YOUR SDE ACCESS TOKEN"
+Authorization: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
+Cookie: sessionid="YOUR SESSION ID"
 
 {
     "current_password": "Hunter2",
