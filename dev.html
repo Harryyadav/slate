@@ -625,7 +625,8 @@
         <h2 id="generate-an-api-token">Generate an API Token</h2>
         <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/users/{user_id}/api-token/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+<span class="hljs-attribute">Authorization</span>: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
+<span class="hljs-attribute">Cookie</span>: sessionid="YOUR SESSION ID"</code></pre>
         <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
@@ -633,7 +634,7 @@
     <span class="hljs-attr">"token"</span>: <span class="hljs-string">"1234567890abcdefghijklmnopqrstuvwxyz"</span>,
     <span class="hljs-attr">"connection_string"</span>: <span class="hljs-string">"1234567890abcdefghijklmnopqrstuvwxyz@example.com"</span>
 }</span></code></pre>
-        <p>This endpoint returns a newly generated API Token. Note: if the user already has a token, it will be regenerated.</p>
+        <p>This endpoint returns a newly generated API Token. Note: if the user already has a token, it will be regenerated. This endpoint also only uses either basic or session authentication.</p>
         <p><strong><code>POST /api/v2/users/{user_id}/api-token/</code></strong></p>
         <h3 id="url-parameters">URL Parameters</h3>
         <table>
@@ -653,7 +654,8 @@
         <h2 id="regenerate-an-api-token">Regenerate an API Token</h2>
         <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/users/{user_id}/api-token/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+<span class="hljs-attribute">Authorization</span>: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
+<span class="hljs-attribute">Cookie</span>: sessionid="YOUR SESSION ID"</code></pre>
         <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
@@ -662,6 +664,7 @@
     <span class="hljs-attr">"connection_string"</span>: <span class="hljs-string">"1234567890abcdefghijklmnopqrstuvwxyz@example.com"</span>
 }</span></code></pre>
         <p>This endpoint revokes and then regenerates an API Token.</p>
+        <p>Note: This endpoint only uses either basic or session authentication.</p>
         <p><strong><code>PUT /api/v2/users/{user_id}/api-token/</code></strong></p>
         <h3 id="url-parameters">URL Parameters</h3>
         <table>
@@ -681,9 +684,11 @@
         <h2 id="revoke-an-api-token">Revoke an API Token</h2>
         <pre class="highlight http"><code><span class="hljs-keyword">DELETE</span> <span class="hljs-string">/api/v2/users/{user_id}/api-token/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+<span class="hljs-attribute">Authorization</span>: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
+<span class="hljs-attribute">Cookie</span>: sessionid="YOUR SESSION ID"</code></pre>
         <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">204</span> NO CONTENT</code></pre>
         <p>This endpoint revokes the users current API Token.</p>
+        <p>Note: This endpoint only uses either basic or session authentication.</p>
         <p><strong><code>DELETE /api/v2/users/{user_id}/api-token/</code></strong></p>
         <h3 id="url-parameters">URL Parameters</h3>
         <table>
