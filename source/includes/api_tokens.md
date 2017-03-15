@@ -5,7 +5,8 @@
 ```http
 POST /api/v2/users/{user_id}/api-token/ HTTP/1.1
 Accept: application/json
-Authorization: Token "YOUR SDE ACCESS TOKEN"
+Authorization: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
+Cookie: sessionid="YOUR SESSION ID"
 ```
 
 ```http
@@ -20,6 +21,7 @@ Content-Type: application/json
 
 This endpoint returns a newly generated API Token.
 Note: if the user already has a token, it will be regenerated.
+This endpoint also only uses either basic or session authentication.
 
 **`POST /api/v2/users/{user_id}/api-token/`**
 
@@ -42,7 +44,8 @@ user_id   | The ID of the User to retrieve
 ```http
 PUT /api/v2/users/{user_id}/api-token/ HTTP/1.1
 Accept: application/json
-Authorization: Token "YOUR SDE ACCESS TOKEN"
+Authorization: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
+Cookie: sessionid="YOUR SESSION ID"
 ```
 
 ```http
@@ -56,6 +59,8 @@ Content-Type: application/json
 ```
 
 This endpoint revokes and then regenerates an API Token.
+
+Note: This endpoint only uses either basic or session authentication.
 
 **`PUT /api/v2/users/{user_id}/api-token/`**
 
@@ -79,7 +84,8 @@ user_id   | The ID of the User to retrieve
 ```http
 DELETE /api/v2/users/{user_id}/api-token/ HTTP/1.1
 Accept: application/json
-Authorization: Token "YOUR SDE ACCESS TOKEN"
+Authorization: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
+Cookie: sessionid="YOUR SESSION ID"
 ```
 
 
@@ -88,6 +94,8 @@ HTTP/1.1 204 NO CONTENT
 ```
 
 This endpoint revokes the users current API Token.
+
+Note: This endpoint only uses either basic or session authentication.
 
 **`DELETE /api/v2/users/{user_id}/api-token/`**
 
