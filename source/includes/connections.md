@@ -26,7 +26,6 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
                 ]
             },
             "group_query": "(objectClass=group)",
-            "start_tls": true,
             "ldap_server": "ldapServer:12345",
             "deactivation": false,
             "user_schema": {
@@ -36,6 +35,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
                 "full_name": "cn"
             },
             "bind_dn": "cn=Administrator,cn=Users,dc=example,dc=org",
+            "bind_password": "qweASD123",
             "base_dn": "dc=example,dc=org",
             "group_mapping": {
                 "ldap_group2": "sde_group2",
@@ -86,7 +86,6 @@ Content-Type: application/json
                 ]
             },
             "group_query": "(objectClass=group)",
-            "start_tls": true,
             "ldap_server": "ldapServer:12345",
             "deactivation": false,
             "user_schema": {
@@ -96,6 +95,7 @@ Content-Type: application/json
                 "full_name": "cn"
             },
             "bind_dn": "cn=Administrator,cn=Users,dc=example,dc=org",
+            "bind_password": "qweASD123",
             "base_dn": "dc=example,dc=org",
             "group_mapping": {
                 "ldap_group2": "sde_group2",
@@ -158,7 +158,6 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
 		"bind_dn": "cn=Administrator,cn=Users,dc=example,dc=org",
 		"base_dn": "dc=example,dc=org",
         "bind_password": "pass",
-        "start_tls": true
 	}
 }
 ```
@@ -184,7 +183,6 @@ Content-Type: application/json
             ]
         },
         "group_query": "(objectClass=group)",
-        "start_tls": true,
         "ldap_server": "ldapServer:12345",
         "deactivation": false,
         "user_schema": {
@@ -211,6 +209,7 @@ Fields              | Required | Description
 alias               | Yes      | The name of the new connection.
 frequency           | No       | The frequency in which this connection will sync.  The available options are: "hourly", "daily", "weekly", "monthly" and "manually".  If unspecified, the frequency will default to "manually".
 params              | Yes      | A dictionary containing connections options. Please refer to the table below
+inaccessible        | No       | Is the connection inaccessible from the SDE server. Defaults to false.
 
 ### Params fields
 
@@ -229,7 +228,6 @@ page_size           | No       | Number of users to return per page. (defaults t
 group_member_query  | No       | Gives the users of the specified group 
 group_query         | Yes      | Specify groups to return
 base_dn             | No       | The base dn (will be computed from bind_dn if unspecified)
-start_tls           | No       | If checked, each connection to the LDAP server will enable TLS encryption over the standard LDAP port.
 
 ---
 
@@ -281,7 +279,6 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
       ]
     },
     "group_query": "(objectClass=group)",
-    "start_tls": true,
     "ldap_server": "ldapServer:12345",
     "bind_dn": "cn=Administrator,cn=Users,dc=example,dc=org",
     "user_schema": {
@@ -325,7 +322,6 @@ Content-Type: application/json
       ]
     },
     "group_query": "(objectClass=group)",
-    "start_tls": true,
     "ldap_server": "ldapServer:12345",
     "bind_dn": "cn=Administrator,cn=Users,dc=example,dc=org",
     "user_schema": {
@@ -364,6 +360,7 @@ Fields              | Required | Description
 alias               | Yes      | The name of the new connection.
 frequency           | No       | The frequency in which this connection will sync.  The available options are: "hourly", "daily", "weekly", "monthly" and "manually".  If unspecified, the frequency will default to "manually".
 params              | Yes      | A dictionary containing connections options. Please refer to the table below
+inaccessible        | No       | Is the connection inaccessible from the SDE server. Defaults to false.
 
 ### Params fields
 
@@ -382,8 +379,6 @@ page_size           | No       | Number of users to return per page. (defaults t
 group_member_query  | No       | Gives the users of the specified group 
 group_query         | Yes      | Specify groups to return
 base_dn             | No       | The base dn (will be computed from bind_dn if unspecified)
-start_tls           | No       | If checked, each connection to the LDAP server will enable TLS encryption over the standard LDAP port.
-
 ---
 
 

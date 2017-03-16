@@ -9,6 +9,7 @@
 - API tokens can be generated, revoked or regenerated
 - Email notification settings can be updated
 - User Profile can be retrieved or updated
+- LDAP Connections - removed start_tls, add inaccessible to parameter list
 
 ## v4.4
 
