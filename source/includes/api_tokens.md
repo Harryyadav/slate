@@ -20,8 +20,9 @@ Content-Type: application/json
 ```
 
 This endpoint returns a newly generated API Token.
-Note: if the user already has a token, it will be regenerated.
-This endpoint also only uses either basic or session authentication.
+If the user already has a token, it will be regenerated.
+
+Note: This endpoint only uses either basic or session authentication.
 
 **`POST /api/v2/users/{user_id}/api-token/`**
 
@@ -91,6 +92,12 @@ Cookie: sessionid="YOUR SESSION ID"
 
 ```http
 HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "token": "***********************************vwxyz",
+    "connection_string": "***********************************vwxyz@example.com"
+}
 ```
 
 This endpoint retrieves the users API Token. For security reasons the token
