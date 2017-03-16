@@ -580,7 +580,6 @@ Content-Type: application/json
                 "deactivation": false,
                 "group_member_query": "(&(objectClass=user)(memberOf=%s))",
                 "page_size": 666,
-                "bind_password": "qweASD123",
                 "base_dn": "DC=labs,DC=sdelements,DC=com",
                 "group_mapping": {
                     "mathematicians": "group2",
@@ -662,7 +661,6 @@ Content-Type: application/json
             "deactivation": false,
             "group_member_query": "(&(objectClass=user)(memberOf=%s))",
             "page_size": 666,
-            "bind_password": "qweASD123",
             "base_dn": "DC=labs,DC=sdelements,DC=com",
             "group_mapping": {
                 "mathematicians": "group2",
@@ -740,7 +738,6 @@ Content-Type: application/json
             "deactivation": false,
             "group_member_query": "(&(objectClass=user)(memberOf=%s))",
             "page_size": 666,
-            "bind_password": "qweASD123",
             "base_dn": "DC=labs,DC=sdelements,DC=com",
             "group_mapping": {
                 "mathematicians": "group2",
@@ -822,7 +819,6 @@ Content-Type: application/json
             "deactivation": false,
             "group_member_query": "(&(objectClass=user)(memberOf=%s))",
             "page_size": 666,
-            "bind_password": "qweASD123",
             "base_dn": "DC=labs,DC=sdelements,DC=com",
             "group_mapping": {
                 "mathematicians": "group2",
