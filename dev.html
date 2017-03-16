@@ -634,7 +634,8 @@
     <span class="hljs-attr">"token"</span>: <span class="hljs-string">"1234567890abcdefghijklmnopqrstuvwxyz"</span>,
     <span class="hljs-attr">"connection_string"</span>: <span class="hljs-string">"1234567890abcdefghijklmnopqrstuvwxyz@example.com"</span>
 }</span></code></pre>
-        <p>This endpoint returns a newly generated API Token. Note: if the user already has a token, it will be regenerated. This endpoint also only uses either basic or session authentication.</p>
+        <p>This endpoint returns a newly generated API Token. If the user already has a token, it will be regenerated.</p>
+        <p>Note: This endpoint only uses either basic or session authentication.</p>
         <p><strong><code>POST /api/v2/users/{user_id}/api-token/</code></strong></p>
         <h3 id="url-parameters">URL Parameters</h3>
         <table>
@@ -686,7 +687,13 @@
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
 <span class="hljs-attribute">Cookie</span>: sessionid="YOUR SESSION ID"</code></pre>
-        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="json">{
+    <span class="hljs-attr">"token"</span>: <span class="hljs-string">"***********************************vwxyz"</span>,
+    <span class="hljs-attr">"connection_string"</span>: <span class="hljs-string">"***********************************vwxyz@example.com"</span>
+}</span></code></pre>
         <p>This endpoint retrieves the users API Token. For security reasons the token will be obfuscated. If you have lost your token you will have to regenerate it.</p>
         <p>Note: This endpoint only uses either basic or session authentication.</p>
         <p><strong><code>GET /api/v2/users/{user_id}/api-token/</code></strong></p>
