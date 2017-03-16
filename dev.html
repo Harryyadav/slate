@@ -1378,7 +1378,6 @@
                 ]
             },
             <span class="hljs-attr">"group_query"</span>: <span class="hljs-string">"(objectClass=group)"</span>,
-            <span class="hljs-attr">"start_tls"</span>: <span class="hljs-literal">true</span>,
             <span class="hljs-attr">"ldap_server"</span>: <span class="hljs-string">"ldapServer:12345"</span>,
             <span class="hljs-attr">"deactivation"</span>: <span class="hljs-literal">false</span>,
             <span class="hljs-attr">"user_schema"</span>: {
@@ -1388,6 +1387,7 @@
                 <span class="hljs-attr">"full_name"</span>: <span class="hljs-string">"cn"</span>
             },
             <span class="hljs-attr">"bind_dn"</span>: <span class="hljs-string">"cn=Administrator,cn=Users,dc=example,dc=org"</span>,
+            <span class="hljs-attr">"bind_password"</span>: <span class="hljs-string">"qweASD123"</span>,
             <span class="hljs-attr">"base_dn"</span>: <span class="hljs-string">"dc=example,dc=org"</span>,
             <span class="hljs-attr">"group_mapping"</span>: {
                 <span class="hljs-attr">"ldap_group2"</span>: <span class="hljs-string">"sde_group2"</span>,
@@ -1428,7 +1428,6 @@
                 ]
             },
             <span class="hljs-attr">"group_query"</span>: <span class="hljs-string">"(objectClass=group)"</span>,
-            <span class="hljs-attr">"start_tls"</span>: <span class="hljs-literal">true</span>,
             <span class="hljs-attr">"ldap_server"</span>: <span class="hljs-string">"ldapServer:12345"</span>,
             <span class="hljs-attr">"deactivation"</span>: <span class="hljs-literal">false</span>,
             <span class="hljs-attr">"user_schema"</span>: {
@@ -1438,6 +1437,7 @@
                 <span class="hljs-attr">"full_name"</span>: <span class="hljs-string">"cn"</span>
             },
             <span class="hljs-attr">"bind_dn"</span>: <span class="hljs-string">"cn=Administrator,cn=Users,dc=example,dc=org"</span>,
+            <span class="hljs-attr">"bind_password"</span>: <span class="hljs-string">"qweASD123"</span>,
             <span class="hljs-attr">"base_dn"</span>: <span class="hljs-string">"dc=example,dc=org"</span>,
             <span class="hljs-attr">"group_mapping"</span>: {
                 <span class="hljs-attr">"ldap_group2"</span>: <span class="hljs-string">"sde_group2"</span>,
@@ -1503,7 +1503,6 @@
         <span class="hljs-attr">"bind_dn"</span>: <span class="hljs-string">"cn=Administrator,cn=Users,dc=example,dc=org"</span>,
         <span class="hljs-attr">"base_dn"</span>: <span class="hljs-string">"dc=example,dc=org"</span>,
         <span class="hljs-attr">"bind_password"</span>: <span class="hljs-string">"pass"</span>,
-        <span class="hljs-attr">"start_tls"</span>: <span class="hljs-literal">true</span>
     }
 }</span></code></pre>
         <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
@@ -1527,7 +1526,6 @@
             ]
         },
         <span class="hljs-attr">"group_query"</span>: <span class="hljs-string">"(objectClass=group)"</span>,
-        <span class="hljs-attr">"start_tls"</span>: <span class="hljs-literal">true</span>,
         <span class="hljs-attr">"ldap_server"</span>: <span class="hljs-string">"ldapServer:12345"</span>,
         <span class="hljs-attr">"deactivation"</span>: <span class="hljs-literal">false</span>,
         <span class="hljs-attr">"user_schema"</span>: {
@@ -1570,6 +1568,11 @@
               <td>params</td>
               <td>Yes</td>
               <td>A dictionary containing connections options. Please refer to the table below</td>
+            </tr>
+            <tr>
+              <td>inaccessible</td>
+              <td>No</td>
+              <td>Is the connection inaccessible from the SDE server. Defaults to false.</td>
             </tr>
           </tbody>
         </table>
@@ -1648,11 +1651,6 @@
               <td>No</td>
               <td>The base dn (will be computed from bind_dn if unspecified)</td>
             </tr>
-            <tr>
-              <td>start_tls</td>
-              <td>No</td>
-              <td>If checked, each connection to the LDAP server will enable TLS encryption over the standard LDAP port.</td>
-            </tr>
           </tbody>
         </table>
         <hr>
@@ -1700,7 +1698,6 @@
       ]
     },
     <span class="hljs-attr">"group_query"</span>: <span class="hljs-string">"(objectClass=group)"</span>,
-    <span class="hljs-attr">"start_tls"</span>: <span class="hljs-literal">true</span>,
     <span class="hljs-attr">"ldap_server"</span>: <span class="hljs-string">"ldapServer:12345"</span>,
     <span class="hljs-attr">"bind_dn"</span>: <span class="hljs-string">"cn=Administrator,cn=Users,dc=example,dc=org"</span>,
     <span class="hljs-attr">"user_schema"</span>: {
@@ -1742,7 +1739,6 @@
       ]
     },
     <span class="hljs-attr">"group_query"</span>: <span class="hljs-string">"(objectClass=group)"</span>,
-    <span class="hljs-attr">"start_tls"</span>: <span class="hljs-literal">true</span>,
     <span class="hljs-attr">"ldap_server"</span>: <span class="hljs-string">"ldapServer:12345"</span>,
     <span class="hljs-attr">"bind_dn"</span>: <span class="hljs-string">"cn=Administrator,cn=Users,dc=example,dc=org"</span>,
     <span class="hljs-attr">"user_schema"</span>: {
@@ -1804,6 +1800,11 @@
               <td>Yes</td>
               <td>A dictionary containing connections options. Please refer to the table below</td>
             </tr>
+            <tr>
+              <td>inaccessible</td>
+              <td>No</td>
+              <td>Is the connection inaccessible from the SDE server. Defaults to false.</td>
+            </tr>
           </tbody>
         </table>
         <h3 id="params-fields">Params fields</h3>
@@ -1880,11 +1881,6 @@
               <td>base_dn</td>
               <td>No</td>
               <td>The base dn (will be computed from bind_dn if unspecified)</td>
-            </tr>
-            <tr>
-              <td>start_tls</td>
-              <td>No</td>
-              <td>If checked, each connection to the LDAP server will enable TLS encryption over the standard LDAP port.</td>
             </tr>
           </tbody>
         </table>
@@ -3825,7 +3821,6 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
                 <span class="hljs-attr">"deactivation"</span>: <span class="hljs-literal">false</span>,
                 <span class="hljs-attr">"group_member_query"</span>: <span class="hljs-string">"(&amp;(objectClass=user)(memberOf=%s))"</span>,
                 <span class="hljs-attr">"page_size"</span>: <span class="hljs-number">666</span>,
-                <span class="hljs-attr">"bind_password"</span>: <span class="hljs-string">"qweASD123"</span>,
                 <span class="hljs-attr">"base_dn"</span>: <span class="hljs-string">"DC=labs,DC=sdelements,DC=com"</span>,
                 <span class="hljs-attr">"group_mapping"</span>: {
                     <span class="hljs-attr">"mathematicians"</span>: <span class="hljs-string">"group2"</span>,
@@ -3914,7 +3909,6 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
             <span class="hljs-attr">"deactivation"</span>: <span class="hljs-literal">false</span>,
             <span class="hljs-attr">"group_member_query"</span>: <span class="hljs-string">"(&amp;(objectClass=user)(memberOf=%s))"</span>,
             <span class="hljs-attr">"page_size"</span>: <span class="hljs-number">666</span>,
-            <span class="hljs-attr">"bind_password"</span>: <span class="hljs-string">"qweASD123"</span>,
             <span class="hljs-attr">"base_dn"</span>: <span class="hljs-string">"DC=labs,DC=sdelements,DC=com"</span>,
             <span class="hljs-attr">"group_mapping"</span>: {
                 <span class="hljs-attr">"mathematicians"</span>: <span class="hljs-string">"group2"</span>,
@@ -3971,7 +3965,6 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
             <span class="hljs-attr">"deactivation"</span>: <span class="hljs-literal">false</span>,
             <span class="hljs-attr">"group_member_query"</span>: <span class="hljs-string">"(&amp;(objectClass=user)(memberOf=%s))"</span>,
             <span class="hljs-attr">"page_size"</span>: <span class="hljs-number">666</span>,
-            <span class="hljs-attr">"bind_password"</span>: <span class="hljs-string">"qweASD123"</span>,
             <span class="hljs-attr">"base_dn"</span>: <span class="hljs-string">"DC=labs,DC=sdelements,DC=com"</span>,
             <span class="hljs-attr">"group_mapping"</span>: {
                 <span class="hljs-attr">"mathematicians"</span>: <span class="hljs-string">"group2"</span>,
@@ -4068,7 +4061,6 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
             <span class="hljs-attr">"deactivation"</span>: <span class="hljs-literal">false</span>,
             <span class="hljs-attr">"group_member_query"</span>: <span class="hljs-string">"(&amp;(objectClass=user)(memberOf=%s))"</span>,
             <span class="hljs-attr">"page_size"</span>: <span class="hljs-number">666</span>,
-            <span class="hljs-attr">"bind_password"</span>: <span class="hljs-string">"qweASD123"</span>,
             <span class="hljs-attr">"base_dn"</span>: <span class="hljs-string">"DC=labs,DC=sdelements,DC=com"</span>,
             <span class="hljs-attr">"group_mapping"</span>: {
                 <span class="hljs-attr">"mathematicians"</span>: <span class="hljs-string">"group2"</span>,
@@ -8428,6 +8420,7 @@ HTTP/<span class="hljs-number">1.1</span> <span class="hljs-number">200</span> O
           <li>API tokens can be generated, revoked or regenerated</li>
           <li>Email notification settings can be updated</li>
           <li>User Profile can be retrieved or updated</li>
+          <li>LDAP Connections - removed start_tls, add inaccessible to parameter list</li>
         </ul>
         <h2 id="v4-4">v4.4</h2>
         <ul>
