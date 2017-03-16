@@ -681,13 +681,37 @@
             </tr>
           </tbody>
         </table>
+        <h2 id="get-an-api-token">Get an API Token</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/users/{user_id}/api-token/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
+<span class="hljs-attribute">Cookie</span>: sessionid="YOUR SESSION ID"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK</code></pre>
+        <p>This endpoint retrieves the users API Token. For security reasons the token will be obfuscated. If you have lost your token you will have to regenerate it.</p>
+        <p>Note: This endpoint only uses either basic or session authentication.</p>
+        <p><strong><code>GET /api/v2/users/{user_id}/api-token/</code></strong></p>
+        <h3 id="url-parameters">URL Parameters</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>user_id</td>
+              <td>The ID of the User to retrieve</td>
+            </tr>
+          </tbody>
+        </table>
         <h2 id="revoke-an-api-token">Revoke an API Token</h2>
         <pre class="highlight http"><code><span class="hljs-keyword">DELETE</span> <span class="hljs-string">/api/v2/users/{user_id}/api-token/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
 <span class="hljs-attribute">Cookie</span>: sessionid="YOUR SESSION ID"</code></pre>
         <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">204</span> NO CONTENT</code></pre>
-        <p>This endpoint revokes the users current API Token.</p>
+        <p>This endpoint revokes the users current API Token. Only admin users can revoke API Tokens of other users.</p>
         <p>Note: This endpoint only uses either basic or session authentication.</p>
         <p><strong><code>DELETE /api/v2/users/{user_id}/api-token/</code></strong></p>
         <h3 id="url-parameters">URL Parameters</h3>
