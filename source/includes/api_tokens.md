@@ -79,6 +79,42 @@ user_id   | The ID of the User to retrieve
 
 
 
+## Get an API Token
+
+```http
+GET /api/v2/users/{user_id}/api-token/ HTTP/1.1
+Accept: application/json
+Authorization: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
+Cookie: sessionid="YOUR SESSION ID"
+```
+
+
+```http
+HTTP/1.1 200 OK
+```
+
+This endpoint retrieves the users API Token. For security reasons the token
+will be obfuscated. If you have lost your token you will have to regenerate it.
+
+Note: This endpoint only uses either basic or session authentication.
+
+**`GET /api/v2/users/{user_id}/api-token/`**
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+user_id   | The ID of the User to retrieve
+
+
+
+
+
+
+
+
+
+
 ## Revoke an API Token
 
 ```http
@@ -94,6 +130,7 @@ HTTP/1.1 204 NO CONTENT
 ```
 
 This endpoint revokes the users current API Token.
+Only admin users can revoke API Tokens of other users.
 
 Note: This endpoint only uses either basic or session authentication.
 
