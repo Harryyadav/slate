@@ -10,6 +10,9 @@
 - Email notification settings can be updated
 - User Profile can be retrieved or updated
 - LDAP Connections - removed start_tls, add inaccessible to parameter list
+- Group endpoint now has sync_connections include filter to fetch LDAP connections
+  that reference groups
+- Group can no longer be deleted if referenced by LDAP connection
 
 ## v4.4
 
