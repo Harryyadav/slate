@@ -1379,7 +1379,8 @@
             },
             <span class="hljs-attr">"group_query"</span>: <span class="hljs-string">"(objectClass=group)"</span>,
             <span class="hljs-attr">"ldap_server"</span>: <span class="hljs-string">"ldapServer:12345"</span>,
-            <span class="hljs-attr">"deactivation"</span>: <span class="hljs-literal">false</span>,
+            <span class="hljs-attr">"deactivate_groupless_users"</span>: <span class="hljs-literal">false</span>,
+            <span class="hljs-attr">"deactivate_stale_users"</span>: <span class="hljs-literal">false</span>,
             <span class="hljs-attr">"user_schema"</span>: {
                 <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"gn"</span>,
                 <span class="hljs-attr">"last_name"</span>: <span class="hljs-string">"sn"</span>,
@@ -1393,7 +1394,7 @@
                 <span class="hljs-attr">"ldap_group2"</span>: <span class="hljs-string">"sde_group2"</span>,
                 <span class="hljs-attr">"ldap_group1"</span>: <span class="hljs-string">"sde_group1"</span>
             },
-            <span class="hljs-attr">"ldap_method"</span>: <span class="hljs-string">"LDAP"</span>,
+            <span class="hljs-attr">"ldap_start_tls"</span>: <span class="hljs-literal">false</span>,
             <span class="hljs-attr">"ldap_validate_cert"</span>: <span class="hljs-literal">true</span>
         },
         <span class="hljs-attr">"inaccessible"</span>: <span class="hljs-literal">true</span>
@@ -1429,7 +1430,8 @@
             },
             <span class="hljs-attr">"group_query"</span>: <span class="hljs-string">"(objectClass=group)"</span>,
             <span class="hljs-attr">"ldap_server"</span>: <span class="hljs-string">"ldapServer:12345"</span>,
-            <span class="hljs-attr">"deactivation"</span>: <span class="hljs-literal">false</span>,
+            <span class="hljs-attr">"deactivate_groupless_users"</span>: <span class="hljs-literal">false</span>,
+            <span class="hljs-attr">"deactivate_stale_users"</span>: <span class="hljs-literal">false</span>,
             <span class="hljs-attr">"user_schema"</span>: {
                 <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"gn"</span>,
                 <span class="hljs-attr">"last_name"</span>: <span class="hljs-string">"sn"</span>,
@@ -1443,7 +1445,7 @@
                 <span class="hljs-attr">"ldap_group2"</span>: <span class="hljs-string">"sde_group2"</span>,
                 <span class="hljs-attr">"ldap_group1"</span>: <span class="hljs-string">"sde_group1"</span>
             },
-            <span class="hljs-attr">"ldap_method"</span>: <span class="hljs-string">"LDAP"</span>,
+            <span class="hljs-attr">"ldap_start_tls"</span>: <span class="hljs-literal">false</span>,
             <span class="hljs-attr">"ldap_validate_cert"</span>: <span class="hljs-literal">true</span>
         },
         <span class="hljs-attr">"inaccessible"</span>: <span class="hljs-literal">true</span>,
@@ -1483,7 +1485,6 @@
     <span class="hljs-attr">"alias"</span>: <span class="hljs-string">"LDAP"</span>,
     <span class="hljs-attr">"params"</span>: {
         <span class="hljs-attr">"ldap_server"</span>: <span class="hljs-string">"ldapServer:12345"</span>,
-        <span class="hljs-attr">"ldap_method"</span>: <span class="hljs-string">"LDAP"</span>,
         <span class="hljs-attr">"group_mapping"</span>: {
             <span class="hljs-attr">"ldap_group1"</span>: <span class="hljs-string">"sde_group1"</span>,
             <span class="hljs-attr">"ldap_group2"</span>: <span class="hljs-string">"sde_group2"</span>
@@ -1498,11 +1499,13 @@
             <span class="hljs-attr">"full_name"</span>: <span class="hljs-string">"cn"</span>,
             <span class="hljs-attr">"email"</span>: <span class="hljs-string">"mail"</span>
         },
-        <span class="hljs-attr">"deactivation"</span>: <span class="hljs-literal">false</span>,
+        <span class="hljs-attr">"deactivate_groupless_users"</span>: <span class="hljs-literal">false</span>,
+        <span class="hljs-attr">"deactivate_stale_users"</span>: <span class="hljs-literal">false</span>,
         <span class="hljs-attr">"group_query"</span>: <span class="hljs-string">"(objectClass=group)"</span>,
         <span class="hljs-attr">"bind_dn"</span>: <span class="hljs-string">"cn=Administrator,cn=Users,dc=example,dc=org"</span>,
         <span class="hljs-attr">"base_dn"</span>: <span class="hljs-string">"dc=example,dc=org"</span>,
         <span class="hljs-attr">"bind_password"</span>: <span class="hljs-string">"pass"</span>,
+        <span class="hljs-attr">"ldap_start_tls"</span>: <span class="hljs-literal">true</span>
     }
 }</span></code></pre>
         <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
@@ -1527,7 +1530,8 @@
         },
         <span class="hljs-attr">"group_query"</span>: <span class="hljs-string">"(objectClass=group)"</span>,
         <span class="hljs-attr">"ldap_server"</span>: <span class="hljs-string">"ldapServer:12345"</span>,
-        <span class="hljs-attr">"deactivation"</span>: <span class="hljs-literal">false</span>,
+        <span class="hljs-attr">"deactivate_groupless_users"</span>: <span class="hljs-literal">false</span>,
+        <span class="hljs-attr">"deactivate_stale_users"</span>: <span class="hljs-literal">false</span>,
         <span class="hljs-attr">"user_schema"</span>: {
             <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"gn"</span>,
             <span class="hljs-attr">"last_name"</span>: <span class="hljs-string">"sn"</span>,
@@ -1540,7 +1544,7 @@
             <span class="hljs-attr">"ldap_group2"</span>: <span class="hljs-string">"sde_group2"</span>,
             <span class="hljs-attr">"ldap_group1"</span>: <span class="hljs-string">"sde_group1"</span>
         },
-        <span class="hljs-attr">"ldap_method"</span>: <span class="hljs-string">"LDAP"</span>,
+        <span class="hljs-attr">"ldap_start_tls"</span>: <span class="hljs-literal">true</span>,
         <span class="hljs-attr">"ldap_validate_cert"</span>: <span class="hljs-literal">true</span>
     },
     <span class="hljs-attr">"inaccessible"</span>: <span class="hljs-literal">false</span>
@@ -1592,9 +1596,9 @@
               <td>The address of the LDAP server.</td>
             </tr>
             <tr>
-              <td>ldap_method</td>
+              <td>ldap_start_tls</td>
               <td>No</td>
-              <td>The method used to connect to the LDAP server (defaults to ldaps).</td>
+              <td>Determines whether or not to secure connection using TLS/SSL (defaults to True).</td>
             </tr>
             <tr>
               <td>group_mapping</td>
@@ -1617,9 +1621,14 @@
               <td>Define a custom user schema.</td>
             </tr>
             <tr>
-              <td>deactivation</td>
+              <td>deactivate_groupless_users</td>
               <td>No</td>
-              <td>Automatically deactivate groupless users in SDE.</td>
+              <td>Automatically deactivate SDE users that are not assigned to any groups (defaults to False).</td>
+            </tr>
+            <tr>
+              <td>deactivate_stale_users</td>
+              <td>No</td>
+              <td>Automatically deactivate SDE users not found in LDAP (defaults to False).</td>
             </tr>
             <tr>
               <td>bind_dn</td>
@@ -1639,7 +1648,7 @@
             <tr>
               <td>group_member_query</td>
               <td>No</td>
-              <td>Gives the users of the specified group </td>
+              <td>Gives the users of the specified group</td>
             </tr>
             <tr>
               <td>group_query</td>
@@ -1706,7 +1715,8 @@
       <span class="hljs-attr">"email"</span>: <span class="hljs-string">"mail"</span>,
       <span class="hljs-attr">"full_name"</span>: <span class="hljs-string">"cn"</span>
     },
-    <span class="hljs-attr">"deactivation"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">"deactivate_groupless_users"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">"deactivate_stale_users"</span>: <span class="hljs-literal">false</span>,
     <span class="hljs-attr">"group_member_query"</span>: <span class="hljs-string">"(&amp;(objectClass=user)(memberOf=%s))"</span>,
     <span class="hljs-attr">"page_size"</span>: <span class="hljs-number">1000</span>,
     <span class="hljs-attr">"bind_password"</span>: <span class="hljs-string">"pass"</span>,
@@ -1714,7 +1724,7 @@
     <span class="hljs-attr">"group_mapping"</span>: {
       <span class="hljs-attr">"group"</span>: <span class="hljs-string">"group1"</span>
     },
-    <span class="hljs-attr">"ldap_method"</span>: <span class="hljs-string">"LDAP"</span>,
+    <span class="hljs-attr">"ldap_start_tls"</span>: <span class="hljs-literal">true</span>,
     <span class="hljs-attr">"ldap_validate_cert"</span>: <span class="hljs-literal">true</span>
   }
 }</span></code></pre>
@@ -1747,14 +1757,15 @@
       <span class="hljs-attr">"email"</span>: <span class="hljs-string">"mail"</span>,
       <span class="hljs-attr">"full_name"</span>: <span class="hljs-string">"cn"</span>
     },
-    <span class="hljs-attr">"deactivation"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">"deactivate_groupless_users"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">"deactivate_stale_users"</span>: <span class="hljs-literal">false</span>,
     <span class="hljs-attr">"group_member_query"</span>: <span class="hljs-string">"(&amp;(objectClass=user)(memberOf=%s))"</span>,
     <span class="hljs-attr">"page_size"</span>: <span class="hljs-number">1000</span>,
     <span class="hljs-attr">"base_dn"</span>: <span class="hljs-string">"dc=example,dc=org"</span>,
     <span class="hljs-attr">"group_mapping"</span>: {
       <span class="hljs-attr">"group"</span>: <span class="hljs-string">"group1"</span>
     },
-    <span class="hljs-attr">"ldap_method"</span>: <span class="hljs-string">"LDAP"</span>,
+    <span class="hljs-attr">"ldap_start_tls"</span>: <span class="hljs-literal">true</span>,
     <span class="hljs-attr">"ldap_validate_cert"</span>: <span class="hljs-literal">true</span>
   },
   <span class="hljs-attr">"inaccessible"</span>: <span class="hljs-literal">false</span>
@@ -1823,9 +1834,9 @@
               <td>The address of the LDAP server.</td>
             </tr>
             <tr>
-              <td>ldap_method</td>
+              <td>ldap_start_tls</td>
               <td>No</td>
-              <td>The method used to connect to the LDAP server (defaults to ldaps).</td>
+              <td>Determines whether or not to secure connection using TLS/SSL (defaults to True).</td>
             </tr>
             <tr>
               <td>group_mapping</td>
@@ -1848,9 +1859,14 @@
               <td>Define a custom user schema.</td>
             </tr>
             <tr>
-              <td>deactivation</td>
+              <td>deactivate_groupless_users</td>
               <td>No</td>
-              <td>Automatically deactivate groupless users in SDE.</td>
+              <td>Automatically deactivate SDE users that are not assigned to any groups (defaults to False).</td>
+            </tr>
+            <tr>
+              <td>deactivate_stale_users</td>
+              <td>No</td>
+              <td>Automatically deactivate SDE users not found in LDAP (defaults to False).</td>
             </tr>
             <tr>
               <td>bind_dn</td>
@@ -1870,7 +1886,7 @@
             <tr>
               <td>group_member_query</td>
               <td>No</td>
-              <td>Gives the users of the specified group </td>
+              <td>Gives the users of the specified group</td>
             </tr>
             <tr>
               <td>group_query</td>
@@ -8420,7 +8436,7 @@ HTTP/<span class="hljs-number">1.1</span> <span class="hljs-number">200</span> O
           <li>API tokens can be generated, revoked or regenerated</li>
           <li>Email notification settings can be updated</li>
           <li>User Profile can be retrieved or updated</li>
-          <li>LDAP Connections - removed start_tls, add inaccessible to parameter list</li>
+          <li>LDAP Connections -- Added ldap_start_tls -- Removed ldap_method -- Renamed deactivation to deactivate_stale_users</li>
         </ul>
         <h2 id="v4-4">v4.4</h2>
         <ul>
