@@ -27,7 +27,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
             },
             "group_query": "(objectClass=group)",
             "ldap_server": "ldapServer:12345",
-            "deactivation": false,
+            "deactivate_groupless_users": false,
+            "deactivate_stale_users": false,
             "user_schema": {
                 "first_name": "gn",
                 "last_name": "sn",
@@ -41,7 +42,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
                 "ldap_group2": "sde_group2",
                 "ldap_group1": "sde_group1"
             },
-            "ldap_method": "LDAP",
+            "ldap_start_tls": false,
             "ldap_validate_cert": true
         },
         "inaccessible": true
@@ -87,7 +88,8 @@ Content-Type: application/json
             },
             "group_query": "(objectClass=group)",
             "ldap_server": "ldapServer:12345",
-            "deactivation": false,
+            "deactivate_groupless_users": false,
+            "deactivate_stale_users": false,
             "user_schema": {
                 "first_name": "gn",
                 "last_name": "sn",
@@ -101,7 +103,7 @@ Content-Type: application/json
                 "ldap_group2": "sde_group2",
                 "ldap_group1": "sde_group1"
             },
-            "ldap_method": "LDAP",
+            "ldap_start_tls": false,
             "ldap_validate_cert": true
         },
         "inaccessible": true,
@@ -138,7 +140,6 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
 	"alias": "LDAP",
 	"params": {
 		"ldap_server": "ldapServer:12345",
-		"ldap_method": "LDAP",
 		"group_mapping": {
 			"ldap_group1": "sde_group1",
 			"ldap_group2": "sde_group2"
@@ -153,11 +154,13 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
 			"full_name": "cn",
 			"email": "mail"
 		},
-		"deactivation": false,
+		"deactivate_groupless_users": false,
+		"deactivate_stale_users": false,
 		"group_query": "(objectClass=group)",
 		"bind_dn": "cn=Administrator,cn=Users,dc=example,dc=org",
 		"base_dn": "dc=example,dc=org",
-        "bind_password": "pass",
+		"bind_password": "pass",
+		"ldap_start_tls": true
 	}
 }
 ```
@@ -184,7 +187,8 @@ Content-Type: application/json
         },
         "group_query": "(objectClass=group)",
         "ldap_server": "ldapServer:12345",
-        "deactivation": false,
+        "deactivate_groupless_users": false,
+        "deactivate_stale_users": false,
         "user_schema": {
             "first_name": "gn",
             "last_name": "sn",
@@ -197,7 +201,7 @@ Content-Type: application/json
             "ldap_group2": "sde_group2",
             "ldap_group1": "sde_group1"
         },
-        "ldap_method": "LDAP",
+        "ldap_start_tls": true,
         "ldap_validate_cert": true
     },
     "inaccessible": false
@@ -213,21 +217,22 @@ inaccessible        | No       | Is the connection inaccessible from the SDE ser
 
 ### Params fields
 
-Fields              | Required | Description
---------------------|----------|-------------
-ldap_server         | Yes      | The address of the LDAP server.
-ldap_method         | No       | The method used to connect to the LDAP server (defaults to ldaps).
-group_mapping       | Yes      | Object that maps LDAP to SDE groups.
-ldap_filter         | No       | Fine-grained control for users and groups during synchronization
-ldap_validate_cert  | No       | Determines whether or not to validate the SSL certificate for the LDAP server (defaults to True).
-user_schema         | No       | Define a custom user schema.
-deactivation        | No       | Automatically deactivate groupless users in SDE.
-bind_dn             | Yes      | The bind dn
-bind_password       | Yes      | The bind password
-page_size           | No       | Number of users to return per page. (defaults to 1000)
-group_member_query  | No       | Gives the users of the specified group 
-group_query         | Yes      | Specify groups to return
-base_dn             | No       | The base dn (will be computed from bind_dn if unspecified)
+Fields                         | Required | Description
+-------------------------------|----------|-------------
+ldap_server                    | Yes      | The address of the LDAP server.
+ldap_start_tls                 | No       | Determines whether or not to secure connection using TLS/SSL (defaults to True).
+group_mapping                  | Yes      | Object that maps LDAP to SDE groups.
+ldap_filter                    | No       | Fine-grained control for users and groups during synchronization
+ldap_validate_cert             | No       | Determines whether or not to validate the SSL certificate for the LDAP server (defaults to True).
+user_schema                    | No       | Define a custom user schema.
+deactivate_groupless_users     | No       | Automatically deactivate SDE users that are not assigned to any groups (defaults to False).
+deactivate_stale_users         | No       | Automatically deactivate SDE users not found in LDAP (defaults to False).
+bind_dn                        | Yes      | The bind dn
+bind_password                  | Yes      | The bind password
+page_size                      | No       | Number of users to return per page. (defaults to 1000)
+group_member_query             | No       | Gives the users of the specified group
+group_query                    | Yes      | Specify groups to return
+base_dn                        | No       | The base dn (will be computed from bind_dn if unspecified)
 
 ---
 
@@ -287,7 +292,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
       "email": "mail",
       "full_name": "cn"
     },
-    "deactivation": false,
+    "deactivate_groupless_users": false,
+    "deactivate_stale_users": false,
     "group_member_query": "(&(objectClass=user)(memberOf=%s))",
     "page_size": 1000,
     "bind_password": "pass",
@@ -295,7 +301,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
     "group_mapping": {
       "group": "group1"
     },
-    "ldap_method": "LDAP",
+    "ldap_start_tls": true,
     "ldap_validate_cert": true
   }
 }
@@ -330,14 +336,15 @@ Content-Type: application/json
       "email": "mail",
       "full_name": "cn"
     },
-    "deactivation": false,
+    "deactivate_groupless_users": false,
+    "deactivate_stale_users": false,
     "group_member_query": "(&(objectClass=user)(memberOf=%s))",
     "page_size": 1000,
     "base_dn": "dc=example,dc=org",
     "group_mapping": {
       "group": "group1"
     },
-    "ldap_method": "LDAP",
+    "ldap_start_tls": true,
     "ldap_validate_cert": true
   },
   "inaccessible": false
@@ -364,21 +371,22 @@ inaccessible        | No       | Is the connection inaccessible from the SDE ser
 
 ### Params fields
 
-Fields              | Required | Description
---------------------|----------|-------------
-ldap_server         | Yes      | The address of the LDAP server.
-ldap_method         | No       | The method used to connect to the LDAP server (defaults to ldaps).
-group_mapping       | Yes      | Object that maps LDAP to SDE groups.
-ldap_filter         | No       | Fine-grained control for users and groups during synchronization
-ldap_validate_cert  | No       | Determines whether or not to validate the SSL certificate for the LDAP server (defaults to True).
-user_schema         | No       | Define a custom user schema.
-deactivation        | No       | Automatically deactivate groupless users in SDE.
-bind_dn             | Yes      | The bind dn
-bind_password       | No       | The bind password
-page_size           | No       | Number of users to return per page. (defaults to 1000)
-group_member_query  | No       | Gives the users of the specified group 
-group_query         | Yes      | Specify groups to return
-base_dn             | No       | The base dn (will be computed from bind_dn if unspecified)
+Fields                         | Required | Description
+-------------------------------|----------|-------------
+ldap_server                    | Yes      | The address of the LDAP server.
+ldap_start_tls                 | No       | Determines whether or not to secure connection using TLS/SSL (defaults to True).
+group_mapping                  | Yes      | Object that maps LDAP to SDE groups.
+ldap_filter                    | No       | Fine-grained control for users and groups during synchronization
+ldap_validate_cert             | No       | Determines whether or not to validate the SSL certificate for the LDAP server (defaults to True).
+user_schema                    | No       | Define a custom user schema.
+deactivate_groupless_users     | No       | Automatically deactivate SDE users that are not assigned to any groups (defaults to False).
+deactivate_stale_users         | No       | Automatically deactivate SDE users not found in LDAP (defaults to False).
+bind_dn                        | Yes      | The bind dn
+bind_password                  | No       | The bind password
+page_size                      | No       | Number of users to return per page. (defaults to 1000)
+group_member_query             | No       | Gives the users of the specified group
+group_query                    | Yes      | Specify groups to return
+base_dn                        | No       | The base dn (will be computed from bind_dn if unspecified)
 ---
 
 
