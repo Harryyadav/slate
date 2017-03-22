@@ -9,7 +9,10 @@
 - API tokens can be generated, revoked or regenerated
 - Email notification settings can be updated
 - User Profile can be retrieved or updated
-- LDAP Connections - removed start_tls, add inaccessible to parameter list
+- LDAP Connections
+-- Added ldap_start_tls
+-- Removed ldap_method
+-- Renamed deactivation to deactivate_stale_users
 
 ## v4.4
 
