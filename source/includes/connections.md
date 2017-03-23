@@ -39,8 +39,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
             "bind_password": "qweASD123",
             "base_dn": "dc=example,dc=org",
             "group_mapping": {
-                "ldap_group2": "sde_group2",
-                "ldap_group1": "sde_group1"
+                "ldap_group2": "G2",
+                "ldap_group1": "G1"
             },
             "ldap_start_tls": false,
             "ldap_validate_cert": true
@@ -100,8 +100,8 @@ Content-Type: application/json
             "bind_password": "qweASD123",
             "base_dn": "dc=example,dc=org",
             "group_mapping": {
-                "ldap_group2": "sde_group2",
-                "ldap_group1": "sde_group1"
+                "ldap_group2": "G2",
+                "ldap_group1": "G1"
             },
             "ldap_start_tls": false,
             "ldap_validate_cert": true
@@ -141,8 +141,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
 	"params": {
 		"ldap_server": "ldapServer:12345",
 		"group_mapping": {
-			"ldap_group1": "sde_group1",
-			"ldap_group2": "sde_group2"
+			"ldap_group1": "G1",
+			"ldap_group2": "G2"
 		},
 		"ldap_filter": {
 			"groups": ["LDAPGroup", "LDAPGroup3"],
@@ -198,8 +198,8 @@ Content-Type: application/json
         "bind_dn": "cn=Administrator,cn=Users,dc=example,dc=org",
         "base_dn": "dc=example,dc=org",
         "group_mapping": {
-            "ldap_group2": "sde_group2",
-            "ldap_group1": "sde_group1"
+            "ldap_group2": "G2",
+            "ldap_group1": "G1"
         },
         "ldap_start_tls": true,
         "ldap_validate_cert": true
@@ -221,7 +221,7 @@ Fields                         | Required | Description
 -------------------------------|----------|-------------
 ldap_server                    | Yes      | The address of the LDAP server.
 ldap_start_tls                 | No       | Determines whether or not to secure connection using TLS/SSL (defaults to True).
-group_mapping                  | Yes      | Object that maps LDAP to SDE groups.
+group_mapping                  | Yes      | Object that maps LDAP group names to SDE group ids.
 ldap_filter                    | No       | Fine-grained control for users and groups during synchronization
 ldap_validate_cert             | No       | Determines whether or not to validate the SSL certificate for the LDAP server (defaults to True).
 user_schema                    | No       | Define a custom user schema.
@@ -299,7 +299,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
     "bind_password": "pass",
     "base_dn": "dc=example,dc=org",
     "group_mapping": {
-      "group": "group1"
+      "group": "G1"
     },
     "ldap_start_tls": true,
     "ldap_validate_cert": true
@@ -342,7 +342,7 @@ Content-Type: application/json
     "page_size": 1000,
     "base_dn": "dc=example,dc=org",
     "group_mapping": {
-      "group": "group1"
+      "group": "G1"
     },
     "ldap_start_tls": true,
     "ldap_validate_cert": true
@@ -375,7 +375,7 @@ Fields                         | Required | Description
 -------------------------------|----------|-------------
 ldap_server                    | Yes      | The address of the LDAP server.
 ldap_start_tls                 | No       | Determines whether or not to secure connection using TLS/SSL (defaults to True).
-group_mapping                  | Yes      | Object that maps LDAP to SDE groups.
+group_mapping                  | Yes      | Object that maps LDAP group names to SDE group ids.
 ldap_filter                    | No       | Fine-grained control for users and groups during synchronization
 ldap_validate_cert             | No       | Determines whether or not to validate the SSL certificate for the LDAP server (defaults to True).
 user_schema                    | No       | Define a custom user schema.
