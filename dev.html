@@ -1391,8 +1391,8 @@
             <span class="hljs-attr">"bind_password"</span>: <span class="hljs-string">"qweASD123"</span>,
             <span class="hljs-attr">"base_dn"</span>: <span class="hljs-string">"dc=example,dc=org"</span>,
             <span class="hljs-attr">"group_mapping"</span>: {
-                <span class="hljs-attr">"ldap_group2"</span>: <span class="hljs-string">"sde_group2"</span>,
-                <span class="hljs-attr">"ldap_group1"</span>: <span class="hljs-string">"sde_group1"</span>
+                <span class="hljs-attr">"ldap_group2"</span>: <span class="hljs-string">"G2"</span>,
+                <span class="hljs-attr">"ldap_group1"</span>: <span class="hljs-string">"G1"</span>
             },
             <span class="hljs-attr">"ldap_start_tls"</span>: <span class="hljs-literal">false</span>,
             <span class="hljs-attr">"ldap_validate_cert"</span>: <span class="hljs-literal">true</span>
@@ -1442,8 +1442,8 @@
             <span class="hljs-attr">"bind_password"</span>: <span class="hljs-string">"qweASD123"</span>,
             <span class="hljs-attr">"base_dn"</span>: <span class="hljs-string">"dc=example,dc=org"</span>,
             <span class="hljs-attr">"group_mapping"</span>: {
-                <span class="hljs-attr">"ldap_group2"</span>: <span class="hljs-string">"sde_group2"</span>,
-                <span class="hljs-attr">"ldap_group1"</span>: <span class="hljs-string">"sde_group1"</span>
+                <span class="hljs-attr">"ldap_group2"</span>: <span class="hljs-string">"G2"</span>,
+                <span class="hljs-attr">"ldap_group1"</span>: <span class="hljs-string">"G1"</span>
             },
             <span class="hljs-attr">"ldap_start_tls"</span>: <span class="hljs-literal">false</span>,
             <span class="hljs-attr">"ldap_validate_cert"</span>: <span class="hljs-literal">true</span>
@@ -1486,8 +1486,8 @@
     <span class="hljs-attr">"params"</span>: {
         <span class="hljs-attr">"ldap_server"</span>: <span class="hljs-string">"ldapServer:12345"</span>,
         <span class="hljs-attr">"group_mapping"</span>: {
-            <span class="hljs-attr">"ldap_group1"</span>: <span class="hljs-string">"sde_group1"</span>,
-            <span class="hljs-attr">"ldap_group2"</span>: <span class="hljs-string">"sde_group2"</span>
+            <span class="hljs-attr">"ldap_group1"</span>: <span class="hljs-string">"G1"</span>,
+            <span class="hljs-attr">"ldap_group2"</span>: <span class="hljs-string">"G2"</span>
         },
         <span class="hljs-attr">"ldap_filter"</span>: {
             <span class="hljs-attr">"groups"</span>: [<span class="hljs-string">"LDAPGroup"</span>, <span class="hljs-string">"LDAPGroup3"</span>],
@@ -1541,8 +1541,8 @@
         <span class="hljs-attr">"bind_dn"</span>: <span class="hljs-string">"cn=Administrator,cn=Users,dc=example,dc=org"</span>,
         <span class="hljs-attr">"base_dn"</span>: <span class="hljs-string">"dc=example,dc=org"</span>,
         <span class="hljs-attr">"group_mapping"</span>: {
-            <span class="hljs-attr">"ldap_group2"</span>: <span class="hljs-string">"sde_group2"</span>,
-            <span class="hljs-attr">"ldap_group1"</span>: <span class="hljs-string">"sde_group1"</span>
+            <span class="hljs-attr">"ldap_group2"</span>: <span class="hljs-string">"G2"</span>,
+            <span class="hljs-attr">"ldap_group1"</span>: <span class="hljs-string">"G1"</span>
         },
         <span class="hljs-attr">"ldap_start_tls"</span>: <span class="hljs-literal">true</span>,
         <span class="hljs-attr">"ldap_validate_cert"</span>: <span class="hljs-literal">true</span>
@@ -1603,7 +1603,7 @@
             <tr>
               <td>group_mapping</td>
               <td>Yes</td>
-              <td>Object that maps LDAP to SDE groups.</td>
+              <td>Object that maps LDAP group names to SDE group ids.</td>
             </tr>
             <tr>
               <td>ldap_filter</td>
@@ -1722,7 +1722,7 @@
     <span class="hljs-attr">"bind_password"</span>: <span class="hljs-string">"pass"</span>,
     <span class="hljs-attr">"base_dn"</span>: <span class="hljs-string">"dc=example,dc=org"</span>,
     <span class="hljs-attr">"group_mapping"</span>: {
-      <span class="hljs-attr">"group"</span>: <span class="hljs-string">"group1"</span>
+      <span class="hljs-attr">"group"</span>: <span class="hljs-string">"G1"</span>
     },
     <span class="hljs-attr">"ldap_start_tls"</span>: <span class="hljs-literal">true</span>,
     <span class="hljs-attr">"ldap_validate_cert"</span>: <span class="hljs-literal">true</span>
@@ -1763,7 +1763,7 @@
     <span class="hljs-attr">"page_size"</span>: <span class="hljs-number">1000</span>,
     <span class="hljs-attr">"base_dn"</span>: <span class="hljs-string">"dc=example,dc=org"</span>,
     <span class="hljs-attr">"group_mapping"</span>: {
-      <span class="hljs-attr">"group"</span>: <span class="hljs-string">"group1"</span>
+      <span class="hljs-attr">"group"</span>: <span class="hljs-string">"G1"</span>
     },
     <span class="hljs-attr">"ldap_start_tls"</span>: <span class="hljs-literal">true</span>,
     <span class="hljs-attr">"ldap_validate_cert"</span>: <span class="hljs-literal">true</span>
@@ -1841,7 +1841,7 @@
             <tr>
               <td>group_mapping</td>
               <td>Yes</td>
-              <td>Object that maps LDAP to SDE groups.</td>
+              <td>Object that maps LDAP group names to SDE group ids.</td>
             </tr>
             <tr>
               <td>ldap_filter</td>
@@ -8436,7 +8436,7 @@ HTTP/<span class="hljs-number">1.1</span> <span class="hljs-number">200</span> O
           <li>API tokens can be generated, revoked or regenerated</li>
           <li>Email notification settings can be updated</li>
           <li>User Profile can be retrieved or updated</li>
-          <li>LDAP Connections -- Added ldap_start_tls -- Removed ldap_method -- Renamed deactivation to deactivate_stale_users</li>
+          <li>LDAP Connections -- Added ldap_start_tls -- Removed ldap_method -- Renamed deactivation to deactivate_stale_users -- Change group_mapping to use SDE group ids instead of group names</li>
         </ul>
         <h2 id="v4-4">v4.4</h2>
         <ul>
