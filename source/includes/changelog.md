@@ -13,6 +13,7 @@
 -- Added ldap_start_tls
 -- Removed ldap_method
 -- Renamed deactivation to deactivate_stale_users
+-- Change group_mapping to use SDE group ids instead of group names
 
 ## v4.4
 
