@@ -95,6 +95,46 @@ user_id   | The ID of the User to retrieve
 
 
 
+## Get the current User
+
+```http
+GET /api/v2/users/me/ HTTP/1.1
+Accept: application/json
+Authorization: Token "YOUR SDE ACCESS TOKEN"
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "id": 389,
+    "email": "user@example.com",
+    "first_name": "Bob",
+    "last_name": "Smith",
+    "last_login": "2016-06-05T02:55:54.231254Z",
+    "date_joined": "2016-06-05T02:55:54.231254Z",
+    "is_active": true,
+    "is_superuser": false,
+    "role": "No Role",
+    "groups": [],
+    "password_reset_in_progress": false
+}
+```
+
+This endpoint returns the current User resource.
+
+**`GET /api/v2/users/me/`**
+
+
+
+
+
+
+
+
+
+
 ## Create a User
 
 ```http
@@ -212,6 +252,60 @@ Update a specific User resource.
 Parameter | Description
 --------- | -----------
 user_id   | The ID of the User to update
+
+
+
+
+
+
+
+
+
+
+## Update the current User
+
+```http
+PUT /api/v2/users/me/ HTTP/1.1
+Accept: application/json
+Authorization: Token "YOUR SDE ACCESS TOKEN"
+
+{
+    "email": "user@example.com",
+    "first_name": "Bobby",
+    "last_name": "Smith",
+    "groups": ["G2"],
+    "role": "UR2"
+}
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "id": 599,
+    "email": "user@example.com",
+    "first_name": "Bobby",
+    "last_name": "Smith",
+    "last_login": "2015-06-05T02:55:54.231254Z",
+    "date_joined": "2015-06-05T02:55:54.231254Z",
+    "is_active": true,
+    "is_superuser": false,
+    "role": "UR2",
+    "groups": [
+        {
+            "id": "G2",
+            "name": "Group2",
+            "role": "No Role"
+        }
+    ],
+    "password_reset_in_progress": true
+}
+```
+
+Update the current User resource.
+
+**`PUT /api/v2/users/me/`**
 
 
 
