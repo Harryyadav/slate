@@ -17,7 +17,10 @@ Content-Type: application/json
         {
             "id": 1,
             "name": "Github Connector",
-            "system": "github",
+            "system": {
+                "id": "github",
+                "name": "Github"
+            },
             "inaccessible": false,
             "params": {
                 "alm_project": "YO",
@@ -29,7 +32,10 @@ Content-Type: application/json
         {
             "id": 7,
             "name": "jira inaccessible",
-            "system": "jira",
+            "system": {
+                "id": "jira",
+                "name": "JIRA",
+            },
             "inaccessible": true,
             "params": {
                 "sde_verification_filter":
@@ -52,16 +58,6 @@ Content-Type: application/json
 Returns a list of all ALM connectors available.
 
 **`GET /api/v2/connectors/alm/`**
-
-### Query Parameters
-
-The following parameters may be used to filter the ALM connectors.
-
-Parameter | Description
-----------|-----------------------------
-system    | Returns all ALM connectors associated with a particular system.
-
----
 
 
 
@@ -87,7 +83,10 @@ Content-Type: application/json
 {
     "id": 1,
     "name": "Github Connector",
-    "system": "github",
+    "system": {
+        "id": "github",
+        "name": "Github"
+    },
     "inaccessible": false,
     "params": {
         "alm_project": "YO",
@@ -119,7 +118,9 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
 
 {
     "name": "Example Name",
-    "system": "github",
+    "system": {
+        "id": "github"
+    },
     "params": {
         "token": "21345",
         "alm_method": "https",
@@ -139,7 +140,10 @@ Content-Type: application/json
 {
     "id": 3,
     "name": "Example Name",
-    "system": "github",
+    "system": {
+        "id": "github",
+        "name": "Github"
+    },
     "inaccessible": false,
     "params": {
         "token": "21345",
@@ -154,7 +158,7 @@ Content-Type: application/json
 Fields              | Required | Description
 --------------------|----------|-------------
 name                | Yes      | The name of the new connector.
-system              | Yes      | The id of the ALM system that this connection will connect with.
+system              | Yes      | A dictionary containing the id and name of the system.
 inaccessible        | No       | Specifies whether the alm server specific is accessible from the SDE server. Defaults to false.
 params              | Yes      | A dictionary containing connections options. Please refer to product documentation for more details or reach out to support.  Required params will return appropriate errors when unspecified.
 fields_editable_on_project | No | A list of field names which should be editable on the project level.  By default this is set to null, meaning the default 'editable on project' fields defined in the SDE Tools plugin will be used.
@@ -170,7 +174,9 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
 
 {
     "name": "Example Name Updated",
-    "system": "github",
+    "system": {
+        "id": "github"
+    },
     "params": {
         "token": "21345",
         "alm_method": "https",
@@ -183,13 +189,16 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
 
 ```http
-HTTP/1.1 201 CREATED
+HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
     "id": 3,
     "name": "Example Name Updated",
-    "system": "github",
+    "system": {
+        "id": "github",
+        "name": "Github"
+    },
     "inaccessible": false,
     "params": {
         "token": "21345",
@@ -223,7 +232,10 @@ Content-Type: application/json
     "results": [{
         "id": 1,
         "name": "Fortify Connector",
-        "system": "Fortify",
+        "system": {
+            "id": "fortify",
+            "name": "Fortify"
+        },
         "inaccessible": false
     }]
 }
@@ -232,14 +244,6 @@ Content-Type: application/json
 Returns a list of all analysis connectors available.
 
 **`GET /api/v2/connectors/analysis/`**
-
-### Query Parameters
-
-The following parameters may be used to filter the analysis connectors.
-
-Parameter | Description
-----------|-----------------------------
-system    | Returns all analysis connectors associated with a particular system.
 
 ---
 
@@ -267,7 +271,10 @@ Content-Type: application/json
 {
     "id": 1,
     "name": "Fortify Connector",
-    "system": "Fortify",
+    "system": {
+        "id": "fortify",
+        "name": "Fortify"
+    },
     "inaccessible": false
 }
 ```
