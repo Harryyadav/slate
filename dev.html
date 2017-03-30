@@ -7758,6 +7758,65 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
             </tr>
           </tbody>
         </table>
+        <h2 id="get-the-current-user">Get the Current User</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/users/me/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="json">{
+    <span class="hljs-attr">"email"</span>: <span class="hljs-string">"user@example.com"</span>,
+    <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Bob"</span>,
+    <span class="hljs-attr">"last_name"</span>: <span class="hljs-string">"Smith"</span>,
+}</span></code></pre>
+        <p>This endpoint returns the current User resource.</p>
+        <h2 id="update-the-current-user">Update the Current User</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/users/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
+
+<span class="json">{
+    <span class="hljs-attr">"email"</span>: <span class="hljs-string">"user@example.com"</span>,
+    <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Bob"</span>,
+    <span class="hljs-attr">"last_name"</span>: <span class="hljs-string">"Smith"</span>,
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="json">{
+    <span class="hljs-attr">"email"</span>: <span class="hljs-string">"user@example.com"</span>,
+    <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Bob"</span>,
+    <span class="hljs-attr">"last_name"</span>: <span class="hljs-string">"Smith"</span>,
+}</span></code></pre>
+        <p>Update the current User resource. Note: only users with &quot;Manage users &amp; groups&quot; can change email addresses.</p>
+        <p><strong><code>PUT /api/v2/users/me/</code></strong></p>
+        <table>
+          <thead>
+            <tr>
+              <th>Fields</th>
+              <th>Required</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>email</td>
+              <td>No</td>
+              <td>User&#39;s email</td>
+            </tr>
+            <tr>
+              <td>first_name</td>
+              <td>No</td>
+              <td>First name of the user</td>
+            </tr>
+            <tr>
+              <td>last_name</td>
+              <td>No</td>
+              <td>Last name of the user</td>
+            </tr>
+          </tbody>
+        </table>
         <h2 id="create-a-user">Create a User</h2>
         <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/users/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
@@ -8435,7 +8494,7 @@ HTTP/<span class="hljs-number">1.1</span> <span class="hljs-number">200</span> O
           <li>Password reset questions can be created, edited, or deleted</li>
           <li>API tokens can be generated, revoked or regenerated</li>
           <li>Email notification settings can be updated</li>
-          <li>User Profile can be retrieved or updated</li>
+          <li>User Profile can be retrieved or updated via /users/me/</li>
           <li>LDAP Connections -- Added ldap_start_tls -- Removed ldap_method -- Renamed deactivation to deactivate_stale_users -- Change group_mapping to use SDE group ids instead of group names</li>
         </ul>
         <h2 id="v4-4">v4.4</h2>
