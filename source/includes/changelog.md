@@ -8,7 +8,7 @@
 - Password reset questions can be created, edited, or deleted
 - API tokens can be generated, revoked or regenerated
 - Email notification settings can be updated
-- User Profile can be retrieved or updated
+- User Profile can be retrieved or updated via /users/me/
 - LDAP Connections
 -- Added ldap_start_tls
 -- Removed ldap_method
