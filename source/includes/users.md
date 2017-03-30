@@ -95,6 +95,81 @@ user_id   | The ID of the User to retrieve
 
 
 
+## Get the Current User
+
+```http
+GET /api/v2/users/me/ HTTP/1.1
+Accept: application/json
+Authorization: Token "YOUR SDE ACCESS TOKEN"
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "email": "user@example.com",
+    "first_name": "Bob",
+    "last_name": "Smith",
+}
+```
+
+This endpoint returns the current User resource.
+
+
+
+
+
+
+
+
+
+
+## Update the Current User
+
+```http
+PUT /api/v2/users/ HTTP/1.1
+Accept: application/json
+Authorization: Token "YOUR SDE ACCESS TOKEN"
+
+{
+    "email": "user@example.com",
+    "first_name": "Bob",
+    "last_name": "Smith",
+}
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "email": "user@example.com",
+    "first_name": "Bob",
+    "last_name": "Smith",
+}
+```
+
+Update the current User resource.
+Note: only users with "Manage users & groups" can change email addresses.
+
+**`PUT /api/v2/users/me/`**
+
+Fields        | Required | Description
+--------------|----------|-------------
+email         | No       | User's email
+first_name    | No       | First name of the user
+last_name     | No       | Last name of the user
+
+
+
+
+
+
+
+
+
+
 ## Create a User
 
 ```http
