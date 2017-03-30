@@ -49,6 +49,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
     }]
 }
 ```
+
 Returns a list of all LDAP integration connections in the current organization.
 
 Note, this is different from the LDAP connection configured for Single Sign-On.
@@ -257,7 +258,7 @@ This endpoint deletes a single LDAP Connection resource, as specified by the id 
 
 Parameter           | Description
 --------------------|---------------
-connection_id       | The id of the LDAP Connection to delete. 
+connection_id       | The id of the LDAP Connection to delete.
 
 
 ---
@@ -407,7 +408,10 @@ Content-Type: application/json
         "id": 1,
         "connector": 2,
         "project": 2,
-        "system": "Rally",
+        "system": {
+            "id": "rally",
+            "name": "Rally"
+        },
         "alias": "Rally Integration",
         "frequency": "manually",
         "command": "sync_rally",
@@ -443,10 +447,7 @@ The following parameters may be used to filter the ALM connections resources in 
 
 Parameter | Description
 ----------|-----------------------------
-alias     | Returns all ALM connections with the specified alias.
-frequency | Returns all ALM connections with the specified frequency of synchronization.
-system    | Returns all ALM connections associated with a particular system.
-
+project   | Returns all analysis connections for the project with the specific id.
 ---
 
 
@@ -530,7 +531,10 @@ Content-Type: application/json
     "id": 1,
     "connector": 2,
     "project": 2,
-    "system": "Rally",
+    "system": {
+        "id": "rally",
+        "name": "Rally"
+    },
     "alias": "Rally Integration",
     "frequency": "manually",
     "command": "sync_rally",
@@ -597,7 +601,10 @@ Content-Type: application/json
     "id": 5,
     "connector": 1,
     "alias": "Example Connection",
-    "system": "JIRA",
+    "system": {
+        "id": "jira":,
+        "name": "JIRA"
+    },
     "project": 1,
     "frequency": "hourly",
     "command": "sync_jira",
@@ -665,7 +672,10 @@ Content-Type: application/json
     "id": 5,
     "connector": 1,
     "alias": "Example Connection Updated Name",
-    "system": "JIRA",
+    "system": {
+        "id": "jira",
+        "name": "JIRA"
+    },
     "project": 1,
     "frequency": "manually",
     "command": "sync_jira",
@@ -729,7 +739,10 @@ Content-Type: application/json
         "id": 1,
         "connector": 1,
         "project": 1,
-        "system": "WhiteHat",
+        "system": {
+            "id": "whitehat",
+            "name": "WhiteHat"
+        },
         "alias": "WhiteHat Integration",
         "frequency": "manually",
         "command": "sync_whitehat",
@@ -742,7 +755,7 @@ Content-Type: application/json
             "analysis_server": "server.whitehatsec.com",
             "task_status_mapping": "{}"
         },
-        inaccessible": false
+        "inaccessible": false
     }]
 }
 ```
@@ -750,20 +763,6 @@ Content-Type: application/json
 Returns a list of all analysis connections associated with all projects. The params are only displayed if you have the 'Edit security tool connections' permission.
 
 **`GET /api/v2/connections/analysis/`**
-
-### Query Parameters
-
-The following parameters may be used to filter the analysis connections resources in the response.
-
-Parameter | Description
-----------|-----------------------------
-alias     | Returns all analysis connections with the specified alias.
-frequency | Returns all analysis connections with the specified frequency of synchronization.
-system    | Returns all analysis connections associated with a particular system.
-
----
-
-
 
 
 ### Include Parameters
@@ -836,7 +835,10 @@ Content-Type: application/json
     "id": 1,
     "connector": 1,
     "project": 1,
-    "system": "WhiteHat",
+    "system": {
+        "id": "whitehat",
+        "name": "WhiteHat"
+    },
     "alias": "WhiteHat Integration",
     "frequency": "manually",
     "command": "sync_whitehat",
@@ -849,7 +851,7 @@ Content-Type: application/json
         "analysis_server": "server.whitehatsec.com",
         "task_status_mapping": "{}"
     },
-    inaccessible": false
+    "inaccessible": false
 }
 ```
 
@@ -895,7 +897,10 @@ Content-Type: application/json
     "id": 9,
     "connector": 2,
     "alias": "Example Analysis Connection",
-    "system": "Veracode",
+    "system": {
+        "id": "veracode",
+        "name": "Veracode"
+    },
     "project": 1,
     "frequency": "daily",
     "command": "import_veracode",
@@ -959,7 +964,10 @@ Content-Type: application/json
     "id": 9,
     "connector": 2,
     "alias": "Example Analysis Connection Updated Name",
-    "system": "Veracode",
+    "system": {
+        "id": "veracode",
+        "name": "Veracode"
+    },
     "project": 1,
     "frequency": "hourly",
     "command": "import_veracode",
