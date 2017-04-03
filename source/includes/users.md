@@ -399,7 +399,7 @@ GET /api/v2/users/me/password/ HTTP/1.1
 Accept: application/json
 Authorization: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
 Cookie: sessionid="YOUR SESSION ID"
-
+```
 
 ```http
 HTTP/1.1 200 OK
@@ -472,7 +472,7 @@ Authorization: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
 Cookie: sessionid="YOUR SESSION ID"
 
 {
-    "current_password": "Hunter2",
+    "current_password": "superstrongpassword123",
     "questions": [
         {
             "question": "What was your childhood nickname?",
