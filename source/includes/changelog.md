@@ -13,10 +13,10 @@
 - Email notification settings can be updated
 - User Profile can be retrieved or updated via /users/me/
 - LDAP Connections
--- Added ldap_start_tls
--- Removed ldap_method
--- Renamed deactivation to deactivate_stale_users
--- Change group_mapping to use SDE group ids instead of group names
+  - Added ldap_start_tls
+  - Removed ldap_method
+  - Renamed deactivation to deactivate_stale_users
+  - Change group_mapping to use SDE group ids instead of group names
 
 ## v4.4
 
