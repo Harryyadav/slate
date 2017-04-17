@@ -133,9 +133,7 @@ description        | No       | The description of the phase.
 tip                | No       | The tooltip for the phase.
 ordinal            | No       | The order of the phase.
 active             | No       | Whether or not the phase is active.
-retain             | No       | Determines whether this phase carries over statuses and notes by default. 
-persist_open_tasks | No       | Persist the open tasks of the phase when creating a new release. 
-
+retain             | No       | Determines whether this phase carries over statuses and notes by default.
 
 
 
@@ -153,7 +151,6 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
     "ordinal": 1,
     "active": "true",
     "retain": "true",
-    "persist_open_tasks": "false"
 }
 ```
 
@@ -170,7 +167,6 @@ Content-Type: application/json
     "ordinal": 1,
     "active": "true",
     "retain": "true",
-    "persist_open_tasks": "false"
 }
 ```
 
@@ -184,9 +180,8 @@ name               | Yes      | The name of the phase.
 description        | Yes      | The description of the phase.
 tip                | Yes      | The tooltip for the phase.
 ordinal            | Yes      | The order of the phase.
-active             | Yes      | Whether or not the phase is active.
+active             | No      | Whether or not the phase is active.
 retain             | Yes      | Determines whether this phase carries over statuses and notes by default.
-persist_open_tasks | Yes      | Persist the open tasks of the phase when creating a new release. 
 
 **`PATCH /api/v2/phases/{phase_id}/`**
 
@@ -198,7 +193,6 @@ tip                | No      | The tooltip for the phase.
 ordinal            | No      | The order of the phase.
 active             | No      | Whether or not the phase is active.
 retain             | No      | Determines whether this phase carries over statuses and notes by default.
-persist_open_tasks | No      | Persist the open tasks of the phase when creating a new release. 
 
 ### URL Parameters
 
