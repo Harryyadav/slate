@@ -1,5 +1,8 @@
 # Changelog
 
+## v4.6
+- Add persist_phases to Business Unit endpoint
+
 ## v4.5
 
 - Phases can be created, edited, or deleted.
