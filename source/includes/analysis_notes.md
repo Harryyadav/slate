@@ -26,7 +26,14 @@ Content-Type: application/json
         "findings": {},
         "finding_ref": "my_ref",
         "status": "pass",
-        "automatic": true
+        "automatic": true,
+        "updated": "2015-06-05T02:55:54.231254Z",
+        "updater": {
+            "id": 599,
+            "email": "user@example.com",
+            "first_name": "Bob",
+            "last_name": "Smith"
+        }
     }]
 }
 ```
@@ -69,7 +76,14 @@ Content-Type: application/json
     "findings": {},
     "finding_ref": "my_ref",
     "status": "pass",
-    "automatic": true
+    "automatic": true,
+    "updated": "2015-06-05T02:55:54.231254Z",
+    "updater": {
+        "id": 599,
+        "email": "user@example.com",
+        "first_name": "Bob",
+        "last_name": "Smith"
+    }
 }
 ```
 
@@ -120,7 +134,14 @@ Content-Type: application/json
     "findings": {},
     "finding_ref": "my_ref",
     "status": "pass",
-    "automatic": true
+    "automatic": true,
+    "updated": "2015-06-05T02:55:54.231254Z",
+    "updater": {
+        "id": 599,
+        "email": "user@example.com",
+        "first_name": "Bob",
+        "last_name": "Smith"
+    }
 }
 ```
 
