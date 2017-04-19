@@ -2,6 +2,7 @@
 
 ## v4.6
 - Add persist_phases to Business Unit endpoint
+- Add updater and updated fields to Analysis Note endpoint
 
 ## v4.5
 
