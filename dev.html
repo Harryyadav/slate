@@ -350,7 +350,14 @@
         <span class="hljs-attr">"findings"</span>: {},
         <span class="hljs-attr">"finding_ref"</span>: <span class="hljs-string">"my_ref"</span>,
         <span class="hljs-attr">"status"</span>: <span class="hljs-string">"pass"</span>,
-        <span class="hljs-attr">"automatic"</span>: <span class="hljs-literal">true</span>
+        <span class="hljs-attr">"automatic"</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-06-05T02:55:54.231254Z"</span>,
+        <span class="hljs-attr">"updater"</span>: {
+            <span class="hljs-attr">"id"</span>: <span class="hljs-number">599</span>,
+            <span class="hljs-attr">"email"</span>: <span class="hljs-string">"user@example.com"</span>,
+            <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Bob"</span>,
+            <span class="hljs-attr">"last_name"</span>: <span class="hljs-string">"Smith"</span>
+        }
     }]
 }</span></code></pre>
         <p>This endpoint returns a list of Analysis Note resources for a specific project task.</p>
@@ -375,7 +382,14 @@
     <span class="hljs-attr">"findings"</span>: {},
     <span class="hljs-attr">"finding_ref"</span>: <span class="hljs-string">"my_ref"</span>,
     <span class="hljs-attr">"status"</span>: <span class="hljs-string">"pass"</span>,
-    <span class="hljs-attr">"automatic"</span>: <span class="hljs-literal">true</span>
+    <span class="hljs-attr">"automatic"</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-06-05T02:55:54.231254Z"</span>,
+    <span class="hljs-attr">"updater"</span>: {
+        <span class="hljs-attr">"id"</span>: <span class="hljs-number">599</span>,
+        <span class="hljs-attr">"email"</span>: <span class="hljs-string">"user@example.com"</span>,
+        <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Bob"</span>,
+        <span class="hljs-attr">"last_name"</span>: <span class="hljs-string">"Smith"</span>
+    }
 }</span></code></pre>
         <p>This endpoint returns a specific Analysis Note resource.</p>
         <p><strong><code>GET /api/v2/projects/{project_id}/tasks/{task_id}/analysis-notes/{note_id}/</code></strong></p>
@@ -408,7 +422,14 @@
     <span class="hljs-attr">"findings"</span>: {},
     <span class="hljs-attr">"finding_ref"</span>: <span class="hljs-string">"my_ref"</span>,
     <span class="hljs-attr">"status"</span>: <span class="hljs-string">"pass"</span>,
-    <span class="hljs-attr">"automatic"</span>: <span class="hljs-literal">true</span>
+    <span class="hljs-attr">"automatic"</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-06-05T02:55:54.231254Z"</span>,
+    <span class="hljs-attr">"updater"</span>: {
+        <span class="hljs-attr">"id"</span>: <span class="hljs-number">599</span>,
+        <span class="hljs-attr">"email"</span>: <span class="hljs-string">"user@example.com"</span>,
+        <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Bob"</span>,
+        <span class="hljs-attr">"last_name"</span>: <span class="hljs-string">"Smith"</span>
+    }
 }</span></code></pre>
         <p>This endpoint creates a single Analysis Note resource.</p>
         <p><strong><code>POST /api/v2/projects/{project_id}/tasks/{task_id}/analysis-notes/</code></strong></p>
@@ -8481,6 +8502,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <h2 id="v4-6">v4.6</h2>
         <ul>
           <li>Add persist_phases to Business Unit endpoint</li>
+          <li>Add updater and updated fields to Analysis Note endpoint</li>
         </ul>
         <h2 id="v4-5">v4.5</h2>
         <ul>
