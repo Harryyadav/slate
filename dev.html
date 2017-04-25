@@ -1410,7 +1410,7 @@
                     <span class="hljs-string">"LDAPGroup3"</span>
                 ]
             },
-            <span class="hljs-attr">"group_base_dn"</span>: <span class="hljs-string">"OU=SyncGroups,DC=example,DC=com"</span>,
+            <span class="hljs-attr">"group_query"</span>: <span class="hljs-string">"(objectClass=group)"</span>,
             <span class="hljs-attr">"ldap_server"</span>: <span class="hljs-string">"ldapServer:12345"</span>,
             <span class="hljs-attr">"deactivate_groupless_users"</span>: <span class="hljs-literal">false</span>,
             <span class="hljs-attr">"deactivate_stale_users"</span>: <span class="hljs-literal">false</span>,
@@ -1461,7 +1461,7 @@
                     <span class="hljs-string">"LDAPGroup3"</span>
                 ]
             },
-            <span class="hljs-attr">"group_base_dn"</span>: <span class="hljs-string">"OU=SyncGroups,DC=example,DC=com"</span>,
+            <span class="hljs-attr">"group_query"</span>: <span class="hljs-string">"(objectClass=group)"</span>,
             <span class="hljs-attr">"ldap_server"</span>: <span class="hljs-string">"ldapServer:12345"</span>,
             <span class="hljs-attr">"deactivate_groupless_users"</span>: <span class="hljs-literal">false</span>,
             <span class="hljs-attr">"deactivate_stale_users"</span>: <span class="hljs-literal">false</span>,
@@ -1534,7 +1534,7 @@
         },
         <span class="hljs-attr">"deactivate_groupless_users"</span>: <span class="hljs-literal">false</span>,
         <span class="hljs-attr">"deactivate_stale_users"</span>: <span class="hljs-literal">false</span>,
-        <span class="hljs-attr">"group_base_dn"</span>: <span class="hljs-string">"OU=SyncGroups,DC=example,DC=com"</span>,
+        <span class="hljs-attr">"group_query"</span>: <span class="hljs-string">"(objectClass=group)"</span>,
         <span class="hljs-attr">"bind_dn"</span>: <span class="hljs-string">"cn=Administrator,cn=Users,dc=example,dc=org"</span>,
         <span class="hljs-attr">"base_dn"</span>: <span class="hljs-string">"dc=example,dc=org"</span>,
         <span class="hljs-attr">"bind_password"</span>: <span class="hljs-string">"pass"</span>,
@@ -1561,7 +1561,7 @@
                 <span class="hljs-string">"LDAPGroup3"</span>
             ]
         },
-        <span class="hljs-attr">"group_base_dn"</span>: <span class="hljs-string">"OU=SyncGroups,DC=example,DC=com"</span>,
+        <span class="hljs-attr">"group_query"</span>: <span class="hljs-string">"(objectClass=group)"</span>,
         <span class="hljs-attr">"ldap_server"</span>: <span class="hljs-string">"ldapServer:12345"</span>,
         <span class="hljs-attr">"deactivate_groupless_users"</span>: <span class="hljs-literal">false</span>,
         <span class="hljs-attr">"deactivate_stale_users"</span>: <span class="hljs-literal">false</span>,
@@ -1684,9 +1684,9 @@
               <td>Gives the users of the specified group</td>
             </tr>
             <tr>
-              <td>group_base_dn</td>
+              <td>group_query</td>
               <td>Yes</td>
-              <td>Base DN of the LDAP groups to sync</td>
+              <td>Specify groups to return</td>
             </tr>
             <tr>
               <td>base_dn</td>
@@ -1739,7 +1739,7 @@
         <span class="hljs-string">"LDAPGroup3"</span>
       ]
     },
-    <span class="hljs-attr">"group_base_dn"</span>: <span class="hljs-string">"OU=SyncGroups,DC=example,DC=com"</span>,
+    <span class="hljs-attr">"group_query"</span>: <span class="hljs-string">"(objectClass=group)"</span>,
     <span class="hljs-attr">"ldap_server"</span>: <span class="hljs-string">"ldapServer:12345"</span>,
     <span class="hljs-attr">"bind_dn"</span>: <span class="hljs-string">"cn=Administrator,cn=Users,dc=example,dc=org"</span>,
     <span class="hljs-attr">"user_schema"</span>: {
@@ -1781,7 +1781,7 @@
         <span class="hljs-string">"LDAPGroup3"</span>
       ]
     },
-    <span class="hljs-attr">"group_base_dn"</span>: <span class="hljs-string">"OU=SyncGroups,DC=example,DC=com"</span>,
+    <span class="hljs-attr">"group_query"</span>: <span class="hljs-string">"(objectClass=group)"</span>,
     <span class="hljs-attr">"ldap_server"</span>: <span class="hljs-string">"ldapServer:12345"</span>,
     <span class="hljs-attr">"bind_dn"</span>: <span class="hljs-string">"cn=Administrator,cn=Users,dc=example,dc=org"</span>,
     <span class="hljs-attr">"user_schema"</span>: {
@@ -1922,9 +1922,9 @@
               <td>Gives the users of the specified group</td>
             </tr>
             <tr>
-              <td>group_base_dn</td>
+              <td>group_query</td>
               <td>Yes</td>
-              <td>Base DN of the LDAP groups to sync</td>
+              <td>Specify groups to return</td>
             </tr>
             <tr>
               <td>base_dn</td>
@@ -3858,7 +3858,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
             <span class="hljs-attr">"frequency"</span>: <span class="hljs-string">"manually"</span>,
             <span class="hljs-attr">"command"</span>: <span class="hljs-string">"sync_ldap"</span>,
             <span class="hljs-attr">"params"</span>: {
-                <span class="hljs-attr">"group_base_dn"</span>: <span class="hljs-string">"OU=SyncGroups,DC=example,DC=com"</span>,
+                <span class="hljs-attr">"group_query"</span>: <span class="hljs-string">"OU=SyncGroups,DC=labs,DC=sdelements,DC=com"</span>,
                 <span class="hljs-attr">"ldap_server"</span>: <span class="hljs-string">"geneva.labs.sdelements.com:389"</span>,
                 <span class="hljs-attr">"bind_dn"</span>: <span class="hljs-string">"CN=Bind User2,CN=Users,DC=labs,DC=sdelements,DC=com"</span>,
                 <span class="hljs-attr">"user_schema"</span>: {
@@ -3946,7 +3946,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <span class="hljs-attr">"frequency"</span>: <span class="hljs-string">"manually"</span>,
         <span class="hljs-attr">"command"</span>: <span class="hljs-string">"sync_ldap"</span>,
         <span class="hljs-attr">"params"</span>: {
-            <span class="hljs-attr">"group_base_dn"</span>: <span class="hljs-string">"OU=SyncGroups,DC=example,DC=com"</span>,
+            <span class="hljs-attr">"group_query"</span>: <span class="hljs-string">"OU=SyncGroups,DC=labs,DC=sdelements,DC=com"</span>,
             <span class="hljs-attr">"ldap_server"</span>: <span class="hljs-string">"geneva.labs.sdelements.com:389"</span>,
             <span class="hljs-attr">"bind_dn"</span>: <span class="hljs-string">"CN=Bind User2,CN=Users,DC=labs,DC=sdelements,DC=com"</span>,
             <span class="hljs-attr">"user_schema"</span>: {
@@ -4002,7 +4002,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <span class="hljs-attr">"frequency"</span>: <span class="hljs-string">"manually"</span>,
         <span class="hljs-attr">"command"</span>: <span class="hljs-string">"sync_ldap"</span>,
         <span class="hljs-attr">"params"</span>: {
-            <span class="hljs-attr">"group_base_dn"</span>: <span class="hljs-string">"OU=SyncGroups,DC=example,DC=com"</span>,
+            <span class="hljs-attr">"group_query"</span>: <span class="hljs-string">"OU=SyncGroups,DC=labs,DC=sdelements,DC=com"</span>,
             <span class="hljs-attr">"ldap_server"</span>: <span class="hljs-string">"geneva.labs.sdelements.com:389"</span>,
             <span class="hljs-attr">"bind_dn"</span>: <span class="hljs-string">"CN=Bind User2,CN=Users,DC=labs,DC=sdelements,DC=com"</span>,
             <span class="hljs-attr">"user_schema"</span>: {
@@ -4098,7 +4098,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <span class="hljs-attr">"frequency"</span>: <span class="hljs-string">"manually"</span>,
         <span class="hljs-attr">"command"</span>: <span class="hljs-string">"sync_ldap"</span>,
         <span class="hljs-attr">"params"</span>: {
-            <span class="hljs-attr">"group_base_dn"</span>: <span class="hljs-string">"OU=SyncGroups,DC=example,DC=com"</span>,
+            <span class="hljs-attr">"group_query"</span>: <span class="hljs-string">"OU=SyncGroups,DC=labs,DC=sdelements,DC=com"</span>,
             <span class="hljs-attr">"ldap_server"</span>: <span class="hljs-string">"geneva.labs.sdelements.com:389"</span>,
             <span class="hljs-attr">"bind_dn"</span>: <span class="hljs-string">"CN=Bind User2,CN=Users,DC=labs,DC=sdelements,DC=com"</span>,
             <span class="hljs-attr">"user_schema"</span>: {
