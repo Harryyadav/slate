@@ -25,7 +25,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
                     "LDAPGroup3"
                 ]
             },
-            "group_query": "(objectClass=group)",
+            "group_base_dn": "OU=SyncGroups,DC=example,DC=com",
             "ldap_server": "ldapServer:12345",
             "deactivate_groupless_users": false,
             "deactivate_stale_users": false,
@@ -86,7 +86,7 @@ Content-Type: application/json
                     "LDAPGroup3"
                 ]
             },
-            "group_query": "(objectClass=group)",
+            "group_base_dn": "OU=SyncGroups,DC=example,DC=com",
             "ldap_server": "ldapServer:12345",
             "deactivate_groupless_users": false,
             "deactivate_stale_users": false,
@@ -156,7 +156,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
 		},
 		"deactivate_groupless_users": false,
 		"deactivate_stale_users": false,
-		"group_query": "(objectClass=group)",
+		"group_base_dn": "OU=SyncGroups,DC=example,DC=com",
 		"bind_dn": "cn=Administrator,cn=Users,dc=example,dc=org",
 		"base_dn": "dc=example,dc=org",
 		"bind_password": "pass",
@@ -185,7 +185,7 @@ Content-Type: application/json
                 "LDAPGroup3"
             ]
         },
-        "group_query": "(objectClass=group)",
+        "group_base_dn": "OU=SyncGroups,DC=example,DC=com",
         "ldap_server": "ldapServer:12345",
         "deactivate_groupless_users": false,
         "deactivate_stale_users": false,
@@ -231,7 +231,7 @@ bind_dn                        | Yes      | The bind dn
 bind_password                  | Yes      | The bind password
 page_size                      | No       | Number of users to return per page. (defaults to 1000)
 group_member_query             | No       | Gives the users of the specified group
-group_query                    | Yes      | Specify groups to return
+group_base_dn                  | Yes      | Base DN of the LDAP groups to sync
 base_dn                        | No       | The base dn (will be computed from bind_dn if unspecified)
 
 ---
@@ -283,7 +283,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
         "LDAPGroup3"
       ]
     },
-    "group_query": "(objectClass=group)",
+    "group_base_dn": "OU=SyncGroups,DC=example,DC=com",
     "ldap_server": "ldapServer:12345",
     "bind_dn": "cn=Administrator,cn=Users,dc=example,dc=org",
     "user_schema": {
@@ -327,7 +327,7 @@ Content-Type: application/json
         "LDAPGroup3"
       ]
     },
-    "group_query": "(objectClass=group)",
+    "group_base_dn": "OU=SyncGroups,DC=example,DC=com",
     "ldap_server": "ldapServer:12345",
     "bind_dn": "cn=Administrator,cn=Users,dc=example,dc=org",
     "user_schema": {
@@ -385,7 +385,7 @@ bind_dn                        | Yes      | The bind dn
 bind_password                  | No       | The bind password
 page_size                      | No       | Number of users to return per page. (defaults to 1000)
 group_member_query             | No       | Gives the users of the specified group
-group_query                    | Yes      | Specify groups to return
+group_base_dn                  | Yes      | Base DN of the LDAP groups to sync
 base_dn                        | No       | The base dn (will be computed from bind_dn if unspecified)
 ---
 

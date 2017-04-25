@@ -568,7 +568,7 @@ Content-Type: application/json
             "frequency": "manually",
             "command": "sync_ldap",
             "params": {
-                "group_query": "OU=SyncGroups,DC=labs,DC=sdelements,DC=com",
+                "group_base_dn": "OU=SyncGroups,DC=example,DC=com",
                 "ldap_server": "geneva.labs.sdelements.com:389",
                 "bind_dn": "CN=Bind User2,CN=Users,DC=labs,DC=sdelements,DC=com",
                 "user_schema": {
@@ -649,7 +649,7 @@ Content-Type: application/json
         "frequency": "manually",
         "command": "sync_ldap",
         "params": {
-            "group_query": "OU=SyncGroups,DC=labs,DC=sdelements,DC=com",
+            "group_base_dn": "OU=SyncGroups,DC=example,DC=com",
             "ldap_server": "geneva.labs.sdelements.com:389",
             "bind_dn": "CN=Bind User2,CN=Users,DC=labs,DC=sdelements,DC=com",
             "user_schema": {
@@ -726,7 +726,7 @@ Content-Type: application/json
         "frequency": "manually",
         "command": "sync_ldap",
         "params": {
-            "group_query": "OU=SyncGroups,DC=labs,DC=sdelements,DC=com",
+            "group_base_dn": "OU=SyncGroups,DC=example,DC=com",
             "ldap_server": "geneva.labs.sdelements.com:389",
             "bind_dn": "CN=Bind User2,CN=Users,DC=labs,DC=sdelements,DC=com",
             "user_schema": {
@@ -807,7 +807,7 @@ Content-Type: application/json
         "frequency": "manually",
         "command": "sync_ldap",
         "params": {
-            "group_query": "OU=SyncGroups,DC=labs,DC=sdelements,DC=com",
+            "group_base_dn": "OU=SyncGroups,DC=example,DC=com",
             "ldap_server": "geneva.labs.sdelements.com:389",
             "bind_dn": "CN=Bind User2,CN=Users,DC=labs,DC=sdelements,DC=com",
             "user_schema": {

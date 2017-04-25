@@ -3,6 +3,7 @@
 ## v4.6
 - Add persist_phases to Business Unit endpoint
 - Add updater and updated fields to Analysis Note endpoint
+- Rename ldap group query field to group base dn
 
 ## v4.5
 
