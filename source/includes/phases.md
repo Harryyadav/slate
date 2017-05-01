@@ -128,9 +128,9 @@ This endpoint creates a new Phase resource.
 Fields             | Required | Description
 -------------------|----------|-------------
 name               | Yes      | The name of the phase.
-description        | No       | The description of the phase.
-tip                | No       | The tooltip for the phase.
-ordinal            | No       | The order of the phase.
+description        | Yes      | The description of the phase.
+tip                | Yes      | The tooltip for the phase.
+ordinal            | Yes      | The order of the phase.
 active             | No       | Whether or not the phase is active.
 retain             | No       | Determines whether this phase carries over statuses and notes by default.
 
