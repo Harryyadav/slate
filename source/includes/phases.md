@@ -191,7 +191,6 @@ name               | No      | The name of the phase.
 description        | No      | The description of the phase.
 tip                | No      | The tooltip for the phase.
 ordinal            | No      | The order of the phase.
-active             | No      | Whether or not the phase is active.
 retain             | No      | Determines whether this phase carries over statuses and notes by default.
 
 ### URL Parameters
