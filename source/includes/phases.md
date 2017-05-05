@@ -99,7 +99,6 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
     "description": "description",
     "tip": "tip",
     "ordinal": 1,
-    "active": "true",
     "retain": "true"
 }
 ```
@@ -131,7 +130,6 @@ name               | Yes      | The name of the phase.
 description        | Yes      | The description of the phase.
 tip                | Yes      | The tooltip for the phase.
 ordinal            | Yes      | The order of the phase.
-active             | No       | Whether or not the phase is active.
 retain             | No       | Determines whether this phase carries over statuses and notes by default.
 
 
@@ -148,7 +146,6 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
     "description": "Updated Application security requirements",
     "tip": "updated tip",
     "ordinal": 1,
-    "active": "true",
     "retain": "true",
 }
 ```
@@ -180,7 +177,6 @@ name               | Yes      | The name of the phase.
 description        | Yes      | The description of the phase.
 tip                | Yes      | The tooltip for the phase.
 ordinal            | Yes      | The order of the phase.
-active             | No       | Whether or not the phase is active.
 retain             | No       | Determines whether this phase carries over statuses and notes by default.
 
 **`PATCH /api/v2/phases/{phase_id}/`**
