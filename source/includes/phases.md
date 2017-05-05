@@ -22,8 +22,7 @@ Content-Type: application/json
             "tip": "One-time tasks that you can verify. Similar to traditional functional requirements or user stories.",
             "ordinal": 1,
             "active": "true",
-            "retain": "true",
-            "persist_open_tasks": "false"
+            "retain": "true"
         }
     ]
 }
@@ -71,8 +70,7 @@ Content-Type: application/json
     "tip": "One-time tasks that you can verify. Similar to traditional functional requirements or user stories.",
     "ordinal": 1,
     "active": "true",
-    "retain": "true",
-    "persist_open_tasks": "false"
+    "retain": "true"
 }
 ```
 
@@ -99,9 +97,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
     "description": "description",
     "tip": "tip",
     "ordinal": 1,
-    "active": "true",
-    "retain": "true",
-    "persist_open_tasks": "false"
+    "retain": "true"
 }
 ```
 
@@ -117,8 +113,7 @@ Content-Type: application/json
     "tip": "tip",
     "ordinal": 1,
     "active": "true",
-    "retain": "true",
-    "persist_open_tasks": "false"
+    "retain": "true"
 }
 ```
 
@@ -148,8 +143,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
     "description": "Updated Application security requirements",
     "tip": "updated tip",
     "ordinal": 1,
-    "active": "true",
-    "retain": "true",
+    "retain": "true"
 }
 ```
 
