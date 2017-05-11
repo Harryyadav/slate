@@ -5,6 +5,7 @@
 - Add updater and updated fields to Analysis Note endpoint
 - Rename ldap group query field to group base dn
 - Original SDE phases can now be edited via the API
+- Add root (original project that spawned any number of new releases) to the Project endpoint.
 
 ## v4.5
 
