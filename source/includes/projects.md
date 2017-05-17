@@ -30,7 +30,18 @@ Content-Type: application/json
         "tags": ["foo", "bar"],
         "created": "2015-04-15T19:30:04.132712Z",
         "updated": "2015-04-15T19:57:15.042353Z",
-        "parent": null,
+        "parent": {
+            "id": 8,
+            "slug": "parent-984-gamma",
+            "name": "Parent 9.8.4 Gamma",
+            "url": "http://example.com/bunits/bu-test/app-test/parent-984-gamma/"
+        },
+        "root": {
+            "id": 10,
+            "name": "Root 9.8.4 Gamma",
+            "slug": "root-984-gamma",
+            "url": "http://example.com/bunits/bu-test/app-test/root-984-gamma/"
+        },
         "users": [{
             "id": "1",
             "email": "test@example.com",
@@ -264,6 +275,7 @@ Content-Type: application/json
         "created": "2015-04-15T19:30:04.132712Z",
         "updated": "2015-04-15T19:57:15.042353Z",
         "parent": null,
+        "root": null,
         "users": [{
             "id": "1",
             "email": "test@example.com",
@@ -331,7 +343,7 @@ Content-Type: application/json
     "tags": ["foo", "bar"],
     "created": "2015-04-15T19:30:04.132712Z",
     "updated": "2015-04-15T19:57:15.042353Z",
-    "parent": 1935,
+    "parent": null,
     "users": [{
         "id": "1",
         "email": "test@example.com",
