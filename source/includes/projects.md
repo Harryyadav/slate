@@ -275,6 +275,7 @@ Content-Type: application/json
         "created": "2015-04-15T19:30:04.132712Z",
         "updated": "2015-04-15T19:57:15.042353Z",
         "parent": null,
+        "root": null,
         "users": [{
             "id": "1",
             "email": "test@example.com",
