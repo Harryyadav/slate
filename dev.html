@@ -47,11 +47,12 @@
                 dev
               </a> </p>
       </div>
-    </div>
-    <a href="#" id="nav-button"> <span>
+    </div> <a href="#" id="nav-button">
+      <span>
         NAV
         <img alt="undefined" class="undefined" src="images/navbar.png">
-      </span> </a>
+      </span>
+    </a>
     <div class="tocify-wrapper">
       <div class="lang-selector"> </div>
       <div class="search"> <input type="text" class="search" id="input-search" placeholder="Search"> </div>
@@ -7947,8 +7948,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <h2 id="get-password-reset-info">Get Password Reset Info</h2>
         <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/users/1/reset-password/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
-<span class="hljs-attribute">Cookie</span>: sessionid="YOUR SESSION ID"</code></pre>
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
@@ -7962,16 +7962,14 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <h2 id="reset-password">Reset Password</h2>
         <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/users/1/reset-password/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
-<span class="hljs-attribute">Cookie</span>: sessionid="YOUR SESSION ID"</code></pre>
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK</code></pre>
         <p>Request a password reset for a specific user.</p>
         <p><strong><code>POST /api/v2/users/{user_id}/reset-password/</code></strong></p>
         <h2 id="change-password">Change Password</h2>
         <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/users/me/password/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
-<span class="hljs-attribute">Cookie</span>: sessionid="YOUR SESSION ID"
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
 <span class="json">{
     <span class="hljs-attr">"current_password"</span>: <span class="hljs-string">"hunter2"</span>,
@@ -7986,8 +7984,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <h2 id="get-password-metadata">Get Password Metadata</h2>
         <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/users/me/password/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
-<span class="hljs-attribute">Cookie</span>: sessionid="YOUR SESSION ID"</code></pre>
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 
 <span class="json">{<span class="hljs-attr">"last_password_change"</span>:<span class="hljs-string">"2016-12-14T18:47:04.544Z"</span>}</span></code></pre>
@@ -7997,8 +7994,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <h2 id="get-password-reset-questions">Get Password Reset Questions</h2>
         <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/users/me/password-reset-questions/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
-<span class="hljs-attribute">Cookie</span>: sessionid="YOUR SESSION ID"</code></pre>
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
@@ -8024,8 +8020,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <h2 id="change-password-reset-questions">Change Password Reset Questions</h2>
         <pre class="highlight http"><code><span class="hljs-keyword">PATCH</span> <span class="hljs-string">/api/v2/users/me/password-reset-questions/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
-<span class="hljs-attribute">Cookie</span>: sessionid="YOUR SESSION ID"
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
 <span class="json">{
     <span class="hljs-attr">"current_password"</span>: <span class="hljs-string">"superstrongpassword123"</span>,
