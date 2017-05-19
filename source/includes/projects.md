@@ -112,6 +112,7 @@ Content-Type: application/json
         "created": "2015-04-15T19:30:04.132712Z",
         "updated": "2015-04-15T19:57:15.042353Z",
         "parent": null,
+        "root": null,
         "users": [{
             "id": "1",
             "email": "test@example.com",
@@ -344,6 +345,7 @@ Content-Type: application/json
     "created": "2015-04-15T19:30:04.132712Z",
     "updated": "2015-04-15T19:57:15.042353Z",
     "parent": null,
+    "root": null,
     "users": [{
         "id": "1",
         "email": "test@example.com",
@@ -423,6 +425,7 @@ Content-Type: application/json
     "created": "2015-04-15T19:30:04.132712Z",
     "updated": "2015-04-15T19:57:15.042353Z",
     "parent": null,
+    "root": null,
     "users": [{
         "id": "1",
         "email": "test@example.com",
@@ -497,6 +500,7 @@ Content-Type: application/json
     "created": "2015-04-15T19:30:04.132712Z",
     "updated": "2015-07-23T15:52:14.482992Z",
     "parent": null,
+    "root": null,
     "users": [{
         "id": "1",
         "email": "test@example.com",
@@ -540,7 +544,8 @@ archived      | No       | A boolean to archive and unarchive a project.
 name          | No       | The name of the project.
 description   | No       | Project description.
 tags          | No       | List of project tags.
-parent        | No       | Id of the parent project.
+parent        | No       | ID, name, slug, and URL of the parent project.
+root          | No       | ID, name, slug, and URL of the original project.
 users         | No       | A list of dictionaries per user that are to be assigned to the project. Each dictionary should contain the user's email and the desired role.
 groups        | No       | A list of dictionaries per group that are to be assigned to the project. Each dictionary should contain the group's id and the desired role.
 
