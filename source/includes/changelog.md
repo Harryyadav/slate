@@ -1,5 +1,12 @@
 # Changelog
 
+## v4.6
+- Add persist_phases to Business Unit endpoint
+- Add updater and updated fields to Analysis Note endpoint
+- Rename ldap group query field to group base dn
+- Original SDE phases can now be edited via the API
+- Add root (original project that spawned any number of new releases) to the Project endpoint.
+
 ## v4.5
 
 - Phases can be created, edited, or deleted.
@@ -8,11 +15,15 @@
 - Password reset questions can be created, edited, or deleted
 - API tokens can be generated, revoked or regenerated
 - Email notification settings can be updated
-- User Profile can be retrieved or updated
-- LDAP Connections - removed start_tls, add inaccessible to parameter list
 - Group endpoint now has sync_connections include filter to fetch LDAP connections
   that reference groups
 - Group can no longer be deleted if referenced by LDAP connection
+- User Profile can be retrieved or updated via /users/me/
+- LDAP Connections
+  - Added ldap_start_tls
+  - Removed ldap_method
+  - Renamed deactivation to deactivate_stale_users
+  - Change group_mapping to use SDE group ids instead of group names
 
 ## v4.4
 

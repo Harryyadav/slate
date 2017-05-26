@@ -95,6 +95,81 @@ user_id   | The ID of the User to retrieve
 
 
 
+## Get the Current User
+
+```http
+GET /api/v2/users/me/ HTTP/1.1
+Accept: application/json
+Authorization: Token "YOUR SDE ACCESS TOKEN"
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "email": "user@example.com",
+    "first_name": "Bob",
+    "last_name": "Smith",
+}
+```
+
+This endpoint returns the current User resource.
+
+
+
+
+
+
+
+
+
+
+## Update the Current User
+
+```http
+PUT /api/v2/users/ HTTP/1.1
+Accept: application/json
+Authorization: Token "YOUR SDE ACCESS TOKEN"
+
+{
+    "email": "user@example.com",
+    "first_name": "Bob",
+    "last_name": "Smith",
+}
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "email": "user@example.com",
+    "first_name": "Bob",
+    "last_name": "Smith",
+}
+```
+
+Update the current User resource.
+Note: only users with "Manage users & groups" can change email addresses.
+
+**`PUT /api/v2/users/me/`**
+
+Fields        | Required | Description
+--------------|----------|-------------
+email         | No       | User's email
+first_name    | No       | First name of the user
+last_name     | No       | Last name of the user
+
+
+
+
+
+
+
+
+
+
 ## Create a User
 
 ```http
@@ -227,8 +302,7 @@ user_id   | The ID of the User to update
 ```http
 GET /api/v2/users/1/reset-password/ HTTP/1.1
 Accept: application/json
-Authorization: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
-Cookie: sessionid="YOUR SESSION ID"
+Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
 
 ```http
@@ -262,8 +336,7 @@ Note: If the returned fields are null, then there is no password reset in progre
 ```http
 POST /api/v2/users/1/reset-password/ HTTP/1.1
 Accept: application/json
-Authorization: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
-Cookie: sessionid="YOUR SESSION ID"
+Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
 
 ```http
@@ -288,8 +361,7 @@ Request a password reset for a specific user.
 ```http
 POST /api/v2/users/me/password/ HTTP/1.1
 Accept: application/json
-Authorization: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
-Cookie: sessionid="YOUR SESSION ID"
+Authorization: Token "YOUR SDE ACCESS TOKEN"
 
 {
     "current_password": "hunter2",
@@ -322,9 +394,8 @@ This endpoint only uses either basic or session authentication.
 ```http
 GET /api/v2/users/me/password/ HTTP/1.1
 Accept: application/json
-Authorization: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
-Cookie: sessionid="YOUR SESSION ID"
-
+Authorization: Token "YOUR SDE ACCESS TOKEN"
+```
 
 ```http
 HTTP/1.1 200 OK
@@ -352,8 +423,7 @@ This endpoint only uses either basic or session authentication.
 ```http
 GET /api/v2/users/me/password-reset-questions/ HTTP/1.1
 Accept: application/json
-Authorization: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
-Cookie: sessionid="YOUR SESSION ID"
+Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
 
 ```http
@@ -393,11 +463,10 @@ Note: answers will not be returned.
 ```http
 PATCH /api/v2/users/me/password-reset-questions/ HTTP/1.1
 Accept: application/json
-Authorization: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
-Cookie: sessionid="YOUR SESSION ID"
+Authorization: Token "YOUR SDE ACCESS TOKEN"
 
 {
-    "current_password": "Hunter2",
+    "current_password": "superstrongpassword123",
     "questions": [
         {
             "question": "What was your childhood nickname?",
