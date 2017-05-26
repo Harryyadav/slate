@@ -18,6 +18,8 @@
       <div class="title"> <span>API v2 Documentation</span> </div>
       <div class="versions">
         <p><span class="version">v: </span> <a href="index.html" class="active">
+                4.6
+              </a> <span>&middot;</span> <a href="4.5.html">
                 4.5
               </a> <span>&middot;</span> <a href="4.4.html">
                 4.4
@@ -351,7 +353,14 @@
         <span class="hljs-attr">"findings"</span>: {},
         <span class="hljs-attr">"finding_ref"</span>: <span class="hljs-string">"my_ref"</span>,
         <span class="hljs-attr">"status"</span>: <span class="hljs-string">"pass"</span>,
-        <span class="hljs-attr">"automatic"</span>: <span class="hljs-literal">true</span>
+        <span class="hljs-attr">"automatic"</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-06-05T02:55:54.231254Z"</span>,
+        <span class="hljs-attr">"updater"</span>: {
+            <span class="hljs-attr">"id"</span>: <span class="hljs-number">599</span>,
+            <span class="hljs-attr">"email"</span>: <span class="hljs-string">"user@example.com"</span>,
+            <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Bob"</span>,
+            <span class="hljs-attr">"last_name"</span>: <span class="hljs-string">"Smith"</span>
+        }
     }]
 }</span></code></pre>
         <p>This endpoint returns a list of Analysis Note resources for a specific project task.</p>
@@ -376,7 +385,14 @@
     <span class="hljs-attr">"findings"</span>: {},
     <span class="hljs-attr">"finding_ref"</span>: <span class="hljs-string">"my_ref"</span>,
     <span class="hljs-attr">"status"</span>: <span class="hljs-string">"pass"</span>,
-    <span class="hljs-attr">"automatic"</span>: <span class="hljs-literal">true</span>
+    <span class="hljs-attr">"automatic"</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-06-05T02:55:54.231254Z"</span>,
+    <span class="hljs-attr">"updater"</span>: {
+        <span class="hljs-attr">"id"</span>: <span class="hljs-number">599</span>,
+        <span class="hljs-attr">"email"</span>: <span class="hljs-string">"user@example.com"</span>,
+        <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Bob"</span>,
+        <span class="hljs-attr">"last_name"</span>: <span class="hljs-string">"Smith"</span>
+    }
 }</span></code></pre>
         <p>This endpoint returns a specific Analysis Note resource.</p>
         <p><strong><code>GET /api/v2/projects/{project_id}/tasks/{task_id}/analysis-notes/{note_id}/</code></strong></p>
@@ -409,7 +425,14 @@
     <span class="hljs-attr">"findings"</span>: {},
     <span class="hljs-attr">"finding_ref"</span>: <span class="hljs-string">"my_ref"</span>,
     <span class="hljs-attr">"status"</span>: <span class="hljs-string">"pass"</span>,
-    <span class="hljs-attr">"automatic"</span>: <span class="hljs-literal">true</span>
+    <span class="hljs-attr">"automatic"</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-06-05T02:55:54.231254Z"</span>,
+    <span class="hljs-attr">"updater"</span>: {
+        <span class="hljs-attr">"id"</span>: <span class="hljs-number">599</span>,
+        <span class="hljs-attr">"email"</span>: <span class="hljs-string">"user@example.com"</span>,
+        <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Bob"</span>,
+        <span class="hljs-attr">"last_name"</span>: <span class="hljs-string">"Smith"</span>
+    }
 }</span></code></pre>
         <p>This endpoint creates a single Analysis Note resource.</p>
         <p><strong><code>POST /api/v2/projects/{project_id}/tasks/{task_id}/analysis-notes/</code></strong></p>
@@ -1100,7 +1123,8 @@
             <span class="hljs-string">"default_groups"</span>: [],
             <span class="hljs-string">"users"</span>: [],
             <span class="hljs-string">"groups"</span>: [],
-            <span class="hljs-string">"all_users"</span>: <span class="hljs-literal">true</span>
+            <span class="hljs-string">"all_users"</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-string">"persist_phases"</span>: <span class="hljs-literal">false</span>
         }
     ]
 }</span></code></pre>
@@ -1160,7 +1184,8 @@
         <span class="hljs-string">"id"</span>: <span class="hljs-string">"G64"</span>,
         <span class="hljs-string">"name"</span>: <span class="hljs-string">"Group Bar"</span>
     }],
-    <span class="hljs-string">"all_users"</span>: <span class="hljs-literal">false</span>
+    <span class="hljs-string">"all_users"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-string">"persist_phases"</span>: <span class="hljs-literal">false</span>
 }</span></code></pre>
         <p>This endpoint retrieves a specific Business Unit resource, as specified by the id parameter.</p>
         <p><strong><code>GET /api/v2/business-units/{business_unit_id}/</code></strong></p>
@@ -1191,6 +1216,7 @@
     <span class="hljs-attr">"default_users"</span>: [{<span class="hljs-attr">"email"</span>: <span class="hljs-string">"test@example.com"</span>, <span class="hljs-attr">"role"</span>: <span class="hljs-string">"PR4"</span>}],
     <span class="hljs-attr">"default_groups"</span>: [{<span class="hljs-attr">"id"</span>: <span class="hljs-string">"G1"</span>, <span class="hljs-attr">"role"</span>: <span class="hljs-string">"PR4"</span>}],
     <span class="hljs-attr">"all_users"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">"persist_phases"</span>: <span class="hljs-literal">false</span>
 }</span></code></pre>
         <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
 <span class="hljs-attribute">Content-Type</span>: application/json
@@ -1227,7 +1253,8 @@
         <span class="hljs-string">"id"</span>: <span class="hljs-string">"G1"</span>,
         <span class="hljs-string">"role"</span>: <span class="hljs-string">"PR4"</span>
     }],
-    <span class="hljs-string">"all_users"</span>: <span class="hljs-literal">false</span>
+    <span class="hljs-string">"all_users"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-string">"persist_phases"</span>: <span class="hljs-literal">false</span>
 }</span></code></pre>
         <table>
           <thead>
@@ -1269,6 +1296,11 @@
               <td>all_users</td>
               <td>No</td>
               <td>Whether the business unit includes all users. Trying to create a business unit with this field set to True and specific users/groups specified is an error. Default is false.</td>
+            </tr>
+            <tr>
+              <td>persist_phases</td>
+              <td>No</td>
+              <td>Set the persistence of TODO tasks that belong to active phases in a project within this business unit.</td>
             </tr>
           </tbody>
         </table>
@@ -1315,7 +1347,8 @@
         <span class="hljs-string">"id"</span>: <span class="hljs-string">"G1"</span>,
         <span class="hljs-string">"role"</span>: <span class="hljs-string">"PR4"</span>
     }],
-    <span class="hljs-string">"all_users"</span>: <span class="hljs-literal">false</span>
+    <span class="hljs-string">"all_users"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-string">"persist_phases"</span>: <span class="hljs-literal">false</span>
 }</span></code></pre>
         <p>Update a single business unit by specifying the id. The fields <code>users</code>, <code>groups</code>, <code>name</code>, <code>default_users</code>, and <code>default_groups</code> can be updated.</p>
         <p><strong><code>PUT /api/v2/business-units/{business_unit_id}/</code></strong></p>
@@ -1380,7 +1413,7 @@
                     <span class="hljs-string">"LDAPGroup3"</span>
                 ]
             },
-            <span class="hljs-attr">"group_query"</span>: <span class="hljs-string">"(objectClass=group)"</span>,
+            <span class="hljs-attr">"group_base_dn"</span>: <span class="hljs-string">"OU=SyncGroups,DC=example,DC=com"</span>,
             <span class="hljs-attr">"ldap_server"</span>: <span class="hljs-string">"ldapServer:12345"</span>,
             <span class="hljs-attr">"deactivate_groupless_users"</span>: <span class="hljs-literal">false</span>,
             <span class="hljs-attr">"deactivate_stale_users"</span>: <span class="hljs-literal">false</span>,
@@ -1431,7 +1464,7 @@
                     <span class="hljs-string">"LDAPGroup3"</span>
                 ]
             },
-            <span class="hljs-attr">"group_query"</span>: <span class="hljs-string">"(objectClass=group)"</span>,
+            <span class="hljs-attr">"group_base_dn"</span>: <span class="hljs-string">"OU=SyncGroups,DC=example,DC=com"</span>,
             <span class="hljs-attr">"ldap_server"</span>: <span class="hljs-string">"ldapServer:12345"</span>,
             <span class="hljs-attr">"deactivate_groupless_users"</span>: <span class="hljs-literal">false</span>,
             <span class="hljs-attr">"deactivate_stale_users"</span>: <span class="hljs-literal">false</span>,
@@ -1504,7 +1537,7 @@
         },
         <span class="hljs-attr">"deactivate_groupless_users"</span>: <span class="hljs-literal">false</span>,
         <span class="hljs-attr">"deactivate_stale_users"</span>: <span class="hljs-literal">false</span>,
-        <span class="hljs-attr">"group_query"</span>: <span class="hljs-string">"(objectClass=group)"</span>,
+        <span class="hljs-attr">"group_base_dn"</span>: <span class="hljs-string">"OU=SyncGroups,DC=example,DC=com"</span>,
         <span class="hljs-attr">"bind_dn"</span>: <span class="hljs-string">"cn=Administrator,cn=Users,dc=example,dc=org"</span>,
         <span class="hljs-attr">"base_dn"</span>: <span class="hljs-string">"dc=example,dc=org"</span>,
         <span class="hljs-attr">"bind_password"</span>: <span class="hljs-string">"pass"</span>,
@@ -1531,7 +1564,7 @@
                 <span class="hljs-string">"LDAPGroup3"</span>
             ]
         },
-        <span class="hljs-attr">"group_query"</span>: <span class="hljs-string">"(objectClass=group)"</span>,
+        <span class="hljs-attr">"group_base_dn"</span>: <span class="hljs-string">"OU=SyncGroups,DC=example,DC=com"</span>,
         <span class="hljs-attr">"ldap_server"</span>: <span class="hljs-string">"ldapServer:12345"</span>,
         <span class="hljs-attr">"deactivate_groupless_users"</span>: <span class="hljs-literal">false</span>,
         <span class="hljs-attr">"deactivate_stale_users"</span>: <span class="hljs-literal">false</span>,
@@ -1654,9 +1687,9 @@
               <td>Gives the users of the specified group</td>
             </tr>
             <tr>
-              <td>group_query</td>
+              <td>group_base_dn</td>
               <td>Yes</td>
-              <td>Specify groups to return</td>
+              <td>Base DN of the LDAP groups to sync</td>
             </tr>
             <tr>
               <td>base_dn</td>
@@ -1709,7 +1742,7 @@
         <span class="hljs-string">"LDAPGroup3"</span>
       ]
     },
-    <span class="hljs-attr">"group_query"</span>: <span class="hljs-string">"(objectClass=group)"</span>,
+    <span class="hljs-attr">"group_base_dn"</span>: <span class="hljs-string">"OU=SyncGroups,DC=example,DC=com"</span>,
     <span class="hljs-attr">"ldap_server"</span>: <span class="hljs-string">"ldapServer:12345"</span>,
     <span class="hljs-attr">"bind_dn"</span>: <span class="hljs-string">"cn=Administrator,cn=Users,dc=example,dc=org"</span>,
     <span class="hljs-attr">"user_schema"</span>: {
@@ -1751,7 +1784,7 @@
         <span class="hljs-string">"LDAPGroup3"</span>
       ]
     },
-    <span class="hljs-attr">"group_query"</span>: <span class="hljs-string">"(objectClass=group)"</span>,
+    <span class="hljs-attr">"group_base_dn"</span>: <span class="hljs-string">"OU=SyncGroups,DC=example,DC=com"</span>,
     <span class="hljs-attr">"ldap_server"</span>: <span class="hljs-string">"ldapServer:12345"</span>,
     <span class="hljs-attr">"bind_dn"</span>: <span class="hljs-string">"cn=Administrator,cn=Users,dc=example,dc=org"</span>,
     <span class="hljs-attr">"user_schema"</span>: {
@@ -1892,9 +1925,9 @@
               <td>Gives the users of the specified group</td>
             </tr>
             <tr>
-              <td>group_query</td>
+              <td>group_base_dn</td>
               <td>Yes</td>
-              <td>Specify groups to return</td>
+              <td>Base DN of the LDAP groups to sync</td>
             </tr>
             <tr>
               <td>base_dn</td>
@@ -3828,7 +3861,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
             <span class="hljs-attr">"frequency"</span>: <span class="hljs-string">"manually"</span>,
             <span class="hljs-attr">"command"</span>: <span class="hljs-string">"sync_ldap"</span>,
             <span class="hljs-attr">"params"</span>: {
-                <span class="hljs-attr">"group_query"</span>: <span class="hljs-string">"OU=SyncGroups,DC=labs,DC=sdelements,DC=com"</span>,
+                <span class="hljs-attr">"group_base_dn"</span>: <span class="hljs-string">"OU=SyncGroups,DC=example,DC=com"</span>,
                 <span class="hljs-attr">"ldap_server"</span>: <span class="hljs-string">"geneva.labs.sdelements.com:389"</span>,
                 <span class="hljs-attr">"bind_dn"</span>: <span class="hljs-string">"CN=Bind User2,CN=Users,DC=labs,DC=sdelements,DC=com"</span>,
                 <span class="hljs-attr">"user_schema"</span>: {
@@ -3916,7 +3949,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <span class="hljs-attr">"frequency"</span>: <span class="hljs-string">"manually"</span>,
         <span class="hljs-attr">"command"</span>: <span class="hljs-string">"sync_ldap"</span>,
         <span class="hljs-attr">"params"</span>: {
-            <span class="hljs-attr">"group_query"</span>: <span class="hljs-string">"OU=SyncGroups,DC=labs,DC=sdelements,DC=com"</span>,
+            <span class="hljs-attr">"group_base_dn"</span>: <span class="hljs-string">"OU=SyncGroups,DC=example,DC=com"</span>,
             <span class="hljs-attr">"ldap_server"</span>: <span class="hljs-string">"geneva.labs.sdelements.com:389"</span>,
             <span class="hljs-attr">"bind_dn"</span>: <span class="hljs-string">"CN=Bind User2,CN=Users,DC=labs,DC=sdelements,DC=com"</span>,
             <span class="hljs-attr">"user_schema"</span>: {
@@ -3972,7 +4005,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <span class="hljs-attr">"frequency"</span>: <span class="hljs-string">"manually"</span>,
         <span class="hljs-attr">"command"</span>: <span class="hljs-string">"sync_ldap"</span>,
         <span class="hljs-attr">"params"</span>: {
-            <span class="hljs-attr">"group_query"</span>: <span class="hljs-string">"OU=SyncGroups,DC=labs,DC=sdelements,DC=com"</span>,
+            <span class="hljs-attr">"group_base_dn"</span>: <span class="hljs-string">"OU=SyncGroups,DC=example,DC=com"</span>,
             <span class="hljs-attr">"ldap_server"</span>: <span class="hljs-string">"geneva.labs.sdelements.com:389"</span>,
             <span class="hljs-attr">"bind_dn"</span>: <span class="hljs-string">"CN=Bind User2,CN=Users,DC=labs,DC=sdelements,DC=com"</span>,
             <span class="hljs-attr">"user_schema"</span>: {
@@ -4068,7 +4101,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <span class="hljs-attr">"frequency"</span>: <span class="hljs-string">"manually"</span>,
         <span class="hljs-attr">"command"</span>: <span class="hljs-string">"sync_ldap"</span>,
         <span class="hljs-attr">"params"</span>: {
-            <span class="hljs-attr">"group_query"</span>: <span class="hljs-string">"OU=SyncGroups,DC=labs,DC=sdelements,DC=com"</span>,
+            <span class="hljs-attr">"group_base_dn"</span>: <span class="hljs-string">"OU=SyncGroups,DC=example,DC=com"</span>,
             <span class="hljs-attr">"ldap_server"</span>: <span class="hljs-string">"geneva.labs.sdelements.com:389"</span>,
             <span class="hljs-attr">"bind_dn"</span>: <span class="hljs-string">"CN=Bind User2,CN=Users,DC=labs,DC=sdelements,DC=com"</span>,
             <span class="hljs-attr">"user_schema"</span>: {
@@ -4461,6 +4494,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
             <span class="hljs-attr">"tip"</span>: <span class="hljs-string">"One-time tasks that you can verify. Similar to traditional functional requirements or user stories."</span>,
             <span class="hljs-attr">"ordinal"</span>: <span class="hljs-number">1</span>,
             <span class="hljs-attr">"active"</span>: <span class="hljs-string">"true"</span>,
+            <span class="hljs-attr">"is_custom"</span>: <span class="hljs-string">"true"</span>,
             <span class="hljs-attr">"retain"</span>: <span class="hljs-string">"true"</span>
         }
     ]
@@ -4502,6 +4536,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
     <span class="hljs-attr">"tip"</span>: <span class="hljs-string">"One-time tasks that you can verify. Similar to traditional functional requirements or user stories."</span>,
     <span class="hljs-attr">"ordinal"</span>: <span class="hljs-number">1</span>,
     <span class="hljs-attr">"active"</span>: <span class="hljs-string">"true"</span>,
+    <span class="hljs-attr">"is_custom"</span>: <span class="hljs-string">"true"</span>,
     <span class="hljs-attr">"retain"</span>: <span class="hljs-string">"true"</span>
 }</span></code></pre>
         <p>This endpoint retrieves a specific Phase resource, as specified by the id parameter.</p>
@@ -4544,6 +4579,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
     <span class="hljs-attr">"tip"</span>: <span class="hljs-string">"tip"</span>,
     <span class="hljs-attr">"ordinal"</span>: <span class="hljs-number">1</span>,
     <span class="hljs-attr">"active"</span>: <span class="hljs-string">"true"</span>,
+    <span class="hljs-attr">"is_custom"</span>: <span class="hljs-string">"true"</span>,
     <span class="hljs-attr">"retain"</span>: <span class="hljs-string">"true"</span>
 }</span></code></pre>
         <p>This endpoint creates a new Phase resource.</p>
@@ -4564,17 +4600,17 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
             </tr>
             <tr>
               <td>description</td>
-              <td>No</td>
+              <td>Yes</td>
               <td>The description of the phase.</td>
             </tr>
             <tr>
               <td>tip</td>
-              <td>No</td>
+              <td>Yes</td>
               <td>The tooltip for the phase.</td>
             </tr>
             <tr>
               <td>ordinal</td>
-              <td>No</td>
+              <td>Yes</td>
               <td>The order of the phase.</td>
             </tr>
             <tr>
@@ -4594,7 +4630,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
     <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Updated Application security requirements"</span>,
     <span class="hljs-attr">"tip"</span>: <span class="hljs-string">"updated tip"</span>,
     <span class="hljs-attr">"ordinal"</span>: <span class="hljs-number">1</span>,
-    <span class="hljs-attr">"retain"</span>: <span class="hljs-string">"true"</span>
+    <span class="hljs-attr">"retain"</span>: <span class="hljs-string">"true"</span>,
 }</span></code></pre>
         <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
@@ -4607,7 +4643,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
     <span class="hljs-attr">"tip"</span>: <span class="hljs-string">"updated tip"</span>,
     <span class="hljs-attr">"ordinal"</span>: <span class="hljs-number">1</span>,
     <span class="hljs-attr">"active"</span>: <span class="hljs-string">"true"</span>,
-    <span class="hljs-attr">"retain"</span>: <span class="hljs-string">"true"</span>,
+    <span class="hljs-attr">"is_custom"</span>: <span class="hljs-string">"true"</span>,
+    <span class="hljs-attr">"retain"</span>: <span class="hljs-string">"true"</span>
 }</span></code></pre>
         <p>This endpoint updates a specific Phase resource, as specified by the id parameter.</p>
         <p><strong><code>PUT /api/v2/phases/{phase_id}/</code></strong></p>
@@ -4642,7 +4679,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
             </tr>
             <tr>
               <td>retain</td>
-              <td>Yes</td>
+              <td>No</td>
               <td>Determines whether this phase carries over statuses and notes by default.</td>
             </tr>
           </tbody>
@@ -5445,7 +5482,18 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <span class="hljs-attr">"tags"</span>: [<span class="hljs-string">"foo"</span>, <span class="hljs-string">"bar"</span>],
         <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2015-04-15T19:30:04.132712Z"</span>,
         <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-04-15T19:57:15.042353Z"</span>,
-        <span class="hljs-attr">"parent"</span>: <span class="hljs-literal">null</span>,
+        <span class="hljs-attr">"parent"</span>: {
+            <span class="hljs-attr">"id"</span>: <span class="hljs-number">8</span>,
+            <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"parent-984-gamma"</span>,
+            <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Parent 9.8.4 Gamma"</span>,
+            <span class="hljs-attr">"url"</span>: <span class="hljs-string">"http://example.com/bunits/bu-test/app-test/parent-984-gamma/"</span>
+        },
+        <span class="hljs-attr">"root"</span>: {
+            <span class="hljs-attr">"id"</span>: <span class="hljs-number">10</span>,
+            <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Root 9.8.4 Gamma"</span>,
+            <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"root-984-gamma"</span>,
+            <span class="hljs-attr">"url"</span>: <span class="hljs-string">"http://example.com/bunits/bu-test/app-test/root-984-gamma/"</span>
+        },
         <span class="hljs-attr">"users"</span>: [{
             <span class="hljs-attr">"id"</span>: <span class="hljs-string">"1"</span>,
             <span class="hljs-attr">"email"</span>: <span class="hljs-string">"test@example.com"</span>,
@@ -5527,6 +5575,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2015-04-15T19:30:04.132712Z"</span>,
         <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-04-15T19:57:15.042353Z"</span>,
         <span class="hljs-attr">"parent"</span>: <span class="hljs-literal">null</span>,
+        <span class="hljs-attr">"root"</span>: <span class="hljs-literal">null</span>,
         <span class="hljs-attr">"users"</span>: [{
             <span class="hljs-attr">"id"</span>: <span class="hljs-string">"1"</span>,
             <span class="hljs-attr">"email"</span>: <span class="hljs-string">"test@example.com"</span>,
@@ -5695,6 +5744,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2015-04-15T19:30:04.132712Z"</span>,
         <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-04-15T19:57:15.042353Z"</span>,
         <span class="hljs-attr">"parent"</span>: <span class="hljs-literal">null</span>,
+        <span class="hljs-attr">"root"</span>: <span class="hljs-literal">null</span>,
         <span class="hljs-attr">"users"</span>: [{
             <span class="hljs-attr">"id"</span>: <span class="hljs-string">"1"</span>,
             <span class="hljs-attr">"email"</span>: <span class="hljs-string">"test@example.com"</span>,
@@ -5755,7 +5805,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
     <span class="hljs-attr">"tags"</span>: [<span class="hljs-string">"foo"</span>, <span class="hljs-string">"bar"</span>],
     <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2015-04-15T19:30:04.132712Z"</span>,
     <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-04-15T19:57:15.042353Z"</span>,
-    <span class="hljs-attr">"parent"</span>: <span class="hljs-number">1935</span>,
+    <span class="hljs-attr">"parent"</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-attr">"root"</span>: <span class="hljs-literal">null</span>,
     <span class="hljs-attr">"users"</span>: [{
         <span class="hljs-attr">"id"</span>: <span class="hljs-string">"1"</span>,
         <span class="hljs-attr">"email"</span>: <span class="hljs-string">"test@example.com"</span>,
@@ -5826,6 +5877,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
     <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2015-04-15T19:30:04.132712Z"</span>,
     <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-04-15T19:57:15.042353Z"</span>,
     <span class="hljs-attr">"parent"</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-attr">"root"</span>: <span class="hljs-literal">null</span>,
     <span class="hljs-attr">"users"</span>: [{
         <span class="hljs-attr">"id"</span>: <span class="hljs-string">"1"</span>,
         <span class="hljs-attr">"email"</span>: <span class="hljs-string">"test@example.com"</span>,
@@ -5916,6 +5968,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
     <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2015-04-15T19:30:04.132712Z"</span>,
     <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-07-23T15:52:14.482992Z"</span>,
     <span class="hljs-attr">"parent"</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-attr">"root"</span>: <span class="hljs-literal">null</span>,
     <span class="hljs-attr">"users"</span>: [{
         <span class="hljs-attr">"id"</span>: <span class="hljs-string">"1"</span>,
         <span class="hljs-attr">"email"</span>: <span class="hljs-string">"test@example.com"</span>,
@@ -6001,7 +6054,12 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
             <tr>
               <td>parent</td>
               <td>No</td>
-              <td>Id of the parent project.</td>
+              <td>ID, name, slug, and URL of the parent project.</td>
+            </tr>
+            <tr>
+              <td>root</td>
+              <td>No</td>
+              <td>ID, name, slug, and URL of the original project.</td>
             </tr>
             <tr>
               <td>users</td>
@@ -7913,8 +7971,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <h2 id="get-password-reset-info">Get Password Reset Info</h2>
         <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/users/1/reset-password/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
-<span class="hljs-attribute">Cookie</span>: sessionid="YOUR SESSION ID"</code></pre>
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
@@ -7928,16 +7985,14 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <h2 id="reset-password">Reset Password</h2>
         <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/users/1/reset-password/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
-<span class="hljs-attribute">Cookie</span>: sessionid="YOUR SESSION ID"</code></pre>
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK</code></pre>
         <p>Request a password reset for a specific user.</p>
         <p><strong><code>POST /api/v2/users/{user_id}/reset-password/</code></strong></p>
         <h2 id="change-password">Change Password</h2>
         <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/users/me/password/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
-<span class="hljs-attribute">Cookie</span>: sessionid="YOUR SESSION ID"
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
 <span class="json">{
     <span class="hljs-attr">"current_password"</span>: <span class="hljs-string">"hunter2"</span>,
@@ -7952,8 +8007,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <h2 id="get-password-metadata">Get Password Metadata</h2>
         <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/users/me/password/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
-<span class="hljs-attribute">Cookie</span>: sessionid="YOUR SESSION ID"</code></pre>
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 
 <span class="json">{<span class="hljs-attr">"last_password_change"</span>:<span class="hljs-string">"2016-12-14T18:47:04.544Z"</span>}</span></code></pre>
@@ -7963,8 +8017,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <h2 id="get-password-reset-questions">Get Password Reset Questions</h2>
         <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/users/me/password-reset-questions/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
-<span class="hljs-attribute">Cookie</span>: sessionid="YOUR SESSION ID"</code></pre>
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
@@ -7990,8 +8043,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <h2 id="change-password-reset-questions">Change Password Reset Questions</h2>
         <pre class="highlight http"><code><span class="hljs-keyword">PATCH</span> <span class="hljs-string">/api/v2/users/me/password-reset-questions/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
-<span class="hljs-attribute">Cookie</span>: sessionid="YOUR SESSION ID"
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
 <span class="json">{
     <span class="hljs-attr">"current_password"</span>: <span class="hljs-string">"superstrongpassword123"</span>,
@@ -8448,6 +8500,14 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
           </tbody>
         </table>
         <h1 id="changelog">Changelog</h1>
+        <h2 id="v4-6">v4.6</h2>
+        <ul>
+          <li>Add persist_phases to Business Unit endpoint</li>
+          <li>Add updater and updated fields to Analysis Note endpoint</li>
+          <li>Rename ldap group query field to group base dn</li>
+          <li>Original SDE phases can now be edited via the API</li>
+          <li>Add root (original project that spawned any number of new releases) to the Project endpoint.</li>
+        </ul>
         <h2 id="v4-5">v4.5</h2>
         <ul>
           <li>Phases can be created, edited, or deleted.</li>
@@ -8457,7 +8517,14 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
           <li>API tokens can be generated, revoked or regenerated</li>
           <li>Email notification settings can be updated</li>
           <li>User Profile can be retrieved or updated via /users/me/</li>
-          <li>LDAP Connections -- Added ldap_start_tls -- Removed ldap_method -- Renamed deactivation to deactivate_stale_users -- Change group_mapping to use SDE group ids instead of group names</li>
+          <li>LDAP Connections
+            <ul>
+              <li>Added ldap_start_tls</li>
+              <li>Removed ldap_method</li>
+              <li>Renamed deactivation to deactivate_stale_users</li>
+              <li>Change group_mapping to use SDE group ids instead of group names</li>
+            </ul>
+          </li>
         </ul>
         <h2 id="v4-4">v4.4</h2>
         <ul>
