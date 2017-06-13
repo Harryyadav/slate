@@ -18,7 +18,23 @@ Content-Type: application/json
         "name": "Group 64",
         "updated": "2016-07-29T21:02:33.764620Z",
         "description": "Group description",
-        "role": "UR4"
+        "role": "UR4",
+        "users": [{
+            "first_name": "Frank",
+            "last_name": "Testerton",
+            "is_active": true,
+            "id": 2,
+            "email": "frank@example.com",
+            "role": {
+                    "id": "UR1",
+                    "name": "User"
+            }
+        }],
+        "groups": [{
+            role: "User",
+            id: "G1",
+            name: "Example Group"
+        }]
     }]
 }
 ```
@@ -50,37 +66,7 @@ Content-Type: application/json
         "role": {
             "id": "UR1",
             "name": "User"
-        }
-    }]
-}
-```
-
-See the [Expand Parameters](#expand-parameters) section for more details.
-
-Parameter   | Description
-------------|---------------------
-role        | Role field is expanded to include to id and name fields.
----
-
-### Include Parameters
-
-```http
-GET /api/v2/groups/?include=groups,users,all_users,total_user_count
-Accept: application/json
-Authorization: Token: "YOUR SDE ACCESS TOKEN"
-```
-
-```http
-HTTP/1.1 200 OK
-Content-Type: application/json
-
-{
-    "results": [{
-        "id": "G64",
-        "name": "Group 64",
-        "updated": "2016-07-29T21:02:19.780768Z",
-        "description": "Group description",
-        "role": "UR4"
+        },
         "users": [{
             "first_name": "Frank",
             "last_name": "Testerton",
@@ -96,9 +82,55 @@ Content-Type: application/json
             role: "User",
             id: "G1",
             name: "Example Group"
+        }]
+    }]
+}
+```
+
+See the [Expand Parameters](#expand-parameters) section for more details.
+
+Parameter   | Description
+------------|---------------------
+role        | Role field is expanded to include to id and name fields.
+---
+
+### Include Parameters
+
+```http
+GET /api/v2/groups/?include=all_users,total_user_count
+Accept: application/json
+Authorization: Token: "YOUR SDE ACCESS TOKEN"
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "results": [{
+        "id": "G64",
+        "name": "Group 64",
+        "updated": "2016-07-29T21:02:19.780768Z",
+        "description": "Group description",
+        "role": "UR4",
+        "users": [{
+            "first_name": "Frank",
+            "last_name": "Testerton",
+            "is_active": true,
+            "id": 2,
+            "email": "frank@example.com",
+            "role": {
+                    "id": "UR1",
+                    "name": "User"
+            }
         }],
+        "groups": [{
+            role: "User",
+            id: "G1",
+            name: "Example Group"
+        }]
         "total_user_count": 2,
-        "all_users": "users": [
+        "all_users": [
             {
                 "first_name": "Frank",
                 "last_name": "Testerton",
@@ -132,8 +164,6 @@ See the [Include Parameters](#include-parameters) section for more details.
 
 Parameter | Description
 -----------------|-----------------
-groups           | Includes a list of nested groups that are directly a member of the parent group
-users            | Includes a list of direct users a part of the group.
 all_users        | Include a list of direct and indirect users of the group.
 total_user_count | Includes the total number of users (direct and indirect) in the group.
 sync_connections | Includes a list of Sync Connections that include the group in their mappings
@@ -165,6 +195,22 @@ Content-Type: application/json
     "updated": "2016-07-29T21:02:19.780768Z",
     "description": "Group description",
     "role": "UR4",
+    "users": [{
+        "first_name": "Frank",
+        "last_name": "Testerton",
+        "is_active": true,
+        "id": 2,
+        "email": "frank@example.com",
+        "role": {
+                "id": "UR1",
+                "name": "User"
+        }
+    }],
+    "groups": [{
+        role: "User",
+        id: "G1",
+        name: "Example Group"
+    }]
 }
 ```
 

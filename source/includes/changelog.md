@@ -1,5 +1,8 @@
 # Changelog
 
+## v4.7
+- Remove users/groups as include filters on Group endpoint
+
 ## v4.6
 - Add persist_phases to Business Unit endpoint
 - Add updater and updated fields to Analysis Note endpoint
