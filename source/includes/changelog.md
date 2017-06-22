@@ -1,11 +1,13 @@
 # Changelog
 
+## v4.7
+- Add `base` (original project that spawned any number of new releases) to the Project endpoint. (Note: this field will be renamed to `base_project` in v4.8)
+
 ## v4.6
-- Add persist_phases to Business Unit endpoint
-- Add updater and updated fields to Analysis Note endpoint
+- Add `persist_phases` to Business Unit endpoint
+- Add `updater` and `updated` fields to Analysis Note endpoint
 - Rename ldap group query field to group base dn
 - Original SDE phases can now be edited via the API
-- Add root (original project that spawned any number of new releases) to the Project endpoint.
 
 ## v4.5
 
@@ -18,11 +20,11 @@
 - Group endpoint now has sync_connections include filter to fetch LDAP connections
   that reference groups
 - Group can no longer be deleted if referenced by LDAP connection
-- User Profile can be retrieved or updated via /users/me/
+- User Profile can be retrieved or updated via `/users/me/`
 - LDAP Connections
-  - Added ldap_start_tls
-  - Removed ldap_method
-  - Renamed deactivation to deactivate_stale_users
+  - Added `ldap_start_tls`
+  - Removed `ldap_method`
+  - Renamed deactivation to `deactivate_stale_users`
   - Change group_mapping to use SDE group ids instead of group names
 
 ## v4.4

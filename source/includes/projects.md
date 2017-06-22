@@ -36,11 +36,11 @@ Content-Type: application/json
             "name": "Parent 9.8.4 Gamma",
             "url": "http://example.com/bunits/bu-test/app-test/parent-984-gamma/"
         },
-        "root": {
+        "base": {
             "id": 10,
-            "name": "Root 9.8.4 Gamma",
-            "slug": "root-984-gamma",
-            "url": "http://example.com/bunits/bu-test/app-test/root-984-gamma/"
+            "name": "base 9.8.4 Gamma",
+            "slug": "base-984-gamma",
+            "url": "http://example.com/bunits/bu-test/app-test/base-984-gamma/"
         },
         "users": [{
             "id": "1",
@@ -112,7 +112,7 @@ Content-Type: application/json
         "created": "2015-04-15T19:30:04.132712Z",
         "updated": "2015-04-15T19:57:15.042353Z",
         "parent": null,
-        "root": null,
+        "base": null,
         "users": [{
             "id": "1",
             "email": "test@example.com",
@@ -276,7 +276,7 @@ Content-Type: application/json
         "created": "2015-04-15T19:30:04.132712Z",
         "updated": "2015-04-15T19:57:15.042353Z",
         "parent": null,
-        "root": null,
+        "base": null,
         "users": [{
             "id": "1",
             "email": "test@example.com",
@@ -345,7 +345,7 @@ Content-Type: application/json
     "created": "2015-04-15T19:30:04.132712Z",
     "updated": "2015-04-15T19:57:15.042353Z",
     "parent": null,
-    "root": null,
+    "base": null,
     "users": [{
         "id": "1",
         "email": "test@example.com",
@@ -425,7 +425,7 @@ Content-Type: application/json
     "created": "2015-04-15T19:30:04.132712Z",
     "updated": "2015-04-15T19:57:15.042353Z",
     "parent": null,
-    "root": null,
+    "base": null,
     "users": [{
         "id": "1",
         "email": "test@example.com",
@@ -500,7 +500,7 @@ Content-Type: application/json
     "created": "2015-04-15T19:30:04.132712Z",
     "updated": "2015-07-23T15:52:14.482992Z",
     "parent": null,
-    "root": null,
+    "base": null,
     "users": [{
         "id": "1",
         "email": "test@example.com",
@@ -545,7 +545,7 @@ name          | No       | The name of the project.
 description   | No       | Project description.
 tags          | No       | List of project tags.
 parent        | No       | ID, name, slug, and URL of the parent project.
-root          | No       | ID, name, slug, and URL of the original project.
+base          | No       | ID, name, slug, and URL of the original project.
 users         | No       | A list of dictionaries per user that are to be assigned to the project. Each dictionary should contain the user's email and the desired role.
 groups        | No       | A list of dictionaries per group that are to be assigned to the project. Each dictionary should contain the group's id and the desired role.
 
