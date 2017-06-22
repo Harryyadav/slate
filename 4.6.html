@@ -17,9 +17,9 @@
       <div class="logo"> <img alt="SD Elements logo" class="logo-big" src="images/logo.png"> <img alt="SD Elements logo" class="logo-small" src="images/logo-small.png"> </div>
       <div class="title"> <span>API v2 Documentation</span> </div>
       <div class="versions">
-        <p><span class="version">v: </span> <a href="index.html" class="active">
+        <p><span class="version">v: </span> <a href="index.html">
                 4.7
-              </a> <span>&middot;</span> <a href="4.6.html">
+              </a> <span>&middot;</span> <a href="4.6.html" class="active">
                 4.6
               </a> <span>&middot;</span> <a href="4.5.html">
                 4.5
@@ -3096,7 +3096,6 @@ Authorization: Token: "YOUR SDE ACCESS TOKEN"</code></pre>
             },
 
         ]
-        <span class="hljs-string">"sync_connections"</span>: [<span class="hljs-string">"LDAP Connection"</span>]
     }]
 }</span></code></pre>
         <p>See the <a href="#include-parameters">Include Parameters</a> section for more details.</p>
@@ -3123,10 +3122,6 @@ Authorization: Token: "YOUR SDE ACCESS TOKEN"</code></pre>
             <tr>
               <td>total_user_count</td>
               <td>Includes the total number of users (direct and indirect) in the group.</td>
-            </tr>
-            <tr>
-              <td>sync_connections</td>
-              <td>Includes a list of Sync Connections that include the group in their mappings</td>
             </tr>
           </tbody>
         </table>
@@ -8523,8 +8518,6 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
           <li>Password reset questions can be created, edited, or deleted</li>
           <li>API tokens can be generated, revoked or regenerated</li>
           <li>Email notification settings can be updated</li>
-          <li>Group endpoint now has sync_connections include filter to fetch LDAP connections that reference groups</li>
-          <li>Group can no longer be deleted if referenced by LDAP connection</li>
           <li>User Profile can be retrieved or updated via /users/me/</li>
           <li>LDAP Connections
             <ul>
