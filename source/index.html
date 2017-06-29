@@ -37,22 +37,20 @@ under the License.
         <span>API v2 Documentation</span>
       </div>
       <div class="versions">
-        <p><span class="version">v: </span>
+        <label for="version">v: </label>
+        <select name="version" class="version"> version
           <% for(var i=0; i<refs.length; i++) { %>
             <% if (refs[i].version == ref) { %>
-              <a href="<%- refs[i].filename %>.html" class="active">
+              <option value="<%- refs[i].filename %>.html" class="active">
                 <%- refs[i].version %>
-              </a>
+              </option>
             <% } else { %>
-              <a href="<%- refs[i].filename %>.html">
+              <option value="<%- refs[i].filename %>.html">
                 <%- refs[i].version %>
-              </a>
-            <% } %>
-            <% if (i < refs.length - 1) { %>
-              <span>&middot;</span>
+              </option>
             <% } %>
           <% } %>
-        </p>
+        </select>
       </div>
     </div>
     <a href="#" id="nav-button">

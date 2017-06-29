@@ -707,17 +707,22 @@ body {
   text-align: right;
 }
 
-.versions a, .versions span {
+.versions option, .versions select {
   color: #aaa;
   text-decoration: none;
+  text-align: centre;
 }
-.versions a.active {
+.versions option.active {
   color: #fff;
   font-weight: bold;
 }
 
-.versions span.version {
+.versions select.version {
   color: #aa759f;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  height: 34px;
+  width: 90px;
 }
 
 .content {
