@@ -25,6 +25,16 @@ under the License.
     <%- stylesheet_link_tag('print', 'print') %>
     <%- stylesheet_link_tag('highlight-' + current_page.data.highlight_theme, 'screen, print') %>
     <%- javascript_include_tag('all') %>
+    <%
+      (function() {
+        $('select').on('change', function () {
+            var url = $(this).val();
+            if (url) {
+                window.location = url;
+            } return false;
+        });
+      });
+    %>
   </head>
 
   <body class="<%= page_classes %>" data-languages="<%= JSON.stringify(langs) %>">
