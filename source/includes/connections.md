@@ -406,20 +406,19 @@ Content-Type: application/json
 {
     "results": [{
         "id": 1,
-        "connector": 2,
-        "project": 2,
-        "system": {
-            "id": "rally",
-            "name": "Rally"
-        },
         "alias": "Rally Integration",
+        "system":{
+            "id":"rally",
+            "short_name":"CA Agile Central",
+            "name":"CA Agile Central (formerly Rally)"
+        },
         "frequency": "manually",
         "command": "sync_rally",
         "params": {
             "sde_project": "Demo Project",
             "alm_user": "rally_user",
             "sde_verification_filter": "none,partial,pass,fail",
-            "rally_workspace": "Rally Workspace",
+            "_validate_cert": true,
             "alm_method": "https",
             "alm_title_format": "$task_id $title",
             "alm_server": "rally1.rallydev.com",
@@ -430,9 +429,13 @@ Content-Type: application/json
             "alm_phases": "requirements,architecture-design,development",
             "sde_statuses_in_scope": "TODO",
             "conflict_policy": "alm",
-            "sde_min_priority": 7
+            "sde_min_priority": 7,
+            "alm_reference_context": 14
         },
         "inaccessible": false,
+        "in_progress": false,
+        "connector": 2,
+        "project": 1,
     }]
 }
 ```
@@ -468,17 +471,19 @@ Content-Type: application/json
 {
     "results": [{
         "id": 1,
-        "connector": 2,
-        "project": 2,
-        "system": "Rally",
         "alias": "Rally Integration",
+        "system":{
+            "id":"rally",
+            "short_name":"CA Agile Central",
+            "name":"CA Agile Central (formerly Rally)"
+        },
         "frequency": "manually",
         "command": "sync_rally",
         "params": {
             "sde_project": "Demo Project",
             "alm_user": "rally_user",
             "sde_verification_filter": "none,partial,pass,fail",
-            "rally_workspace": "Rally Workspace",
+            "_validate_cert": true,
             "alm_method": "https",
             "alm_title_format": "$task_id $title",
             "alm_server": "rally1.rallydev.com",
@@ -489,7 +494,8 @@ Content-Type: application/json
             "alm_phases": "requirements,architecture-design,development",
             "sde_statuses_in_scope": "TODO",
             "conflict_policy": "alm",
-            "sde_min_priority": 7
+            "sde_min_priority": 7,
+            "alm_reference_context": 14
         },
         "inaccessible": false,
          "last_job": {
@@ -500,7 +506,10 @@ Content-Type: application/json
             "ready": true,
             "automatic": false,
             "id": 4
-        }
+        },
+        "in_progress": false,
+        "connector": 2,
+        "project": 2
     }]
 }
 ```
@@ -529,20 +538,18 @@ Content-Type: application/json
 
 {
     "id": 1,
-    "connector": 2,
-    "project": 2,
+    "alias": "Rally Integration",
     "system": {
         "id": "rally",
         "name": "Rally"
     },
-    "alias": "Rally Integration",
     "frequency": "manually",
     "command": "sync_rally",
     "params": {
         "sde_project": "Demo Project",
         "alm_user": "rally_user",
         "sde_verification_filter": "none,partial,pass,fail",
-        "rally_workspace": "Rally Workspace",
+        "_validate_cert": true,
         "alm_method": "https",
         "alm_title_format": "$task_id $title",
         "alm_server": "rally1.rallydev.com",
@@ -553,9 +560,12 @@ Content-Type: application/json
         "alm_phases": "requirements,architecture-design,development",
         "sde_statuses_in_scope": "TODO",
         "conflict_policy": "alm",
-        "sde_min_priority": 7
+        "sde_min_priority": 7,
+        "alm_reference_context": 14
     },
     "inaccessible": false,
+    "connector": 2,
+    "project": 2
 }
 ```
 
@@ -599,17 +609,16 @@ Content-Type: application/json
 
 {
     "id": 5,
-    "connector": 1,
     "alias": "Example Connection",
     "system": {
         "id": "jira":,
-        "name": "JIRA"
+        "name": "JIRA",
+        "short_name": "JIRA"
     },
-    "project": 1,
     "frequency": "hourly",
     "command": "sync_jira",
     "params":{
-        "sde_project": "Proj 1",
+        "sde_project": "Project 1",
         "alm_user": "Sindy",
         "sde_verification_filter": "none,partial,pass,fail",
         "jira_version": "5",
@@ -620,13 +629,16 @@ Content-Type: application/json
         "sde_application": "Finance App",
         "alm_project": "Example Project",
         "alm_pass": "id",
+        "alm_parent_issue": "Parent",
         "alm_phases": "requirements,architecture-design,development",
         "sde_statuses_in_scope": "TODO",
         "conflict_policy": "alm",
         "sde_min_priority": 7,
         "alm_reference_context": 5
     },
-    "inaccessible": false
+    "inaccessible": false,
+    "connector": 1,
+    "project": 1
 }
 ```
 
@@ -670,17 +682,15 @@ Content-Type: application/json
 
 {
     "id": 5,
-    "connector": 1,
     "alias": "Example Connection Updated Name",
     "system": {
         "id": "jira",
         "name": "JIRA"
     },
-    "project": 1,
     "frequency": "manually",
     "command": "sync_jira",
     "params":{
-        "sde_project": "Proj 1",
+        "sde_project": "Project 1",
         "alm_user": "Sindy",
         "sde_verification_filter": "none,partial,pass,fail",
         "jira_version": "5",
@@ -691,13 +701,16 @@ Content-Type: application/json
         "sde_application": "Finance App",
         "alm_project": "Project Name",
         "alm_pass": "id",
+        "alm_parent_issue": "Parent",
         "alm_phases": "requirements,architecture-design,development",
         "sde_statuses_in_scope": "TODO",
         "conflict_policy": "alm",
         "sde_min_priority": 7,
         "alm_reference_context": 5
     },
-    "inaccessible": false
+    "inaccessible": false,
+    "connector": 1,
+    "project": 1
 }
 ```
 
@@ -797,13 +810,13 @@ Content-Type: application/json
         },
         inaccessible": false
          "last_job": {
-            "succeeded": false,
+            "id": 4,
             "last_run": "2016-12-15T22:45:27.412Z",
-            "result_message": "Error Message",
-            "user": 1,
-            "ready": true,
             "automatic": false,
-            "id": 4
+            "ready": true,
+            "result_message": "Error Message",
+            "succeeded": false,
+            "user": 1
         }
     }]
 }
