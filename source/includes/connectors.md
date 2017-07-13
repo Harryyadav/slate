@@ -16,41 +16,50 @@ Content-Type: application/json
     "results": [
         {
             "id": 1,
-            "name": "Github Connector",
+            "name": "GitHub Example Connector",
             "system": {
                 "id": "github",
-                "name": "Github"
+                "short_name": "GitHub",
+                "name": "GitHub"
             },
             "inaccessible": false,
             "params": {
-                "alm_project": "YO",
-                "token": "UYO",
-                "server": "abc"
-            },
-            "fields_editable_on_project": ["alm_project"]
-        },
-        {
-            "id": 7,
-            "name": "jira inaccessible",
-            "system": {
-                "id": "jira",
-                "name": "JIRA",
-            },
-            "inaccessible": true,
-            "params": {
-                "sde_verification_filter":
-                "none,partial,pass,fail",
-                "jira_version": "5",
+                "github_repo_owner": "repo owner",
+                "sde_verification_filter": "none,partial,pass,fail",
+                "alm_api_token": "token",
+                "title_format": "$task_id $title",
                 "alm_method": "https",
-                "alm_title_format": "$task_id $title",
-                "alm_server": "jira-server.com",
+                "alm_server": "api.github.com",
+                "github_duplicate_label": "duplicate",
                 "alm_phases": "requirements,architecture-design,development",
                 "sde_statuses_in_scope": "TODO",
                 "conflict_policy": "alm",
-                "sde_min_priority": 7
+                "sde_min_priority": "7"
+            }
+        },
+        {
+            "id": 2,
+            "name": "JIRA Example Connector",
+            "system": {
+                "id": "jira",
+                "short_name": "JIRA",
+                "name": "JIRA"
             },
-            "fields_editable_on_project": []
-        }
+            "inaccessible": false,
+            "params": {
+                "sde_verification_filter": "none,partial,pass,fail",
+                "jira_version": "5",
+                "title_format": "$task_id $title",
+                "alm_method": "https",
+                "alm_server": "my-company.atlassian.net",
+                "alm_user": "user",
+                "alm_pass": "pass",
+                "alm_phases": "requirements,architecture-design,development",
+                "sde_statuses_in_scope": "TODO",
+                "conflict_policy": "alm",
+                "sde_min_priority": "7"
+            }
+        },
     ]
 }
 ```
@@ -82,20 +91,27 @@ Content-Type: application/json
 
 {
     "id": 1,
-    "name": "Github Connector",
+    "name": "GitHub Example Connector",
     "system": {
         "id": "github",
-        "name": "Github"
+        "short_name": "GitHub",
+        "name": "GitHub"
     },
     "inaccessible": false,
     "params": {
-        "alm_project": "YO",
-        "token": "UYO",
-        "server": "abc"
-    },
-    "fields_editable_on_project": null
-
-}
+        "github_repo_owner": "repo owner",
+        "sde_verification_filter": "none,partial,pass,fail",
+        "alm_api_token": "token",
+        "title_format": "$task_id $title",
+        "alm_method": "https",
+        "alm_server": "api.github.com",
+        "github_duplicate_label": "duplicate",
+        "alm_phases": "requirements,architecture-design,development",
+        "sde_statuses_in_scope": "TODO",
+        "conflict_policy": "alm",
+        "sde_min_priority": "7"
+    }
+},
 ```
 
 Returns a specific ALM connector.
@@ -117,19 +133,25 @@ Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 
 {
-    "name": "Example Name",
+    "name": "GitHub Example Connector",
     "system": {
         "id": "github"
     },
+    "inaccessible": false,
     "params": {
-        "token": "21345",
+        "github_repo_owner": "repo owner",
+        "sde_verification_filter": "none,partial,pass,fail",
+        "alm_api_token": "token",
+        "title_format": "$task_id $title",
         "alm_method": "https",
-        "server": "github.com",
-        "conflict_policy": "sde"
-    },
-    "fields_editable_on_project": ['alm_project', 'repo_owner']
+        "alm_server": "api.github.com",
+        "github_duplicate_label": "duplicate",
+        "alm_phases": "requirements,architecture-design,development",
+        "sde_statuses_in_scope": "TODO",
+        "conflict_policy": "alm",
+        "sde_min_priority": "7"
+    }
 }
-
 
 ```
 
@@ -138,30 +160,35 @@ HTTP/1.1 201 CREATED
 Content-Type: application/json
 
 {
-    "id": 3,
-    "name": "Example Name",
+    "id": 1,
+    "name": "GitHub Example Connector",
     "system": {
         "id": "github",
-        "name": "Github"
+        "short_name": "GitHub",
+        "name": "GitHub"
     },
     "inaccessible": false,
     "params": {
-        "token": "21345",
+        "github_repo_owner": "repo owner",
+        "sde_verification_filter": "none,partial,pass,fail",
+        "alm_api_token": "token",
+        "title_format": "$task_id $title",
         "alm_method": "https",
-        "server": "github.com",
-        "conflict_policy": "sde"
-    },
-    "fields_editable_on_project": ['alm_project', 'repo_owner']
-
+        "alm_server": "api.github.com",
+        "github_duplicate_label": "duplicate",
+        "alm_phases": "requirements,architecture-design,development",
+        "sde_statuses_in_scope": "TODO",
+        "conflict_policy": "alm",
+        "sde_min_priority": "7"
+    }
 }
 ```
 Fields              | Required | Description
 --------------------|----------|-------------
 name                | Yes      | The name of the new connector.
-system              | Yes      | A dictionary containing the id and name of the system.
+system              | Yes      | A dictionary containing the id, name and short name of the system.
 inaccessible        | No       | Specifies whether the alm server specific is accessible from the SDE server. Defaults to false.
 params              | Yes      | A dictionary containing connections options. Please refer to product documentation for more details or reach out to support.  Required params will return appropriate errors when unspecified.
-fields_editable_on_project | No | A list of field names which should be editable on the project level.  By default this is set to null, meaning the default 'editable on project' fields defined in the SDE Tools plugin will be used.
 
 
 
@@ -173,19 +200,25 @@ Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 
 {
-    "name": "Example Name Updated",
+    "name": "GitHub Connector PUT Example",
     "system": {
         "id": "github"
     },
+    "inaccessible": false,
     "params": {
-        "token": "21345",
+        "github_repo_owner": "new repo owner",
+        "sde_verification_filter": "none,partial,pass,fail",
+        "alm_api_token": "new token",
+        "title_format": "$task_id $title",
         "alm_method": "https",
-        "server": "github.com",
-        "conflict_policy": "sde"
+        "alm_server": "api.github.com",
+        "github_duplicate_label": "duplicate",
+        "alm_phases": "requirements,architecture-design,development",
+        "sde_statuses_in_scope": "TODO",
+        "conflict_policy": "alm",
+        "sde_min_priority": "5"
     }
 }
-
-
 ```
 
 ```http
@@ -193,20 +226,27 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "id": 3,
-    "name": "Example Name Updated",
+    "id": 12,
+    "name": "GitHub Connector PUT Example",
     "system": {
         "id": "github",
-        "name": "Github"
+        "short_name": "GitHub",
+        "name": "GitHub"
     },
     "inaccessible": false,
     "params": {
-        "token": "21345",
+        "github_repo_owner": "new repo owner",
+        "sde_verification_filter": "none,partial,pass,fail",
+        "alm_api_token": "new token",
+        "title_format": "$task_id $title",
         "alm_method": "https",
-        "server": "github.com",
-        "conflict_policy": "sde"
-    },
-    "editable_on_project": null
+        "alm_server": "api.github.com",
+        "github_duplicate_label": "duplicate",
+        "alm_phases": "requirements,architecture-design,development",
+        "sde_statuses_in_scope": "TODO",
+        "conflict_policy": "alm",
+        "sde_min_priority": "5"
+    }
 }
 ```
 
