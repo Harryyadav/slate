@@ -3,6 +3,9 @@
 ## v4.8
 - Rename `base` to `base_project` for the Project endpoint
 
+## v4.8
+- Add incomplete_tasks include filter and redesign task_counts include filter on projects endpoint.
+
 ## v4.7
 - Add `base` (original project that spawned any number of new releases) to the Project endpoint. (Note: this field will be renamed to `base_project` in v4.8)
 
