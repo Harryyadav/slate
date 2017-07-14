@@ -84,7 +84,7 @@ search      | Filter projects by performing a textual search on name and profile
 ### Include Parameters
 
 ```http
-GET /api/v2/projects/1/?include=permissions,task_counts HTTP/1.1
+GET /api/v2/projects/1/?include=permissions,task_counts,incomplete_tasks HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
@@ -142,86 +142,31 @@ Content-Type: application/json
             "sync_with_alm",
             "edit_project_survey"
         ],
+        "incomplete_task_counts": {
+            "high": 38,
+            "medium": 60,
+            "low": 11
+        },
         "task_counts": {
-            "development": {
-                "high": {
-                    "na": 0,
-                    "total": 16,
-                    "complete": 2,
-                    "incomplete": 14
-                },
-                "medium": {
-                    "na": 0,
-                    "total": 15,
-                    "complete": 1,
-                    "incomplete": 14
-                },
-                "low": {
-                    "na": 0,
-                    "total": 3,
-                    "complete": 1,
-                    "incomplete": 2
-                }
+            "Requirements": {
+                "total": 28,
+                "complete": 4,
+                "slug": "requirements"
             },
-            "testing": {
-                "high": {
-                    "na": 0,
-                    "total": 25,
-                    "complete": 2,
-                    "incomplete": 23
-                },
-                "medium": {
-                    "na": 0,
-                    "total": 33,
-                    "complete": 1,
-                    "incomplete": 32
-                },
-                "low": {
-                    "na": 0,
-                    "total": 14,
-                    "complete": 2,
-                    "incomplete": 12
-                }
+            "Architecture & Design": {
+                "total": 6,
+                "complete": 1,
+                "slug": "architecture-design"
             },
-            "requirements": {
-                "high": {
-                    "na": 0,
-                    "total": 12,
-                    "complete": 4,
-                    "incomplete": 8
-                },
-                "medium": {
-                    "na": 0,
-                    "total": 26,
-                    "complete": 0,
-                    "incomplete": 26
-                },
-                "low": {
-                    "na": 0,
-                    "total": 10,
-                    "complete": 2,
-                    "incomplete": 8
-                }
+            "Development": {
+                "total": 30,
+                "complete": 5,
+                "slug": "development"
             },
-            "architecture-design": {
-                "high": {
-                    "na": 0,
-                    "total": 4,
-                    "complete": 1,
-                    "incomplete": 3
-                },
-                "medium": {
-                    "na": 0,
-                    "total": 3,
-                    "complete": 1,
-                    "incomplete": 2
-                },
-                "low": {
-                    "na": 0,
-                    "total": 1,
-                    "complete": 1,
-                    "incomplete": 0
-                }
+            "Testing": {
+                "total": 57,
+                "complete": 2,
+                "slug": "testing"
             }
         },
         "locked_on": null,

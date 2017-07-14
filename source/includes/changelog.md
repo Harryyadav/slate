@@ -3,6 +3,9 @@
 ## v4.9
 - Added tags to the Application endpoint
 
+## v4.8
+- Add incomplete_tasks include filter and redesign task_counts include filter on projects endpoint.
+
 ## v4.7
 - Add `base` (original project that spawned any number of new releases) to the Project endpoint. (Note: this field will be renamed to `base_project` in v4.8)
 
