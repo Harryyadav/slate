@@ -3,6 +3,8 @@
 ## v4.9
 - Add `tags` to the Application endpoint
 - Add `application_tags` to Project endpoint
+- Add `description` and `regulation_name` sections to `regulation_sections` include filter for Tasks and specific Task endpoints
+- Change `regulation` to `regulation_id` in `regulation_sections` include filter for Tasks and specific Task endpoints
 
 ## v4.8
 - Rename `base` to `base_project` for the Project endpoint
