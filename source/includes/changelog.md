@@ -1,6 +1,7 @@
 # Changelog
 
 ## v4.9
+- Added tags to the Application endpoint
 - Change `related_tasks` to include the title, phase, and url of each related task in the Tasks and specific Task endpoints.
 - Change `notify_tasks` attribute of UserProfile to include id, name.
 - Change `updater` field to be expanded by default in Task Notes endpoint.
