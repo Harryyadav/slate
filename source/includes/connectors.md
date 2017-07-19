@@ -67,7 +67,7 @@ Content-Type: application/json
 
 Returns a specific ALM connector.
 
-**`GET /api/v2/connectors/alm/{id}`**
+**`GET /api/v2/connectors/alm/{id}/`**
 
 ---
 
@@ -147,5 +147,5 @@ Content-Type: application/json
 
 Returns a specific analysis connector.
 
-**`GET /api/v2/connectors/analysis/{id}`**
+**`GET /api/v2/connectors/analysis/{id}/`**
 
