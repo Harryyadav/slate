@@ -5503,6 +5503,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <span class="hljs-attr">"creator"</span>: <span class="hljs-number">1</span>,
         <span class="hljs-attr">"description"</span>: <span class="hljs-string">"API Project"</span>,
         <span class="hljs-attr">"tags"</span>: [<span class="hljs-string">"foo"</span>, <span class="hljs-string">"bar"</span>],
+        <span class="hljs-attr">"application_tags"</span>: [<span class="hljs-string">"baz"</span>, <span class="hljs-string">"qux"</span>],
         <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2015-04-15T19:30:04.132712Z"</span>,
         <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-04-15T19:57:15.042353Z"</span>,
         <span class="hljs-attr">"parent"</span>: {
@@ -5595,6 +5596,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <span class="hljs-attr">"creator"</span>: <span class="hljs-number">1</span>,
         <span class="hljs-attr">"description"</span>: <span class="hljs-string">"API Project"</span>,
         <span class="hljs-attr">"tags"</span>: [<span class="hljs-string">"foo"</span>, <span class="hljs-string">"bar"</span>],
+        <span class="hljs-attr">"application_tags"</span>: [<span class="hljs-string">"baz"</span>, <span class="hljs-string">"qux"</span>],
         <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2015-04-15T19:30:04.132712Z"</span>,
         <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-04-15T19:57:15.042353Z"</span>,
         <span class="hljs-attr">"parent"</span>: <span class="hljs-literal">null</span>,
@@ -5764,6 +5766,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         },
         <span class="hljs-attr">"description"</span>: <span class="hljs-string">"API Project"</span>,
         <span class="hljs-attr">"tags"</span>: [<span class="hljs-string">"foo"</span>, <span class="hljs-string">"bar"</span>],
+        <span class="hljs-attr">"application_tags"</span>: [<span class="hljs-string">"baz"</span>, <span class="hljs-string">"qux"</span>],
         <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2015-04-15T19:30:04.132712Z"</span>,
         <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-04-15T19:57:15.042353Z"</span>,
         <span class="hljs-attr">"parent"</span>: <span class="hljs-literal">null</span>,
@@ -5826,6 +5829,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
     <span class="hljs-attr">"creator"</span>: <span class="hljs-number">1</span>,
     <span class="hljs-attr">"description"</span>: <span class="hljs-string">"API Project"</span>,
     <span class="hljs-attr">"tags"</span>: [<span class="hljs-string">"foo"</span>, <span class="hljs-string">"bar"</span>],
+    <span class="hljs-attr">"application_tags"</span>: [<span class="hljs-string">"baz"</span>, <span class="hljs-string">"qux"</span>],
     <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2015-04-15T19:30:04.132712Z"</span>,
     <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-04-15T19:57:15.042353Z"</span>,
     <span class="hljs-attr">"parent"</span>: <span class="hljs-literal">null</span>,
@@ -5896,7 +5900,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
     <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Project Test"</span>,
     <span class="hljs-attr">"creator"</span>: <span class="hljs-number">1</span>,
     <span class="hljs-attr">"description"</span>: <span class="hljs-string">"API Project"</span>,
-    <span class="hljs-attr">"tags"</span>: [<span class="hljs-string">"foo"</span>, <span class="hljs-string">"bar"</span>],
+    <span class="hljs-attr">"tags"</span>: [],
+    <span class="hljs-attr">"application_tags"</span>: [],
     <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2015-04-15T19:30:04.132712Z"</span>,
     <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-04-15T19:57:15.042353Z"</span>,
     <span class="hljs-attr">"parent"</span>: <span class="hljs-literal">null</span>,
@@ -5988,6 +5993,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
     <span class="hljs-attr">"creator"</span>: <span class="hljs-number">1</span>,
     <span class="hljs-attr">"description"</span>: <span class="hljs-string">"API Project"</span>,
     <span class="hljs-attr">"tags"</span>: [<span class="hljs-string">"foo"</span>, <span class="hljs-string">"bar"</span>],
+    <span class="hljs-attr">"application_tags"</span>: [<span class="hljs-string">"baz"</span>, <span class="hljs-string">"qux"</span>],
     <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2015-04-15T19:30:04.132712Z"</span>,
     <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-07-23T15:52:14.482992Z"</span>,
     <span class="hljs-attr">"parent"</span>: <span class="hljs-literal">null</span>,
@@ -8525,7 +8531,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <h1 id="changelog">Changelog</h1>
         <h2 id="v4-9">v4.9</h2>
         <ul>
-          <li>Added tags to the Application endpoint</li>
+          <li>Add <code>tags</code> to the Application endpoint</li>
+          <li>Add <code>application_tags</code> to Project endpoint</li>
         </ul>
         <h2 id="v4-7">v4.7</h2>
         <ul>
