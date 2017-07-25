@@ -28,6 +28,7 @@ Content-Type: application/json
         "creator": 1,
         "description": "API Project",
         "tags": ["foo", "bar"],
+        "application_tags": ["baz", "qux"],
         "created": "2015-04-15T19:30:04.132712Z",
         "updated": "2015-04-15T19:57:15.042353Z",
         "parent": {
@@ -109,6 +110,7 @@ Content-Type: application/json
         "creator": 1,
         "description": "API Project",
         "tags": ["foo", "bar"],
+        "application_tags": ["baz", "qux"],
         "created": "2015-04-15T19:30:04.132712Z",
         "updated": "2015-04-15T19:57:15.042353Z",
         "parent": null,
@@ -273,6 +275,7 @@ Content-Type: application/json
         },
         "description": "API Project",
         "tags": ["foo", "bar"],
+        "application_tags": ["baz", "qux"],
         "created": "2015-04-15T19:30:04.132712Z",
         "updated": "2015-04-15T19:57:15.042353Z",
         "parent": null,
@@ -342,6 +345,7 @@ Content-Type: application/json
     "creator": 1,
     "description": "API Project",
     "tags": ["foo", "bar"],
+    "application_tags": ["baz", "qux"],
     "created": "2015-04-15T19:30:04.132712Z",
     "updated": "2015-04-15T19:57:15.042353Z",
     "parent": null,
@@ -421,7 +425,8 @@ Content-Type: application/json
     "name": "Project Test",
     "creator": 1,
     "description": "API Project",
-    "tags": ["foo", "bar"],
+    "tags": [],
+    "application_tags": [],
     "created": "2015-04-15T19:30:04.132712Z",
     "updated": "2015-04-15T19:57:15.042353Z",
     "parent": null,
@@ -497,6 +502,7 @@ Content-Type: application/json
     "creator": 1,
     "description": "API Project",
     "tags": ["foo", "bar"],
+    "application_tags": ["baz", "qux"],
     "created": "2015-04-15T19:30:04.132712Z",
     "updated": "2015-07-23T15:52:14.482992Z",
     "parent": null,
@@ -535,19 +541,19 @@ project_id | The id of the Project to update
 
 ### Payload
 
-Fields        | Required | Description
---------------|----------|---------------
-locked        | No       | A boolean field to lock or unlock the project. It can only be used by users that have lock_project_survey permission
-application   | No       | The ID of the application the project should be created under.
-profile       | No       | The ID of the desired profile for the project.
-archived      | No       | A boolean to archive and unarchive a project.
-name          | No       | The name of the project.
-description   | No       | Project description.
-tags          | No       | List of project tags.
-parent        | No       | ID, name, slug, and URL of the parent project.
-base          | No       | ID, name, slug, and URL of the original project.
-users         | No       | A list of dictionaries per user that are to be assigned to the project. Each dictionary should contain the user's email and the desired role.
-groups        | No       | A list of dictionaries per group that are to be assigned to the project. Each dictionary should contain the group's id and the desired role.
+Fields           | Required | Description
+-----------------|----------|---------------
+locked           | No       | A boolean field to lock or unlock the project. It can only be used by users that have lock_project_survey permission
+application      | No       | The ID of the application the project should be created under.
+profile          | No       | The ID of the desired profile for the project.
+archived         | No       | A boolean to archive and unarchive a project.
+name             | No       | The name of the project.
+description      | No       | Project description.
+tags             | No       | List of project tags.
+parent           | No       | ID, name, slug, and URL of the parent project.
+base             | No       | ID, name, slug, and URL of the original project.
+users            | No       | A list of dictionaries per user that are to be assigned to the project. Each dictionary should contain the user's email and the desired role.
+groups           | No       | A list of dictionaries per group that are to be assigned to the project. Each dictionary should contain the group's id and the desired role.
 
 
 
