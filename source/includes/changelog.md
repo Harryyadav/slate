@@ -3,6 +3,7 @@
 ## v4.9
 - Add `tags` to the Application endpoint
 - Add `application_tags` to Project endpoint
+- Add `url` and `title` in addition to the `id` of each related task in the `Task` endpoint
 
 ## v4.8
 - Rename `base` to `base_project` for the Project endpoint

@@ -144,7 +144,28 @@ Content-Type: application/json
         "note_count": 0,
         "artifact_proxy": null,
         "tags": ["tag1", "tag2"],
-        "related": ["1-T31", "1-T32", "1-T34", "1-T98"],
+        "related": [
+            {
+                "id": "1-T514",
+                "title": "Prevent formula injection in CSV Excel",
+                "url": "http://example.com/bunits/test-bu/videosphere/security-fix-8645/tasks/phase/development/6-T514"
+            },
+            {
+                "id": "1-T32",
+                "title": "Always Perform Input Validation on a Server",
+                "url": "http://example.com/bunits/test-bu/videosphere/security-fix-8645/tasks/phase/architecture-design/6-T32"
+            },
+            {
+                "id": "1-T519",
+                "title": "Test that input validation is done on all forms of input",
+                "url": "http://example.com/bunits/test-bu/videosphere/security-fix-8645/tasks/phase/testing/6-T519"
+            },
+            {
+                "id": "1-T606",
+                "title": "Verify that CSV files are protected against macro injection",
+                "url": "http://example.com/bunits/test-bu/videosphere/security-fix-8645/tasks/phase/testing/6-T606"
+            }
+        ],
         "problem": {
             "id": "P526",
             "title": "P526: Weak Password Recovery Mechanism...",
