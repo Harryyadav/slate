@@ -5574,7 +5574,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
           </tbody>
         </table>
         <h3 id="include-parameters">Include Parameters</h3>
-        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/?include=permissions,task_counts</span> HTTP/1.1
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/?include=permissions,task_counts,incomplete_tasks</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
@@ -5630,86 +5630,31 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
             <span class="hljs-string">"sync_with_alm"</span>,
             <span class="hljs-string">"edit_project_survey"</span>
         ],
+        <span class="hljs-attr">"incomplete_task_counts"</span>: {
+            <span class="hljs-attr">"high"</span>: <span class="hljs-number">38</span>,
+            <span class="hljs-attr">"medium"</span>: <span class="hljs-number">60</span>,
+            <span class="hljs-attr">"low"</span>: <span class="hljs-number">11</span>
+        },
         <span class="hljs-attr">"task_counts"</span>: {
-            <span class="hljs-attr">"development"</span>: {
-                <span class="hljs-attr">"high"</span>: {
-                    <span class="hljs-attr">"na"</span>: <span class="hljs-number">0</span>,
-                    <span class="hljs-attr">"total"</span>: <span class="hljs-number">16</span>,
-                    <span class="hljs-attr">"complete"</span>: <span class="hljs-number">2</span>,
-                    <span class="hljs-attr">"incomplete"</span>: <span class="hljs-number">14</span>
-                },
-                <span class="hljs-attr">"medium"</span>: {
-                    <span class="hljs-attr">"na"</span>: <span class="hljs-number">0</span>,
-                    <span class="hljs-attr">"total"</span>: <span class="hljs-number">15</span>,
-                    <span class="hljs-attr">"complete"</span>: <span class="hljs-number">1</span>,
-                    <span class="hljs-attr">"incomplete"</span>: <span class="hljs-number">14</span>
-                },
-                <span class="hljs-attr">"low"</span>: {
-                    <span class="hljs-attr">"na"</span>: <span class="hljs-number">0</span>,
-                    <span class="hljs-attr">"total"</span>: <span class="hljs-number">3</span>,
-                    <span class="hljs-attr">"complete"</span>: <span class="hljs-number">1</span>,
-                    <span class="hljs-attr">"incomplete"</span>: <span class="hljs-number">2</span>
-                }
+            <span class="hljs-attr">"Requirements"</span>: {
+                <span class="hljs-attr">"total"</span>: <span class="hljs-number">28</span>,
+                <span class="hljs-attr">"complete"</span>: <span class="hljs-number">4</span>,
+                <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"requirements"</span>
             },
-            <span class="hljs-attr">"testing"</span>: {
-                <span class="hljs-attr">"high"</span>: {
-                    <span class="hljs-attr">"na"</span>: <span class="hljs-number">0</span>,
-                    <span class="hljs-attr">"total"</span>: <span class="hljs-number">25</span>,
-                    <span class="hljs-attr">"complete"</span>: <span class="hljs-number">2</span>,
-                    <span class="hljs-attr">"incomplete"</span>: <span class="hljs-number">23</span>
-                },
-                <span class="hljs-attr">"medium"</span>: {
-                    <span class="hljs-attr">"na"</span>: <span class="hljs-number">0</span>,
-                    <span class="hljs-attr">"total"</span>: <span class="hljs-number">33</span>,
-                    <span class="hljs-attr">"complete"</span>: <span class="hljs-number">1</span>,
-                    <span class="hljs-attr">"incomplete"</span>: <span class="hljs-number">32</span>
-                },
-                <span class="hljs-attr">"low"</span>: {
-                    <span class="hljs-attr">"na"</span>: <span class="hljs-number">0</span>,
-                    <span class="hljs-attr">"total"</span>: <span class="hljs-number">14</span>,
-                    <span class="hljs-attr">"complete"</span>: <span class="hljs-number">2</span>,
-                    <span class="hljs-attr">"incomplete"</span>: <span class="hljs-number">12</span>
-                }
+            <span class="hljs-attr">"Architecture &amp; Design"</span>: {
+                <span class="hljs-attr">"total"</span>: <span class="hljs-number">6</span>,
+                <span class="hljs-attr">"complete"</span>: <span class="hljs-number">1</span>,
+                <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"architecture-design"</span>
             },
-            <span class="hljs-attr">"requirements"</span>: {
-                <span class="hljs-attr">"high"</span>: {
-                    <span class="hljs-attr">"na"</span>: <span class="hljs-number">0</span>,
-                    <span class="hljs-attr">"total"</span>: <span class="hljs-number">12</span>,
-                    <span class="hljs-attr">"complete"</span>: <span class="hljs-number">4</span>,
-                    <span class="hljs-attr">"incomplete"</span>: <span class="hljs-number">8</span>
-                },
-                <span class="hljs-attr">"medium"</span>: {
-                    <span class="hljs-attr">"na"</span>: <span class="hljs-number">0</span>,
-                    <span class="hljs-attr">"total"</span>: <span class="hljs-number">26</span>,
-                    <span class="hljs-attr">"complete"</span>: <span class="hljs-number">0</span>,
-                    <span class="hljs-attr">"incomplete"</span>: <span class="hljs-number">26</span>
-                },
-                <span class="hljs-attr">"low"</span>: {
-                    <span class="hljs-attr">"na"</span>: <span class="hljs-number">0</span>,
-                    <span class="hljs-attr">"total"</span>: <span class="hljs-number">10</span>,
-                    <span class="hljs-attr">"complete"</span>: <span class="hljs-number">2</span>,
-                    <span class="hljs-attr">"incomplete"</span>: <span class="hljs-number">8</span>
-                }
+            <span class="hljs-attr">"Development"</span>: {
+                <span class="hljs-attr">"total"</span>: <span class="hljs-number">30</span>,
+                <span class="hljs-attr">"complete"</span>: <span class="hljs-number">5</span>,
+                <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"development"</span>
             },
-            <span class="hljs-attr">"architecture-design"</span>: {
-                <span class="hljs-attr">"high"</span>: {
-                    <span class="hljs-attr">"na"</span>: <span class="hljs-number">0</span>,
-                    <span class="hljs-attr">"total"</span>: <span class="hljs-number">4</span>,
-                    <span class="hljs-attr">"complete"</span>: <span class="hljs-number">1</span>,
-                    <span class="hljs-attr">"incomplete"</span>: <span class="hljs-number">3</span>
-                },
-                <span class="hljs-attr">"medium"</span>: {
-                    <span class="hljs-attr">"na"</span>: <span class="hljs-number">0</span>,
-                    <span class="hljs-attr">"total"</span>: <span class="hljs-number">3</span>,
-                    <span class="hljs-attr">"complete"</span>: <span class="hljs-number">1</span>,
-                    <span class="hljs-attr">"incomplete"</span>: <span class="hljs-number">2</span>
-                },
-                <span class="hljs-attr">"low"</span>: {
-                    <span class="hljs-attr">"na"</span>: <span class="hljs-number">0</span>,
-                    <span class="hljs-attr">"total"</span>: <span class="hljs-number">1</span>,
-                    <span class="hljs-attr">"complete"</span>: <span class="hljs-number">1</span>,
-                    <span class="hljs-attr">"incomplete"</span>: <span class="hljs-number">0</span>
-                }
+            <span class="hljs-attr">"Testing"</span>: {
+                <span class="hljs-attr">"total"</span>: <span class="hljs-number">57</span>,
+                <span class="hljs-attr">"complete"</span>: <span class="hljs-number">2</span>,
+                <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"testing"</span>
             }
         },
         <span class="hljs-attr">"locked_on"</span>: <span class="hljs-literal">null</span>,
@@ -8537,6 +8482,10 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <h2 id="v4-8">v4.8</h2>
         <ul>
           <li>Rename <code>base</code> to <code>base_project</code> for the Project endpoint</li>
+        </ul>
+        <h2 id="v4-8">v4.8</h2>
+        <ul>
+          <li>Add incomplete_tasks include filter and redesign task_counts include filter on projects endpoint.</li>
         </ul>
         <h2 id="v4-7">v4.7</h2>
         <ul>
