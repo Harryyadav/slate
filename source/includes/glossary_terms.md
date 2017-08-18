@@ -76,6 +76,8 @@ This endpoint returns a specific Glossary Term resource.
 Parameter        | Description
 ---------------- | ---------------
 glossary_term_id | The id of the Glossary Term to retrieve
+absolute_urls    | Whether to use absolute or relative urls (default is False)
+to_html          | Whether to convert markdown to html (default is False)
 
 
 
