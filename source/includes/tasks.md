@@ -168,14 +168,18 @@ Content-Type: application/json
         ],
         "regulation_sections": [
             {
+                "description": "Denial of service (DoS) protection and working in a degraded mode during DoS attacks.",
                 "id": "RS1026",
                 "name": "CR2.7 (L3 and higher)",
-                "regulation": "CR45"
+                "regulation_id": "CR45",
+                "regulation_name": "ANSI/ISA 62443-4-2"
             },
             {
+                "description": "Denial of service (DoS) protection and working in a degraded mode during DoS attacks.",
                 "id": "RS642",
                 "name": "SR2.7 (L3 and higher)",
-                "regulation": "CR39"
+                "regulation_id": "CR39",
+                "regulation_name": "ANSI/ISA 62443-3-3"
             }
         ],
         "references": [
