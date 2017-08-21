@@ -3,6 +3,9 @@
 ## v4.9
 - Add `tags` to the Application endpoint
 - Add `application_tags` to Project endpoint
+- Add support for creation and deletion of manually added library tasks to Tasks endpoint
+  - Added `manually_added_from_library` field to Task resources
+  - The `ad_hoc` field has been renamed to `project_specific`
 
 ## v4.8
 - Rename `base` to `base_project` for the Project endpoint
