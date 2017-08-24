@@ -12,17 +12,19 @@ includes:
 
  - resources
  - activity
+ - alm_connections
+ - alm_plugins
+ - analysis_connections
  - analysis_notes
  - analysis_sessions
  - api_tokens
  - applications
  - business_units
- - connections
- - connectors
  - global_roles
  - glossary_terms
  - groups
  - jobs
+ - ldap_connections
  - library_tasks
  - library_problems
  - phases
@@ -45,7 +47,7 @@ includes:
  - user_profile
  - user_activity
  - assigned_tasks
- 
+
  - changelog
 
 search: true
