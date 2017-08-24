@@ -80,10 +80,3 @@ Update the current user's profile.
 
 **`PATCH /api/v2/users/me/profile/`**
 
-
-
-
-
-
-
-

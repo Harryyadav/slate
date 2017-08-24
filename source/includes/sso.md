@@ -36,6 +36,15 @@ bind_dn       | No       | The distinguished name to use when binding to the LDA
 bind_password | No       | The password used with the bind DN. Leave blank for anonymous bind.
 start_tls     | No       | If checked, each connection to the LDAP server will enable TLS encryption over the standard LDAP port.
 
+
+
+
+
+
+
+
+
+
 ## Test LDAP User Authentication
 
 ```http
