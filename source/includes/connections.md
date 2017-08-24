@@ -418,7 +418,7 @@ Content-Type: application/json
             "sde_project": "Demo Project",
             "alm_user": "rally_user",
             "sde_verification_filter": "none,partial,pass,fail",
-            "_validate_cert": true,
+            "rally_workspace": "Rally Workspace",
             "alm_method": "https",
             "alm_validate_cert": true,
             "alm_title_format": "$task_id $title",
@@ -484,7 +484,7 @@ Content-Type: application/json
             "sde_project": "Demo Project",
             "alm_user": "rally_user",
             "sde_verification_filter": "none,partial,pass,fail",
-            "_validate_cert": true,
+            "rally_workspace": "Rally Workspace",
             "alm_method": "https",
             "alm_validate_cert": true,
             "alm_title_format": "$task_id $title",
@@ -551,7 +551,7 @@ Content-Type: application/json
         "sde_project": "Demo Project",
         "alm_user": "rally_user",
         "sde_verification_filter": "none,partial,pass,fail",
-        "_validate_cert": true,
+        "rally_workspace": "Rally Workspace",
         "alm_method": "https",
         "alm_validate_cert": true,
         "alm_title_format": "$task_id $title",
@@ -1014,4 +1014,3 @@ Update a specific Analysis Connection resource.
 Parameter | Description
 --------- | -----------
 connection_id   | The ID of the Analysis Connection to update
-
