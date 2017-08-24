@@ -546,6 +546,10 @@ succeeded     | No       | Boolean Field. Use this along with the 'ready: true' 
 
 
 
+
+
+
+
 ## Get All LDAP Jobs
 
 ```http
@@ -679,8 +683,6 @@ Content-Type: application/json
     "succeeded": true,
     "user": 1
 }
-
-
 ```
 
 Returns a specific LDAP job. Note that the params are only shown if you have 'Edit security tool connections' permission.
@@ -756,7 +758,6 @@ Content-Type: application/json
     "succeeded": true,
     "user": 1
 }
-
 ```
 
 Will submit the results of an LDAP job.
