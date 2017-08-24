@@ -18,8 +18,6 @@
       <div class="title"> <span>API v2 Documentation</span> </div>
       <div class="versions">
         <p><span class="version">v: </span> <a href="index.html" class="active">
-                4.8
-              </a> <span>&middot;</span> <a href="4.7.html">
                 4.7
               </a> <span>&middot;</span> <a href="4.6.html">
                 4.6
@@ -777,17 +775,12 @@
 <span class="json">{
     <span class="hljs-attr">"results"</span>: [{
         <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
-        <span class="hljs-attr">"business_unit"</span>: {
-            <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
-            <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"example-business-unit-1"</span>,
-            <span class="hljs-attr">"name"</span>: <span class="hljs-string">"example business unit 1"</span>
-        },
+        <span class="hljs-attr">"business_unit"</span>: <span class="hljs-number">1</span>,
         <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Application Test"</span>,
         <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2015-04-15T20:27:24.396442Z"</span>,
         <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-04-15T20:27:24.389957Z"</span>,
         <span class="hljs-attr">"priority"</span>: <span class="hljs-string">"0-none"</span>,
-        <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"application-test"</span>,
-        <span class="hljs-attr">"tags"</span>: [<span class="hljs-string">"foo"</span>, <span class="hljs-string">"bar"</span>]
+        <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"application-test"</span>
     }]
 }</span></code></pre>
         <p>This endpoint retrieves a list of Application resources.</p>
@@ -829,8 +822,8 @@
           </tbody>
         </table>
         <hr>
-        <h3 id="include-parameters">Include Parameters</h3>
-        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/applications/?include=projects</span> HTTP/1.1
+        <h3 id="expand-parameters">Expand Parameters</h3>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/applications/?expand=business_unit</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
@@ -848,8 +841,40 @@
         <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2015-04-15T20:27:24.396442Z"</span>,
         <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-04-15T20:27:24.389957Z"</span>,
         <span class="hljs-attr">"priority"</span>: <span class="hljs-string">"0-none"</span>,
+        <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"application-test"</span>
+    }]
+}</span></code></pre>
+        <p>See the <a href="#expand-parameters">Expand Parameters</a> section for more details.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>business_unit</td>
+              <td>Expand the business unit field of the application</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 id="include-parameters">Include Parameters</h3>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/applications/?include=projects</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="json">{
+    <span class="hljs-attr">"results"</span>: [{
+        <span class="hljs-attr">"id"</span>: <span class="hljs-number">3</span>,
+        <span class="hljs-attr">"business_unit"</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Application Test"</span>,
+        <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2015-04-15T20:27:24.396442Z"</span>,
+        <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-04-15T20:27:24.389957Z"</span>,
+        <span class="hljs-attr">"priority"</span>: <span class="hljs-string">"0-none"</span>,
         <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"application-test"</span>,
-        <span class="hljs-attr">"tags"</span>: [<span class="hljs-string">"foo"</span>, <span class="hljs-string">"bar"</span>],
         <span class="hljs-attr">"projects"</span>: [
             {
                 <span class="hljs-attr">"id"</span>: <span class="hljs-string">"1"</span>,
@@ -891,17 +916,12 @@
 <span class="json">{
     <span class="hljs-attr">"results"</span>: [{
         <span class="hljs-attr">"id"</span>: <span class="hljs-number">3</span>,
-        <span class="hljs-attr">"business_unit"</span>: {
-            <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
-            <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"example-business-unit-1"</span>,
-            <span class="hljs-attr">"name"</span>: <span class="hljs-string">"example business unit 1"</span>
-        },
+        <span class="hljs-attr">"business_unit"</span>: <span class="hljs-number">1</span>,
         <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Application Test"</span>,
         <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2015-04-15T20:27:24.396442Z"</span>,
         <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-04-15T20:27:24.389957Z"</span>,
         <span class="hljs-attr">"priority"</span>: <span class="hljs-string">"0-none"</span>,
-        <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"application-test"</span>,
-        <span class="hljs-attr">"tags"</span>: [<span class="hljs-string">"foo"</span>, <span class="hljs-string">"bar"</span>]
+        <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"application-test"</span>
     }]
 }</span></code></pre>
         <p>This endpoint retrieves a specific Application resource, as specified by the id parameter.</p>
@@ -937,17 +957,12 @@
 <span class="json">{
     <span class="hljs-attr">"results"</span>: [{
         <span class="hljs-attr">"id"</span>: <span class="hljs-number">3</span>,
-        <span class="hljs-attr">"business_unit"</span>: {
-            <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
-            <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"example-business-unit-1"</span>,
-            <span class="hljs-attr">"name"</span>: <span class="hljs-string">"example business unit 1"</span>
-        },
+        <span class="hljs-attr">"business_unit"</span>: <span class="hljs-number">1</span>,
         <span class="hljs-attr">"name"</span>: <span class="hljs-string">"API Test"</span>,
         <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2015-04-15T20:27:24.396442Z"</span>,
         <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-04-15T20:27:24.389957Z"</span>,
         <span class="hljs-attr">"priority"</span>: <span class="hljs-string">"0-none"</span>,
-        <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"api-test"</span>,
-        <span class="hljs-attr">"tags"</span>: []
+        <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"api-test"</span>
     }]
 }</span></code></pre>
         <table>
@@ -974,11 +989,6 @@
               <td>No</td>
               <td>Specifies the priority of the application to be either &#39;0-none&#39;, &#39;1-high&#39;, &#39;2-medium&#39; or &#39;3-low&#39;</td>
             </tr>
-            <tr>
-              <td>tags</td>
-              <td>No</td>
-              <td>List of application tags.</td>
-            </tr>
           </tbody>
         </table>
         <h2 id="update-an-application">Update an Application</h2>
@@ -996,17 +1006,12 @@
 <span class="json">{
     <span class="hljs-attr">"results"</span>: [{
         <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
-        <span class="hljs-attr">"business_unit"</span>: {
-            <span class="hljs-attr">"id"</span>: <span class="hljs-number">2</span>,
-            <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"example-business-unit-2"</span>,
-            <span class="hljs-attr">"name"</span>: <span class="hljs-string">"example business unit 2"</span>
-        },
+        <span class="hljs-attr">"business_unit"</span>: <span class="hljs-number">2</span>,
         <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Edit Test"</span>,
         <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2015-06-18T19:27:14.860536Z"</span>,
         <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-06-18T21:00:03.827952Z"</span>,
         <span class="hljs-attr">"priority"</span>: <span class="hljs-string">"0-none"</span>,
-        <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"api-test"</span>,
-        <span class="hljs-attr">"tags"</span>: [<span class="hljs-string">"foo"</span>, <span class="hljs-string">"bar"</span>]
+        <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"api-test"</span>
     }]
 }</span></code></pre>
         <p>Update a single application by specifying a new name and new business unit. The application to update is identified by the id.</p>
@@ -1050,11 +1055,6 @@
               <td>priority</td>
               <td>No</td>
               <td>The three options are: &#39;0-none&#39;, &#39;1-high&#39;, &#39;2-medium&#39;, &#39;3-low&#39;</td>
-            </tr>
-            <tr>
-              <td>tags</td>
-              <td>No</td>
-              <td>List of application tags.</td>
             </tr>
           </tbody>
         </table>
@@ -2562,7 +2562,7 @@
     <span class="hljs-attr">"inaccessible"</span>: <span class="hljs-literal">false</span>
 }</span></code></pre>
         <p>Returns a specific ALM connector.</p>
-        <p><strong><code>GET /api/v2/connectors/alm/{id}/</code></strong></p>
+        <p><strong><code>GET /api/v2/connectors/alm/{id}</code></strong></p>
         <hr>
         <h2 id="get-all-analysis-connectors">Get All Analysis Connectors</h2>
         <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/connectors/analysis/</span> HTTP/1.1
@@ -2612,7 +2612,7 @@
     <span class="hljs-attr">"inaccessible"</span>: <span class="hljs-literal">false</span>
 }</span></code></pre>
         <p>Returns a specific analysis connector.</p>
-        <p><strong><code>GET /api/v2/connectors/analysis/{id}/</code></strong></p>
+        <p><strong><code>GET /api/v2/connectors/analysis/{id}</code></strong></p>
         <h1 id="global-roles">Global Roles</h1>
         <h2 id="get-all-global-roles">Get All Global Roles</h2>
         <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/global-roles/</span> HTTP/1.1
@@ -5487,7 +5487,6 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <span class="hljs-attr">"creator"</span>: <span class="hljs-number">1</span>,
         <span class="hljs-attr">"description"</span>: <span class="hljs-string">"API Project"</span>,
         <span class="hljs-attr">"tags"</span>: [<span class="hljs-string">"foo"</span>, <span class="hljs-string">"bar"</span>],
-        <span class="hljs-attr">"application_tags"</span>: [<span class="hljs-string">"baz"</span>, <span class="hljs-string">"qux"</span>],
         <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2015-04-15T19:30:04.132712Z"</span>,
         <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-04-15T19:57:15.042353Z"</span>,
         <span class="hljs-attr">"parent"</span>: {
@@ -5496,7 +5495,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
             <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Parent 9.8.4 Gamma"</span>,
             <span class="hljs-attr">"url"</span>: <span class="hljs-string">"http://example.com/bunits/bu-test/app-test/parent-984-gamma/"</span>
         },
-        <span class="hljs-attr">"base_project"</span>: {
+        <span class="hljs-attr">"base"</span>: {
             <span class="hljs-attr">"id"</span>: <span class="hljs-number">10</span>,
             <span class="hljs-attr">"name"</span>: <span class="hljs-string">"base 9.8.4 Gamma"</span>,
             <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"base-984-gamma"</span>,
@@ -5558,7 +5557,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
           </tbody>
         </table>
         <h3 id="include-parameters">Include Parameters</h3>
-        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/?include=permissions,task_counts,incomplete_tasks</span> HTTP/1.1
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/?include=permissions,task_counts</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
@@ -5580,11 +5579,10 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <span class="hljs-attr">"creator"</span>: <span class="hljs-number">1</span>,
         <span class="hljs-attr">"description"</span>: <span class="hljs-string">"API Project"</span>,
         <span class="hljs-attr">"tags"</span>: [<span class="hljs-string">"foo"</span>, <span class="hljs-string">"bar"</span>],
-        <span class="hljs-attr">"application_tags"</span>: [<span class="hljs-string">"baz"</span>, <span class="hljs-string">"qux"</span>],
         <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2015-04-15T19:30:04.132712Z"</span>,
         <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-04-15T19:57:15.042353Z"</span>,
         <span class="hljs-attr">"parent"</span>: <span class="hljs-literal">null</span>,
-        <span class="hljs-attr">"base_project"</span>: <span class="hljs-literal">null</span>,
+        <span class="hljs-attr">"base"</span>: <span class="hljs-literal">null</span>,
         <span class="hljs-attr">"users"</span>: [{
             <span class="hljs-attr">"id"</span>: <span class="hljs-string">"1"</span>,
             <span class="hljs-attr">"email"</span>: <span class="hljs-string">"test@example.com"</span>,
@@ -5614,31 +5612,86 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
             <span class="hljs-string">"sync_with_alm"</span>,
             <span class="hljs-string">"edit_project_survey"</span>
         ],
-        <span class="hljs-attr">"incomplete_task_counts"</span>: {
-            <span class="hljs-attr">"high"</span>: <span class="hljs-number">38</span>,
-            <span class="hljs-attr">"medium"</span>: <span class="hljs-number">60</span>,
-            <span class="hljs-attr">"low"</span>: <span class="hljs-number">11</span>
-        },
         <span class="hljs-attr">"task_counts"</span>: {
-            <span class="hljs-attr">"Requirements"</span>: {
-                <span class="hljs-attr">"total"</span>: <span class="hljs-number">28</span>,
-                <span class="hljs-attr">"complete"</span>: <span class="hljs-number">4</span>,
-                <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"requirements"</span>
+            <span class="hljs-attr">"development"</span>: {
+                <span class="hljs-attr">"high"</span>: {
+                    <span class="hljs-attr">"na"</span>: <span class="hljs-number">0</span>,
+                    <span class="hljs-attr">"total"</span>: <span class="hljs-number">16</span>,
+                    <span class="hljs-attr">"complete"</span>: <span class="hljs-number">2</span>,
+                    <span class="hljs-attr">"incomplete"</span>: <span class="hljs-number">14</span>
+                },
+                <span class="hljs-attr">"medium"</span>: {
+                    <span class="hljs-attr">"na"</span>: <span class="hljs-number">0</span>,
+                    <span class="hljs-attr">"total"</span>: <span class="hljs-number">15</span>,
+                    <span class="hljs-attr">"complete"</span>: <span class="hljs-number">1</span>,
+                    <span class="hljs-attr">"incomplete"</span>: <span class="hljs-number">14</span>
+                },
+                <span class="hljs-attr">"low"</span>: {
+                    <span class="hljs-attr">"na"</span>: <span class="hljs-number">0</span>,
+                    <span class="hljs-attr">"total"</span>: <span class="hljs-number">3</span>,
+                    <span class="hljs-attr">"complete"</span>: <span class="hljs-number">1</span>,
+                    <span class="hljs-attr">"incomplete"</span>: <span class="hljs-number">2</span>
+                }
             },
-            <span class="hljs-attr">"Architecture &amp; Design"</span>: {
-                <span class="hljs-attr">"total"</span>: <span class="hljs-number">6</span>,
-                <span class="hljs-attr">"complete"</span>: <span class="hljs-number">1</span>,
-                <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"architecture-design"</span>
+            <span class="hljs-attr">"testing"</span>: {
+                <span class="hljs-attr">"high"</span>: {
+                    <span class="hljs-attr">"na"</span>: <span class="hljs-number">0</span>,
+                    <span class="hljs-attr">"total"</span>: <span class="hljs-number">25</span>,
+                    <span class="hljs-attr">"complete"</span>: <span class="hljs-number">2</span>,
+                    <span class="hljs-attr">"incomplete"</span>: <span class="hljs-number">23</span>
+                },
+                <span class="hljs-attr">"medium"</span>: {
+                    <span class="hljs-attr">"na"</span>: <span class="hljs-number">0</span>,
+                    <span class="hljs-attr">"total"</span>: <span class="hljs-number">33</span>,
+                    <span class="hljs-attr">"complete"</span>: <span class="hljs-number">1</span>,
+                    <span class="hljs-attr">"incomplete"</span>: <span class="hljs-number">32</span>
+                },
+                <span class="hljs-attr">"low"</span>: {
+                    <span class="hljs-attr">"na"</span>: <span class="hljs-number">0</span>,
+                    <span class="hljs-attr">"total"</span>: <span class="hljs-number">14</span>,
+                    <span class="hljs-attr">"complete"</span>: <span class="hljs-number">2</span>,
+                    <span class="hljs-attr">"incomplete"</span>: <span class="hljs-number">12</span>
+                }
             },
-            <span class="hljs-attr">"Development"</span>: {
-                <span class="hljs-attr">"total"</span>: <span class="hljs-number">30</span>,
-                <span class="hljs-attr">"complete"</span>: <span class="hljs-number">5</span>,
-                <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"development"</span>
+            <span class="hljs-attr">"requirements"</span>: {
+                <span class="hljs-attr">"high"</span>: {
+                    <span class="hljs-attr">"na"</span>: <span class="hljs-number">0</span>,
+                    <span class="hljs-attr">"total"</span>: <span class="hljs-number">12</span>,
+                    <span class="hljs-attr">"complete"</span>: <span class="hljs-number">4</span>,
+                    <span class="hljs-attr">"incomplete"</span>: <span class="hljs-number">8</span>
+                },
+                <span class="hljs-attr">"medium"</span>: {
+                    <span class="hljs-attr">"na"</span>: <span class="hljs-number">0</span>,
+                    <span class="hljs-attr">"total"</span>: <span class="hljs-number">26</span>,
+                    <span class="hljs-attr">"complete"</span>: <span class="hljs-number">0</span>,
+                    <span class="hljs-attr">"incomplete"</span>: <span class="hljs-number">26</span>
+                },
+                <span class="hljs-attr">"low"</span>: {
+                    <span class="hljs-attr">"na"</span>: <span class="hljs-number">0</span>,
+                    <span class="hljs-attr">"total"</span>: <span class="hljs-number">10</span>,
+                    <span class="hljs-attr">"complete"</span>: <span class="hljs-number">2</span>,
+                    <span class="hljs-attr">"incomplete"</span>: <span class="hljs-number">8</span>
+                }
             },
-            <span class="hljs-attr">"Testing"</span>: {
-                <span class="hljs-attr">"total"</span>: <span class="hljs-number">57</span>,
-                <span class="hljs-attr">"complete"</span>: <span class="hljs-number">2</span>,
-                <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"testing"</span>
+            <span class="hljs-attr">"architecture-design"</span>: {
+                <span class="hljs-attr">"high"</span>: {
+                    <span class="hljs-attr">"na"</span>: <span class="hljs-number">0</span>,
+                    <span class="hljs-attr">"total"</span>: <span class="hljs-number">4</span>,
+                    <span class="hljs-attr">"complete"</span>: <span class="hljs-number">1</span>,
+                    <span class="hljs-attr">"incomplete"</span>: <span class="hljs-number">3</span>
+                },
+                <span class="hljs-attr">"medium"</span>: {
+                    <span class="hljs-attr">"na"</span>: <span class="hljs-number">0</span>,
+                    <span class="hljs-attr">"total"</span>: <span class="hljs-number">3</span>,
+                    <span class="hljs-attr">"complete"</span>: <span class="hljs-number">1</span>,
+                    <span class="hljs-attr">"incomplete"</span>: <span class="hljs-number">2</span>
+                },
+                <span class="hljs-attr">"low"</span>: {
+                    <span class="hljs-attr">"na"</span>: <span class="hljs-number">0</span>,
+                    <span class="hljs-attr">"total"</span>: <span class="hljs-number">1</span>,
+                    <span class="hljs-attr">"complete"</span>: <span class="hljs-number">1</span>,
+                    <span class="hljs-attr">"incomplete"</span>: <span class="hljs-number">0</span>
+                }
             }
         },
         <span class="hljs-attr">"locked_on"</span>: <span class="hljs-literal">null</span>,
@@ -5695,11 +5748,10 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         },
         <span class="hljs-attr">"description"</span>: <span class="hljs-string">"API Project"</span>,
         <span class="hljs-attr">"tags"</span>: [<span class="hljs-string">"foo"</span>, <span class="hljs-string">"bar"</span>],
-        <span class="hljs-attr">"application_tags"</span>: [<span class="hljs-string">"baz"</span>, <span class="hljs-string">"qux"</span>],
         <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2015-04-15T19:30:04.132712Z"</span>,
         <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-04-15T19:57:15.042353Z"</span>,
         <span class="hljs-attr">"parent"</span>: <span class="hljs-literal">null</span>,
-        <span class="hljs-attr">"base_project"</span>: <span class="hljs-literal">null</span>,
+        <span class="hljs-attr">"base"</span>: <span class="hljs-literal">null</span>,
         <span class="hljs-attr">"users"</span>: [{
             <span class="hljs-attr">"id"</span>: <span class="hljs-string">"1"</span>,
             <span class="hljs-attr">"email"</span>: <span class="hljs-string">"test@example.com"</span>,
@@ -5758,11 +5810,10 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
     <span class="hljs-attr">"creator"</span>: <span class="hljs-number">1</span>,
     <span class="hljs-attr">"description"</span>: <span class="hljs-string">"API Project"</span>,
     <span class="hljs-attr">"tags"</span>: [<span class="hljs-string">"foo"</span>, <span class="hljs-string">"bar"</span>],
-    <span class="hljs-attr">"application_tags"</span>: [<span class="hljs-string">"baz"</span>, <span class="hljs-string">"qux"</span>],
     <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2015-04-15T19:30:04.132712Z"</span>,
     <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-04-15T19:57:15.042353Z"</span>,
     <span class="hljs-attr">"parent"</span>: <span class="hljs-literal">null</span>,
-    <span class="hljs-attr">"base_project"</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-attr">"base"</span>: <span class="hljs-literal">null</span>,
     <span class="hljs-attr">"users"</span>: [{
         <span class="hljs-attr">"id"</span>: <span class="hljs-string">"1"</span>,
         <span class="hljs-attr">"email"</span>: <span class="hljs-string">"test@example.com"</span>,
@@ -5829,12 +5880,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
     <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Project Test"</span>,
     <span class="hljs-attr">"creator"</span>: <span class="hljs-number">1</span>,
     <span class="hljs-attr">"description"</span>: <span class="hljs-string">"API Project"</span>,
-    <span class="hljs-attr">"tags"</span>: [],
-    <span class="hljs-attr">"application_tags"</span>: [],
+    <span class="hljs-attr">"tags"</span>: [<span class="hljs-string">"foo"</span>, <span class="hljs-string">"bar"</span>],
     <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2015-04-15T19:30:04.132712Z"</span>,
     <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-04-15T19:57:15.042353Z"</span>,
     <span class="hljs-attr">"parent"</span>: <span class="hljs-literal">null</span>,
-    <span class="hljs-attr">"base_project"</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-attr">"base"</span>: <span class="hljs-literal">null</span>,
     <span class="hljs-attr">"users"</span>: [{
         <span class="hljs-attr">"id"</span>: <span class="hljs-string">"1"</span>,
         <span class="hljs-attr">"email"</span>: <span class="hljs-string">"test@example.com"</span>,
@@ -5922,11 +5972,10 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
     <span class="hljs-attr">"creator"</span>: <span class="hljs-number">1</span>,
     <span class="hljs-attr">"description"</span>: <span class="hljs-string">"API Project"</span>,
     <span class="hljs-attr">"tags"</span>: [<span class="hljs-string">"foo"</span>, <span class="hljs-string">"bar"</span>],
-    <span class="hljs-attr">"application_tags"</span>: [<span class="hljs-string">"baz"</span>, <span class="hljs-string">"qux"</span>],
     <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2015-04-15T19:30:04.132712Z"</span>,
     <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-07-23T15:52:14.482992Z"</span>,
     <span class="hljs-attr">"parent"</span>: <span class="hljs-literal">null</span>,
-    <span class="hljs-attr">"base_project"</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-attr">"base"</span>: <span class="hljs-literal">null</span>,
     <span class="hljs-attr">"users"</span>: [{
         <span class="hljs-attr">"id"</span>: <span class="hljs-string">"1"</span>,
         <span class="hljs-attr">"email"</span>: <span class="hljs-string">"test@example.com"</span>,
@@ -6015,7 +6064,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
               <td>ID, name, slug, and URL of the parent project.</td>
             </tr>
             <tr>
-              <td>base_project</td>
+              <td>base</td>
               <td>No</td>
               <td>ID, name, slug, and URL of the original project.</td>
             </tr>
@@ -6659,18 +6708,14 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         ],
         <span class="hljs-string">"regulation_sections"</span>: [
             {
-                <span class="hljs-string">"description"</span>: <span class="hljs-string">"Denial of service (DoS) protection and working in a degraded mode during DoS attacks."</span>,
                 <span class="hljs-string">"id"</span>: <span class="hljs-string">"RS1026"</span>,
                 <span class="hljs-string">"name"</span>: <span class="hljs-string">"CR2.7 (L3 and higher)"</span>,
-                <span class="hljs-string">"regulation_id"</span>: <span class="hljs-string">"CR45"</span>,
-                <span class="hljs-string">"regulation_name"</span>: <span class="hljs-string">"ANSI/ISA 62443-4-2"</span>
+                <span class="hljs-string">"regulation"</span>: <span class="hljs-string">"CR45"</span>
             },
             {
-                <span class="hljs-string">"description"</span>: <span class="hljs-string">"Denial of service (DoS) protection and working in a degraded mode during DoS attacks."</span>,
                 <span class="hljs-string">"id"</span>: <span class="hljs-string">"RS642"</span>,
                 <span class="hljs-string">"name"</span>: <span class="hljs-string">"SR2.7 (L3 and higher)"</span>,
-                <span class="hljs-string">"regulation_id"</span>: <span class="hljs-string">"CR39"</span>,
-                <span class="hljs-string">"regulation_name"</span>: <span class="hljs-string">"ANSI/ISA 62443-3-3"</span>
+                <span class="hljs-string">"regulation"</span>: <span class="hljs-string">"CR39"</span>
             }
         ],
         <span class="hljs-string">"references"</span>: [
@@ -8462,23 +8507,6 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
           </tbody>
         </table>
         <h1 id="changelog">Changelog</h1>
-        <h2 id="v4-9">v4.9</h2>
-        <ul>
-          <li>Add <code>tags</code> to the Application endpoint</li>
-          <li>Add <code>application_tags</code> to Project endpoint</li>
-          <li>Add <code>description</code> and <code>regulation_name</code> sections to <code>regulation_sections</code> include filter for Tasks and specific Task endpoints</li>
-          <li>Change <code>regulation</code> to <code>regulation_id</code> in <code>regulation_sections</code> include filter for Tasks and specific Task endpoints</li>
-        </ul>
-        <h2 id="v4-8">v4.8</h2>
-        <ul>
-          <li>Rename <code>base</code> to <code>base_project</code> for the Project endpoint</li>
-        </ul>
-        <h2 id="v4-8">v4.8</h2>
-        <ul>
-          <li>Add incomplete_tasks include filter and redesign task_counts include filter on projects endpoint.</li>
-          <li>Remove <code>business_unit</code> as expand filter</li>
-          <li>Expand instances of <code>business_unit</code> in <code>applications</code> by default</li>
-        </ul>
         <h2 id="v4-7">v4.7</h2>
         <ul>
           <li>Add <code>base</code> (original project that spawned any number of new releases) to the Project endpoint. (Note: this field will be renamed to <code>base_project</code> in v4.8)</li>
