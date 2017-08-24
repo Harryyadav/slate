@@ -18,6 +18,8 @@
       <div class="title"> <span>API v2 Documentation</span> </div>
       <div class="versions">
         <p><span class="version">v: </span> <a href="index.html">
+                4.8
+              </a> <span>&middot;</span> <a href="4.7.html">
                 4.7
               </a> <span>&middot;</span> <a href="4.6.html">
                 4.6
@@ -775,7 +777,11 @@
 <span class="json">{
     <span class="hljs-attr">"results"</span>: [{
         <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
-        <span class="hljs-attr">"business_unit"</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-attr">"business_unit"</span>: {
+            <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
+            <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"example-business-unit-1"</span>,
+            <span class="hljs-attr">"name"</span>: <span class="hljs-string">"example business unit 1"</span>
+        },
         <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Application Test"</span>,
         <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2015-04-15T20:27:24.396442Z"</span>,
         <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-04-15T20:27:24.389957Z"</span>,
@@ -823,8 +829,8 @@
           </tbody>
         </table>
         <hr>
-        <h3 id="expand-parameters">Expand Parameters</h3>
-        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/applications/?expand=business_unit</span> HTTP/1.1
+        <h3 id="include-parameters">Include Parameters</h3>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/applications/?include=projects</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
@@ -838,40 +844,6 @@
             <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"example-business-unit-1"</span>,
             <span class="hljs-attr">"name"</span>: <span class="hljs-string">"example business unit 1"</span>
         },
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Application Test"</span>,
-        <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2015-04-15T20:27:24.396442Z"</span>,
-        <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-04-15T20:27:24.389957Z"</span>,
-        <span class="hljs-attr">"priority"</span>: <span class="hljs-string">"0-none"</span>,
-        <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"application-test"</span>,
-        <span class="hljs-attr">"tags"</span>: [<span class="hljs-string">"foo"</span>, <span class="hljs-string">"bar"</span>]
-    }]
-}</span></code></pre>
-        <p>See the <a href="#expand-parameters">Expand Parameters</a> section for more details.</p>
-        <table>
-          <thead>
-            <tr>
-              <th>Parameter</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>business_unit</td>
-              <td>Expand the business unit field of the application</td>
-            </tr>
-          </tbody>
-        </table>
-        <h3 id="include-parameters">Include Parameters</h3>
-        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/applications/?include=projects</span> HTTP/1.1
-<span class="hljs-attribute">Accept</span>: application/json
-<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
-        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
-<span class="hljs-attribute">Content-Type</span>: application/json
-
-<span class="json">{
-    <span class="hljs-attr">"results"</span>: [{
-        <span class="hljs-attr">"id"</span>: <span class="hljs-number">3</span>,
-        <span class="hljs-attr">"business_unit"</span>: <span class="hljs-number">1</span>,
         <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Application Test"</span>,
         <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2015-04-15T20:27:24.396442Z"</span>,
         <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-04-15T20:27:24.389957Z"</span>,
@@ -919,7 +891,11 @@
 <span class="json">{
     <span class="hljs-attr">"results"</span>: [{
         <span class="hljs-attr">"id"</span>: <span class="hljs-number">3</span>,
-        <span class="hljs-attr">"business_unit"</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-attr">"business_unit"</span>: {
+            <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
+            <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"example-business-unit-1"</span>,
+            <span class="hljs-attr">"name"</span>: <span class="hljs-string">"example business unit 1"</span>
+        },
         <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Application Test"</span>,
         <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2015-04-15T20:27:24.396442Z"</span>,
         <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-04-15T20:27:24.389957Z"</span>,
@@ -961,7 +937,11 @@
 <span class="json">{
     <span class="hljs-attr">"results"</span>: [{
         <span class="hljs-attr">"id"</span>: <span class="hljs-number">3</span>,
-        <span class="hljs-attr">"business_unit"</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-attr">"business_unit"</span>: {
+            <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
+            <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"example-business-unit-1"</span>,
+            <span class="hljs-attr">"name"</span>: <span class="hljs-string">"example business unit 1"</span>
+        },
         <span class="hljs-attr">"name"</span>: <span class="hljs-string">"API Test"</span>,
         <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2015-04-15T20:27:24.396442Z"</span>,
         <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-04-15T20:27:24.389957Z"</span>,
@@ -1016,7 +996,11 @@
 <span class="json">{
     <span class="hljs-attr">"results"</span>: [{
         <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
-        <span class="hljs-attr">"business_unit"</span>: <span class="hljs-number">2</span>,
+        <span class="hljs-attr">"business_unit"</span>: {
+            <span class="hljs-attr">"id"</span>: <span class="hljs-number">2</span>,
+            <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"example-business-unit-2"</span>,
+            <span class="hljs-attr">"name"</span>: <span class="hljs-string">"example business unit 2"</span>
+        },
         <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Edit Test"</span>,
         <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2015-06-18T19:27:14.860536Z"</span>,
         <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-06-18T21:00:03.827952Z"</span>,
@@ -8492,6 +8476,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <h2 id="v4-8">v4.8</h2>
         <ul>
           <li>Add incomplete_tasks include filter and redesign task_counts include filter on projects endpoint.</li>
+          <li>Remove <code>business_unit</code> as expand filter</li>
+          <li>Expand instances of <code>business_unit</code> in <code>applications</code> by default</li>
         </ul>
         <h2 id="v4-7">v4.7</h2>
         <ul>
