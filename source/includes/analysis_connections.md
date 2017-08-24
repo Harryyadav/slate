@@ -120,7 +120,6 @@ Returns a list of all analysis connections associated with all projects. The par
 
 **`GET /api/v2/connections/analysis/`**
 
-
 ### Include Parameters
 
 ```http
@@ -170,6 +169,11 @@ See the [Include Parameters](#include-parameters) section for more details.
 Parameter | Description
 ----------|---------------
 last_job  | Include the details of the last job executed for this connection.
+
+
+
+
+
 
 
 

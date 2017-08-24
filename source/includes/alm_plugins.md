@@ -425,10 +425,17 @@ Content-Type: application/json
         }
     ]
 }
-
 ```
 
 This endpoint retrieves a list of ALM Integration Plugin resources.
+
+
+
+
+
+
+
+
 
 
 ## Get a Specific ALM Plugin

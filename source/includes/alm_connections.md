@@ -158,7 +158,6 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
         "sde_min_priority": "7"
     }
 }
-
 ```
 
 ```http
@@ -189,6 +188,7 @@ Content-Type: application/json
     }
 }
 ```
+
 Fields              | Required | Description
 --------------------|----------|-------------
 name                | Yes      | The name of the new connector.
@@ -342,9 +342,6 @@ Parameter | Description
 ----------|-----------------------------
 project   | Returns all analysis connections for the project with the specific id.
 ---
-
-
-
 
 ### Include Parameters
 

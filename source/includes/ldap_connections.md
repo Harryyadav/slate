@@ -56,7 +56,6 @@ Note, this is different from the LDAP connection configured for Single Sign-On.
 
 **`GET /api/v2/connections/ldap/`**
 
-
 ### Include Parameters
 
 ```http
@@ -127,8 +126,16 @@ Parameter | Description
 ----------|---------------
 last_job  | Include the details of the last job executed for this connection.
 
-
 ---
+
+
+
+
+
+
+
+
+
 
 ## Create an LDAP Connection
 
@@ -165,6 +172,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
 	}
 }
 ```
+
 ```http
 HTTP/1.1 201 CREATED
 Content-Type: application/json
@@ -207,8 +215,8 @@ Content-Type: application/json
     },
     "inaccessible": false
 }
-
 ```
+
 Fields              | Required | Description
 --------------------|----------|-------------
 alias               | Yes      | The name of the new connection.
@@ -237,6 +245,15 @@ base_dn                        | No       | The base dn (will be computed from b
 
 ---
 
+
+
+
+
+
+
+
+
+
 ## Delete an LDAP Connection
 
 ```http
@@ -245,14 +262,11 @@ Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 
 HTTP/1.1 204 NO Content
-
 ```
 
 This endpoint deletes a single LDAP Connection resource, as specified by the id parameter.
 
-
 **`DELETE /api/v2/connections/ldap/{connection_id}/`**
-
 
 ### URL Parameters
 
@@ -260,8 +274,16 @@ Parameter           | Description
 --------------------|---------------
 connection_id       | The id of the LDAP Connection to delete.
 
-
 ---
+
+
+
+
+
+
+
+
+
 
 ## Update a specific LDAP Connection
 
@@ -307,6 +329,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
   }
 }
 ```
+
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -361,7 +384,6 @@ Update a specific LDAP Connection resource.
 Parameter       | Description
 --------------- | -----------
 connection_id   | The ID of the LDAP Connection to update
-
 
 Fields              | Required | Description
 --------------------|----------|-------------
