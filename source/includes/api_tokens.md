@@ -40,6 +40,7 @@ user_id   | The ID of the User to retrieve
 
 
 
+
 ## Regenerate an API Token
 
 ```http
@@ -89,7 +90,6 @@ Authorization: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
 Cookie: sessionid="YOUR SESSION ID"
 ```
 
-
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -130,7 +130,6 @@ Accept: application/json
 Authorization: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
 Cookie: sessionid="YOUR SESSION ID"
 ```
-
 
 ```http
 HTTP/1.1 204 NO CONTENT
