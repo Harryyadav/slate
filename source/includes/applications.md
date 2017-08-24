@@ -15,7 +15,11 @@ Content-Type: application/json
 {
     "results": [{
         "id": 1,
-        "business_unit": 1,
+        "business_unit": {
+            "id": 1,
+            "slug": "example-business-unit-1",
+            "name": "example business unit 1"
+        },
         "name": "Application Test",
         "created": "2015-04-15T20:27:24.396442Z",
         "updated": "2015-04-15T20:27:24.389957Z",
@@ -44,10 +48,10 @@ search        | Filter applications by performing a textual search on name.
 
 ---
 
-### Expand Parameters
+### Include Parameters
 
 ```http
-GET /api/v2/applications/?expand=business_unit HTTP/1.1
+GET /api/v2/applications/?include=projects HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
@@ -68,38 +72,8 @@ Content-Type: application/json
         "created": "2015-04-15T20:27:24.396442Z",
         "updated": "2015-04-15T20:27:24.389957Z",
         "priority": "0-none",
-        "slug": "application-test"
-    }]
-}
-```
-
-See the [Expand Parameters](#expand-parameters) section for more details.
-
-Parameter      | Description
----------------|---------------
-business_unit  | Expand the business unit field of the application
-
-### Include Parameters
-
-```http
-GET /api/v2/applications/?include=projects HTTP/1.1
-Accept: application/json
-Authorization: Token "YOUR SDE ACCESS TOKEN"
-```
-
-```http
-HTTP/1.1 200 OK
-Content-Type: application/json
-
-{
-    "results": [{
-        "id": 3,
-        "business_unit": 1,
-        "name": "Application Test",
-        "created": "2015-04-15T20:27:24.396442Z",
-        "updated": "2015-04-15T20:27:24.389957Z",
-        "priority": "0-none",
         "slug": "application-test",
+        "tags": ["foo", "bar"],
         "projects": [
             {
                 "id": "1",
@@ -148,7 +122,11 @@ Content-Type: application/json
 {
     "results": [{
         "id": 3,
-        "business_unit": 1,
+        "business_unit": {
+            "id": 1,
+            "slug": "example-business-unit-1",
+            "name": "example business unit 1"
+        },
         "name": "Application Test",
         "created": "2015-04-15T20:27:24.396442Z",
         "updated": "2015-04-15T20:27:24.389957Z",
@@ -199,7 +177,11 @@ Content-Type: application/json
 {
     "results": [{
         "id": 3,
-        "business_unit": 1,
+        "business_unit": {
+            "id": 1,
+            "slug": "example-business-unit-1",
+            "name": "example business unit 1"
+        },
         "name": "API Test",
         "created": "2015-04-15T20:27:24.396442Z",
         "updated": "2015-04-15T20:27:24.389957Z",
@@ -244,7 +226,11 @@ Content-Type: application/json
 {
     "results": [{
         "id": 1,
-        "business_unit": 2,
+        "business_unit": {
+            "id": 2,
+            "slug": "example-business-unit-2",
+            "name": "example business unit 2"
+        },
         "name": "Edit Test",
         "created": "2015-06-18T19:27:14.860536Z",
         "updated": "2015-06-18T21:00:03.827952Z",

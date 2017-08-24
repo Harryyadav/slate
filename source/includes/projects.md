@@ -36,7 +36,7 @@ Content-Type: application/json
             "name": "Parent 9.8.4 Gamma",
             "url": "http://example.com/bunits/bu-test/app-test/parent-984-gamma/"
         },
-        "base": {
+        "base_project": {
             "id": 10,
             "name": "base 9.8.4 Gamma",
             "slug": "base-984-gamma",
@@ -84,7 +84,7 @@ search      | Filter projects by performing a textual search on name and profile
 ### Include Parameters
 
 ```http
-GET /api/v2/projects/1/?include=permissions,task_counts HTTP/1.1
+GET /api/v2/projects/1/?include=permissions,task_counts,incomplete_tasks HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
@@ -112,7 +112,7 @@ Content-Type: application/json
         "created": "2015-04-15T19:30:04.132712Z",
         "updated": "2015-04-15T19:57:15.042353Z",
         "parent": null,
-        "base": null,
+        "base_project": null,
         "users": [{
             "id": "1",
             "email": "test@example.com",
@@ -142,86 +142,31 @@ Content-Type: application/json
             "sync_with_alm",
             "edit_project_survey"
         ],
+        "incomplete_task_counts": {
+            "high": 38,
+            "medium": 60,
+            "low": 11
+        },
         "task_counts": {
-            "development": {
-                "high": {
-                    "na": 0,
-                    "total": 16,
-                    "complete": 2,
-                    "incomplete": 14
-                },
-                "medium": {
-                    "na": 0,
-                    "total": 15,
-                    "complete": 1,
-                    "incomplete": 14
-                },
-                "low": {
-                    "na": 0,
-                    "total": 3,
-                    "complete": 1,
-                    "incomplete": 2
-                }
+            "Requirements": {
+                "total": 28,
+                "complete": 4,
+                "slug": "requirements"
             },
-            "testing": {
-                "high": {
-                    "na": 0,
-                    "total": 25,
-                    "complete": 2,
-                    "incomplete": 23
-                },
-                "medium": {
-                    "na": 0,
-                    "total": 33,
-                    "complete": 1,
-                    "incomplete": 32
-                },
-                "low": {
-                    "na": 0,
-                    "total": 14,
-                    "complete": 2,
-                    "incomplete": 12
-                }
+            "Architecture & Design": {
+                "total": 6,
+                "complete": 1,
+                "slug": "architecture-design"
             },
-            "requirements": {
-                "high": {
-                    "na": 0,
-                    "total": 12,
-                    "complete": 4,
-                    "incomplete": 8
-                },
-                "medium": {
-                    "na": 0,
-                    "total": 26,
-                    "complete": 0,
-                    "incomplete": 26
-                },
-                "low": {
-                    "na": 0,
-                    "total": 10,
-                    "complete": 2,
-                    "incomplete": 8
-                }
+            "Development": {
+                "total": 30,
+                "complete": 5,
+                "slug": "development"
             },
-            "architecture-design": {
-                "high": {
-                    "na": 0,
-                    "total": 4,
-                    "complete": 1,
-                    "incomplete": 3
-                },
-                "medium": {
-                    "na": 0,
-                    "total": 3,
-                    "complete": 1,
-                    "incomplete": 2
-                },
-                "low": {
-                    "na": 0,
-                    "total": 1,
-                    "complete": 1,
-                    "incomplete": 0
-                }
+            "Testing": {
+                "total": 57,
+                "complete": 2,
+                "slug": "testing"
             }
         },
         "locked_on": null,
@@ -276,7 +221,7 @@ Content-Type: application/json
         "created": "2015-04-15T19:30:04.132712Z",
         "updated": "2015-04-15T19:57:15.042353Z",
         "parent": null,
-        "base": null,
+        "base_project": null,
         "users": [{
             "id": "1",
             "email": "test@example.com",
@@ -345,7 +290,7 @@ Content-Type: application/json
     "created": "2015-04-15T19:30:04.132712Z",
     "updated": "2015-04-15T19:57:15.042353Z",
     "parent": null,
-    "base": null,
+    "base_project": null,
     "users": [{
         "id": "1",
         "email": "test@example.com",
@@ -425,7 +370,7 @@ Content-Type: application/json
     "created": "2015-04-15T19:30:04.132712Z",
     "updated": "2015-04-15T19:57:15.042353Z",
     "parent": null,
-    "base": null,
+    "base_project": null,
     "users": [{
         "id": "1",
         "email": "test@example.com",
@@ -500,7 +445,7 @@ Content-Type: application/json
     "created": "2015-04-15T19:30:04.132712Z",
     "updated": "2015-07-23T15:52:14.482992Z",
     "parent": null,
-    "base": null,
+    "base_project": null,
     "users": [{
         "id": "1",
         "email": "test@example.com",
@@ -535,19 +480,19 @@ project_id | The id of the Project to update
 
 ### Payload
 
-Fields        | Required | Description
---------------|----------|---------------
-locked        | No       | A boolean field to lock or unlock the project. It can only be used by users that have lock_project_survey permission
-application   | No       | The ID of the application the project should be created under.
-profile       | No       | The ID of the desired profile for the project.
-archived      | No       | A boolean to archive and unarchive a project.
-name          | No       | The name of the project.
-description   | No       | Project description.
-tags          | No       | List of project tags.
-parent        | No       | ID, name, slug, and URL of the parent project.
-base          | No       | ID, name, slug, and URL of the original project.
-users         | No       | A list of dictionaries per user that are to be assigned to the project. Each dictionary should contain the user's email and the desired role.
-groups        | No       | A list of dictionaries per group that are to be assigned to the project. Each dictionary should contain the group's id and the desired role.
+Fields           | Required | Description
+-----------------|----------|---------------
+locked           | No       | A boolean field to lock or unlock the project. It can only be used by users that have lock_project_survey permission
+application      | No       | The ID of the application the project should be created under.
+profile          | No       | The ID of the desired profile for the project.
+archived         | No       | A boolean to archive and unarchive a project.
+name             | No       | The name of the project.
+description      | No       | Project description.
+tags             | No       | List of project tags.
+parent           | No       | ID, name, slug, and URL of the parent project.
+base_project     | No       | ID, name, slug, and URL of the original project.
+users            | No       | A list of dictionaries per user that are to be assigned to the project. Each dictionary should contain the user's email and the desired role.
+groups           | No       | A list of dictionaries per group that are to be assigned to the project. Each dictionary should contain the group's id and the desired role.
 
 
 

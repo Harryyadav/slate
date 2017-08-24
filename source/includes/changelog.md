@@ -1,5 +1,11 @@
 # Changelog
 
+## v4.8
+- Rename `base` to `base_project` for the Project endpoint
+- Add incomplete_tasks include filter and redesign task_counts include filter on projects endpoint.
+- Remove `business_unit` as expand filter
+- Expand instances of `business_unit` in `applications` by default
+
 ## v4.7
 - Add `base` (original project that spawned any number of new releases) to the Project endpoint. (Note: this field will be renamed to `base_project` in v4.8)
 
