@@ -8,8 +8,6 @@
 
 ## v4.8
 - Rename `base` to `base_project` for the Project endpoint
-
-## v4.8
 - Add incomplete_tasks include filter and redesign task_counts include filter on projects endpoint.
 - Remove `business_unit` as expand filter
 - Expand instances of `business_unit` in `applications` by default
