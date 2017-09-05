@@ -24,8 +24,7 @@ Content-Type: application/json
         "created": "2015-04-15T20:27:24.396442Z",
         "updated": "2015-04-15T20:27:24.389957Z",
         "priority": "0-none",
-        "slug": "application-test",
-        "tags": ["foo", "bar"]
+        "slug": "application-test"
     }]
 }
 ```
@@ -73,8 +72,38 @@ Content-Type: application/json
         "created": "2015-04-15T20:27:24.396442Z",
         "updated": "2015-04-15T20:27:24.389957Z",
         "priority": "0-none",
+        "slug": "application-test"
+    }]
+}
+```
+
+See the [Expand Parameters](#expand-parameters) section for more details.
+
+Parameter      | Description
+---------------|---------------
+business_unit  | Expand the business unit field of the application
+
+### Include Parameters
+
+```http
+GET /api/v2/applications/?include=projects HTTP/1.1
+Accept: application/json
+Authorization: Token "YOUR SDE ACCESS TOKEN"
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "results": [{
+        "id": 3,
+        "business_unit": 1,
+        "name": "Application Test",
+        "created": "2015-04-15T20:27:24.396442Z",
+        "updated": "2015-04-15T20:27:24.389957Z",
+        "priority": "0-none",
         "slug": "application-test",
-        "tags": ["foo", "bar"],
         "projects": [
             {
                 "id": "1",
@@ -132,8 +161,7 @@ Content-Type: application/json
         "created": "2015-04-15T20:27:24.396442Z",
         "updated": "2015-04-15T20:27:24.389957Z",
         "priority": "0-none",
-        "slug": "application-test",
-        "tags": ["foo", "bar"]
+        "slug": "application-test"
     }]
 }
 ```
@@ -188,8 +216,7 @@ Content-Type: application/json
         "created": "2015-04-15T20:27:24.396442Z",
         "updated": "2015-04-15T20:27:24.389957Z",
         "priority": "0-none",
-        "slug": "api-test",
-        "tags": []
+        "slug": "api-test"
     }]
 }
 ```
@@ -199,7 +226,6 @@ Fields        | Required | Description
 business_unit | Yes      | The ID of the business unit the application belongs to
 name          | Yes      | The name of the new application
 priority      | No       | Specifies the priority of the application to be either '0-none', '1-high', '2-medium' or '3-low'
-tags          | No       | List of application tags.
 
 
 
@@ -239,8 +265,7 @@ Content-Type: application/json
         "created": "2015-06-18T19:27:14.860536Z",
         "updated": "2015-06-18T21:00:03.827952Z",
         "priority": "0-none",
-        "slug": "api-test",
-        "tags": ["foo", "bar"]
+        "slug": "api-test"
     }]
 }
 ```
@@ -262,8 +287,6 @@ Fields        | Required | Description
 name          | No       | The name of the application can be changed to any other string
 business_unit | No       | This can be edited by setting the business unit id
 priority      | No       | The three options are: '0-none', '1-high', '2-medium', '3-low'
-tags          | No       | List of application tags.
-
 
 
 
