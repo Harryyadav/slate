@@ -1,9 +1,5 @@
 # Changelog
 
-
-## v4.9
-- Change the update application example to use PATCH instead of PUT
-
 ## v4.8
 - Rename `base` to `base_project` for the Project endpoint
 - Add incomplete_tasks include filter and redesign task_counts include filter on projects endpoint.
