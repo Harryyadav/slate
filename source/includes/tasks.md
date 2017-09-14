@@ -144,7 +144,20 @@ Content-Type: application/json
         "note_count": 0,
         "artifact_proxy": null,
         "tags": ["tag1", "tag2"],
-        "related": ["1-T31", "1-T32", "1-T34", "1-T98"],
+        "related": [
+        {
+          "id": "T227",
+          "phase": "Testing",
+          "title": "Verify that application's access to database is restricted",
+          "url": "http://example.com/bunits/test-bu/codebot/bug-fix-81028-rc3/tasks/phase/testing/2-T227"
+        },
+        {
+          "id": "T14",
+          "phase": "Architecture & Design",
+          "title": "Enforce the Principle of Least Privilege",
+          "url": "http://example.com/bunits/test-bu/codebot/bug-fix-81028-rc3/tasks/phase/architecture-design/2-T14"
+        }
+      ],
         "problem": {
             "id": "P526",
             "title": "P526: Weak Password Recovery Mechanism...",

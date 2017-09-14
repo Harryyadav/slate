@@ -1,5 +1,8 @@
 # Changelog
 
+## v4.9
+- Change `related_tasks` to include the title, phase, and url of each related task in the Tasks and specific Task endpoints
+
 ## v4.8
 - Rename `base` to `base_project` for the Project endpoint
 - Add incomplete_tasks include filter and redesign task_counts include filter on projects endpoint.
