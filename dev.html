@@ -2717,7 +2717,7 @@
           </tbody>
         </table>
         <h2 id="update-an-application">Update an Application</h2>
-        <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/applications/1/</span> HTTP/1.1
+        <pre class="highlight http"><code><span class="hljs-keyword">PATCH</span> <span class="hljs-string">/api/v2/applications/1/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
@@ -2744,7 +2744,7 @@
     }]
 }</span></code></pre>
         <p>Update a single application by specifying a new name and new business unit. The application to update is identified by the id.</p>
-        <p><strong><code>PUT /api/v2/applications/{application_id}/</code></strong></p>
+        <p><strong><code>PATCH /api/v2/applications/{application_id}/</code></strong></p>
         <h3 id="url-parameters">URL Parameters</h3>
         <table>
           <thead>
@@ -7684,7 +7684,20 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <span class="hljs-string">"note_count"</span>: <span class="hljs-number">0</span>,
         <span class="hljs-string">"artifact_proxy"</span>: null,
         <span class="hljs-string">"tags"</span>: [<span class="hljs-string">"tag1"</span>, <span class="hljs-string">"tag2"</span>],
-        <span class="hljs-string">"related"</span>: [<span class="hljs-string">"1-T31"</span>, <span class="hljs-string">"1-T32"</span>, <span class="hljs-string">"1-T34"</span>, <span class="hljs-string">"1-T98"</span>],
+        <span class="hljs-string">"related"</span>: [
+        {
+          <span class="hljs-string">"id"</span>: <span class="hljs-string">"T227"</span>,
+          <span class="hljs-string">"phase"</span>: <span class="hljs-string">"Testing"</span>,
+          <span class="hljs-string">"title"</span>: <span class="hljs-string">"Verify that application's access to database is restricted"</span>,
+          <span class="hljs-string">"url"</span>: <span class="hljs-string">"http://example.com/bunits/test-bu/codebot/bug-fix-81028-rc3/tasks/phase/testing/2-T227"</span>
+        },
+        {
+          <span class="hljs-string">"id"</span>: <span class="hljs-string">"T14"</span>,
+          <span class="hljs-string">"phase"</span>: <span class="hljs-string">"Architecture &amp; Design"</span>,
+          <span class="hljs-string">"title"</span>: <span class="hljs-string">"Enforce the Principle of Least Privilege"</span>,
+          <span class="hljs-string">"url"</span>: <span class="hljs-string">"http://example.com/bunits/test-bu/codebot/bug-fix-81028-rc3/tasks/phase/architecture-design/2-T14"</span>
+        }
+      ],
         <span class="hljs-string">"problem"</span>: {
             <span class="hljs-string">"id"</span>: <span class="hljs-string">"P526"</span>,
             <span class="hljs-string">"title"</span>: <span class="hljs-string">"P526: Weak Password Recovery Mechanism..."</span>,
@@ -9511,6 +9524,10 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
           </tbody>
         </table>
         <h1 id="changelog">Changelog</h1>
+        <h2 id="v4-9">v4.9</h2>
+        <ul>
+          <li>Change <code>related_tasks</code> to include the title, phase, and url of each related task in the Tasks and specific Task endpoints</li>
+        </ul>
         <h2 id="v4-8">v4.8</h2>
         <ul>
           <li>Rename <code>base</code> to <code>base_project</code> for the Project endpoint</li>
