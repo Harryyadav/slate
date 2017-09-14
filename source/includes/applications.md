@@ -239,7 +239,7 @@ priority      | No       | Specifies the priority of the application to be eithe
 ## Update an Application
 
 ```http
-PUT /api/v2/applications/1/ HTTP/1.1
+PATCH /api/v2/applications/1/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 
@@ -272,7 +272,7 @@ Content-Type: application/json
 
 Update a single application by specifying a new name and new business unit. The application to update is identified by the id.
 
-**`PUT /api/v2/applications/{application_id}/`**
+**`PATCH /api/v2/applications/{application_id}/`**
 
 ### URL Parameters
 
