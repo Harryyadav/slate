@@ -142,7 +142,7 @@ Content-Type: application/json
             "sync_with_alm",
             "edit_project_survey"
         ],
-        "incomplete_task_counts": {
+        "incomplete_tasks": {
             "high": 38,
             "medium": 60,
             "low": 11
