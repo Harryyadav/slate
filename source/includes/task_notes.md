@@ -18,7 +18,17 @@ Content-Type: application/json
         "task": "1-T2",
         "text": "This task is on-hold until we...",
         "automatic": true,
-        "updater": 1,
+        "updater": {
+            "first_name": "Admin",
+            "last_name": "Testerton",
+            "is_active": true,
+            "email": "admin@example.com",
+            "role": {
+                "id": "UR4",
+                "name": "Administrator"
+            },
+            "id": 1
+        },
         "created": "2015-03-26T19:50:46.348000Z",
         "updated": "2015-03-26T19:50:46.348000Z"
     }]
@@ -62,7 +72,17 @@ Content-Type: application/json
     "task": "1-T2",
     "text": "This task is on-hold until we...",
     "automatic": true,
-    "updater": 1,
+    "updater": {
+        "first_name": "Admin",
+        "last_name": "Testerton",
+        "is_active": true,
+        "email": "admin@example.com",
+        "role": {
+            "id": "UR4",
+            "name": "Administrator"
+        },
+        "id": 1
+    },
     "created": "2015-03-26T19:50:46.348000Z",
     "updated": "2015-03-26T19:50:46.348000Z"
 }
@@ -110,7 +130,17 @@ Content-Type: application/json
     "task": "1-T2",
     "text": "This task is on-hold until we...",
     "automatic": true,
-    "updater": 1,
+    "updater": {
+        "first_name": "Admin",
+        "last_name": "Testerton",
+        "is_active": true,
+        "email": "admin@example.com",
+        "role": {
+            "id": "UR4",
+            "name": "Administrator"
+        },
+        "id": 1
+    },
     "created": "2015-03-26T19:50:46.348000Z",
     "updated": "2015-03-26T19:50:46.348000Z"
 }
@@ -164,7 +194,17 @@ Content-Type: application/json
     "task": "1-T2",
     "text": "This task is on-hold until we...",
     "automatic": true,
-    "updater": 1,
+    "updater": {
+        "first_name": "Admin",
+        "last_name": "Testerton",
+        "is_active": true,
+        "email": "admin@example.com",
+        "role": {
+            "id": "UR4",
+            "name": "Administrator"
+        },
+        "id": 1
+    },
     "created": "2015-03-26T19:50:46.348000Z",
     "updated": "2015-03-26T19:50:46.348000Z"
 }
