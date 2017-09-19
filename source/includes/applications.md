@@ -73,7 +73,6 @@ Content-Type: application/json
         "updated": "2015-04-15T20:27:24.389957Z",
         "priority": "0-none",
         "slug": "application-test",
-        "tags": ["foo", "bar"],
         "projects": [
             {
                 "id": "1",
