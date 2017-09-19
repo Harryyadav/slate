@@ -24,7 +24,8 @@ Content-Type: application/json
         "created": "2015-04-15T20:27:24.396442Z",
         "updated": "2015-04-15T20:27:24.389957Z",
         "priority": "0-none",
-        "slug": "application-test"
+        "slug": "application-test",
+        "tags": ["foo", "bar"]
     }]
 }
 ```
@@ -72,7 +73,8 @@ Content-Type: application/json
         "created": "2015-04-15T20:27:24.396442Z",
         "updated": "2015-04-15T20:27:24.389957Z",
         "priority": "0-none",
-        "slug": "application-test"
+        "slug": "application-test",
+        "tags": ["foo", "bar"]
     }]
 }
 ```
@@ -104,6 +106,7 @@ Content-Type: application/json
         "updated": "2015-04-15T20:27:24.389957Z",
         "priority": "0-none",
         "slug": "application-test",
+        "tags": ["foo", "bar"],
         "projects": [
             {
                 "id": "1",
@@ -161,7 +164,8 @@ Content-Type: application/json
         "created": "2015-04-15T20:27:24.396442Z",
         "updated": "2015-04-15T20:27:24.389957Z",
         "priority": "0-none",
-        "slug": "application-test"
+        "slug": "application-test",
+        "tags": ["foo", "bar"]
     }]
 }
 ```
@@ -216,7 +220,8 @@ Content-Type: application/json
         "created": "2015-04-15T20:27:24.396442Z",
         "updated": "2015-04-15T20:27:24.389957Z",
         "priority": "0-none",
-        "slug": "api-test"
+        "slug": "api-test",
+        "tags": []
     }]
 }
 ```
@@ -226,6 +231,7 @@ Fields        | Required | Description
 business_unit | Yes      | The ID of the business unit the application belongs to
 name          | Yes      | The name of the new application
 priority      | No       | Specifies the priority of the application to be either '0-none', '1-high', '2-medium' or '3-low'
+tags          | No       | List of application tags.
 
 
 
@@ -265,7 +271,8 @@ Content-Type: application/json
         "created": "2015-06-18T19:27:14.860536Z",
         "updated": "2015-06-18T21:00:03.827952Z",
         "priority": "0-none",
-        "slug": "api-test"
+        "slug": "api-test",
+        "tags": ["foo", "bar"]
     }]
 }
 ```
@@ -287,6 +294,8 @@ Fields        | Required | Description
 name          | No       | The name of the application can be changed to any other string
 business_unit | No       | This can be edited by setting the business unit id
 priority      | No       | The three options are: '0-none', '1-high', '2-medium', '3-low'
+tags          | No       | List of application tags.
+
 
 
 
