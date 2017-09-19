@@ -2497,7 +2497,8 @@
         <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2015-04-15T20:27:24.396442Z"</span>,
         <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-04-15T20:27:24.389957Z"</span>,
         <span class="hljs-attr">"priority"</span>: <span class="hljs-string">"0-none"</span>,
-        <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"application-test"</span>
+        <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"application-test"</span>,
+        <span class="hljs-attr">"tags"</span>: [<span class="hljs-string">"foo"</span>, <span class="hljs-string">"bar"</span>]
     }]
 }</span></code></pre>
         <p>This endpoint retrieves a list of Application resources.</p>
@@ -2558,7 +2559,8 @@
         <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2015-04-15T20:27:24.396442Z"</span>,
         <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-04-15T20:27:24.389957Z"</span>,
         <span class="hljs-attr">"priority"</span>: <span class="hljs-string">"0-none"</span>,
-        <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"application-test"</span>
+        <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"application-test"</span>,
+        <span class="hljs-attr">"tags"</span>: [<span class="hljs-string">"foo"</span>, <span class="hljs-string">"bar"</span>]
     }]
 }</span></code></pre>
         <p>See the <a href="#expand-parameters">Expand Parameters</a> section for more details.</p>
@@ -2592,6 +2594,7 @@
         <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-04-15T20:27:24.389957Z"</span>,
         <span class="hljs-attr">"priority"</span>: <span class="hljs-string">"0-none"</span>,
         <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"application-test"</span>,
+        <span class="hljs-attr">"tags"</span>: [<span class="hljs-string">"foo"</span>, <span class="hljs-string">"bar"</span>],
         <span class="hljs-attr">"projects"</span>: [
             {
                 <span class="hljs-attr">"id"</span>: <span class="hljs-string">"1"</span>,
@@ -2642,7 +2645,8 @@
         <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2015-04-15T20:27:24.396442Z"</span>,
         <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-04-15T20:27:24.389957Z"</span>,
         <span class="hljs-attr">"priority"</span>: <span class="hljs-string">"0-none"</span>,
-        <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"application-test"</span>
+        <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"application-test"</span>,
+        <span class="hljs-attr">"tags"</span>: [<span class="hljs-string">"foo"</span>, <span class="hljs-string">"bar"</span>]
     }]
 }</span></code></pre>
         <p>This endpoint retrieves a specific Application resource, as specified by the id parameter.</p>
@@ -2687,7 +2691,8 @@
         <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2015-04-15T20:27:24.396442Z"</span>,
         <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-04-15T20:27:24.389957Z"</span>,
         <span class="hljs-attr">"priority"</span>: <span class="hljs-string">"0-none"</span>,
-        <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"api-test"</span>
+        <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"api-test"</span>,
+        <span class="hljs-attr">"tags"</span>: []
     }]
 }</span></code></pre>
         <table>
@@ -2713,6 +2718,11 @@
               <td>priority</td>
               <td>No</td>
               <td>Specifies the priority of the application to be either &#39;0-none&#39;, &#39;1-high&#39;, &#39;2-medium&#39; or &#39;3-low&#39;</td>
+            </tr>
+            <tr>
+              <td>tags</td>
+              <td>No</td>
+              <td>List of application tags.</td>
             </tr>
           </tbody>
         </table>
@@ -2740,7 +2750,8 @@
         <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2015-06-18T19:27:14.860536Z"</span>,
         <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-06-18T21:00:03.827952Z"</span>,
         <span class="hljs-attr">"priority"</span>: <span class="hljs-string">"0-none"</span>,
-        <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"api-test"</span>
+        <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"api-test"</span>,
+        <span class="hljs-attr">"tags"</span>: [<span class="hljs-string">"foo"</span>, <span class="hljs-string">"bar"</span>]
     }]
 }</span></code></pre>
         <p>Update a single application by specifying a new name and new business unit. The application to update is identified by the id.</p>
@@ -2784,6 +2795,11 @@
               <td>priority</td>
               <td>No</td>
               <td>The three options are: &#39;0-none&#39;, &#39;1-high&#39;, &#39;2-medium&#39;, &#39;3-low&#39;</td>
+            </tr>
+            <tr>
+              <td>tags</td>
+              <td>No</td>
+              <td>List of application tags.</td>
             </tr>
           </tbody>
         </table>
@@ -9575,6 +9591,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <h1 id="changelog">Changelog</h1>
         <h2 id="v4-9">v4.9</h2>
         <ul>
+          <li>Added tags to the Application endpoint</li>
           <li>Change <code>related_tasks</code> to include the title, phase, and url of each related task in the Tasks and specific Task endpoints.</li>
           <li>Change <code>notify_tasks</code> attribute of UserProfile to include id, name.</li>
           <li>Change <code>updater</code> field to be expanded by default in Task Notes endpoint.</li>
