@@ -25,7 +25,8 @@ Content-Type: application/json
         "updated": "2015-04-15T20:27:24.389957Z",
         "priority": "0-none",
         "slug": "application-test",
-        "tags": ["foo", "bar"]
+        "tags": ["foo", "bar"],
+        "project_risk_compliance": 0.45
     }]
 }
 ```
@@ -74,7 +75,8 @@ Content-Type: application/json
         "updated": "2015-04-15T20:27:24.389957Z",
         "priority": "0-none",
         "slug": "application-test",
-        "tags": ["foo", "bar"]
+        "tags": ["foo", "bar"],
+        "project_risk_compliance": 0.45
     }]
 }
 ```
@@ -165,7 +167,8 @@ Content-Type: application/json
         "updated": "2015-04-15T20:27:24.389957Z",
         "priority": "0-none",
         "slug": "application-test",
-        "tags": ["foo", "bar"]
+        "tags": ["foo", "bar"],
+        "project_risk_compliance": 0.45
     }]
 }
 ```
@@ -221,7 +224,8 @@ Content-Type: application/json
         "updated": "2015-04-15T20:27:24.389957Z",
         "priority": "0-none",
         "slug": "api-test",
-        "tags": []
+        "tags": [],
+        "project_risk_compliance": 0
     }]
 }
 ```
@@ -272,7 +276,8 @@ Content-Type: application/json
         "updated": "2015-06-18T21:00:03.827952Z",
         "priority": "0-none",
         "slug": "api-test",
-        "tags": ["foo", "bar"]
+        "tags": ["foo", "bar"],
+        "project_risk_compliance": 0.45
     }]
 }
 ```

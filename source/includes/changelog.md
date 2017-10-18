@@ -1,5 +1,9 @@
 # Changelog
 
+## v4.10
+- Add Risk Policy endpoint.
+- Update Business Units/Applications/Projects endpoints with risk policy fields.
+
 ## v4.9
 - Add `tags` to the Application endpoint
 - Add `application_tags` to Project endpoint

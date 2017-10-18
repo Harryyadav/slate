@@ -34,6 +34,7 @@ includes:
  - project_activity
  - projects
  - report_settings
+ - risk_policies
  - server_info
  - service_statuses
  - sso

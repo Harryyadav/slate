@@ -37,7 +37,8 @@ Content-Type: application/json
                 "id": "G64",
                 "name": "Group Bar"
             }],
-            "all_users": false
+            "all_users": false,
+            "project_risk_compliance": 0.45
         },
         {
             "id": 2,
@@ -50,7 +51,8 @@ Content-Type: application/json
             "users": [],
             "groups": [],
             "all_users": true,
-            "persist_phases": false
+            "persist_phases": false,
+            "project_risk_compliance": 0.30
         }
     ]
 }
@@ -115,7 +117,8 @@ Content-Type: application/json
         "name": "Group Bar"
     }],
     "all_users": false,
-    "persist_phases": false
+    "persist_phases": false,
+    "project_risk_compliance": 0.45
 }
 ```
 
@@ -193,7 +196,8 @@ Content-Type: application/json
         "role": "PR4"
     }],
     "all_users": false,
-    "persist_phases": false
+    "persist_phases": false,
+    "project_risk_compliance": 0.45
 }
 ```
 
@@ -265,7 +269,8 @@ Content-Type: application/json
         "role": "PR4"
     }],
     "all_users": false,
-    "persist_phases": false
+    "persist_phases": false,
+    "project_risk_compliance": 0.45
 }
 ```
 
