@@ -192,7 +192,7 @@ task_counts   | Includes counts of tasks broken down by phase, priority and comp
 ### Expand Parameters
 
 ```http
-GET /api/v2/projects/?expand=creator HTTP/1.1
+GET /api/v2/projects/?expand=creator,risk_policy HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
@@ -249,7 +249,16 @@ Content-Type: application/json
         "locked_by": null,
         "locked": false,
         "risk_policy_compliant": true,
-        "risk_policy": "X1"
+        "risk_policy": {
+            "id": "X1",
+            "default": true,
+            "name": "All Risk",
+            "description": "Applies to all applications",
+            "phases": ["requirements", "architecture-design", "development", "testing"],
+            "priority": 7,
+            "task_statuses": ["DONE"],
+            "verification_statuses": ["pass"]
+        }
     }]
 }
 ```
@@ -258,7 +267,8 @@ See the [Expand Parameters](#expand-parameters) section for more details.
 
 Parameter   | Description
 ------------|---------------------
-creator     | Creator field is expanded to display information on the project creator
+creator     | Creator field is expanded to display information on the project creator.
+risk_policy | Risk Policy field is expanded to display information on the associated risk policy. 
 
 
 

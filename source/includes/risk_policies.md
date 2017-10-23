@@ -36,12 +36,12 @@ The following parameters may be used to filter the risk policy resources in the 
 
 Parameter             | Description
 ----------------------|-----------------------------
-name                  | Filter applications by name.
-description           | Filter applications by description.
-priority              | Filter applications by priority.
-phases                | Filter applications by phases.
-task_statuses         | Filter applications by task status.
-verification_statuses | Filter applications by verification status.
+name                  | Filter risk policies by name.
+description           | Filter risk policies by description.
+priority              | Filter risk policies by priority.
+phases                | Filter risk policies by phases.
+task_statuses         | Filter risk policies by task status.
+verification_statuses | Filter risk policies by verification status.
 
 ---
 
@@ -72,7 +72,7 @@ Content-Type: application/json
 
 This endpoint retrieves a specific risk policy resource, as specified by the id parameter.
 
-**`GET /api/v2/applications/{risk_policy_id}/`**
+**`GET /api/v2/risk-policies/{risk_policy_id}/`**
 
 ### URL Parameters
 
@@ -124,8 +124,8 @@ description           | Yes      | The description of the risk policy.
 default               | No       | A boolean field which shows if this is the default risk policy. Ddefaults to false.
 priority              | No       | Tasks in this policy must have a priority greater or equal to this value.  Must be a value from 1 to 10.  Defaults to 7.
 phases                | No       | Tasks in this policy must be in one of these phases.
-task_statuses         | No       | Tasks in this policy must have one of these statuses. (DONE/TODO/NA)
-verification_statuses | No       | Tasks in this policy must have one of these verification statuses. (fail/pass/partial/none)
+task_statuses         | No       | To be considered compliant, tasks in this policy must have one of these statuses. (DONE/TODO/NA)
+verification_statuses | No       | To be considered compliant, tasks in this policy must have one of these verification statuses. (fail/pass/partial/none)
 
 
 
