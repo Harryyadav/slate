@@ -121,56 +121,54 @@ Content-Type: application/json
     }, ...],
     "survey_complete": true,
     "dirty": false,
-    "survey": {
-        "sections": [{
-            "id": "S1",
-            "title": "Application Survey",
-            "slug": "application-survey",
-            "subsections": [{
-                "id": "Q1",
-                "title": "Programming Language",
-                "questions": [{
-                    "id": "Q21",
-                    "text": "Is this a question?",
-                    "description": "Help text",
-                    "format": "MC", // SC for single choice, else MC
+    "sections": [{
+        "id": "S1",
+        "title": "Application Survey",
+        "slug": "application-survey",
+        "subsections": [{
+            "id": "Q1",
+            "title": "Programming Language",
+            "questions": [{
+                "id": "Q21",
+                "text": "Is this a question?",
+                "description": "Help text",
+                "format": "MC", // SC for single choice, else MC
+                "mandatory": false,
+                "satisfied": true,
+                "subquestions": [{
                     "mandatory": false,
+                    "description: "",
+                    "format: "MC",
+                    "text: "Sub Question?",
                     "satisfied": true,
-                    "subquestions": [{
-                        "mandatory": false,
-                        "description: "",
-                        "format: "MC",
-                        "text: "Sub Question?",
-                        "satisfied": true,
-                        "answers": [{
-                            "description": "Description 1",
-                            "text": "Answer 1",
-                            "selected": false,
-                            "selected_by": [ ],
-                            "valid": true,
-                            "id": "A11"
-                        }, {
-                            "description": "Description 2",
-                            "text": "Answer 2",
-                            "selected": false,
-                            "selected_by": [ ],
-                            "valid": true,
-                            "id": "A12"
-                        }],
-                        id: "Q216"
-                    }],
                     "answers": [{
-                        "id": "A21",
-                        "text": "Yes",
-                        "description": "Help text",
+                        "description": "Description 1",
+                        "text": "Answer 1",
                         "selected": false,
+                        "selected_by": [ ],
                         "valid": true,
-                        "selected_by": []
-                    }, ...]
+                        "id": "A11"
+                    }, {
+                        "description": "Description 2",
+                        "text": "Answer 2",
+                        "selected": false,
+                        "selected_by": [ ],
+                        "valid": true,
+                        "id": "A12"
+                    }],
+                    id: "Q216"
+                }],
+                "answers": [{
+                    "id": "A21",
+                    "text": "Yes",
+                    "description": "Help text",
+                    "selected": false,
+                    "valid": true,
+                    "selected_by": []
                 }, ...]
             }, ...]
         }, ...]
-    }
+    }, ...]
 }
 ```
 
