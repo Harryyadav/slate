@@ -121,7 +121,7 @@ Fields                | Required | Description
 ----------------------|----------|-------------
 name                  | Yes      | The name of the new risk policy.
 description           | Yes      | The description of the risk policy.
-default               | No       | A boolean field which shows if this is the default risk policy. Ddefaults to false.
+default               | No       | A boolean field which shows if this is the default risk policy. Defaults to false.
 priority              | No       | Tasks in this policy must have a priority greater or equal to this value.  Must be a value from 1 to 10.  Defaults to 7.
 phases                | No       | Tasks in this policy must be in one of these phases.
 task_statuses         | No       | To be considered compliant, tasks in this policy must have one of these statuses. (DONE/TODO/NA)
@@ -215,4 +215,10 @@ This endpoint deletes a single Risk Policy resource, as specified by the id para
 
 Parameter      | Description
 -------------- | --------------
-risk_policy_id | The id of the risk policy to edit must be submitted in the request
+risk_policy_id | The id of the risk policy to delete must be submitted in the request.
+
+### Payload
+
+Fields                | Required | Description
+----------------------|----------|-------------
+replacement           | Yes      | The risk policy ID to move the associated projects.

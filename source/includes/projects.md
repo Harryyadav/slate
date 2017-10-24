@@ -63,7 +63,7 @@ Content-Type: application/json
         "locked_by": null,
         "locked": false,
         "risk_policy_compliant": true,
-        "risk_policy": "X1"
+        "risk_policy": "RP1"
     }]
 }
 ```
@@ -177,7 +177,7 @@ Content-Type: application/json
         "locked_by": null,
         "locked": false,
         "risk_policy_compliant": true,
-        "risk_policy": "X1"
+        "risk_policy": "RP1"
     }]
 }
 ```
@@ -250,7 +250,7 @@ Content-Type: application/json
         "locked": false,
         "risk_policy_compliant": true,
         "risk_policy": {
-            "id": "X1",
+            "id": "RP1",
             "default": true,
             "name": "All Risk",
             "description": "Applies to all applications",
@@ -331,7 +331,7 @@ Content-Type: application/json
     "locked_by": null,
     "locked": false,
     "risk_policy_compliant": true,
-    "risk_policy": "X1"
+    "risk_policy": "RP1"
 }
 ```
 
@@ -413,7 +413,7 @@ Content-Type: application/json
     "locked_by": null,
     "locked": false,
     "risk_policy_compliant": true,
-    "risk_policy": "X1"
+    "risk_policy": "RP1"
 }
 ```
 
@@ -425,7 +425,7 @@ name        | Yes      | The name of the new project.
 profile     | No       | The ID of the desired profile for the project.
 users       | No       | A list of dictionaries per user that are to be assigned to the project. Each dictionary should contain the user's email and the desired role.
 locked      | No       | A boolean field to lock or unlock the project. It can only be used by users that have lock_project_survey permission
-risk_policy | No       | The ID of the risk policy which should apply to this project.
+risk_policy | No       | The ID of the risk policy which applies to this project.
 
 
 
@@ -493,7 +493,7 @@ Content-Type: application/json
     "locked_by": 1,
     "locked": true,
     "risk_policy_compliant": true,
-    "risk_policy": "X1"
+    "risk_policy": "RP1"
 }
 ```
 
@@ -522,7 +522,7 @@ parent           | No       | ID, name, slug, and URL of the parent project.
 base_project     | No       | ID, name, slug, and URL of the original project.
 users            | No       | A list of dictionaries per user that are to be assigned to the project. Each dictionary should contain the user's email and the desired role.
 groups           | No       | A list of dictionaries per group that are to be assigned to the project. Each dictionary should contain the group's id and the desired role.
-risk_policy      | No       | The ID of the risk policy which should apply to this project.
+risk_policy      | No       | The ID of the risk policy which applies to this project.
 
 
 
