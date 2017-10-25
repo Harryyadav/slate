@@ -21,7 +21,13 @@ Content-Type: application/json
   "notify_on_task_assigned": true,
   "notify_on_task_added_to_project": true,
   "notify_on_task_team_changed": true,
-  "notify_tasks": ["T1", "T2"]
+  "notify_tasks": [{
+    "id": "T514",
+    "name": "Prevent formula injection in CSV Excel"
+  },{
+    "id": "T506",
+    "name": "Verify that iOS in-app purchases are securely implemented"
+  }]
 }
 ```
 
@@ -55,7 +61,7 @@ Content-Type: application/json
   "notify_on_task_assigned": true,
   "notify_on_task_added_to_project": true,
   "notify_on_task_team_changed": true,
-  "notify_tasks": ["T1", "T2", "T3"]
+  "notify_tasks": ["T514"]
 }
 ```
 
@@ -72,18 +78,14 @@ Content-Type: application/json
   "notify_on_task_assigned": true,
   "notify_on_task_added_to_project": true,
   "notify_on_task_team_changed": true,
-  "notify_tasks": ["T1", "T2", "T3"]
+  "notify_tasks": [{
+    "id": "T514",
+    "name": "Prevent formula injection in CSV Excel in 0"
+  }]
 }
 ```
 
 Update the current user's profile.
 
 **`PATCH /api/v2/users/me/profile/`**
-
-
-
-
-
-
-
 

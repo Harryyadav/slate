@@ -389,6 +389,7 @@ This endpoint only uses either basic or session authentication.
 
 
 
+
 ## Get Password Metadata
 
 ```http
@@ -447,14 +448,19 @@ Content-Type: application/json
         }
     ]
 }
-
 ```
 
 Get the password reset questions for the current user.
 Note: answers will not be returned.
 
-
 **`GET /api/v2/users/me/password-reset-questions/`**
+
+
+
+
+
+
+
 
 
 

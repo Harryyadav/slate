@@ -4,14 +4,20 @@
 - Add `tags` to the Application endpoint
 - Add `application_tags` to Project endpoint
 - Add support for creation and deletion of manually added library tasks to Tasks endpoint
-  - Added `manually_added_from_library` field to Task resources
+  - Add `manually_added_from_library` field to Task resources
   - The `ad_hoc` field has been renamed to `project_specific`
+- Change `related_tasks` to include the title, phase, and url of each related task in the Tasks and specific Task endpoints.
+- Change `notify_tasks` attribute of UserProfile to include id, name.
+- Change `updater` field to be expanded by default in Task Notes endpoint.
 
 ## v4.8
 - Rename `base` to `base_project` for the Project endpoint
-
-## v4.8
 - Add incomplete_tasks include filter and redesign task_counts include filter on projects endpoint.
+- Remove `business_unit` as expand filter
+- Expand instances of `business_unit` in `applications` by default
+- Add ALM plugins endpoint, which returns metadata for each ALM integration. Used to render ALM forms.
+- Add params field to connector endpoint & make connector endpoint writeable.
+
 
 ## v4.7
 - Add `base` (original project that spawned any number of new releases) to the Project endpoint. (Note: this field will be renamed to `base_project` in v4.8)

@@ -147,7 +147,20 @@ Content-Type: application/json
         "note_count": 0,
         "artifact_proxy": null,
         "tags": ["tag1", "tag2"],
-        "related": ["1-T31", "1-T32", "1-T34", "1-T98"],
+        "related": [
+        {
+          "id": "T227",
+          "phase": "Testing",
+          "title": "Verify that application's access to database is restricted",
+          "url": "http://example.com/bunits/test-bu/codebot/bug-fix-81028-rc3/tasks/phase/testing/2-T227"
+        },
+        {
+          "id": "T14",
+          "phase": "Architecture & Design",
+          "title": "Enforce the Principle of Least Privilege",
+          "url": "http://example.com/bunits/test-bu/codebot/bug-fix-81028-rc3/tasks/phase/architecture-design/2-T14"
+        }
+      ],
         "problem": {
             "id": "P526",
             "title": "P526: Weak Password Recovery Mechanism...",
@@ -171,14 +184,18 @@ Content-Type: application/json
         ],
         "regulation_sections": [
             {
+                "description": "Denial of service (DoS) protection and working in a degraded mode during DoS attacks.",
                 "id": "RS1026",
                 "name": "CR2.7 (L3 and higher)",
-                "regulation": "CR45"
+                "regulation_id": "CR45",
+                "regulation_name": "ANSI/ISA 62443-4-2"
             },
             {
+                "description": "Denial of service (DoS) protection and working in a degraded mode during DoS attacks.",
                 "id": "RS642",
                 "name": "SR2.7 (L3 and higher)",
-                "regulation": "CR39"
+                "regulation_id": "CR39",
+                "regulation_name": "ANSI/ISA 62443-3-3"
             }
         ],
         "references": [

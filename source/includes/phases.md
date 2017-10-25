@@ -87,6 +87,14 @@ Parameter  | Description
 phase_id   | The id of the phase to retrieve
 
 
+
+
+
+
+
+
+
+
 ## Create a Phase
 
 ```http
@@ -131,6 +139,13 @@ description        | Yes      | The description of the phase.
 tip                | Yes      | The tooltip for the phase.
 ordinal            | Yes      | The order of the phase.
 retain             | No       | Determines whether this phase carries over statuses and notes by default.
+
+
+
+
+
+
+
 
 
 
@@ -194,6 +209,11 @@ retain             | No      | Determines whether this phase carries over status
 Parameter  | Description
 ---------- | ---------------
 phase_id   | The id of the phase to update
+
+
+
+
+
 
 
 
