@@ -53,10 +53,10 @@ search        | Filter applications by performing a textual search on name.
 
 ---
 
-### Include Parameters
+### Expand Parameters
 
 ```http
-GET /api/v2/applications/?include=projects HTTP/1.1
+GET /api/v2/applications/?expand=business_unit HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
