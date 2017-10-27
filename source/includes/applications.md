@@ -26,7 +26,10 @@ Content-Type: application/json
         "priority": "0-none",
         "slug": "application-test",
         "tags": ["foo", "bar"],
-        "project_risk_compliance": 0.45
+        "risk_policy_compliance": {
+          "compliant_projects": 12,
+          "non_compliant_projects": 38
+        }
     }]
 }
 ```
@@ -76,7 +79,10 @@ Content-Type: application/json
         "priority": "0-none",
         "slug": "application-test",
         "tags": ["foo", "bar"],
-        "project_risk_compliance": 0.45
+        "risk_policy_compliance": {
+          "compliant_projects": 12,
+          "non_compliant_projects": 38
+        }
     }]
 }
 ```
@@ -122,7 +128,11 @@ Content-Type: application/json
                 "slug": "project-2",
                 "url": "http://example.com/bunits/test-bu/application-test/project-2/"
             }
-        ]
+        ],
+        "risk_policy_compliance": {
+          "compliant_projects": 12,
+          "non_compliant_projects": 38
+        }
     }]
 }
 ```
@@ -168,7 +178,10 @@ Content-Type: application/json
         "priority": "0-none",
         "slug": "application-test",
         "tags": ["foo", "bar"],
-        "project_risk_compliance": 0.45
+        "risk_policy_compliance": {
+          "compliant_projects": 12,
+          "non_compliant_projects": 38
+        }
     }]
 }
 ```
@@ -225,7 +238,10 @@ Content-Type: application/json
         "priority": "0-none",
         "slug": "api-test",
         "tags": [],
-        "project_risk_compliance": 0
+        "risk_policy_compliance": {
+          "compliant_projects": 0,
+          "non_compliant_projects": 0
+        }
     }]
 }
 ```
@@ -277,7 +293,10 @@ Content-Type: application/json
         "priority": "0-none",
         "slug": "api-test",
         "tags": ["foo", "bar"],
-        "project_risk_compliance": 0.45
+        "risk_policy_compliance": {
+          "compliant_projects": 14,
+          "non_compliant_projects": 84
+        }
     }]
 }
 ```

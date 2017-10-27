@@ -38,7 +38,10 @@ Content-Type: application/json
                 "name": "Group Bar"
             }],
             "all_users": false,
-            "project_risk_compliance": 0.45
+            "risk_policy_compliance": {
+              "compliant_projects": 14,
+              "non_compliant_projects": 84
+            }
         },
         {
             "id": 2,
@@ -52,7 +55,10 @@ Content-Type: application/json
             "groups": [],
             "all_users": true,
             "persist_phases": false,
-            "project_risk_compliance": 0.30
+            "risk_policy_compliance": {
+              "compliant_projects": 28,
+              "non_compliant_projects": 48
+            }
         }
     ]
 }
@@ -118,7 +124,10 @@ Content-Type: application/json
     }],
     "all_users": false,
     "persist_phases": false,
-    "project_risk_compliance": 0.45
+    "risk_policy_compliance": {
+      "compliant_projects": 28,
+      "non_compliant_projects": 48
+    }
 }
 ```
 
@@ -197,7 +206,10 @@ Content-Type: application/json
     }],
     "all_users": false,
     "persist_phases": false,
-    "project_risk_compliance": 0.45
+    "risk_policy_compliance": {
+      "compliant_projects": 0,
+      "non_compliant_projects": 0
+    }
 }
 ```
 
@@ -270,7 +282,10 @@ Content-Type: application/json
     }],
     "all_users": false,
     "persist_phases": false,
-    "project_risk_compliance": 0.45
+    "risk_policy_compliance": {
+      "compliant_projects": 28,
+      "non_compliant_projects": 48 
+    }
 }
 ```
 
