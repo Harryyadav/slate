@@ -1,11 +1,13 @@
 # Changelog
 
-## v4.9
-- Add `tags` to the Application endpoint
-- Add `application_tags` to Project endpoint
+## v.410
 - Add support for creation and deletion of manually added library tasks to Tasks endpoint
   - Add `manually_added_from_library` field to Task resources
   - The `ad_hoc` field has been renamed to `project_specific`
+
+## v4.9
+- Add `tags` to the Application endpoint
+- Add `application_tags` to Project endpoint
 - Change `related_tasks` to include the title, phase, and url of each related task in the Tasks and specific Task endpoints.
 - Change `notify_tasks` attribute of UserProfile to include id, name.
 - Change `updater` field to be expanded by default in Task Notes endpoint.
