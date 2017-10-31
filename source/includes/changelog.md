@@ -1,6 +1,6 @@
 # Changelog
 
-## v.410
+## v4.10
 - Add support for creation and deletion of manually added library tasks to Tasks endpoint
   - Add `manually_added_from_library` field to Task resources
   - The `ad_hoc` field has been renamed to `project_specific`
