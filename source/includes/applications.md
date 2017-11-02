@@ -153,20 +153,18 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "results": [{
-        "id": 3,
-        "business_unit": {
-            "id": 1,
-            "slug": "example-business-unit-1",
-            "name": "example business unit 1"
-        },
-        "name": "Application Test",
-        "created": "2015-04-15T20:27:24.396442Z",
-        "updated": "2015-04-15T20:27:24.389957Z",
-        "priority": "0-none",
-        "slug": "application-test",
-        "tags": ["foo", "bar"]
-    }]
+    "id": 3,
+    "business_unit": {
+        "id": 1,
+        "slug": "example-business-unit-1",
+        "name": "example business unit 1"
+    },
+    "name": "Application Test",
+    "created": "2015-04-15T20:27:24.396442Z",
+    "updated": "2015-04-15T20:27:24.389957Z",
+    "priority": "0-none",
+    "slug": "application-test",
+    "tags": ["foo", "bar"]
 }
 ```
 
@@ -209,20 +207,18 @@ HTTP/1.1 201 CREATED
 Content-Type: application/json
 
 {
-    "results": [{
-        "id": 3,
-        "business_unit": {
-            "id": 1,
-            "slug": "example-business-unit-1",
-            "name": "example business unit 1"
-        },
-        "name": "API Test",
-        "created": "2015-04-15T20:27:24.396442Z",
-        "updated": "2015-04-15T20:27:24.389957Z",
-        "priority": "0-none",
-        "slug": "api-test",
-        "tags": []
-    }]
+    "id": 3,
+    "business_unit": {
+        "id": 1,
+        "slug": "example-business-unit-1",
+        "name": "example business unit 1"
+    },
+    "name": "API Test",
+    "created": "2015-04-15T20:27:24.396442Z",
+    "updated": "2015-04-15T20:27:24.389957Z",
+    "priority": "0-none",
+    "slug": "api-test",
+    "tags": []
 }
 ```
 
@@ -260,20 +256,18 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "results": [{
-        "id": 1,
-        "business_unit": {
-            "id": 2,
-            "slug": "example-business-unit-2",
-            "name": "example business unit 2"
-        },
-        "name": "Edit Test",
-        "created": "2015-06-18T19:27:14.860536Z",
-        "updated": "2015-06-18T21:00:03.827952Z",
-        "priority": "0-none",
-        "slug": "api-test",
-        "tags": ["foo", "bar"]
-    }]
+    "id": 1,
+    "business_unit": {
+        "id": 2,
+        "slug": "example-business-unit-2",
+        "name": "example business unit 2"
+    },
+    "name": "Edit Test",
+    "created": "2015-06-18T19:27:14.860536Z",
+    "updated": "2015-06-18T21:00:03.827952Z",
+    "priority": "0-none",
+    "slug": "api-test",
+    "tags": ["foo", "bar"]
 }
 ```
 
