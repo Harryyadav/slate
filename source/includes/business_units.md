@@ -37,11 +37,7 @@ Content-Type: application/json
                 "id": "G64",
                 "name": "Group Bar"
             }],
-            "all_users": false,
-            "risk_policy_compliance": {
-              "compliant_projects": 14,
-              "non_compliant_projects": 84
-            }
+            "all_users": false
         },
         {
             "id": 2,
@@ -54,11 +50,7 @@ Content-Type: application/json
             "users": [],
             "groups": [],
             "all_users": true,
-            "persist_phases": false,
-            "risk_policy_compliance": {
-              "compliant_projects": 28,
-              "non_compliant_projects": 48
-            }
+            "persist_phases": false
         }
     ]
 }
@@ -78,10 +70,77 @@ name      | Filter business units by name.
 ordering  | Sort business units by the specified field. Prefix field name with minus to sort descending. Sortable fields: name.
 search    | Filter applications by performing a textual search on name.
 
+----
 
 
+### Include Parameters
 
+```http
+GET /api/v2/business-units/?include=risk_policy_compliance HTTP/1.1
+Accept: application/json
+Authorization: Token "YOUR SDE ACCESS TOKEN"
+```
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
 
+{
+    "results": [
+        {
+            "id": 1,
+            "slug": "example-business-unit-1",
+            "name": "example business unit 1",
+            "created": "2015-09-30T18:28:37.214914Z",
+            "updated": "2015-09-30T18:28:37.214959Z",
+            "default_groups": [],
+            "default_users": [],
+            "users": [{
+                "id": 682,
+                "email": "frank@sdelements.com",
+                "first_name": "Frank",
+                "last_name": "Testerton",
+                "is_active": true,
+                "role": {
+                    id: "UR1",
+                    name: "User"
+                }
+            }],
+            "groups": [{
+                "id": "G64",
+                "name": "Group Bar"
+            }],
+            "all_users": false,
+            "risk_policy_compliance": {
+              "compliant_projects": 37,
+              "non_compliant_projects": 12 
+            }
+        },
+        {
+            "id": 2,
+            "slug": "example-business-unit-2",
+            "name": "example business unit 2",
+            "created": "2015-09-30T19:30:25.254036Z",
+            "updated": "2015-09-30T19:30:25.254072Z",
+            "default_users": [],
+            "default_groups": [],
+            "users": [],
+            "groups": [],
+            "all_users": true,
+            "persist_phases": false,
+            "risk_policy_compliance": {
+              "compliant_projects": 15,
+              "non_compliant_projects": 45
+            }
+        }
+    ]
+}
+```
+
+See the [Include Parameters](#include-parameters) section for more details.
+
+Parameter              | Description
+-----------------------|---------------
+risk_policy_compliance | Includes an object which returns the number of compliant and non-compliant projects
 
 
 
@@ -123,11 +182,7 @@ Content-Type: application/json
         "name": "Group Bar"
     }],
     "all_users": false,
-    "persist_phases": false,
-    "risk_policy_compliance": {
-      "compliant_projects": 28,
-      "non_compliant_projects": 48
-    }
+    "persist_phases": false
 }
 ```
 
@@ -205,11 +260,7 @@ Content-Type: application/json
         "role": "PR4"
     }],
     "all_users": false,
-    "persist_phases": false,
-    "risk_policy_compliance": {
-      "compliant_projects": 0,
-      "non_compliant_projects": 0
-    }
+    "persist_phases": false
 }
 ```
 
@@ -281,11 +332,7 @@ Content-Type: application/json
         "role": "PR4"
     }],
     "all_users": false,
-    "persist_phases": false,
-    "risk_policy_compliance": {
-      "compliant_projects": 28,
-      "non_compliant_projects": 48 
-    }
+    "persist_phases": false
 }
 ```
 
