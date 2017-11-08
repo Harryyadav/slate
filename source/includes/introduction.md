@@ -37,3 +37,7 @@ Consume long responses by enabling pagination on an endpoint. Specify a page siz
 `/?page_size=10`
 
 This will limit the result set down to 10 (or fewer) elmenets. There will be a few additional values returned in addtion to the results list. `next` and `previous` are URLs you can request to get the next or previous result set. `count` is the total number of resources available.
+
+# Updating Resources
+
+To update a resource you should submit a PATCH request with the fields you wish to update. While the API *currently* supports PUT requests as well, we recommend you avoid using PUT. With PUT you are required to send all the fields of the resource, and if you fail to do so the missing fields values are cleared. This behaviour is often unexpected or confusing to new (and experienced!) developers working with REST. We may deprecate support for PUT updates in a future iteration of APIv2.
