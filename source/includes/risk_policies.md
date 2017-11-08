@@ -18,10 +18,13 @@ Content-Type: application/json
         "default": true,
         "name": "All Risk",
         "description": "Applies to all applications",
-        "phases": ["requirements", "architecture-design", "development", "testing"],
-        "priority": 7,
-        "task_statuses": ["DONE"],
-        "verification_statuses": ["pass"]
+        "filters": {
+            "phases": ["requirements", "architecture-design", "development", "testing"],
+            "priority": 7
+        },
+        "conditions": {
+            "task_statuses": ["DONE"]
+        }
     }]
 }
 ```
@@ -41,7 +44,6 @@ description           | Filter risk policies by description.
 priority              | Filter risk policies by priority.
 phases                | Filter risk policies by phases.
 task_statuses         | Filter risk policies by task status.
-verification_statuses | Filter risk policies by verification status.
 
 ---
 
@@ -63,10 +65,13 @@ Content-Type: application/json
     "default": true,
     "name": "All Risk",
     "description": "Applies to all applications",
-    "phases": ["requirements", "architecture-design", "development", "testing"],
-    "priority": 7,
-    "task_statuses": ["DONE"],
-    "verification_statuseses": ["pass"]
+    "filters": {
+        "phases": ["requirements", "architecture-design", "development", "testing"],
+        "priority": 7
+    },
+    "conditions": {
+        "task_statuses": ["DONE"]
+    }
 }
 ```
 
@@ -93,10 +98,13 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
 {
     "name": "Low Risk",
     "description": "Applies to all applications",
-    "phases": ["requirements"],
-    "priority": 1,
-    "task_statuses": ["DONE"],
-    "verification_statuseses": ["pass"]
+    "filters": {
+        "phases": ["requirements", "architecture-design", "development", "testing"],
+        "priority": 7
+    },
+    "conditions": {
+        "task_statuses": ["DONE"]
+    }
 }
 ```
 
@@ -110,22 +118,24 @@ Content-Type: application/json
     "default": false,
     "name": "Low Risk",
     "description": "Applies to all applications",
-    "phases": ["requirements"],
-    "priority": 1,
-    "task_statuses": ["DONE"],
-    "verification_statuses": ["pass"]
+    "filters": {
+        "phases": ["requirements", "architecture-design", "development", "testing"],
+        "priority": 7
+    },
+    "conditions": {
+        "task_statuses": ["DONE"]
+    }
 }
 ```
 
-Fields                | Required | Description
-----------------------|----------|-------------
-name                  | Yes      | The name of the new risk policy.
-description           | Yes      | The description of the risk policy.
-default               | No       | A boolean field which shows if this is the default risk policy. Defaults to false.
-priority              | No       | Tasks in this policy must have a priority greater or equal to this value.  Must be a value from 1 to 10.  Defaults to 7.
-phases                | No       | Tasks in this policy must be in one of these phases.
-task_statuses         | No       | To be considered compliant, tasks in this policy must have one of these statuses. (DONE/TODO/NA)
-verification_statuses | No       | To be considered compliant, tasks in this policy must have one of these verification statuses. (fail/pass/partial/none)
+Fields                   | Required | Description
+-------------------------|----------|-------------
+name                     | Yes      | The name of the new risk policy.
+description              | Yes      | The description of the risk policy.
+default                  | No       | A boolean field which shows if this is the default risk policy. Defaults to false.
+filters.priority         | No       | Tasks in this policy must have a priority greater or equal to this value.  Must be a value from 1 to 10.  Defaults to 7.
+filters.phases           | No       | Tasks in this policy must be in one of these phases.
+conditions.task_statuses | No       | To be considered compliant, tasks in this policy must have one of these statuses. (DONE/TODO/NA)
 
 
 
@@ -141,7 +151,9 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
 
 {
     "name": "Max Risk",
-    "priority": 10
+    "filters": {
+        "priority": 10
+    },
 }
 ```
 
@@ -155,10 +167,13 @@ Content-Type: application/json
     "default": false,
     "name": "Max Risk",
     "description": "Applies to all applications",
-    "phases": ["requirements"],
-    "priority": 10,
-    "task_statuses": ["DONE"],
-    "verification_statuses": ["pass"]
+    "filters": {
+        "phases": ["requirements", "architecture-design", "development", "testing"],
+        "priority": 10
+    },
+    "conditions": {
+        "task_statuses": ["DONE"]
+    }
 }
 
 ```
@@ -175,15 +190,14 @@ risk_policy_id | The id of the risk policy to edit must be submitted in the requ
 
 ### Payload
 
-Fields                | Required | Description
-----------------------|----------|-------------
-name                  | No       | The name of the new risk policy.
-description           | No       | The description of the risk policy.
-default               | No       | A boolean field which shows if this is the default risk policy. 
-priority              | No       | Tasks in this policy must have a priority greater or equal to this value.  Must be a value from 1 to 10.  Defaults to 7.
-phases                | No       | Tasks in this policy must be in one of these phases.
-task_statuses         | No       | Tasks in this policy must have one of these statuses. (DONE/TODO/NA)
-verification_statuses | No       | Tasks in this policy must have one of these verification statuses. (fail/pass/partial/none)
+Fields                   | Required | Description
+-------------------------|----------|-------------
+name                     | No       | The name of the new risk policy.
+description              | No       | The description of the risk policy.
+default                  | No       | A boolean field which shows if this is the default risk policy. Defaults to false.
+filters.priority         | No       | Tasks in this policy must have a priority greater or equal to this value.  Must be a value from 1 to 10.  Defaults to 7.
+filters.phases           | No       | Tasks in this policy must be in one of these phases.
+conditions.task_statuses | No       | To be considered compliant, tasks in this policy must have one of these statuses. (DONE/TODO/NA)
 
 
 
