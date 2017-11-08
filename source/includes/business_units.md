@@ -219,7 +219,7 @@ persist_phases      | No       | Set the persistence of TODO tasks that belong t
 ## Update a Business Unit
 
 ```http
-PUT /api/v2/business-units/36/ HTTP/1.1
+PATCH /api/v2/business-units/36/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 
@@ -271,7 +271,7 @@ Content-Type: application/json
 
 Update a single business unit by specifying the id. The fields `users`, `groups`, `name`, `default_users`, and `default_groups` can be updated.
 
-**`PUT /api/v2/business-units/{business_unit_id}/`**
+**`PATCH /api/v2/business-units/{business_unit_id}/`**
 
 ### URL Parameters
 

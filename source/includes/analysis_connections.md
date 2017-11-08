@@ -303,7 +303,7 @@ params              | Yes      | A dictionary containing connections options. Pl
 ## Update a specific Analysis Connection
 
 ```http
-PUT /api/v2/connections/analysis/2/ HTTP/1.1
+PATCH /api/v2/connections/analysis/2/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 
@@ -349,7 +349,7 @@ Content-Type: application/json
 
 Update a specific Analysis Connection resource.
 
-**`PUT /api/v2/connections/analysis/{connection_id}/`**
+**`PATCH /api/v2/connections/analysis/{connection_id}/`**
 
 ### URL Parameters
 

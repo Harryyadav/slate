@@ -210,12 +210,12 @@ params              | Yes      | A dictionary containing connections options. Pl
 ## Update an ALM Connector
 
 ```http
-PUT /api/v2/connectors/alm/3/ HTTP/1.1
+PATCH /api/v2/connectors/alm/3/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 
 {
-    "name": "GitHub Connector PUT Example",
+    "name": "GitHub Connector PATCH Example",
     "system": {
         "id": "github"
     },
@@ -242,7 +242,7 @@ Content-Type: application/json
 
 {
     "id": 12,
-    "name": "GitHub Connector PUT Example",
+    "name": "GitHub Connector PATCH Example",
     "system": {
         "id": "github",
         "short_name": "GitHub",
@@ -267,7 +267,7 @@ Content-Type: application/json
 
 Updates a specific ALM connector resource as specified by the connector id.
 
-**`PUT /api/v2/connectors/alm/{id}`**
+**`PATCH /api/v2/connectors/alm/{id}`**
 
 ---
 
@@ -560,7 +560,7 @@ params              | Yes      | A dictionary containing connections options. Pl
 ## Update a specific ALM Connection
 
 ```http
-PUT /api/v2/connections/alm/1/ HTTP/1.1
+PATCH /api/v2/connections/alm/1/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 
@@ -614,7 +614,7 @@ Content-Type: application/json
 
 Update a specific ALM Connection resource.
 
-**`PUT /api/v2/connections/alm/{connection_id}/`**
+**`PATCH /api/v2/connections/alm/{connection_id}/`**
 
 ### URL Parameters
 

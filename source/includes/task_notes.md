@@ -176,7 +176,7 @@ automatic  | No       | Whether the Task Note was posted by a tool. Default is `
 ## Update a Task Note
 
 ```http
-PUT /api/v2/projects/1/tasks/1-T2/notes/682/ HTTP/1.1
+PATCH /api/v2/projects/1/tasks/1-T2/notes/682/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 
@@ -212,7 +212,7 @@ Content-Type: application/json
 
 This endpoint updates a Task Note resource.
 
-**`PUT /api/v2/projects/{project_id}/tasks/{task_id}/notes/{note_id}/`**
+**`PATCH /api/v2/projects/{project_id}/tasks/{task_id}/notes/{note_id}/`**
 
 ### URL Parameters
 

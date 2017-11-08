@@ -152,7 +152,7 @@ retain             | No       | Determines whether this phase carries over statu
 ## Update a Phase
 
 ```http
-PUT /api/v2/phases/CX1/ HTTP/1.1
+PATCH /api/v2/phases/CX1/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 
@@ -184,7 +184,7 @@ Content-Type: application/json
 
 This endpoint updates a specific Phase resource, as specified by the id parameter.
 
-**`PUT /api/v2/phases/{phase_id}/`**
+**`PATCH /api/v2/phases/{phase_id}/`**
 
 Fields             | Required | Description
 -------------------|----------|-------------

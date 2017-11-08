@@ -128,7 +128,7 @@ This endpoint returns the current User resource.
 ## Update the Current User
 
 ```http
-PUT /api/v2/users/ HTTP/1.1
+PATCH /api/v2/users/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 
@@ -153,7 +153,7 @@ Content-Type: application/json
 Update the current User resource.
 Note: only users with "Manage users & groups" can change email addresses.
 
-**`PUT /api/v2/users/me/`**
+**`PATCH /api/v2/users/me/`**
 
 Fields        | Required | Description
 --------------|----------|-------------
@@ -240,7 +240,7 @@ groups        | No       | Ids of the groups to add user to
 ## Update a specific User
 
 ```http
-PUT /api/v2/users/599/ HTTP/1.1
+PATCH /api/v2/users/599/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 
@@ -280,7 +280,7 @@ Content-Type: application/json
 
 Update a specific User resource.
 
-**`PUT /api/v2/users/{user_id}/`**
+**`PATCH /api/v2/users/{user_id}/`**
 
 ### URL Parameters
 
