@@ -14,7 +14,7 @@ Content-Type: application/json
 
 {
     "results": [{
-        "id": 1,
+        "id": "RP1",
         "default": true,
         "name": "All Risk",
         "description": "Applies to all applications",
@@ -51,7 +51,7 @@ task_statuses         | Filter risk policies by task status.
 ## Get a Specific Risk Policy
 
 ```http
-GET /api/v2/risk-policies/1/ HTTP/1.1
+GET /api/v2/risk-policies/RP1/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
@@ -61,7 +61,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "id": 1,
+    "id": RP1,
     "default": true,
     "name": "All Risk",
     "description": "Applies to all applications",
@@ -114,7 +114,7 @@ Content-Type: application/json
 
 {
 
-    "id": 1,
+    "id": "RP1",
     "default": false,
     "name": "Low Risk",
     "description": "Applies to all applications",
@@ -145,7 +145,7 @@ conditions.task_statuses | No       | To be considered compliant, tasks in this 
 ## Update a Risk Policy
 
 ```http
-PATCH /api/v2/risk-policy/1/ HTTP/1.1
+PATCH /api/v2/risk-policy/RP1/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 
@@ -163,7 +163,7 @@ Content-Type: application/json
 
 {
 
-    "id": 1,
+    "id": "RP1",
     "default": false,
     "name": "Max Risk",
     "description": "Applies to all applications",
@@ -212,12 +212,12 @@ conditions.task_statuses | No       | To be considered compliant, tasks in this 
 ## Delete a Risk Policy
 
 ```http
-DELETE /api/v2/risk-policies/1/ HTTP/1.1
+DELETE /api/v2/risk-policies/RP1/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 
 {
-    "replacement": "2"
+    "replacement": "RP2"
 }
 ```
 
