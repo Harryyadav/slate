@@ -215,6 +215,10 @@ conditions.task_statuses | No       | To be considered compliant, tasks in this 
 DELETE /api/v2/risk-policies/1/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
+
+{
+    "replacement": "2"
+}
 ```
 
 ```http
