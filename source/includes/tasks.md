@@ -21,7 +21,8 @@ Content-Type: application/json
         "text": "Insecure forgotten password and password reset...",
         "priority": 8,
         "phase": "Requirements",
-        "ad_hoc": false,
+        "manually_added_from_library": false,
+        "project_specific": false,
         "relevant": true,
         "accepted": true,
         "assigned_to": [],
@@ -67,7 +68,8 @@ Content-Type: application/json
         },
         "priority": 8,
         "phase": "Requirements",
-        "ad_hoc": false,
+        "manually_added_from_library": false,
+        "project_specific": false,
         "relevant": true,
         "accepted": true,
         "assigned_to": [],
@@ -131,7 +133,8 @@ Content-Type: application/json
         "text": "Insecure forgotten password and password reset...",
         "priority": 8,
         "phase": "Requirements",
-        "ad_hoc": false,
+        "manually_added_from_library": false,
+        "project_specific": false,
         "relevant": true,
         "accepted": true,
         "assigned_to": [],
@@ -273,7 +276,8 @@ Content-Type: application/json
         "text": "Insecure forgotten password and password reset...",
         "priority": 8,
         "phase": "Requirements",
-        "ad_hoc": false,
+        "manually_added_from_library": false,
+        "project_specific": false,
         "relevant": false,
         "accepted": true,
         "assigned_to": [],
@@ -322,7 +326,8 @@ Content-Type: application/json
 
 {
     "accepted": true,
-    "ad_hoc": false,
+    "manually_added_from_library": false,
+    "project_specific": false,
     "artifact_proxy": "ABC-XYZ",
     "assigned_to": [
         {
@@ -358,9 +363,7 @@ Content-Type: application/json
 This endpoint retrieves a single Task resource, as specified by the id parameter.
 
 **`GET /api/v2/projects/{project_id}/tasks/{task_id}/`**
-
-
-
+---
 
 
 
@@ -377,7 +380,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
 
 {
     "artifact_proxy": "ABC-XYZ",
-    "assigned_to": ['admin@example.com'],
+    "assigned_to": ["admin@example.com"],
     "phase": "X1",
     "priority": 9,
     "status": "TS1",
@@ -392,7 +395,8 @@ Content-Type: application/json
 
 {
     "accepted": true,
-    "ad_hoc": true,
+    "manually_added_from_library": false,
+    "project_specific": true,
     "artifact_proxy": "ABC-XYZ",
     "assigned_to": [
         {
@@ -446,12 +450,81 @@ priority       | Yes      | The priority value from 0-10
 status         | No       | The id of a status
 text           | Yes      | The description of the new task
 title          | Yes      | The title of the new task
+---
 
 
 
+## Create a new Task from an existing Library Task
 
+```http
+POST /api/v2/projects/1/tasks/ HTTP/1.1
+Accept: application/json
+Authorization: Token "YOUR SDE ACCESS TOKEN"
 
+{
+    "task_id": "T21"
+}
+```
 
+```http
+HTTP/1.1 201 CREATED
+Content-Type: application/json
+
+{
+    "accepted": true,
+    "manually_added_from_library": true,
+    "project_specific": false,
+    "artifact_proxy": "ABC-XYZ",
+    "assigned_to": [
+        {
+            "first_name": "Admin",
+            "last_name": "Testerton",
+            "is_active": true,
+            "email": "admin@example.com",
+            "role": {
+                "id": "UR1",
+                "name": "User"
+            },
+            "id": 1
+        }
+    ],
+    "text": "Task Description",
+    "id": "1-T21",
+    "library_task_created": "2015-05-07T18:58:26.732000Z",
+    "library_task_updated": "2015-05-07T18:58:26.732000Z",
+    "note_count": 0,
+    "phase": "X1",
+    "priority": "8",
+    "relevant": false,
+    "status": "TS1",
+    "task_id": "T21",
+    "title": "Ensure Confidential Data Is Sent Over an Encrypted Channel",
+    "updater": 7,
+    "updated": "2015-05-07T18:58:26.732000Z",
+    "url": "http://example.com/.../1-T21",
+    "verification_status": null
+}
+```
+
+Add a Library Task to a project. Only library tasks that aren't applicable to a project can be added.
+
+**`POST /api/v2/projects/{project_id}/tasks/`**
+
+### URL Parameters
+
+Parameter      | Description
+---------------|------------------
+project_id     | The id of the project the new task belongs to
+
+### Payload
+
+Fields          | Required | Description
+----------------|----------|---------------
+artifact_proxy  | No       | Arbitrary string which identifies a synchronized ALM issue
+assigned_to     | No       | A list of emails for users that belong to the project
+status          | No       | The id of a status
+task_id         | Yes      | The id of the library task to add to the project.
+---
 
 
 
@@ -465,7 +538,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
 
 {
     "artifact_proxy": "ABC-XYZ",
-    "assigned_to": ['user1@example.com', 'user2@example.com'],
+    "assigned_to": ["user1@example.com", "user2@example.com"],
     "status": "TS1"
 }
 ```
@@ -476,7 +549,8 @@ Content-Type: application/json
 
 {
     "accepted": true,
-    "ad_hoc": false,
+    "manually_added_from_library": false,
+    "project_specific": false,
     "artifact_proxy": "ABC-XYZ",
     "assigned_to": [
         {
@@ -531,3 +605,31 @@ priority       | No       | The priority value from 0-10. Available only if the 
 status         | No       | The id of a status
 text           | No       | The description of the task. Available only if the updated task is a project specific task.
 title          | No       | The title of the task. Available only if the updated task is a project specific task.
+---
+
+
+
+## Delete a Task
+
+```http
+DELETE /api/v2/projects/{project_id}/tasks/{id}/ HTTP/1.1
+Accept: application/json
+Authorization: Token "YOUR SDE ACCESS TOKEN"
+```
+
+```http
+HTTP/1.1 204 NO CONTENT
+```
+
+Delete a single Task resource, as specified by the project and task id parameters.
+
+Only manually added library tasks and project specific tasks may be deleted.
+
+**`DELETE /api/v2/projects/{project_id}/tasks/{id}/`**
+
+### URL Parameters
+
+Parameter      | Description
+---------------|------------------
+project_id     | The id of the project this task belongs to
+id             | The id of the task to delete
