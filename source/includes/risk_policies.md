@@ -114,7 +114,7 @@ Content-Type: application/json
 
 {
 
-    "id": "RP1",
+    "id": "CRP1",
     "default": false,
     "name": "Low Risk",
     "description": "Applies to all applications",
@@ -145,7 +145,7 @@ conditions.task_statuses | Yes      | To be considered compliant, tasks in this 
 ## Update a Risk Policy
 
 ```http
-PATCH /api/v2/risk-policy/RP1/ HTTP/1.1
+PATCH /api/v2/risk-policy/CRP1/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 
@@ -153,7 +153,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
     "name": "Max Risk",
     "filters": {
         "priority": 10
-    },
+    }
 }
 ```
 
@@ -163,7 +163,7 @@ Content-Type: application/json
 
 {
 
-    "id": "RP1",
+    "id": "CRP1",
     "default": false,
     "name": "Max Risk",
     "description": "Applies to all applications",
