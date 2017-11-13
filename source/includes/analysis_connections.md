@@ -150,8 +150,8 @@ Content-Type: application/json
             "analysis_server": "server.whitehatsec.com",
             "task_status_mapping": "{}"
         },
-        inaccessible": false
-         "last_job": {
+        "inaccessible": false,
+        "last_job": {
             "id": 4,
             "last_run": "2016-12-15T22:45:27.412Z",
             "automatic": false,
