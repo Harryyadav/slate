@@ -95,6 +95,11 @@
         <p><code>/?page_size=10</code></p>
         <p>This will limit the result set down to 10 (or fewer) elmenets. There will be a few additional values returned in addtion to the results list. <code>next</code> and <code>previous</code> are URLs you can request to get the next or previous result
           set. <code>count</code> is the total number of resources available.</p>
+        <h1 id="updating-resources">Updating Resources</h1>
+        <p>To update a resource you should submit a PATCH request with the fields you wish to update. While the API <em>currently</em> supports PUT requests as well, we recommend you avoid using PUT. With PUT you are required to send all the fields of the
+          resource, and if you fail to do so the missing fields values are cleared. This behaviour is often unexpected or confusing to new (and experienced!) developers working with REST. We may deprecate support for PUT updates in a future iteration
+          of APIv2.</p>
+        <p>Note: currently the LDAP connections endpoint <em>only</em> supports updates via PUT.</p>
         <h1 id="authentication">Authentication</h1>
         <p>There are several ways to authenticate against SD Elements, which are outlined below.</p>
         <h2 id="basic-authentication">Basic Authentication</h2>
@@ -517,12 +522,12 @@
         </table>
         <hr>
         <h2 id="update-an-alm-connector">Update an ALM Connector</h2>
-        <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/connectors/alm/3/</span> HTTP/1.1
+        <pre class="highlight http"><code><span class="hljs-keyword">PATCH</span> <span class="hljs-string">/api/v2/connectors/alm/3/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
 <span class="json">{
-    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"GitHub Connector PUT Example"</span>,
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"GitHub Connector PATCH Example"</span>,
     <span class="hljs-attr">"system"</span>: {
         <span class="hljs-attr">"id"</span>: <span class="hljs-string">"github"</span>
     },
@@ -546,7 +551,7 @@
 
 <span class="json">{
     <span class="hljs-attr">"id"</span>: <span class="hljs-number">12</span>,
-    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"GitHub Connector PUT Example"</span>,
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"GitHub Connector PATCH Example"</span>,
     <span class="hljs-attr">"system"</span>: {
         <span class="hljs-attr">"id"</span>: <span class="hljs-string">"github"</span>,
         <span class="hljs-attr">"short_name"</span>: <span class="hljs-string">"GitHub"</span>,
@@ -568,7 +573,7 @@
     }
 }</span></code></pre>
         <p>Updates a specific ALM connector resource as specified by the connector id.</p>
-        <p><strong><code>PUT /api/v2/connectors/alm/{id}</code></strong></p>
+        <p><strong><code>PATCH /api/v2/connectors/alm/{id}</code></strong></p>
         <hr>
         <h2 id="get-all-alm-connections-of-all-projects">Get All ALM Connections of All Projects</h2>
         <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/connections/alm/</span> HTTP/1.1
@@ -833,7 +838,7 @@
         </table>
         <hr>
         <h2 id="update-a-specific-alm-connection">Update a specific ALM Connection</h2>
-        <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/connections/alm/1/</span> HTTP/1.1
+        <pre class="highlight http"><code><span class="hljs-keyword">PATCH</span> <span class="hljs-string">/api/v2/connections/alm/1/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
@@ -881,7 +886,7 @@
     <span class="hljs-attr">"project"</span>: <span class="hljs-number">1</span>
 }</span></code></pre>
         <p>Update a specific ALM Connection resource.</p>
-        <p><strong><code>PUT /api/v2/connections/alm/{connection_id}/</code></strong></p>
+        <p><strong><code>PATCH /api/v2/connections/alm/{connection_id}/</code></strong></p>
         <h3 id="url-parameters">URL Parameters</h3>
         <table>
           <thead>
@@ -1994,7 +1999,7 @@
         </table>
         <hr>
         <h2 id="update-a-specific-analysis-connection">Update a specific Analysis Connection</h2>
-        <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/connections/analysis/2/</span> HTTP/1.1
+        <pre class="highlight http"><code><span class="hljs-keyword">PATCH</span> <span class="hljs-string">/api/v2/connections/analysis/2/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
@@ -2034,7 +2039,7 @@
     <span class="hljs-attr">"inaccessible"</span>: <span class="hljs-literal">false</span>
 }</span></code></pre>
         <p>Update a specific Analysis Connection resource.</p>
-        <p><strong><code>PUT /api/v2/connections/analysis/{connection_id}/</code></strong></p>
+        <p><strong><code>PATCH /api/v2/connections/analysis/{connection_id}/</code></strong></p>
         <h3 id="url-parameters">URL Parameters</h3>
         <table>
           <thead>
@@ -2398,7 +2403,7 @@
           </tbody>
         </table>
         <h2 id="regenerate-an-api-token">Regenerate an API Token</h2>
-        <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/users/{user_id}/api-token/</span> HTTP/1.1
+        <pre class="highlight http"><code><span class="hljs-keyword">PATCH</span> <span class="hljs-string">/api/v2/users/{user_id}/api-token/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
 <span class="hljs-attribute">Cookie</span>: sessionid="YOUR SESSION ID"</code></pre>
@@ -2411,7 +2416,7 @@
 }</span></code></pre>
         <p>This endpoint revokes and then regenerates an API Token.</p>
         <p>Note: This endpoint only uses either basic or session authentication.</p>
-        <p><strong><code>PUT /api/v2/users/{user_id}/api-token/</code></strong></p>
+        <p><strong><code>PATCH /api/v2/users/{user_id}/api-token/</code></strong></p>
         <h3 id="url-parameters">URL Parameters</h3>
         <table>
           <thead>
@@ -3050,7 +3055,7 @@
           </tbody>
         </table>
         <h2 id="update-a-business-unit">Update a Business Unit</h2>
-        <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/business-units/36/</span> HTTP/1.1
+        <pre class="highlight http"><code><span class="hljs-keyword">PATCH</span> <span class="hljs-string">/api/v2/business-units/36/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
@@ -3096,7 +3101,7 @@
     <span class="hljs-string">"persist_phases"</span>: <span class="hljs-literal">false</span>
 }</span></code></pre>
         <p>Update a single business unit by specifying the id. The fields <code>users</code>, <code>groups</code>, <code>name</code>, <code>default_users</code>, and <code>default_groups</code> can be updated.</p>
-        <p><strong><code>PUT /api/v2/business-units/{business_unit_id}/</code></strong></p>
+        <p><strong><code>PATCH /api/v2/business-units/{business_unit_id}/</code></strong></p>
         <h3 id="url-parameters">URL Parameters</h3>
         <table>
           <thead>
@@ -3758,7 +3763,7 @@ Authorization: Token: "YOUR SDE ACCESS TOKEN"</code></pre>
           </tbody>
         </table>
         <h2 id="update-a-specific-group">Update a specific Group</h2>
-        <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/groups/G2/</span> HTTP/1.1
+        <pre class="highlight http"><code><span class="hljs-keyword">PATCH</span> <span class="hljs-string">/api/v2/groups/G2/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
@@ -3793,7 +3798,7 @@ Authorization: Token: "YOUR SDE ACCESS TOKEN"</code></pre>
     }]
 }</span></code></pre>
         <p>Update a specific Group resource.</p>
-        <p><strong><code>PUT /api/v2/users/{group_id}/</code></strong></p>
+        <p><strong><code>PATCH /api/v2/users/{group_id}/</code></strong></p>
         <h3 id="url-parameters">URL Parameters</h3>
         <table>
           <thead>
@@ -5697,7 +5702,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
           </tbody>
         </table>
         <h2 id="update-a-phase">Update a Phase</h2>
-        <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/phases/CX1/</span> HTTP/1.1
+        <pre class="highlight http"><code><span class="hljs-keyword">PATCH</span> <span class="hljs-string">/api/v2/phases/CX1/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
@@ -5723,7 +5728,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
     <span class="hljs-attr">"retain"</span>: <span class="hljs-string">"true"</span>
 }</span></code></pre>
         <p>This endpoint updates a specific Phase resource, as specified by the id parameter.</p>
-        <p><strong><code>PUT /api/v2/phases/{phase_id}/</code></strong></p>
+        <p><strong><code>PATCH /api/v2/phases/{phase_id}/</code></strong></p>
         <table>
           <thead>
             <tr>
@@ -6375,7 +6380,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <p><strong><code>POST /api/v2/projects/{project_id}/survey/draft/</code></strong></p>
         <hr>
         <h2 id="modify-an-answer-in-the-draft">Modify an answer in the draft</h2>
-        <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/projects/1/survey/draft/A21/</span> HTTP/1.1
+        <pre class="highlight http"><code><span class="hljs-keyword">PATCH</span> <span class="hljs-string">/api/v2/projects/1/survey/draft/A21/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
@@ -6393,7 +6398,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
     <span class="hljs-attr">"dirty"</span>: <span class="hljs-literal">true</span>
 }</span></code></pre>
         <p>Modifies the specified answer in the draft and returns the full draft state. This may affect other answer&#39;s selected and valid values.</p>
-        <p><strong><code>PUT /api/v2/projects/{project_id}/survey/draft/{answer_id}/</code></strong></p>
+        <p><strong><code>PATCH /api/v2/projects/{project_id}/survey/draft/{answer_id}/</code></strong></p>
         <table>
           <thead>
             <tr>
@@ -6412,7 +6417,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         </table>
         <hr>
         <h2 id="clone-a-profile-to-the-draft">Clone a profile to the draft</h2>
-        <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/projects/1/survey/draft/</span> HTTP/1.1
+        <pre class="highlight http"><code><span class="hljs-keyword">PATCH</span> <span class="hljs-string">/api/v2/projects/1/survey/draft/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
@@ -6430,7 +6435,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
     <span class="hljs-attr">"dirty"</span>: <span class="hljs-literal">true</span>
 }</span></code></pre>
         <p>Clears the current draft and uses the answers set on the specified profile for the draft instead. Any unsaved changes will be lost.</p>
-        <p><strong><code>PUT /api/v2/projects/{project_id}/survey/draft/</code></strong></p>
+        <p><strong><code>PATCH /api/v2/projects/{project_id}/survey/draft/</code></strong></p>
         <table>
           <thead>
             <tr>
@@ -8466,7 +8471,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
           </tbody>
         </table>
         <h2 id="update-a-task-note">Update a Task Note</h2>
-        <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/projects/1/tasks/1-T2/notes/682/</span> HTTP/1.1
+        <pre class="highlight http"><code><span class="hljs-keyword">PATCH</span> <span class="hljs-string">/api/v2/projects/1/tasks/1-T2/notes/682/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
@@ -8496,7 +8501,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
     <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-03-26T19:50:46.348000Z"</span>
 }</span></code></pre>
         <p>This endpoint updates a Task Note resource.</p>
-        <p><strong><code>PUT /api/v2/projects/{project_id}/tasks/{task_id}/notes/{note_id}/</code></strong></p>
+        <p><strong><code>PATCH /api/v2/projects/{project_id}/tasks/{task_id}/notes/{note_id}/</code></strong></p>
         <h3 id="url-parameters">URL Parameters</h3>
         <table>
           <thead>
@@ -9010,7 +9015,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
 }</span></code></pre>
         <p>This endpoint returns the current User resource.</p>
         <h2 id="update-the-current-user">Update the Current User</h2>
-        <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/users/</span> HTTP/1.1
+        <pre class="highlight http"><code><span class="hljs-keyword">PATCH</span> <span class="hljs-string">/api/v2/users/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
@@ -9028,7 +9033,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
     <span class="hljs-attr">"last_name"</span>: <span class="hljs-string">"Smith"</span>,
 }</span></code></pre>
         <p>Update the current User resource. Note: only users with &quot;Manage users &amp; groups&quot; can change email addresses.</p>
-        <p><strong><code>PUT /api/v2/users/me/</code></strong></p>
+        <p><strong><code>PATCH /api/v2/users/me/</code></strong></p>
         <table>
           <thead>
             <tr>
@@ -9133,7 +9138,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
           </tbody>
         </table>
         <h2 id="update-a-specific-user">Update a specific User</h2>
-        <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/users/599/</span> HTTP/1.1
+        <pre class="highlight http"><code><span class="hljs-keyword">PATCH</span> <span class="hljs-string">/api/v2/users/599/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
@@ -9167,7 +9172,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
     <span class="hljs-attr">"password_reset_in_progress"</span>: <span class="hljs-literal">true</span>
 }</span></code></pre>
         <p>Update a specific User resource.</p>
-        <p><strong><code>PUT /api/v2/users/{user_id}/</code></strong></p>
+        <p><strong><code>PATCH /api/v2/users/{user_id}/</code></strong></p>
         <h3 id="url-parameters">URL Parameters</h3>
         <table>
           <thead>
@@ -9727,6 +9732,10 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
           </tbody>
         </table>
         <h1 id="changelog">Changelog</h1>
+        <h2 id="v4-11">v4.11</h2>
+        <ul>
+          <li>Drop references to PUT in the docs, to encourage the use of PATCH.</li>
+        </ul>
         <h2 id="v4-10">v4.10</h2>
         <ul>
           <li>Add support for creation and deletion of manually added library tasks to Tasks endpoint
