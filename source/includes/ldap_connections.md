@@ -288,7 +288,7 @@ connection_id       | The id of the LDAP Connection to delete.
 ## Update a specific LDAP Connection
 
 ```http
-PATCH /api/v2/connections/ldap/31/ HTTP/1.1
+PUT /api/v2/connections/ldap/31/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 
@@ -377,7 +377,7 @@ Content-Type: application/json
 
 Update a specific LDAP Connection resource.
 
-**`PATCH /api/v2/connections/ldap/{connection_id}/`**
+**`PUT /api/v2/connections/ldap/{connection_id}/`**
 
 ### URL Parameters
 

@@ -41,3 +41,5 @@ This will limit the result set down to 10 (or fewer) elmenets. There will be a f
 # Updating Resources
 
 To update a resource you should submit a PATCH request with the fields you wish to update. While the API *currently* supports PUT requests as well, we recommend you avoid using PUT. With PUT you are required to send all the fields of the resource, and if you fail to do so the missing fields values are cleared. This behaviour is often unexpected or confusing to new (and experienced!) developers working with REST. We may deprecate support for PUT updates in a future iteration of APIv2.
+
+Note: currently the LDAP connections endpoint _only_ supports updates via PUT.
