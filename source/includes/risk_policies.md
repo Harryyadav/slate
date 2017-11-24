@@ -139,7 +139,7 @@ name                     | Yes      | The name of the new risk policy.
 description              | Yes      | The description of the risk policy.
 default                  | No       | A boolean field which shows if this is the default risk policy. Defaults to false.
 filters.priority         | No       | Tasks in this policy must have a priority greater or equal to this value.  Must be a value from 1 to 10.  Defaults to 7.
-filters.phases           | Yes       | Tasks in this policy must be in one of these phases.
+filters.phases           | No       | Tasks in this policy must be in one of these phases.
 filters.tags             | No       | Tasks in this policy must have one of these tags.
 conditions.task_statuses | Yes       | To be considered compliant, tasks in this policy must have one of these statuses. (DONE/TODO/NA)
 
