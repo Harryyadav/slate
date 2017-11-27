@@ -542,6 +542,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
     "artifact_proxy": "ABC-XYZ",
     "assigned_to": ["user1@example.com", "user2@example.com"],
     "status": "TS1"
+    "status_context": {
+        "username": "user@externalsystem.com",
+        "modified_time": "2018-10-20T17:46:50Z",
+        "system": "Jira"
+    }
 }
 ```
 
