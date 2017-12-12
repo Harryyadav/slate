@@ -180,10 +180,10 @@ Content-Type: application/json
 
 See the [Include Parameters](#include-parameters) section for more details.
 
-Parameter     | Description
---------------|---------------------
-permissions   | Includes a list of permissions the requesting user has for the project
-task_counts   | Includes counts of tasks broken down by phase and completeness for the project.
+Parameter        | Description
+-----------------|---------------------
+permissions      | Includes a list of permissions the requesting user has for the project
+task_counts      | Includes counts of tasks broken down by phase and completeness for the project.
 incomplete_tasks | Includes a count of incomplete tasks broken down by high (7-10), medium (4-6), and low (1-3) priorities.
 
 ### Expand Parameters
