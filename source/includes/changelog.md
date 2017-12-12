@@ -3,6 +3,8 @@
 ## v4.11
 
 - Drop references to PUT in the docs, to encourage the use of PATCH.
+- Update the structure of the filters field in the report-settings endpoint
+- Add search capabilities to phases endpoint.
 
 ## v4.10
 - Add support for creation and deletion of manually added library tasks to Tasks endpoint
