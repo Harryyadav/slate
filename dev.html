@@ -5600,6 +5600,10 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
               <td>slug</td>
               <td>Returns the phase resource with the specified slug</td>
             </tr>
+            <tr>
+              <td>search</td>
+              <td>Filter phases by performing a textual search on the name.</td>
+            </tr>
           </tbody>
         </table>
         <h2 id="get-a-specific-phase">Get a Specific Phase</h2>
@@ -7144,34 +7148,43 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <span class="hljs-attr">"id"</span>: <span class="hljs-string">"CR1"</span>,
         <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Example Report"</span>,
         <span class="hljs-attr">"filters"</span>: {
-            <span class="hljs-attr">"completion"</span>:   {
-                <span class="hljs-attr">"max"</span>: <span class="hljs-number">100</span>,
-                <span class="hljs-attr">"min"</span>: <span class="hljs-number">0</span>,
-                <span class="hljs-attr">"floor"</span>: <span class="hljs-number">0</span>,
-                <span class="hljs-attr">"ceil"</span>: <span class="hljs-number">100</span>
-            },
-            <span class="hljs-attr">"project"</span>:[],
-            <span class="hljs-attr">"projectTags"</span>:[],
-            <span class="hljs-attr">"priority"</span>:[<span class="hljs-string">"high"</span>, <span class="hljs-string">"medium"</span>, <span class="hljs-string">"low"</span>],
-            <span class="hljs-attr">"application"</span>:[],
+            <span class="hljs-attr">"application"</span>:[{<span class="hljs-attr">"name"</span>: <span class="hljs-string">"app1"</span>, <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>}],
+            <span class="hljs-attr">"priority"</span>: [<span class="hljs-string">"high"</span>, <span class="hljs-string">"medium"</span>],
             <span class="hljs-attr">"state"</span>: <span class="hljs-literal">false</span>,
-            <span class="hljs-attr">"phase"</span>:[<span class="hljs-string">"requirements"</span>, <span class="hljs-string">"architecture-design"</span>, <span class="hljs-string">"development"</span>, <span class="hljs-string">"testing"</span>],
-            <span class="hljs-attr">"taskTags"</span>:[]
+            <span class="hljs-attr">"phase"</span>:[{<span class="hljs-attr">"name"</span>: <span class="hljs-string">"Requirements"</span>, <span class="hljs-attr">"id"</span>: <span class="hljs-string">"requirements"</span>}],
         },
         <span class="hljs-attr">"filter_query"</span>: {
             <span class="hljs-attr">"project"</span>:  {
-                <span class="hljs-attr">"$and"</span>:[{
-                    <span class="hljs-attr">"archived"</span>: {
-                        <span class="hljs-attr">"$exact"</span>: <span class="hljs-literal">false</span>
+                <span class="hljs-attr">"$and"</span>:[
+                    {
+                        <span class="hljs-attr">"archived"</span>: {
+                            <span class="hljs-attr">"$exact"</span>: <span class="hljs-literal">false</span>
+                        }
+                    },
+                    {
+                        <span class="hljs-attr">"application"</span>: {
+                            <span class="hljs-attr">"$in"</span>: [
+                                <span class="hljs-number">1</span>
+                            ]
+                        }
                     }
-                }]
+                ]
             },
             <span class="hljs-attr">"task"</span>: {
-                <span class="hljs-attr">"$and"</span>: [{
-                    <span class="hljs-attr">"priority_label"</span>:   {
-                        <span class="hljs-attr">"$in"</span>:[<span class="hljs-string">"high"</span>, <span class="hljs-string">"medium"</span>]
+                <span class="hljs-attr">"$and"</span>: [
+                    {
+                        <span class="hljs-attr">"priority_label"</span>:   {
+                            <span class="hljs-attr">"$in"</span>:[<span class="hljs-string">"high"</span>, <span class="hljs-string">"medium"</span>]
+                        }
                     }
-                }]
+                    {
+                        <span class="hljs-attr">"phase"</span>: {
+                            <span class="hljs-attr">"$in"</span>: [
+                                <span class="hljs-string">"requirements"</span>
+                            ]
+                        }
+                    }
+                ]
             }
         },
         <span class="hljs-attr">"template"</span>: <span class="hljs-string">"project"</span>
@@ -7206,34 +7219,43 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <span class="hljs-attr">"id"</span>: <span class="hljs-string">"CR1"</span>,
         <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Example Report"</span>,
         <span class="hljs-attr">"filters"</span>: {
-            <span class="hljs-attr">"completion"</span>:   {
-                <span class="hljs-attr">"max"</span>: <span class="hljs-number">100</span>,
-                <span class="hljs-attr">"min"</span>: <span class="hljs-number">0</span>,
-                <span class="hljs-attr">"floor"</span>: <span class="hljs-number">0</span>,
-                <span class="hljs-attr">"ceil"</span>: <span class="hljs-number">100</span>
-            },
-            <span class="hljs-attr">"project"</span>:[],
-            <span class="hljs-attr">"projectTags"</span>:[],
-            <span class="hljs-attr">"priority"</span>:[<span class="hljs-string">"high"</span>, <span class="hljs-string">"medium"</span>, <span class="hljs-string">"low"</span>],
-            <span class="hljs-attr">"application"</span>:[],
+            <span class="hljs-attr">"application"</span>: [{<span class="hljs-attr">"name"</span>: <span class="hljs-string">"app1"</span>, <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>}],
+            <span class="hljs-attr">"priority"</span>: [<span class="hljs-string">"high"</span>, <span class="hljs-string">"medium"</span>],
             <span class="hljs-attr">"state"</span>: <span class="hljs-literal">false</span>,
-            <span class="hljs-attr">"phase"</span>:[<span class="hljs-string">"requirements"</span>, <span class="hljs-string">"architecture-design"</span>, <span class="hljs-string">"development"</span>, <span class="hljs-string">"testing"</span>],
-            <span class="hljs-attr">"taskTags"</span>:[]
+            <span class="hljs-attr">"phase"</span>:[{<span class="hljs-attr">"name"</span>: <span class="hljs-string">"Requirements"</span>, <span class="hljs-attr">"id"</span>: <span class="hljs-string">"requirements"</span>}],
         },
         <span class="hljs-attr">"filter_query"</span>: {
             <span class="hljs-attr">"project"</span>:  {
-                <span class="hljs-attr">"$and"</span>:[{
-                    <span class="hljs-attr">"archived"</span>: {
-                        <span class="hljs-attr">"$exact"</span>: <span class="hljs-literal">false</span>
+                <span class="hljs-attr">"$and"</span>:[
+                    {
+                        <span class="hljs-attr">"archived"</span>: {
+                            <span class="hljs-attr">"$exact"</span>: <span class="hljs-literal">false</span>
+                        }
+                    },
+                    {
+                        <span class="hljs-attr">"application"</span>: {
+                            <span class="hljs-attr">"$in"</span>: [
+                                <span class="hljs-number">1</span>
+                            ]
+                        }
                     }
-                }]
+                ]
             },
             <span class="hljs-attr">"task"</span>: {
-                <span class="hljs-attr">"$and"</span>: [{
-                    <span class="hljs-attr">"priority_label"</span>:   {
-                        <span class="hljs-attr">"$in"</span>:[<span class="hljs-string">"high"</span>, <span class="hljs-string">"medium"</span>]
+                <span class="hljs-attr">"$and"</span>: [
+                    {
+                        <span class="hljs-attr">"priority_label"</span>:   {
+                            <span class="hljs-attr">"$in"</span>:[<span class="hljs-string">"high"</span>, <span class="hljs-string">"medium"</span>]
+                        }
                     }
-                }]
+                    {
+                        <span class="hljs-attr">"phase"</span>: {
+                            <span class="hljs-attr">"$in"</span>: [
+                                <span class="hljs-string">"requirements"</span>
+                            ]
+                        }
+                    }
+                ]
             }
         },
         <span class="hljs-attr">"template"</span>: <span class="hljs-string">"project"</span>
@@ -7308,6 +7330,17 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
             </tr>
           </tbody>
         </table>
+        <p>The following filters are available to filter the scope of the project report:</p>
+        <ul>
+          <li>project</li>
+          <li>projectTags</li>
+          <li>priority</li>
+          <li>application</li>
+          <li>state</li>
+          <li>phase</li>
+          <li>taskTags</li>
+          <li>businessUnit</li>
+        </ul>
         <h2 id="delete-a-report-setting">Delete a Report Setting</h2>
         <pre class="highlight http"><code><span class="hljs-keyword">DELETE</span> <span class="hljs-string">/api/v2/report-settings/CR1/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
@@ -9740,6 +9773,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <h2 id="v4-11">v4.11</h2>
         <ul>
           <li>Drop references to PUT in the docs, to encourage the use of PATCH.</li>
+          <li>Update the structure of the filters field in the report-settings endpoint</li>
+          <li>Add search capabilities to phases endpoint.</li>
         </ul>
         <h2 id="v4-10">v4.10</h2>
         <ul>
