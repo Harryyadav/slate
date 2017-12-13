@@ -18,6 +18,8 @@
       <div class="title"> <span>API v2 Documentation</span> </div>
       <div class="versions">
         <p><span class="version">v: </span> <a href="index.html" class="active">
+                4.11
+              </a> <span>&middot;</span> <a href="4.10.html">
                 4.10
               </a> <span>&middot;</span> <a href="4.9.html">
                 4.9
@@ -95,6 +97,11 @@
         <p><code>/?page_size=10</code></p>
         <p>This will limit the result set down to 10 (or fewer) elmenets. There will be a few additional values returned in addtion to the results list. <code>next</code> and <code>previous</code> are URLs you can request to get the next or previous result
           set. <code>count</code> is the total number of resources available.</p>
+        <h1 id="updating-resources">Updating Resources</h1>
+        <p>To update a resource you should submit a PATCH request with the fields you wish to update. While the API <em>currently</em> supports PUT requests as well, we recommend you avoid using PUT. With PUT you are required to send all the fields of the
+          resource, and if you fail to do so the missing fields values are cleared. This behaviour is often unexpected or confusing to new (and experienced!) developers working with REST. We may deprecate support for PUT updates in a future iteration
+          of APIv2.</p>
+        <p>Note: currently the LDAP connections endpoint <em>only</em> supports updates via PUT.</p>
         <h1 id="authentication">Authentication</h1>
         <p>There are several ways to authenticate against SD Elements, which are outlined below.</p>
         <h2 id="basic-authentication">Basic Authentication</h2>
@@ -517,12 +524,12 @@
         </table>
         <hr>
         <h2 id="update-an-alm-connector">Update an ALM Connector</h2>
-        <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/connectors/alm/3/</span> HTTP/1.1
+        <pre class="highlight http"><code><span class="hljs-keyword">PATCH</span> <span class="hljs-string">/api/v2/connectors/alm/3/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
 <span class="json">{
-    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"GitHub Connector PUT Example"</span>,
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"GitHub Connector PATCH Example"</span>,
     <span class="hljs-attr">"system"</span>: {
         <span class="hljs-attr">"id"</span>: <span class="hljs-string">"github"</span>
     },
@@ -546,7 +553,7 @@
 
 <span class="json">{
     <span class="hljs-attr">"id"</span>: <span class="hljs-number">12</span>,
-    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"GitHub Connector PUT Example"</span>,
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"GitHub Connector PATCH Example"</span>,
     <span class="hljs-attr">"system"</span>: {
         <span class="hljs-attr">"id"</span>: <span class="hljs-string">"github"</span>,
         <span class="hljs-attr">"short_name"</span>: <span class="hljs-string">"GitHub"</span>,
@@ -568,7 +575,7 @@
     }
 }</span></code></pre>
         <p>Updates a specific ALM connector resource as specified by the connector id.</p>
-        <p><strong><code>PUT /api/v2/connectors/alm/{id}</code></strong></p>
+        <p><strong><code>PATCH /api/v2/connectors/alm/{id}</code></strong></p>
         <hr>
         <h2 id="get-all-alm-connections-of-all-projects">Get All ALM Connections of All Projects</h2>
         <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/connections/alm/</span> HTTP/1.1
@@ -833,7 +840,7 @@
         </table>
         <hr>
         <h2 id="update-a-specific-alm-connection">Update a specific ALM Connection</h2>
-        <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/connections/alm/1/</span> HTTP/1.1
+        <pre class="highlight http"><code><span class="hljs-keyword">PATCH</span> <span class="hljs-string">/api/v2/connections/alm/1/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
@@ -881,7 +888,7 @@
     <span class="hljs-attr">"project"</span>: <span class="hljs-number">1</span>
 }</span></code></pre>
         <p>Update a specific ALM Connection resource.</p>
-        <p><strong><code>PUT /api/v2/connections/alm/{connection_id}/</code></strong></p>
+        <p><strong><code>PATCH /api/v2/connections/alm/{connection_id}/</code></strong></p>
         <h3 id="url-parameters">URL Parameters</h3>
         <table>
           <thead>
@@ -1834,36 +1841,36 @@
         <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
 
-<span class="routeros">{
-    <span class="hljs-string">"results"</span>: [{
-        <span class="hljs-string">"id"</span>: 1,
-        <span class="hljs-string">"connector"</span>: 1,
-        <span class="hljs-string">"project"</span>: 1,
-        <span class="hljs-string">"system"</span>: <span class="hljs-string">"WhiteHat"</span>,
-        <span class="hljs-string">"alias"</span>: <span class="hljs-string">"WhiteHat Integration"</span>,
-        <span class="hljs-string">"frequency"</span>: <span class="hljs-string">"manually"</span>,
-        <span class="hljs-string">"command"</span>: <span class="hljs-string">"sync_whitehat"</span>,
-        <span class="hljs-string">"params"</span>: {
-            <span class="hljs-string">"asset_name"</span>: <span class="hljs-string">"WebGoat Java"</span>,
-            <span class="hljs-string">"sde_project"</span>: <span class="hljs-string">"WhiteHat"</span>,
-            <span class="hljs-string">"sde_businessunit"</span>: <span class="hljs-string">"General"</span>,
-            <span class="hljs-string">"sde_application"</span>: <span class="hljs-string">"Demo Application"</span>,
-            <span class="hljs-string">"import_behaviour"</span>: <span class="hljs-string">"replace-scanner"</span>,
-            <span class="hljs-string">"analysis_server"</span>: <span class="hljs-string">"server.whitehatsec.com"</span>,
-            <span class="hljs-string">"task_status_mapping"</span>: <span class="hljs-string">"{}"</span>
+<span class="json">{
+    <span class="hljs-attr">"results"</span>: [{
+        <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-attr">"connector"</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-attr">"project"</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-attr">"system"</span>: <span class="hljs-string">"WhiteHat"</span>,
+        <span class="hljs-attr">"alias"</span>: <span class="hljs-string">"WhiteHat Integration"</span>,
+        <span class="hljs-attr">"frequency"</span>: <span class="hljs-string">"manually"</span>,
+        <span class="hljs-attr">"command"</span>: <span class="hljs-string">"sync_whitehat"</span>,
+        <span class="hljs-attr">"params"</span>: {
+            <span class="hljs-attr">"asset_name"</span>: <span class="hljs-string">"WebGoat Java"</span>,
+            <span class="hljs-attr">"sde_project"</span>: <span class="hljs-string">"WhiteHat"</span>,
+            <span class="hljs-attr">"sde_businessunit"</span>: <span class="hljs-string">"General"</span>,
+            <span class="hljs-attr">"sde_application"</span>: <span class="hljs-string">"Demo Application"</span>,
+            <span class="hljs-attr">"import_behaviour"</span>: <span class="hljs-string">"replace-scanner"</span>,
+            <span class="hljs-attr">"analysis_server"</span>: <span class="hljs-string">"server.whitehatsec.com"</span>,
+            <span class="hljs-attr">"task_status_mapping"</span>: <span class="hljs-string">"{}"</span>
         },
-        inaccessible<span class="hljs-string">": false
-         "</span>last_job<span class="hljs-string">": {
-            "</span>id<span class="hljs-string">": 4,
-            "</span>last_run<span class="hljs-string">": "</span>2016-12-15T22:45:27.412Z<span class="hljs-string">",
-            "</span>automatic<span class="hljs-string">": false,
-            "</span>ready<span class="hljs-string">": true,
-            "</span>result_message<span class="hljs-string">": "</span><span class="hljs-builtin-name">Error</span> Message<span class="hljs-string">",
-            "</span>succeeded<span class="hljs-string">": false,
-            "</span>user<span class="hljs-string">": 1
+        <span class="hljs-attr">"inaccessible"</span>: <span class="hljs-literal">false</span>,
+        <span class="hljs-attr">"last_job"</span>: {
+            <span class="hljs-attr">"id"</span>: <span class="hljs-number">4</span>,
+            <span class="hljs-attr">"last_run"</span>: <span class="hljs-string">"2016-12-15T22:45:27.412Z"</span>,
+            <span class="hljs-attr">"automatic"</span>: <span class="hljs-literal">false</span>,
+            <span class="hljs-attr">"ready"</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-attr">"result_message"</span>: <span class="hljs-string">"Error Message"</span>,
+            <span class="hljs-attr">"succeeded"</span>: <span class="hljs-literal">false</span>,
+            <span class="hljs-attr">"user"</span>: <span class="hljs-number">1</span>
         }
     }]
-}</span></span></code></pre>
+}</span></code></pre>
         <p>See the <a href="#include-parameters">Include Parameters</a> section for more details.</p>
         <table>
           <thead>
@@ -1994,7 +2001,7 @@
         </table>
         <hr>
         <h2 id="update-a-specific-analysis-connection">Update a specific Analysis Connection</h2>
-        <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/connections/analysis/2/</span> HTTP/1.1
+        <pre class="highlight http"><code><span class="hljs-keyword">PATCH</span> <span class="hljs-string">/api/v2/connections/analysis/2/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
@@ -2034,7 +2041,7 @@
     <span class="hljs-attr">"inaccessible"</span>: <span class="hljs-literal">false</span>
 }</span></code></pre>
         <p>Update a specific Analysis Connection resource.</p>
-        <p><strong><code>PUT /api/v2/connections/analysis/{connection_id}/</code></strong></p>
+        <p><strong><code>PATCH /api/v2/connections/analysis/{connection_id}/</code></strong></p>
         <h3 id="url-parameters">URL Parameters</h3>
         <table>
           <thead>
@@ -2398,7 +2405,7 @@
           </tbody>
         </table>
         <h2 id="regenerate-an-api-token">Regenerate an API Token</h2>
-        <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/users/{user_id}/api-token/</span> HTTP/1.1
+        <pre class="highlight http"><code><span class="hljs-keyword">PATCH</span> <span class="hljs-string">/api/v2/users/{user_id}/api-token/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
 <span class="hljs-attribute">Cookie</span>: sessionid="YOUR SESSION ID"</code></pre>
@@ -2411,7 +2418,7 @@
 }</span></code></pre>
         <p>This endpoint revokes and then regenerates an API Token.</p>
         <p>Note: This endpoint only uses either basic or session authentication.</p>
-        <p><strong><code>PUT /api/v2/users/{user_id}/api-token/</code></strong></p>
+        <p><strong><code>PATCH /api/v2/users/{user_id}/api-token/</code></strong></p>
         <h3 id="url-parameters">URL Parameters</h3>
         <table>
           <thead>
@@ -3050,7 +3057,7 @@
           </tbody>
         </table>
         <h2 id="update-a-business-unit">Update a Business Unit</h2>
-        <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/business-units/36/</span> HTTP/1.1
+        <pre class="highlight http"><code><span class="hljs-keyword">PATCH</span> <span class="hljs-string">/api/v2/business-units/36/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
@@ -3096,7 +3103,7 @@
     <span class="hljs-string">"persist_phases"</span>: <span class="hljs-literal">false</span>
 }</span></code></pre>
         <p>Update a single business unit by specifying the id. The fields <code>users</code>, <code>groups</code>, <code>name</code>, <code>default_users</code>, and <code>default_groups</code> can be updated.</p>
-        <p><strong><code>PUT /api/v2/business-units/{business_unit_id}/</code></strong></p>
+        <p><strong><code>PATCH /api/v2/business-units/{business_unit_id}/</code></strong></p>
         <h3 id="url-parameters">URL Parameters</h3>
         <table>
           <thead>
@@ -3758,7 +3765,7 @@ Authorization: Token: "YOUR SDE ACCESS TOKEN"</code></pre>
           </tbody>
         </table>
         <h2 id="update-a-specific-group">Update a specific Group</h2>
-        <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/groups/G2/</span> HTTP/1.1
+        <pre class="highlight http"><code><span class="hljs-keyword">PATCH</span> <span class="hljs-string">/api/v2/groups/G2/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
@@ -3793,7 +3800,7 @@ Authorization: Token: "YOUR SDE ACCESS TOKEN"</code></pre>
     }]
 }</span></code></pre>
         <p>Update a specific Group resource.</p>
-        <p><strong><code>PUT /api/v2/users/{group_id}/</code></strong></p>
+        <p><strong><code>PATCH /api/v2/users/{group_id}/</code></strong></p>
         <h3 id="url-parameters">URL Parameters</h3>
         <table>
           <thead>
@@ -5595,6 +5602,10 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
               <td>slug</td>
               <td>Returns the phase resource with the specified slug</td>
             </tr>
+            <tr>
+              <td>search</td>
+              <td>Filter phases by performing a textual search on the name.</td>
+            </tr>
           </tbody>
         </table>
         <h2 id="get-a-specific-phase">Get a Specific Phase</h2>
@@ -5697,7 +5708,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
           </tbody>
         </table>
         <h2 id="update-a-phase">Update a Phase</h2>
-        <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/phases/CX1/</span> HTTP/1.1
+        <pre class="highlight http"><code><span class="hljs-keyword">PATCH</span> <span class="hljs-string">/api/v2/phases/CX1/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
@@ -5723,7 +5734,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
     <span class="hljs-attr">"retain"</span>: <span class="hljs-string">"true"</span>
 }</span></code></pre>
         <p>This endpoint updates a specific Phase resource, as specified by the id parameter.</p>
-        <p><strong><code>PUT /api/v2/phases/{phase_id}/</code></strong></p>
+        <p><strong><code>PATCH /api/v2/phases/{phase_id}/</code></strong></p>
         <table>
           <thead>
             <tr>
@@ -6375,7 +6386,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <p><strong><code>POST /api/v2/projects/{project_id}/survey/draft/</code></strong></p>
         <hr>
         <h2 id="modify-an-answer-in-the-draft">Modify an answer in the draft</h2>
-        <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/projects/1/survey/draft/A21/</span> HTTP/1.1
+        <pre class="highlight http"><code><span class="hljs-keyword">PATCH</span> <span class="hljs-string">/api/v2/projects/1/survey/draft/A21/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
@@ -6393,7 +6404,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
     <span class="hljs-attr">"dirty"</span>: <span class="hljs-literal">true</span>
 }</span></code></pre>
         <p>Modifies the specified answer in the draft and returns the full draft state. This may affect other answer&#39;s selected and valid values.</p>
-        <p><strong><code>PUT /api/v2/projects/{project_id}/survey/draft/{answer_id}/</code></strong></p>
+        <p><strong><code>PATCH /api/v2/projects/{project_id}/survey/draft/{answer_id}/</code></strong></p>
         <table>
           <thead>
             <tr>
@@ -6412,7 +6423,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         </table>
         <hr>
         <h2 id="clone-a-profile-to-the-draft">Clone a profile to the draft</h2>
-        <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/projects/1/survey/draft/</span> HTTP/1.1
+        <pre class="highlight http"><code><span class="hljs-keyword">PATCH</span> <span class="hljs-string">/api/v2/projects/1/survey/draft/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
@@ -6430,7 +6441,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
     <span class="hljs-attr">"dirty"</span>: <span class="hljs-literal">true</span>
 }</span></code></pre>
         <p>Clears the current draft and uses the answers set on the specified profile for the draft instead. Any unsaved changes will be lost.</p>
-        <p><strong><code>PUT /api/v2/projects/{project_id}/survey/draft/</code></strong></p>
+        <p><strong><code>PATCH /api/v2/projects/{project_id}/survey/draft/</code></strong></p>
         <table>
           <thead>
             <tr>
@@ -6730,7 +6741,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
             </tr>
             <tr>
               <td>task_counts</td>
-              <td>Includes counts of tasks broken down by phase, priority and completeness for the project.<br>Priorities are: high (7-10), medium (4-6), low (1-3).</td>
+              <td>Includes counts of tasks broken down by phase and completeness for the project.</td>
+            </tr>
+            <tr>
+              <td>incomplete_tasks</td>
+              <td>Includes a count of incomplete tasks broken down by high (7-10), medium (4-6), and low (1-3) priorities.</td>
             </tr>
           </tbody>
         </table>
@@ -7135,34 +7150,43 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <span class="hljs-attr">"id"</span>: <span class="hljs-string">"CR1"</span>,
         <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Example Report"</span>,
         <span class="hljs-attr">"filters"</span>: {
-            <span class="hljs-attr">"completion"</span>:   {
-                <span class="hljs-attr">"max"</span>: <span class="hljs-number">100</span>,
-                <span class="hljs-attr">"min"</span>: <span class="hljs-number">0</span>,
-                <span class="hljs-attr">"floor"</span>: <span class="hljs-number">0</span>,
-                <span class="hljs-attr">"ceil"</span>: <span class="hljs-number">100</span>
-            },
-            <span class="hljs-attr">"project"</span>:[],
-            <span class="hljs-attr">"projectTags"</span>:[],
-            <span class="hljs-attr">"priority"</span>:[<span class="hljs-string">"high"</span>, <span class="hljs-string">"medium"</span>, <span class="hljs-string">"low"</span>],
-            <span class="hljs-attr">"application"</span>:[],
+            <span class="hljs-attr">"application"</span>:[{<span class="hljs-attr">"name"</span>: <span class="hljs-string">"app1"</span>, <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>}],
+            <span class="hljs-attr">"priority"</span>: [<span class="hljs-string">"high"</span>, <span class="hljs-string">"medium"</span>],
             <span class="hljs-attr">"state"</span>: <span class="hljs-literal">false</span>,
-            <span class="hljs-attr">"phase"</span>:[<span class="hljs-string">"requirements"</span>, <span class="hljs-string">"architecture-design"</span>, <span class="hljs-string">"development"</span>, <span class="hljs-string">"testing"</span>],
-            <span class="hljs-attr">"taskTags"</span>:[]
+            <span class="hljs-attr">"phase"</span>:[{<span class="hljs-attr">"name"</span>: <span class="hljs-string">"Requirements"</span>, <span class="hljs-attr">"id"</span>: <span class="hljs-string">"requirements"</span>}],
         },
         <span class="hljs-attr">"filter_query"</span>: {
             <span class="hljs-attr">"project"</span>:  {
-                <span class="hljs-attr">"$and"</span>:[{
-                    <span class="hljs-attr">"archived"</span>: {
-                        <span class="hljs-attr">"$exact"</span>: <span class="hljs-literal">false</span>
+                <span class="hljs-attr">"$and"</span>:[
+                    {
+                        <span class="hljs-attr">"archived"</span>: {
+                            <span class="hljs-attr">"$exact"</span>: <span class="hljs-literal">false</span>
+                        }
+                    },
+                    {
+                        <span class="hljs-attr">"application"</span>: {
+                            <span class="hljs-attr">"$in"</span>: [
+                                <span class="hljs-number">1</span>
+                            ]
+                        }
                     }
-                }]
+                ]
             },
             <span class="hljs-attr">"task"</span>: {
-                <span class="hljs-attr">"$and"</span>: [{
-                    <span class="hljs-attr">"priority_label"</span>:   {
-                        <span class="hljs-attr">"$in"</span>:[<span class="hljs-string">"high"</span>, <span class="hljs-string">"medium"</span>]
+                <span class="hljs-attr">"$and"</span>: [
+                    {
+                        <span class="hljs-attr">"priority_label"</span>:   {
+                            <span class="hljs-attr">"$in"</span>:[<span class="hljs-string">"high"</span>, <span class="hljs-string">"medium"</span>]
+                        }
                     }
-                }]
+                    {
+                        <span class="hljs-attr">"phase"</span>: {
+                            <span class="hljs-attr">"$in"</span>: [
+                                <span class="hljs-string">"requirements"</span>
+                            ]
+                        }
+                    }
+                ]
             }
         },
         <span class="hljs-attr">"template"</span>: <span class="hljs-string">"project"</span>
@@ -7197,34 +7221,43 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <span class="hljs-attr">"id"</span>: <span class="hljs-string">"CR1"</span>,
         <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Example Report"</span>,
         <span class="hljs-attr">"filters"</span>: {
-            <span class="hljs-attr">"completion"</span>:   {
-                <span class="hljs-attr">"max"</span>: <span class="hljs-number">100</span>,
-                <span class="hljs-attr">"min"</span>: <span class="hljs-number">0</span>,
-                <span class="hljs-attr">"floor"</span>: <span class="hljs-number">0</span>,
-                <span class="hljs-attr">"ceil"</span>: <span class="hljs-number">100</span>
-            },
-            <span class="hljs-attr">"project"</span>:[],
-            <span class="hljs-attr">"projectTags"</span>:[],
-            <span class="hljs-attr">"priority"</span>:[<span class="hljs-string">"high"</span>, <span class="hljs-string">"medium"</span>, <span class="hljs-string">"low"</span>],
-            <span class="hljs-attr">"application"</span>:[],
+            <span class="hljs-attr">"application"</span>: [{<span class="hljs-attr">"name"</span>: <span class="hljs-string">"app1"</span>, <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>}],
+            <span class="hljs-attr">"priority"</span>: [<span class="hljs-string">"high"</span>, <span class="hljs-string">"medium"</span>],
             <span class="hljs-attr">"state"</span>: <span class="hljs-literal">false</span>,
-            <span class="hljs-attr">"phase"</span>:[<span class="hljs-string">"requirements"</span>, <span class="hljs-string">"architecture-design"</span>, <span class="hljs-string">"development"</span>, <span class="hljs-string">"testing"</span>],
-            <span class="hljs-attr">"taskTags"</span>:[]
+            <span class="hljs-attr">"phase"</span>:[{<span class="hljs-attr">"name"</span>: <span class="hljs-string">"Requirements"</span>, <span class="hljs-attr">"id"</span>: <span class="hljs-string">"requirements"</span>}],
         },
         <span class="hljs-attr">"filter_query"</span>: {
             <span class="hljs-attr">"project"</span>:  {
-                <span class="hljs-attr">"$and"</span>:[{
-                    <span class="hljs-attr">"archived"</span>: {
-                        <span class="hljs-attr">"$exact"</span>: <span class="hljs-literal">false</span>
+                <span class="hljs-attr">"$and"</span>:[
+                    {
+                        <span class="hljs-attr">"archived"</span>: {
+                            <span class="hljs-attr">"$exact"</span>: <span class="hljs-literal">false</span>
+                        }
+                    },
+                    {
+                        <span class="hljs-attr">"application"</span>: {
+                            <span class="hljs-attr">"$in"</span>: [
+                                <span class="hljs-number">1</span>
+                            ]
+                        }
                     }
-                }]
+                ]
             },
             <span class="hljs-attr">"task"</span>: {
-                <span class="hljs-attr">"$and"</span>: [{
-                    <span class="hljs-attr">"priority_label"</span>:   {
-                        <span class="hljs-attr">"$in"</span>:[<span class="hljs-string">"high"</span>, <span class="hljs-string">"medium"</span>]
+                <span class="hljs-attr">"$and"</span>: [
+                    {
+                        <span class="hljs-attr">"priority_label"</span>:   {
+                            <span class="hljs-attr">"$in"</span>:[<span class="hljs-string">"high"</span>, <span class="hljs-string">"medium"</span>]
+                        }
                     }
-                }]
+                    {
+                        <span class="hljs-attr">"phase"</span>: {
+                            <span class="hljs-attr">"$in"</span>: [
+                                <span class="hljs-string">"requirements"</span>
+                            ]
+                        }
+                    }
+                ]
             }
         },
         <span class="hljs-attr">"template"</span>: <span class="hljs-string">"project"</span>
@@ -7299,6 +7332,17 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
             </tr>
           </tbody>
         </table>
+        <p>The following filters are available to filter the scope of the project report:</p>
+        <ul>
+          <li>project</li>
+          <li>projectTags</li>
+          <li>priority</li>
+          <li>application</li>
+          <li>state</li>
+          <li>phase</li>
+          <li>taskTags</li>
+          <li>businessUnit</li>
+        </ul>
         <h2 id="delete-a-report-setting">Delete a Report Setting</h2>
         <pre class="highlight http"><code><span class="hljs-keyword">DELETE</span> <span class="hljs-string">/api/v2/report-settings/CR1/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
@@ -7936,7 +7980,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
     <span class="hljs-attr">"verification_status"</span>: <span class="hljs-literal">null</span>
 }</span></code></pre>
         <p>This endpoint retrieves a single Task resource, as specified by the id parameter.</p>
-        <h2 id="-get-api-v2-projects-project_id-tasks-task_id-"><strong><code>GET /api/v2/projects/{project_id}/tasks/{task_id}/</code></strong></h2>
+        <p><strong><code>GET /api/v2/projects/{project_id}/tasks/{task_id}/</code></strong></p>
+        <hr>
         <h2 id="create-a-new-project-specific-task">Create a New Project Specific Task</h2>
         <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/projects/1/tasks/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
@@ -8466,7 +8511,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
           </tbody>
         </table>
         <h2 id="update-a-task-note">Update a Task Note</h2>
-        <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/projects/1/tasks/1-T2/notes/682/</span> HTTP/1.1
+        <pre class="highlight http"><code><span class="hljs-keyword">PATCH</span> <span class="hljs-string">/api/v2/projects/1/tasks/1-T2/notes/682/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
@@ -8496,7 +8541,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
     <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-03-26T19:50:46.348000Z"</span>
 }</span></code></pre>
         <p>This endpoint updates a Task Note resource.</p>
-        <p><strong><code>PUT /api/v2/projects/{project_id}/tasks/{task_id}/notes/{note_id}/</code></strong></p>
+        <p><strong><code>PATCH /api/v2/projects/{project_id}/tasks/{task_id}/notes/{note_id}/</code></strong></p>
         <h3 id="url-parameters">URL Parameters</h3>
         <table>
           <thead>
@@ -9010,7 +9055,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
 }</span></code></pre>
         <p>This endpoint returns the current User resource.</p>
         <h2 id="update-the-current-user">Update the Current User</h2>
-        <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/users/</span> HTTP/1.1
+        <pre class="highlight http"><code><span class="hljs-keyword">PATCH</span> <span class="hljs-string">/api/v2/users/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
@@ -9028,7 +9073,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
     <span class="hljs-attr">"last_name"</span>: <span class="hljs-string">"Smith"</span>,
 }</span></code></pre>
         <p>Update the current User resource. Note: only users with &quot;Manage users &amp; groups&quot; can change email addresses.</p>
-        <p><strong><code>PUT /api/v2/users/me/</code></strong></p>
+        <p><strong><code>PATCH /api/v2/users/me/</code></strong></p>
         <table>
           <thead>
             <tr>
@@ -9133,7 +9178,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
           </tbody>
         </table>
         <h2 id="update-a-specific-user">Update a specific User</h2>
-        <pre class="highlight http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">/api/v2/users/599/</span> HTTP/1.1
+        <pre class="highlight http"><code><span class="hljs-keyword">PATCH</span> <span class="hljs-string">/api/v2/users/599/</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
@@ -9167,7 +9212,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
     <span class="hljs-attr">"password_reset_in_progress"</span>: <span class="hljs-literal">true</span>
 }</span></code></pre>
         <p>Update a specific User resource.</p>
-        <p><strong><code>PUT /api/v2/users/{user_id}/</code></strong></p>
+        <p><strong><code>PATCH /api/v2/users/{user_id}/</code></strong></p>
         <h3 id="url-parameters">URL Parameters</h3>
         <table>
           <thead>
@@ -9727,6 +9772,12 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
           </tbody>
         </table>
         <h1 id="changelog">Changelog</h1>
+        <h2 id="v4-11">v4.11</h2>
+        <ul>
+          <li>Drop references to PUT in the docs, to encourage the use of PATCH.</li>
+          <li>Update the structure of the filters field in the report-settings endpoint</li>
+          <li>Add search capabilities to phases endpoint.</li>
+        </ul>
         <h2 id="v4-10">v4.10</h2>
         <ul>
           <li>Add support for creation and deletion of manually added library tasks to Tasks endpoint
