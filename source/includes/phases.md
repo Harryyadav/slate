@@ -41,6 +41,7 @@ Parameter | Description
 ----------|-------------
 name      | Returns the phase resource with specified name
 slug      | Returns the phase resource with the specified slug
+search    | Filter phases by performing a textual search on the name.
 
 
 
