@@ -28,3 +28,11 @@ Content-Type: application/json
 This endpoint returns a list of Tag resources.
 
 **`GET /api/v2/tags/`**
+
+### URL Parameters
+
+Parameter        | Description
+---------------- | ---------------
+on               | The model or models that this tag is on.  Options are application, project, standard.
+
+
