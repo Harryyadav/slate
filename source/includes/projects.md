@@ -63,7 +63,7 @@ Content-Type: application/json
         "locked_by": null,
         "locked": false,
         "risk_policy_compliant": true,
-        "risk_policy": "RP1"
+        "risk_policy": 1
     }]
 }
 ```
@@ -177,7 +177,7 @@ Content-Type: application/json
         "locked_by": null,
         "locked": false,
         "risk_policy_compliant": true,
-        "risk_policy": "RP1"
+        "risk_policy": 1
     }]
 }
 ```
@@ -250,7 +250,7 @@ Content-Type: application/json
         "locked": false,
         "risk_policy_compliant": true,
         "risk_policy": {
-            "id": "RP1",
+            "id": 1,
             "default": true,
             "name": "All Risk",
             "description": "Applies to all applications",
@@ -268,7 +268,7 @@ See the [Expand Parameters](#expand-parameters) section for more details.
 Parameter   | Description
 ------------|---------------------
 creator     | Creator field is expanded to display information on the project creator.
-risk_policy | Risk Policy field is expanded to display information on the associated risk policy. 
+risk_policy | Risk Policy field is expanded to display information on the associated risk policy.
 
 
 
@@ -331,7 +331,7 @@ Content-Type: application/json
     "locked_by": null,
     "locked": false,
     "risk_policy_compliant": true,
-    "risk_policy": "RP1"
+    "risk_policy": 1
 }
 ```
 
@@ -413,7 +413,7 @@ Content-Type: application/json
     "locked_by": null,
     "locked": false,
     "risk_policy_compliant": true,
-    "risk_policy": "RP1"
+    "risk_policy": 1
 }
 ```
 
@@ -493,7 +493,7 @@ Content-Type: application/json
     "locked_by": 1,
     "locked": true,
     "risk_policy_compliant": true,
-    "risk_policy": "RP1"
+    "risk_policy": 1
 }
 ```
 
