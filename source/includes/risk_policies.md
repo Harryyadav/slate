@@ -24,7 +24,7 @@ Content-Type: application/json
             "tags": ["tag1", "tag2"]
         },
         "conditions": {
-            "task_statuses": ["DONE"]
+            "task_statuses": ["TS1"]
         }
     }]
 }
@@ -73,7 +73,7 @@ Content-Type: application/json
         "tags": ["tag1", "tag2"]
     },
     "conditions": {
-        "task_statuses": ["DONE"]
+        "task_statuses": ["TS1"]
     }
 }
 ```
@@ -107,7 +107,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
         "tags": ["tag1", "tag2"]
     },
     "conditions": {
-        "task_statuses": ["DONE"]
+        "task_statuses": ["TS1"]
     }
 }
 ```
@@ -128,7 +128,7 @@ Content-Type: application/json
         "tags": ["tag1", "tag2"]
     },
     "conditions": {
-        "task_statuses": ["DONE"]
+        "task_statuses": ["TS1"]
     }
 }
 ```
@@ -141,7 +141,7 @@ default                  | No       | A boolean field which shows if this is the
 filters.priority         | No       | Tasks in this policy must have a priority greater or equal to this value.  Must be a value from 1 to 10.  Defaults to 7.
 filters.phases           | No       | Tasks in this policy must be in one of these phases.
 filters.tags             | No       | Tasks in this policy must have one of these tags.
-conditions.task_statuses | Yes       | To be considered compliant, tasks in this policy must have one of these statuses. (DONE/TODO/NA)
+conditions.task_statuses | Yes      | To be considered compliant, tasks in this policy must have one of these statuses.
 
 
 
@@ -179,7 +179,7 @@ Content-Type: application/json
         "tags": ["tag1", "tag2"]
     },
     "conditions": {
-        "task_statuses": ["DONE"]
+        "task_statuses": ["TS1"]
     }
 }
 
@@ -205,7 +205,7 @@ default                  | No       | A boolean field which shows if this is the
 filters.priority         | No       | Tasks in this policy must have a priority greater or equal to this value.  Must be a value from 1 to 10.  Defaults to 7.
 filters.phases           | No       | Tasks in this policy must be in one of these phases.
 filters.tags             | No       | Tasks in this policy must have one of these tags.
-conditions.task_statuses | No       | To be considered compliant, tasks in this policy must have one of these statuses. (DONE/TODO/NA)
+conditions.task_statuses | No       | To be considered compliant, tasks in this policy must have one of these statuses.
 
 
 
