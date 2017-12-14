@@ -172,7 +172,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
 
 {
     "template": "project",
-    "title": "API Test Report Settings"
+    "title": "API Test Report Settings",
+    "filter_query": {}
 }
 ```
 
@@ -195,20 +196,20 @@ Content-Type: application/json
 Fields        | Required | Description
 --------------|----------|-------------
 filters       | No       | A json object containing any filters on the project survey.
-filter_query  | No       | A json object containing the query to be run against the project resource.
+filter_query  | Yes      | A json object containing the query to be run against the project resource.
 template      | Yes      | The type of report that the settings apply to.  Usually set to "project".
 title         | Yes      | A string representing a unique title of the report settings.
 
 The following filters are available to filter the scope of the project report:
 
-* project
-* projectTags
-* priority
-* application
-* state
-* phase
-* taskTags
-* businessUnit
+* project: A list of project IDs.
+* projectTags: A list of tag names.
+* priority: A list containing at least one of the strings "high", "medium" or "low".
+* application: A list of application IDs.
+* state: A boolean corresponding to archived (true) or active (false) projects. Omit this filter to include both active and archived projects.
+* phase: A list of phase slugs.
+* taskTags: A list of tag names.
+* businessUnit: A list of business unit IDs.
 
 
 
