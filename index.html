@@ -7286,7 +7286,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
 
 <span class="json">{
     <span class="hljs-attr">"template"</span>: <span class="hljs-string">"project"</span>,
-    <span class="hljs-attr">"title"</span>: <span class="hljs-string">"API Test Report Settings"</span>
+    <span class="hljs-attr">"title"</span>: <span class="hljs-string">"API Test Report Settings"</span>,
+    <span class="hljs-attr">"filter_query"</span>: {}
 }</span></code></pre>
         <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
 <span class="hljs-attribute">Content-Type</span>: application/json
@@ -7317,7 +7318,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
             </tr>
             <tr>
               <td>filter_query</td>
-              <td>No</td>
+              <td>Yes</td>
               <td>A json object containing the query to be run against the project resource.</td>
             </tr>
             <tr>
@@ -7334,14 +7335,14 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         </table>
         <p>The following filters are available to filter the scope of the project report:</p>
         <ul>
-          <li>project</li>
-          <li>projectTags</li>
-          <li>priority</li>
-          <li>application</li>
-          <li>state</li>
-          <li>phase</li>
-          <li>taskTags</li>
-          <li>businessUnit</li>
+          <li>project: A list of project IDs.</li>
+          <li>projectTags: A list of tag names.</li>
+          <li>priority: A list containing at least one of the strings &quot;high&quot;, &quot;medium&quot; or &quot;low&quot;.</li>
+          <li>application: A list of application IDs.</li>
+          <li>state: A boolean corresponding to archived (true) or active (false) projects. Omit this filter to include both active and archived projects.</li>
+          <li>phase: A list of phase slugs.</li>
+          <li>taskTags: A list of tag names.</li>
+          <li>businessUnit: A list of business unit IDs.</li>
         </ul>
         <h2 id="delete-a-report-setting">Delete a Report Setting</h2>
         <pre class="highlight http"><code><span class="hljs-keyword">DELETE</span> <span class="hljs-string">/api/v2/report-settings/CR1/</span> HTTP/1.1
