@@ -102,6 +102,7 @@ Content-Type: application/json
         "alias": "WhiteHat Integration",
         "frequency": "manually",
         "command": "sync_whitehat",
+        "debug_mode": false,
         "params": {
             "asset_name": "WebGoat Java",
             "sde_project": "WhiteHat",
@@ -141,6 +142,7 @@ Content-Type: application/json
         "alias": "WhiteHat Integration",
         "frequency": "manually",
         "command": "sync_whitehat",
+        "debug_mode": false,
         "params": {
             "asset_name": "WebGoat Java",
             "sde_project": "WhiteHat",
@@ -202,6 +204,7 @@ Content-Type: application/json
     "alias": "WhiteHat Integration",
     "frequency": "manually",
     "command": "sync_whitehat",
+    "debug_mode": false,
     "params": {
         "asset_name": "WebGoat Java",
         "sde_project": "WhiteHat",
@@ -242,6 +245,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
     "connector": 2,
     "project": 1,
     "frequency": "daily",
+    "debug_mode": true,
     "params": {
         "task_status_mapping": "{\"pass\": \"DONE\"}",
         "import_behaviour": "combine"
@@ -264,6 +268,7 @@ Content-Type: application/json
     "project": 1,
     "frequency": "daily",
     "command": "import_veracode",
+    "debug_mode": true,
     "params":{
         "integration_mode": "api",
         "analysis_user": "Code",
@@ -274,7 +279,8 @@ Content-Type: application/json
         "analysis_server": "vera",
         "task_status_mapping": "{\"pass\": \"DONE\"}",
         "import_behaviour": "combine",
-        "analysis_method": "http"
+        "analysis_method": "http",
+        "session_capture_socket": "/doc/sde/sdetools_session_capture.sock"
         },
     "inaccessible": false
 }
@@ -331,6 +337,7 @@ Content-Type: application/json
     "project": 1,
     "frequency": "hourly",
     "command": "import_veracode",
+    "debug_mode": false,
     "params":{
         "integration_mode": "api",
         "analysis_user": "Code",
