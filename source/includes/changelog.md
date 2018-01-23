@@ -1,5 +1,9 @@
 # Changelog
 
+## v4.12
+- Added writable project-level tagging to Tasks.
+- Task tags can be expanded into library-level & project-level tags.
+
 ## v4.11
 
 - Drop references to PUT in the docs, to encourage the use of PATCH.
