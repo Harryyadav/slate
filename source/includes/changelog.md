@@ -1,5 +1,9 @@
 # Changelog
 
+## v4.12
+
+- Add `debug_mode` field to Analysis Connections and ALM Connections
+
 ## v4.11
 
 - Drop references to PUT in the docs, to encourage the use of PATCH.
