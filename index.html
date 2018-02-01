@@ -5910,6 +5910,424 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
             </tr>
           </tbody>
         </table>
+        <h1 id="project-releases">Project Releases</h1>
+        <h2 id="get-all-project-releases">Get All Project Releases</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/releases/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="json">{
+  <span class="hljs-attr">"results"</span>: [{
+    <span class="hljs-attr">"application"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">"application_tags"</span>: [],
+    <span class="hljs-attr">"archived"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">"base_project"</span>: {
+      <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"p1"</span>,
+      <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"p1"</span>,
+      <span class="hljs-attr">"url"</span>: <span class="hljs-string">"http://example.com/bunits/bu/app/p1/"</span>
+    },
+    <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2017-12-12T16:59:45.195331Z"</span>,
+    <span class="hljs-attr">"creator"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">"custom_attributes"</span>: {},
+    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Description"</span>,
+    <span class="hljs-attr">"groups"</span>: [],
+    <span class="hljs-attr">"id"</span>: <span class="hljs-number">9</span>,
+    <span class="hljs-attr">"locked"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">"locked_by"</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-attr">"locked_on"</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-attr">"lookup_data"</span>: {},
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Test"</span>,
+    <span class="hljs-attr">"parent"</span>: {
+      <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"p1"</span>,
+      <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"p1"</span>,
+      <span class="hljs-attr">"url"</span>: <span class="hljs-string">"http://example.com/bunits/bu/app/p1/"</span>
+    },
+    <span class="hljs-attr">"profile"</span>: {
+      <span class="hljs-attr">"logo_url"</span>: <span class="hljs-string">"/static/images/logo-django.png"</span>,
+      <span class="hljs-attr">"id"</span>: <span class="hljs-string">"P5"</span>,
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Django Project"</span>
+    },
+    <span class="hljs-attr">"releases_count"</span>: <span class="hljs-number">0</span>,
+    <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"test"</span>,
+    <span class="hljs-attr">"survey_complete"</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">"tags"</span>: [
+      <span class="hljs-string">"Tags"</span>
+    ],
+    <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2017-12-12T16:59:47.270773Z"</span>,
+    <span class="hljs-attr">"url"</span>: <span class="hljs-string">"http://example.com/bunits/bu/app/test/"</span>,
+    <span class="hljs-attr">"users"</span>: [{
+        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"1"</span>,
+        <span class="hljs-attr">"email"</span>: <span class="hljs-string">"test@example.com"</span>,
+        <span class="hljs-attr">"role"</span>: <span class="hljs-string">"PR4"</span>,
+        <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Admin"</span>,
+        <span class="hljs-attr">"last_name"</span>: <span class="hljs-string">"Testerton"</span>,
+        <span class="hljs-attr">"is_active"</span>: <span class="hljs-literal">true</span>
+    }],
+    <span class="hljs-attr">"groups"</span>: [{
+        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"G1"</span>,
+        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Devs"</span>,
+        <span class="hljs-attr">"role"</span>: <span class="hljs-string">"PR4"</span>
+    }]
+  }]
+}</span></code></pre>
+        <p>This endpoint returns a list of Project Releases.</p>
+        <p><strong><code>GET /api/v2/projects/{project_id}/releases/</code></strong></p>
+        <h3 id="url-parameters">URL Parameters</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>project_id</td>
+              <td>The ID of the parent project.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 id="query-parameters">Query Parameters</h3>
+        <p>The following parameters may be used to filter the project release in the response.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>name</td>
+              <td>Filter project releases by name.</td>
+            </tr>
+            <tr>
+              <td>slug</td>
+              <td>Filter project releases by slug.</td>
+            </tr>
+            <tr>
+              <td>ordering</td>
+              <td>Sort project releases by the specified field. Prefix field name with minus to sort descending. Sortable fields: name, created, updated.</td>
+            </tr>
+            <tr>
+              <td>search</td>
+              <td>Filter project releases by performing a textual search on name and profile name.</td>
+            </tr>
+          </tbody>
+        </table>
+        <hr>
+        <h3 id="include-parameters">Include Parameters</h3>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/releases/?include=permissions</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="json">{
+  <span class="hljs-attr">"results"</span>: [{
+    <span class="hljs-attr">"application"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">"application_tags"</span>: [],
+    <span class="hljs-attr">"archived"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">"base_project"</span>: {
+      <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"p1"</span>,
+      <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"p1"</span>,
+      <span class="hljs-attr">"url"</span>: <span class="hljs-string">"http://example.com/bunits/bu/app/p1/"</span>
+    },
+    <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2017-12-12T16:59:45.195331Z"</span>,
+    <span class="hljs-attr">"creator"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">"custom_attributes"</span>: {},
+    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Description"</span>,
+    <span class="hljs-attr">"groups"</span>: [],
+    <span class="hljs-attr">"id"</span>: <span class="hljs-number">9</span>,
+    <span class="hljs-attr">"locked"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">"locked_by"</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-attr">"locked_on"</span>: <span class="hljs-literal">null</span>,
+    <span class="hljs-attr">"lookup_data"</span>: {},
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Test"</span>,
+    <span class="hljs-attr">"parent"</span>: {
+      <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"p1"</span>,
+      <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"p1"</span>,
+      <span class="hljs-attr">"url"</span>: <span class="hljs-string">"http://example.com/bunits/bu/app/p1/"</span>
+    },
+    <span class="hljs-attr">"permissions"</span>: [
+      <span class="hljs-string">"edit_project_details"</span>,
+      <span class="hljs-string">"assign_task"</span>,
+      <span class="hljs-string">"mark_task"</span>,
+      <span class="hljs-string">"create_project_specific_task"</span>,
+      <span class="hljs-string">"archive_project"</span>,
+      <span class="hljs-string">"verify_task"</span>,
+      <span class="hljs-string">"edit_project_membership"</span>,
+      <span class="hljs-string">"view_project"</span>,
+      <span class="hljs-string">"write_task_note"</span>,
+      <span class="hljs-string">"sync_with_alm"</span>,
+      <span class="hljs-string">"edit_project_survey"</span>
+    ],
+    <span class="hljs-attr">"profile"</span>: {
+      <span class="hljs-attr">"logo_url"</span>: <span class="hljs-string">"/static/images/logo-django.png"</span>,
+      <span class="hljs-attr">"id"</span>: <span class="hljs-string">"P5"</span>,
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Django Project"</span>
+    },
+    <span class="hljs-attr">"releases_count"</span>: <span class="hljs-number">0</span>,
+    <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"test"</span>,
+    <span class="hljs-attr">"survey_complete"</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">"tags"</span>: [
+      <span class="hljs-string">"Tags"</span>
+    ],
+    <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2017-12-12T16:59:47.270773Z"</span>,
+    <span class="hljs-attr">"url"</span>: <span class="hljs-string">"http://example.com/bunits/bu/app/test/"</span>,
+    <span class="hljs-attr">"users"</span>: [{
+        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"1"</span>,
+        <span class="hljs-attr">"email"</span>: <span class="hljs-string">"test@example.com"</span>,
+        <span class="hljs-attr">"role"</span>: <span class="hljs-string">"PR4"</span>,
+        <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Admin"</span>,
+        <span class="hljs-attr">"last_name"</span>: <span class="hljs-string">"Testerton"</span>,
+        <span class="hljs-attr">"is_active"</span>: <span class="hljs-literal">true</span>
+    }],
+    <span class="hljs-attr">"groups"</span>: [{
+        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"G1"</span>,
+        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Devs"</span>,
+        <span class="hljs-attr">"role"</span>: <span class="hljs-string">"PR4"</span>
+    }]
+  }]
+}</span></code></pre>
+        <p>See the <a href="#include-parameters">Include Parameters</a> section for more details.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>permissions</td>
+              <td>Includes a list of permissions the requesting user has for the projectt release.</td>
+            </tr>
+          </tbody>
+        </table>
+        <hr>
+        <h2 id="get-a-specific-project-release">Get a Specific Project Release</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/releases/9/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="json">{
+  <span class="hljs-attr">"application"</span>: <span class="hljs-number">1</span>,
+  <span class="hljs-attr">"application_tags"</span>: [],
+  <span class="hljs-attr">"archived"</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-attr">"base_project"</span>: {
+    <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"p1"</span>,
+    <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"p1"</span>,
+    <span class="hljs-attr">"url"</span>: <span class="hljs-string">"http://example.com/bunits/bu/app/p1/"</span>
+  },
+  <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2017-12-12T16:59:45.195331Z"</span>,
+  <span class="hljs-attr">"creator"</span>: <span class="hljs-number">1</span>,
+  <span class="hljs-attr">"custom_attributes"</span>: {},
+  <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Description"</span>,
+  <span class="hljs-attr">"groups"</span>: [],
+  <span class="hljs-attr">"id"</span>: <span class="hljs-number">9</span>,
+  <span class="hljs-attr">"locked"</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-attr">"locked_by"</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-attr">"locked_on"</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-attr">"lookup_data"</span>: {},
+  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Test"</span>,
+  <span class="hljs-attr">"parent"</span>: {
+    <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"p1"</span>,
+    <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"p1"</span>,
+    <span class="hljs-attr">"url"</span>: <span class="hljs-string">"http://example.com/bunits/bu/app/p1/"</span>
+  },
+  <span class="hljs-attr">"profile"</span>: {
+    <span class="hljs-attr">"logo_url"</span>: <span class="hljs-string">"/static/images/logo-django.png"</span>,
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"P5"</span>,
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Django Project"</span>
+  },
+  <span class="hljs-attr">"releases_count"</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"test"</span>,
+  <span class="hljs-attr">"survey_complete"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"tags"</span>: [
+    <span class="hljs-string">"Tags"</span>
+  ],
+  <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2017-12-12T16:59:47.270773Z"</span>,
+  <span class="hljs-attr">"url"</span>: <span class="hljs-string">"http://example.com/bunits/bu/app/test/"</span>,
+  <span class="hljs-attr">"users"</span>: [{
+      <span class="hljs-attr">"id"</span>: <span class="hljs-string">"1"</span>,
+      <span class="hljs-attr">"email"</span>: <span class="hljs-string">"test@example.com"</span>,
+      <span class="hljs-attr">"role"</span>: <span class="hljs-string">"PR4"</span>,
+      <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Admin"</span>,
+      <span class="hljs-attr">"last_name"</span>: <span class="hljs-string">"Testerton"</span>,
+      <span class="hljs-attr">"is_active"</span>: <span class="hljs-literal">true</span>
+  }],
+  <span class="hljs-attr">"groups"</span>: [{
+      <span class="hljs-attr">"id"</span>: <span class="hljs-string">"G1"</span>,
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Devs"</span>,
+      <span class="hljs-attr">"role"</span>: <span class="hljs-string">"PR4"</span>
+  }]
+}</span></code></pre>
+        <p>This endpoint returns a specific Project Release.</p>
+        <p><strong><code>GET /api/v2/projects/{project_id}/releases/{release_id}/</code></strong></p>
+        <h3 id="url-parameters">URL Parameters</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>project_id</td>
+              <td>The ID of the parent project.</td>
+            </tr>
+            <tr>
+              <td>release_id</td>
+              <td>The ID of the release to retrieve.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="create-a-project-release">Create a Project Release</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/projects/1/releases/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
+
+<span class="json">{
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Foo"</span>,
+    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"A foo project"</span>,
+    <span class="hljs-attr">"persistent_phases"</span>: [<span class="hljs-string">"X1"</span>, <span class="hljs-string">"X2"</span>],
+    <span class="hljs-attr">"alm_connection_retention"</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">"analysis_connection_retention"</span>: <span class="hljs-literal">true</span>
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="json">{
+  <span class="hljs-attr">"application"</span>: <span class="hljs-number">1</span>,
+  <span class="hljs-attr">"application_tags"</span>: [],
+  <span class="hljs-attr">"archived"</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-attr">"base_project"</span>: {
+    <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"p1"</span>,
+    <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"p1"</span>,
+    <span class="hljs-attr">"url"</span>: <span class="hljs-string">"http://example.com/bunits/bu/app/p1/"</span>
+  },
+  <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2017-12-12T16:59:45.195331Z"</span>,
+  <span class="hljs-attr">"creator"</span>: <span class="hljs-number">1</span>,
+  <span class="hljs-attr">"custom_attributes"</span>: {},
+  <span class="hljs-attr">"description"</span>: <span class="hljs-string">"A foo project"</span>,
+  <span class="hljs-attr">"groups"</span>: [],
+  <span class="hljs-attr">"id"</span>: <span class="hljs-number">9</span>,
+  <span class="hljs-attr">"locked"</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-attr">"locked_by"</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-attr">"locked_on"</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-attr">"lookup_data"</span>: {},
+  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Foo"</span>,
+  <span class="hljs-attr">"parent"</span>: {
+    <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"p1"</span>,
+    <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"p1"</span>,
+    <span class="hljs-attr">"url"</span>: <span class="hljs-string">"http://example.com/bunits/bu/app/p1/"</span>
+  },
+  <span class="hljs-attr">"profile"</span>: {
+    <span class="hljs-attr">"logo_url"</span>: <span class="hljs-string">"/static/images/logo-django.png"</span>,
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"P5"</span>,
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Django Project"</span>
+  },
+  <span class="hljs-attr">"releases_count"</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"foo"</span>,
+  <span class="hljs-attr">"survey_complete"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"tags"</span>: [
+    <span class="hljs-string">"Tags"</span>
+  ],
+  <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2017-12-12T16:59:47.270773Z"</span>,
+  <span class="hljs-attr">"url"</span>: <span class="hljs-string">"http://example.com/bunits/bu/app/test/"</span>,
+  <span class="hljs-attr">"users"</span>: [{
+      <span class="hljs-attr">"id"</span>: <span class="hljs-string">"1"</span>,
+      <span class="hljs-attr">"email"</span>: <span class="hljs-string">"test@example.com"</span>,
+      <span class="hljs-attr">"role"</span>: <span class="hljs-string">"PR4"</span>,
+      <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Admin"</span>,
+      <span class="hljs-attr">"last_name"</span>: <span class="hljs-string">"Testerton"</span>,
+      <span class="hljs-attr">"is_active"</span>: <span class="hljs-literal">true</span>
+  }],
+  <span class="hljs-attr">"groups"</span>: [{
+      <span class="hljs-attr">"id"</span>: <span class="hljs-string">"G1"</span>,
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Devs"</span>,
+      <span class="hljs-attr">"role"</span>: <span class="hljs-string">"PR4"</span>
+  }]
+}</span></code></pre>
+        <p>This endpoint creates a new Project Release from the parent project specified by the project_id URL parameter. Project membership is carried over to the new release by default.</p>
+        <p><code>POST /api/v2/projects/{project_id}/releases/</code></p>
+        <h3 id="url-parameters">URL Parameters</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>project_id</td>
+              <td>The ID of the parent project.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 id="payload">Payload</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Fields</th>
+              <th>Required</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>name</td>
+              <td>Yes</td>
+              <td>The name of the new release. </td>
+            </tr>
+            <tr>
+              <td>description</td>
+              <td>No</td>
+              <td>The description for the new release.</td>
+            </tr>
+            <tr>
+              <td>persistent_phases</td>
+              <td>No</td>
+              <td>A list of phase IDs. Tasks under these phases will have their statuses and notes retained in the new release.</td>
+            </tr>
+            <tr>
+              <td>alm_connection_retention</td>
+              <td>No</td>
+              <td>A boolean that determines whether ALM connection settings should be retained in the new release.</td>
+            </tr>
+            <tr>
+              <td>analysis_connection_retention</td>
+              <td>No</td>
+              <td>A boolean that determines whether analysis connection settings should be retained in the new release.</td>
+            </tr>
+            <tr>
+              <td>tags</td>
+              <td>No</td>
+              <td>A list of string tags to add to the new release.</td>
+            </tr>
+            <tr>
+              <td>custom_attributes</td>
+              <td>No</td>
+              <td>A dictionary of custom project attributes for the new release. Some attributes may be required.</td>
+            </tr>
+          </tbody>
+        </table>
+        <hr>
         <h1 id="project-roles">Project Roles</h1>
         <h2 id="get-all-project-roles">Get All Project Roles</h2>
         <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/project-roles/</span> HTTP/1.1
@@ -9778,6 +10196,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
           <li>Drop references to PUT in the docs, to encourage the use of PATCH.</li>
           <li>Update the structure of the filters field in the report-settings endpoint</li>
           <li>Add search capabilities to phases endpoint.</li>
+          <li>Add documentation for Project Release endpoint (previously undocumented).</li>
         </ul>
         <h2 id="v4-10">v4.10</h2>
         <ul>
