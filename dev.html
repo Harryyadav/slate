@@ -595,6 +595,7 @@
         },
         <span class="hljs-attr">"frequency"</span>: <span class="hljs-string">"manually"</span>,
         <span class="hljs-attr">"command"</span>: <span class="hljs-string">"sync_rally"</span>,
+        <span class="hljs-attr">"debug_mode"</span>: <span class="hljs-literal">false</span>,
         <span class="hljs-attr">"params"</span>: {
             <span class="hljs-attr">"sde_project"</span>: <span class="hljs-string">"Demo Project"</span>,
             <span class="hljs-attr">"alm_user"</span>: <span class="hljs-string">"rally_user"</span>,
@@ -657,6 +658,7 @@
         },
         <span class="hljs-attr">"frequency"</span>: <span class="hljs-string">"manually"</span>,
         <span class="hljs-attr">"command"</span>: <span class="hljs-string">"sync_rally"</span>,
+        <span class="hljs-attr">"debug_mode"</span>: <span class="hljs-literal">false</span>,
         <span class="hljs-attr">"params"</span>: {
             <span class="hljs-attr">"sde_project"</span>: <span class="hljs-string">"Demo Project"</span>,
             <span class="hljs-attr">"alm_user"</span>: <span class="hljs-string">"rally_user"</span>,
@@ -723,6 +725,7 @@
     },
     <span class="hljs-attr">"frequency"</span>: <span class="hljs-string">"manually"</span>,
     <span class="hljs-attr">"command"</span>: <span class="hljs-string">"sync_rally"</span>,
+    <span class="hljs-attr">"debug_mode"</span>: <span class="hljs-literal">false</span>,
     <span class="hljs-attr">"params"</span>: {
         <span class="hljs-attr">"sde_project"</span>: <span class="hljs-string">"Demo Project"</span>,
         <span class="hljs-attr">"alm_user"</span>: <span class="hljs-string">"rally_user"</span>,
@@ -757,6 +760,7 @@
 <span class="json">{
     <span class="hljs-attr">"alias"</span>: <span class="hljs-string">"Example Connection"</span>,
     <span class="hljs-attr">"connector"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">"debug_mode"</span>: <span class="hljs-literal">true</span>,
     <span class="hljs-attr">"project"</span>: <span class="hljs-number">1</span>,
     <span class="hljs-attr">"frequency"</span>: <span class="hljs-string">"hourly"</span>,
     <span class="hljs-attr">"params"</span>:{
@@ -777,6 +781,7 @@
     },
     <span class="hljs-attr">"frequency"</span>: <span class="hljs-string">"hourly"</span>,
     <span class="hljs-attr">"command"</span>: <span class="hljs-string">"sync_jira"</span>,
+    <span class="hljs-attr">"debug_mode"</span>: <span class="hljs-literal">true</span>,
     <span class="hljs-attr">"params"</span>:{
         <span class="hljs-attr">"sde_project"</span>: <span class="hljs-string">"Project 1"</span>,
         <span class="hljs-attr">"alm_user"</span>: <span class="hljs-string">"Sindy"</span>,
@@ -795,7 +800,8 @@
         <span class="hljs-attr">"sde_statuses_in_scope"</span>: <span class="hljs-string">"TODO"</span>,
         <span class="hljs-attr">"conflict_policy"</span>: <span class="hljs-string">"alm"</span>,
         <span class="hljs-attr">"sde_min_priority"</span>: <span class="hljs-number">7</span>,
-        <span class="hljs-attr">"alm_reference_context"</span>: <span class="hljs-number">5</span>
+        <span class="hljs-attr">"alm_reference_context"</span>: <span class="hljs-number">5</span>,
+        <span class="hljs-attr">"session_capture_socket"</span>: <span class="hljs-string">"/doc/sde/sdetools_session_capture.sock"</span>
     },
     <span class="hljs-attr">"inaccessible"</span>: <span class="hljs-literal">false</span>,
     <span class="hljs-attr">"connector"</span>: <span class="hljs-number">1</span>,
@@ -814,6 +820,11 @@
               <td>alias</td>
               <td>Yes</td>
               <td>The name of the new connection.</td>
+            </tr>
+            <tr>
+              <td>debug_mode</td>
+              <td>No</td>
+              <td>A flag to enable debug mode for verbose logging.</td>
             </tr>
             <tr>
               <td>connector</td>
@@ -863,6 +874,7 @@
     },
     <span class="hljs-attr">"frequency"</span>: <span class="hljs-string">"manually"</span>,
     <span class="hljs-attr">"command"</span>: <span class="hljs-string">"sync_jira"</span>,
+    <span class="hljs-attr">"debug_mode"</span>: <span class="hljs-literal">false</span>,
     <span class="hljs-attr">"params"</span>:{
         <span class="hljs-attr">"sde_project"</span>: <span class="hljs-string">"Project 1"</span>,
         <span class="hljs-attr">"alm_user"</span>: <span class="hljs-string">"Sindy"</span>,
@@ -1820,6 +1832,7 @@
         <span class="hljs-attr">"alias"</span>: <span class="hljs-string">"WhiteHat Integration"</span>,
         <span class="hljs-attr">"frequency"</span>: <span class="hljs-string">"manually"</span>,
         <span class="hljs-attr">"command"</span>: <span class="hljs-string">"sync_whitehat"</span>,
+        <span class="hljs-attr">"debug_mode"</span>: <span class="hljs-literal">false</span>,
         <span class="hljs-attr">"params"</span>: {
             <span class="hljs-attr">"asset_name"</span>: <span class="hljs-string">"WebGoat Java"</span>,
             <span class="hljs-attr">"sde_project"</span>: <span class="hljs-string">"WhiteHat"</span>,
@@ -1850,6 +1863,7 @@
         <span class="hljs-attr">"alias"</span>: <span class="hljs-string">"WhiteHat Integration"</span>,
         <span class="hljs-attr">"frequency"</span>: <span class="hljs-string">"manually"</span>,
         <span class="hljs-attr">"command"</span>: <span class="hljs-string">"sync_whitehat"</span>,
+        <span class="hljs-attr">"debug_mode"</span>: <span class="hljs-literal">false</span>,
         <span class="hljs-attr">"params"</span>: {
             <span class="hljs-attr">"asset_name"</span>: <span class="hljs-string">"WebGoat Java"</span>,
             <span class="hljs-attr">"sde_project"</span>: <span class="hljs-string">"WhiteHat"</span>,
@@ -1904,6 +1918,7 @@
     <span class="hljs-attr">"alias"</span>: <span class="hljs-string">"WhiteHat Integration"</span>,
     <span class="hljs-attr">"frequency"</span>: <span class="hljs-string">"manually"</span>,
     <span class="hljs-attr">"command"</span>: <span class="hljs-string">"sync_whitehat"</span>,
+    <span class="hljs-attr">"debug_mode"</span>: <span class="hljs-literal">false</span>,
     <span class="hljs-attr">"params"</span>: {
         <span class="hljs-attr">"asset_name"</span>: <span class="hljs-string">"WebGoat Java"</span>,
         <span class="hljs-attr">"sde_project"</span>: <span class="hljs-string">"WhiteHat"</span>,
@@ -1928,6 +1943,7 @@
     <span class="hljs-attr">"connector"</span>: <span class="hljs-number">2</span>,
     <span class="hljs-attr">"project"</span>: <span class="hljs-number">1</span>,
     <span class="hljs-attr">"frequency"</span>: <span class="hljs-string">"daily"</span>,
+    <span class="hljs-attr">"debug_mode"</span>: <span class="hljs-literal">true</span>,
     <span class="hljs-attr">"params"</span>: {
         <span class="hljs-attr">"task_status_mapping"</span>: <span class="hljs-string">"{\"pass\": \"DONE\"}"</span>,
         <span class="hljs-attr">"import_behaviour"</span>: <span class="hljs-string">"combine"</span>
@@ -1947,6 +1963,7 @@
     <span class="hljs-attr">"project"</span>: <span class="hljs-number">1</span>,
     <span class="hljs-attr">"frequency"</span>: <span class="hljs-string">"daily"</span>,
     <span class="hljs-attr">"command"</span>: <span class="hljs-string">"import_veracode"</span>,
+    <span class="hljs-attr">"debug_mode"</span>: <span class="hljs-literal">true</span>,
     <span class="hljs-attr">"params"</span>:{
         <span class="hljs-attr">"integration_mode"</span>: <span class="hljs-string">"api"</span>,
         <span class="hljs-attr">"analysis_user"</span>: <span class="hljs-string">"Code"</span>,
@@ -1957,7 +1974,8 @@
         <span class="hljs-attr">"analysis_server"</span>: <span class="hljs-string">"vera"</span>,
         <span class="hljs-attr">"task_status_mapping"</span>: <span class="hljs-string">"{\"pass\": \"DONE\"}"</span>,
         <span class="hljs-attr">"import_behaviour"</span>: <span class="hljs-string">"combine"</span>,
-        <span class="hljs-attr">"analysis_method"</span>: <span class="hljs-string">"http"</span>
+        <span class="hljs-attr">"analysis_method"</span>: <span class="hljs-string">"http"</span>,
+        <span class="hljs-attr">"session_capture_socket"</span>: <span class="hljs-string">"/doc/sde/sdetools_session_capture.sock"</span>
         },
     <span class="hljs-attr">"inaccessible"</span>: <span class="hljs-literal">false</span>
 }</span></code></pre>
@@ -2026,6 +2044,7 @@
     <span class="hljs-attr">"project"</span>: <span class="hljs-number">1</span>,
     <span class="hljs-attr">"frequency"</span>: <span class="hljs-string">"hourly"</span>,
     <span class="hljs-attr">"command"</span>: <span class="hljs-string">"import_veracode"</span>,
+    <span class="hljs-attr">"debug_mode"</span>: <span class="hljs-literal">false</span>,
     <span class="hljs-attr">"params"</span>:{
         <span class="hljs-attr">"integration_mode"</span>: <span class="hljs-string">"api"</span>,
         <span class="hljs-attr">"analysis_user"</span>: <span class="hljs-string">"Code"</span>,
@@ -10191,6 +10210,10 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
           </tbody>
         </table>
         <h1 id="changelog">Changelog</h1>
+        <h2 id="v4-12">v4.12</h2>
+        <ul>
+          <li>Add <code>debug_mode</code> field to Analysis Connections and ALM Connections</li>
+        </ul>
         <h2 id="v4-11">v4.11</h2>
         <ul>
           <li>Drop references to PUT in the docs, to encourage the use of PATCH.</li>
