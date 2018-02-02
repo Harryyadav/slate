@@ -44,7 +44,7 @@ user_id   | The ID of the User to retrieve
 ## Regenerate an API Token
 
 ```http
-PUT /api/v2/users/{user_id}/api-token/ HTTP/1.1
+PATCH /api/v2/users/{user_id}/api-token/ HTTP/1.1
 Accept: application/json
 Authorization: Basic "YOUR BASE64 ENCODING OF USERNAME:PASSWORD"
 Cookie: sessionid="YOUR SESSION ID"
@@ -64,7 +64,7 @@ This endpoint revokes and then regenerates an API Token.
 
 Note: This endpoint only uses either basic or session authentication.
 
-**`PUT /api/v2/users/{user_id}/api-token/`**
+**`PATCH /api/v2/users/{user_id}/api-token/`**
 
 ### URL Parameters
 

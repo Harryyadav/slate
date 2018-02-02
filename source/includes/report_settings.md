@@ -17,34 +17,43 @@ Content-Type: application/json
         "id": "CR1",
         "title": "Example Report",
         "filters": {
-            "completion":   {
-                "max": 100,
-                "min": 0,
-                "floor": 0,
-                "ceil": 100
-            },
-            "project":[],
-            "projectTags":[],
-            "priority":["high", "medium", "low"],
-            "application":[],
+            "application":[{"name": "app1", "id": 1}],
+            "priority": ["high", "medium"],
             "state": false,
-            "phase":["requirements", "architecture-design", "development", "testing"],
-            "taskTags":[]
+            "phase":[{"name": "Requirements", "id": "requirements"}],
         },
         "filter_query": {
             "project":  {
-                "$and":[{
-                    "archived": {
-                        "$exact": false
+                "$and":[
+                    {
+                        "archived": {
+                            "$exact": false
+                        }
+                    },
+                    {
+                        "application": {
+                            "$in": [
+                                1
+                            ]
+                        }
                     }
-                }]
+                ]
             },
             "task": {
-                "$and": [{
-                    "priority_label":   {
-                        "$in":["high", "medium"]
+                "$and": [
+                    {
+                        "priority_label":   {
+                            "$in":["high", "medium"]
+                        }
                     }
-                }]
+                    {
+                        "phase": {
+                            "$in": [
+                                "requirements"
+                            ]
+                        }
+                    }
+                ]
             }
         },
         "template": "project"
@@ -72,6 +81,9 @@ template  | Returns a list of report settings with the specified template
 
 
 
+
+
+
 ## Get a Specific Report Setting
 
 ```http
@@ -89,34 +101,43 @@ Content-Type: application/json
         "id": "CR1",
         "title": "Example Report",
         "filters": {
-            "completion":   {
-                "max": 100,
-                "min": 0,
-                "floor": 0,
-                "ceil": 100
-            },
-            "project":[],
-            "projectTags":[],
-            "priority":["high", "medium", "low"],
-            "application":[],
+            "application": [{"name": "app1", "id": 1}],
+            "priority": ["high", "medium"],
             "state": false,
-            "phase":["requirements", "architecture-design", "development", "testing"],
-            "taskTags":[]
+            "phase":[{"name": "Requirements", "id": "requirements"}],
         },
         "filter_query": {
             "project":  {
-                "$and":[{
-                    "archived": {
-                        "$exact": false
+                "$and":[
+                    {
+                        "archived": {
+                            "$exact": false
+                        }
+                    },
+                    {
+                        "application": {
+                            "$in": [
+                                1
+                            ]
+                        }
                     }
-                }]
+                ]
             },
             "task": {
-                "$and": [{
-                    "priority_label":   {
-                        "$in":["high", "medium"]
+                "$and": [
+                    {
+                        "priority_label":   {
+                            "$in":["high", "medium"]
+                        }
                     }
-                }]
+                    {
+                        "phase": {
+                            "$in": [
+                                "requirements"
+                            ]
+                        }
+                    }
+                ]
             }
         },
         "template": "project"
@@ -151,7 +172,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
 
 {
     "template": "project",
-    "title": "API Test Report Settings"
+    "title": "API Test Report Settings",
+    "filter_query": {}
 }
 ```
 
@@ -174,11 +196,20 @@ Content-Type: application/json
 Fields        | Required | Description
 --------------|----------|-------------
 filters       | No       | A json object containing any filters on the project survey.
-filter_query  | No       | A json object containing the query to be run against the project resource.
+filter_query  | Yes      | A json object containing the query to be run against the project resource.
 template      | Yes      | The type of report that the settings apply to.  Usually set to "project".
 title         | Yes      | A string representing a unique title of the report settings.
 
+The following filters are available to filter the scope of the project report:
 
+* project: A list of project IDs.
+* projectTags: A list of tag names.
+* priority: A list containing at least one of the strings "high", "medium" or "low".
+* application: A list of application IDs.
+* state: A boolean corresponding to archived (true) or active (false) projects. Omit this filter to include both active and archived projects.
+* phase: A list of phase slugs.
+* taskTags: A list of tag names.
+* businessUnit: A list of business unit IDs.
 
 
 

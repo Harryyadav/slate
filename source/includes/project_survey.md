@@ -272,7 +272,7 @@ other unaccepted changes to the tasks.
 ## Modify an answer in the draft
 
 ```http
-PUT /api/v2/projects/1/survey/draft/A21/ HTTP/1.1
+PATCH /api/v2/projects/1/survey/draft/A21/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 
@@ -297,7 +297,7 @@ Content-Type: application/json
 Modifies the specified answer in the draft and returns the full draft state.
 This may affect other answer's selected and valid values.
 
-**`PUT /api/v2/projects/{project_id}/survey/draft/{answer_id}/`**
+**`PATCH /api/v2/projects/{project_id}/survey/draft/{answer_id}/`**
 
 Field    | Required | Description
 -------- | -------- | -----------
@@ -317,7 +317,7 @@ selected | Yes      | Selects or unselects the specified answer
 ## Clone a profile to the draft
 
 ```http
-PUT /api/v2/projects/1/survey/draft/ HTTP/1.1
+PATCH /api/v2/projects/1/survey/draft/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 
@@ -342,7 +342,7 @@ Content-Type: application/json
 Clears the current draft and uses the answers set on the specified profile for
 the draft instead. Any unsaved changes will be lost.
 
-**`PUT /api/v2/projects/{project_id}/survey/draft/`**
+**`PATCH /api/v2/projects/{project_id}/survey/draft/`**
 
 Field    | Required | Description
 -------- | -------- | ----------

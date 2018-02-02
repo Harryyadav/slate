@@ -3,6 +3,14 @@
 ## v4.12
 - Add Risk Policy endpoint.
 - Update Business Units/Applications/Projects endpoints with risk policy fields.
+- Add `debug_mode` field to Analysis Connections and ALM Connections
+
+## v4.11
+
+- Drop references to PUT in the docs, to encourage the use of PATCH.
+- Update the structure of the filters field in the report-settings endpoint
+- Add search capabilities to phases endpoint.
+- Add documentation for Project Release endpoint (previously undocumented).
 
 ## v4.10
 - Add support for creation and deletion of manually added library tasks to Tasks endpoint

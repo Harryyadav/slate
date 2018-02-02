@@ -102,6 +102,7 @@ Content-Type: application/json
         "alias": "WhiteHat Integration",
         "frequency": "manually",
         "command": "sync_whitehat",
+        "debug_mode": false,
         "params": {
             "asset_name": "WebGoat Java",
             "sde_project": "WhiteHat",
@@ -141,6 +142,7 @@ Content-Type: application/json
         "alias": "WhiteHat Integration",
         "frequency": "manually",
         "command": "sync_whitehat",
+        "debug_mode": false,
         "params": {
             "asset_name": "WebGoat Java",
             "sde_project": "WhiteHat",
@@ -150,8 +152,8 @@ Content-Type: application/json
             "analysis_server": "server.whitehatsec.com",
             "task_status_mapping": "{}"
         },
-        inaccessible": false
-         "last_job": {
+        "inaccessible": false,
+        "last_job": {
             "id": 4,
             "last_run": "2016-12-15T22:45:27.412Z",
             "automatic": false,
@@ -202,6 +204,7 @@ Content-Type: application/json
     "alias": "WhiteHat Integration",
     "frequency": "manually",
     "command": "sync_whitehat",
+    "debug_mode": false,
     "params": {
         "asset_name": "WebGoat Java",
         "sde_project": "WhiteHat",
@@ -242,6 +245,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
     "connector": 2,
     "project": 1,
     "frequency": "daily",
+    "debug_mode": true,
     "params": {
         "task_status_mapping": "{\"pass\": \"DONE\"}",
         "import_behaviour": "combine"
@@ -264,6 +268,7 @@ Content-Type: application/json
     "project": 1,
     "frequency": "daily",
     "command": "import_veracode",
+    "debug_mode": true,
     "params":{
         "integration_mode": "api",
         "analysis_user": "Code",
@@ -274,7 +279,8 @@ Content-Type: application/json
         "analysis_server": "vera",
         "task_status_mapping": "{\"pass\": \"DONE\"}",
         "import_behaviour": "combine",
-        "analysis_method": "http"
+        "analysis_method": "http",
+        "session_capture_socket": "/doc/sde/sdetools_session_capture.sock"
         },
     "inaccessible": false
 }
@@ -303,7 +309,7 @@ params              | Yes      | A dictionary containing connections options. Pl
 ## Update a specific Analysis Connection
 
 ```http
-PUT /api/v2/connections/analysis/2/ HTTP/1.1
+PATCH /api/v2/connections/analysis/2/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 
@@ -331,6 +337,7 @@ Content-Type: application/json
     "project": 1,
     "frequency": "hourly",
     "command": "import_veracode",
+    "debug_mode": false,
     "params":{
         "integration_mode": "api",
         "analysis_user": "Code",
@@ -349,7 +356,7 @@ Content-Type: application/json
 
 Update a specific Analysis Connection resource.
 
-**`PUT /api/v2/connections/analysis/{connection_id}/`**
+**`PATCH /api/v2/connections/analysis/{connection_id}/`**
 
 ### URL Parameters
 

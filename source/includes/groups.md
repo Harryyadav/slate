@@ -255,7 +255,7 @@ groups        | No       | A list of group ids representing the nested groups wh
 ## Update a specific Group
 
 ```http
-PUT /api/v2/groups/G2/ HTTP/1.1
+PATCH /api/v2/groups/G2/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 
@@ -296,7 +296,7 @@ Content-Type: application/json
 
 Update a specific Group resource.
 
-**`PUT /api/v2/users/{group_id}/`**
+**`PATCH /api/v2/users/{group_id}/`**
 
 ### URL Parameters
 

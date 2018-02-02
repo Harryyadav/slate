@@ -210,12 +210,12 @@ params              | Yes      | A dictionary containing connections options. Pl
 ## Update an ALM Connector
 
 ```http
-PUT /api/v2/connectors/alm/3/ HTTP/1.1
+PATCH /api/v2/connectors/alm/3/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 
 {
-    "name": "GitHub Connector PUT Example",
+    "name": "GitHub Connector PATCH Example",
     "system": {
         "id": "github"
     },
@@ -242,7 +242,7 @@ Content-Type: application/json
 
 {
     "id": 12,
-    "name": "GitHub Connector PUT Example",
+    "name": "GitHub Connector PATCH Example",
     "system": {
         "id": "github",
         "short_name": "GitHub",
@@ -267,7 +267,7 @@ Content-Type: application/json
 
 Updates a specific ALM connector resource as specified by the connector id.
 
-**`PUT /api/v2/connectors/alm/{id}`**
+**`PATCH /api/v2/connectors/alm/{id}`**
 
 ---
 
@@ -303,6 +303,7 @@ Content-Type: application/json
         },
         "frequency": "manually",
         "command": "sync_rally",
+        "debug_mode": false,
         "params": {
             "sde_project": "Demo Project",
             "alm_user": "rally_user",
@@ -366,6 +367,7 @@ Content-Type: application/json
         },
         "frequency": "manually",
         "command": "sync_rally",
+        "debug_mode": false,
         "params": {
             "sde_project": "Demo Project",
             "alm_user": "rally_user",
@@ -440,6 +442,7 @@ Content-Type: application/json
     },
     "frequency": "manually",
     "command": "sync_rally",
+    "debug_mode": false,
     "params": {
         "sde_project": "Demo Project",
         "alm_user": "rally_user",
@@ -490,6 +493,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
 {
     "alias": "Example Connection",
     "connector": 1,
+    "debug_mode": true,
     "project": 1,
     "frequency": "hourly",
     "params":{
@@ -513,6 +517,7 @@ Content-Type: application/json
     },
     "frequency": "hourly",
     "command": "sync_jira",
+    "debug_mode": true,
     "params":{
         "sde_project": "Project 1",
         "alm_user": "Sindy",
@@ -531,7 +536,8 @@ Content-Type: application/json
         "sde_statuses_in_scope": "TODO",
         "conflict_policy": "alm",
         "sde_min_priority": 7,
-        "alm_reference_context": 5
+        "alm_reference_context": 5,
+        "session_capture_socket": "/doc/sde/sdetools_session_capture.sock"
     },
     "inaccessible": false,
     "connector": 1,
@@ -542,6 +548,7 @@ Content-Type: application/json
 Fields              | Required | Description
 --------------------|----------|-------------
 alias               | Yes      | The name of the new connection.
+debug_mode          | No       | A flag to enable debug mode for verbose logging.
 connector           | Yes      | The id of the connector that this connection will use to connect with the ALM.
 project             | Yes      | The id of the SD Elements project that this connection will connect with.
 frequency           | No       | The frequency in which this connection will sync.  The available options for organizations with the advanced ALM feature are: "hourly", "daily", "weekly", "monthly" and "manually".  If unspecified, the frequency will default to "manually".  Organizations without the advanced ALM feature can only choose "manually".
@@ -560,7 +567,7 @@ params              | Yes      | A dictionary containing connections options. Pl
 ## Update a specific ALM Connection
 
 ```http
-PUT /api/v2/connections/alm/1/ HTTP/1.1
+PATCH /api/v2/connections/alm/1/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 
@@ -586,6 +593,7 @@ Content-Type: application/json
     },
     "frequency": "manually",
     "command": "sync_jira",
+    "debug_mode": false,
     "params":{
         "sde_project": "Project 1",
         "alm_user": "Sindy",
@@ -614,7 +622,7 @@ Content-Type: application/json
 
 Update a specific ALM Connection resource.
 
-**`PUT /api/v2/connections/alm/{connection_id}/`**
+**`PATCH /api/v2/connections/alm/{connection_id}/`**
 
 ### URL Parameters
 

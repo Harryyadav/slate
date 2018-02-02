@@ -29,6 +29,7 @@ includes:
  - library_problems
  - phases
  - profiles
+ - project_releases
  - project_roles
  - project_survey
  - project_activity
