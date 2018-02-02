@@ -251,13 +251,19 @@ Content-Type: application/json
         "risk_policy_compliant": true,
         "risk_policy": {
             "id": 1,
-            "default": true,
             "name": "All Risk",
             "description": "Applies to all applications",
-            "phases": ["requirements", "architecture-design", "development", "testing"],
-            "priority": 7,
-            "task_statuses": ["DONE"],
-            "verification_statuses": ["pass"]
+            "filters": {
+                "phases": ["requirements", "architecture-design", "development", "testing"],
+                "priority": 7,
+                "tags": ["tag1", "tag2"]
+            },
+            "conditions": {
+                "task_statuses": ["TS1"]
+            },
+            "is_org_default": true,
+            "created": "2018-01-31T17:30:26.175423-05:00",
+            "last_updated": "2018-01-31T17:30:26.175253-05:00"
         }
     }]
 }

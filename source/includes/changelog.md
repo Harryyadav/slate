@@ -1,6 +1,6 @@
 # Changelog
 
-## v4.11
+## v4.12
 - Add Risk Policy endpoint.
 - Update Business Units/Applications/Projects endpoints with risk policy fields.
 

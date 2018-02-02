@@ -37,7 +37,9 @@ Content-Type: application/json
                 "id": "G64",
                 "name": "Group Bar"
             }],
-            "all_users": false
+            "all_users": false,
+            "persist_phases": false,
+            "default_risk_policy": null
         },
         {
             "id": 2,
@@ -49,8 +51,9 @@ Content-Type: application/json
             "default_groups": [],
             "users": [],
             "groups": [],
-            "all_users": true,
-            "persist_phases": false
+            "all_users": false,
+            "persist_phases": false,
+            "default_risk_policy": null
         }
     ]
 }
@@ -110,9 +113,11 @@ Content-Type: application/json
                 "name": "Group Bar"
             }],
             "all_users": false,
+            "persist_phases": false,
+            "default_risk_policy": null,
             "risk_policy_compliance": {
-              "compliant_projects": 37,
-              "non_compliant_projects": 12 
+                "compliant_projects": 37,
+                "non_compliant_projects": 12
             }
         },
         {
@@ -125,11 +130,12 @@ Content-Type: application/json
             "default_groups": [],
             "users": [],
             "groups": [],
-            "all_users": true,
+            "all_users": false,
             "persist_phases": false,
+            "default_risk_policy": null,
             "risk_policy_compliance": {
-              "compliant_projects": 15,
-              "non_compliant_projects": 45
+                "compliant_projects": 15,
+                "non_compliant_projects": 45
             }
         }
     ]
@@ -182,7 +188,8 @@ Content-Type: application/json
         "name": "Group Bar"
     }],
     "all_users": false,
-    "persist_phases": false
+    "persist_phases": false,
+    "default_risk_policy": null
 }
 ```
 
@@ -219,7 +226,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
     "default_users": [{"email": "test@example.com", "role": "PR4"}],
     "default_groups": [{"id": "G1", "role": "PR4"}],
     "all_users": false,
-    "persist_phases": false
+    "persist_phases": false,
+    "default_risk_policy": 29
 }
 ```
 
@@ -260,7 +268,8 @@ Content-Type: application/json
         "role": "PR4"
     }],
     "all_users": false,
-    "persist_phases": false
+    "persist_phases": false,
+    "default_risk_policy": 29
 }
 ```
 
@@ -273,6 +282,7 @@ default_users       | No       | A list of dictionaries representing the default
 default_groups      | No       | A list of dictionaries representing the default group roles for the users in the business unit. Each dictionary has an id field which is the group id and a role field where the role is the role id. The groups specified here should be members of the business unit unless all_users is true.
 all_users           | No       | Whether the business unit includes all users. Trying to create a business unit with this field set to True and specific users/groups specified is an error. Default is false.
 persist_phases      | No       | Set the persistence of TODO tasks that belong to active phases in a project within this business unit.
+default_risk_policy | No       | The id of risk policy that applies to all projects of this business unit by default unless overriden by the project's risk policy. This overrides the organization's default risk policy.
 
 
 
@@ -332,7 +342,8 @@ Content-Type: application/json
         "role": "PR4"
     }],
     "all_users": false,
-    "persist_phases": false
+    "persist_phases": false,
+    "default_risk_policy": null
 }
 ```
 

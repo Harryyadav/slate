@@ -15,7 +15,6 @@ Content-Type: application/json
 {
     "results": [{
         "id": 1,
-        "default": true,
         "name": "All Risk",
         "description": "Applies to all applications",
         "filters": {
@@ -25,7 +24,10 @@ Content-Type: application/json
         },
         "conditions": {
             "task_statuses": ["TS1"]
-        }
+        },
+        "is_org_default": true,
+        "created": "2018-01-31T17:30:26.175423-05:00",
+        "last_updated": "2018-01-31T17:30:26.175253-05:00"
     }]
 }
 ```
@@ -64,7 +66,6 @@ Content-Type: application/json
 
 {
     "id": 1,
-    "default": true,
     "name": "All Risk",
     "description": "Applies to all applications",
     "filters": {
@@ -74,7 +75,10 @@ Content-Type: application/json
     },
     "conditions": {
         "task_statuses": ["TS1"]
-    }
+    },
+    "is_org_default": true,
+    "created": "2018-01-31T17:30:26.175423-05:00",
+    "last_updated": "2018-01-31T17:30:26.175253-05:00"
 }
 ```
 
@@ -119,7 +123,9 @@ Content-Type: application/json
 {
 
     "id": 2,
-    "default": false,
+    "is_org_default": false,
+    "created": "2018-01-31T17:30:26.175423-05:00",
+    "last_updated": "2018-01-31T17:30:26.175253-05:00"
     "name": "Low Risk",
     "description": "Applies to all applications",
     "filters": {
@@ -137,7 +143,7 @@ Fields                   | Required | Description
 -------------------------|----------|-------------
 name                     | Yes      | The name of the new risk policy.
 description              | Yes      | The description of the risk policy.
-default                  | No       | A boolean field which shows if this is the default risk policy. Defaults to false.
+is_org_default           | No       | A boolean field which shows if this is the default risk policy of the user's organization. Defaults to false.
 filters.priority         | No       | Tasks in this policy must have a priority greater or equal to this value.  Must be a value from 1 to 10.  Defaults to 7.
 filters.phases           | No       | Tasks in this policy must be in one of these phases.
 filters.tags             | No       | Tasks in this policy must have one of these tags.
@@ -170,7 +176,9 @@ Content-Type: application/json
 {
 
     "id": 2,
-    "default": false,
+    "is_org_default": false,
+    "created": "2018-01-31T17:30:26.175423-05:00",
+    "last_updated": "2018-01-31T17:30:26.175253-05:00"
     "name": "Max Risk",
     "description": "Applies to all applications",
     "filters": {
@@ -201,7 +209,7 @@ Fields                   | Required | Description
 -------------------------|----------|-------------
 name                     | No       | The name of the new risk policy.
 description              | No       | The description of the risk policy.
-default                  | No       | A boolean field which shows if this is the default risk policy. Defaults to false.
+is_org_default           | No       | A boolean field which shows if this is the default risk policy of the user's organization. Defaults to false.
 filters.priority         | No       | Tasks in this policy must have a priority greater or equal to this value.  Must be a value from 1 to 10.  Defaults to 7.
 filters.phases           | No       | Tasks in this policy must be in one of these phases.
 filters.tags             | No       | Tasks in this policy must have one of these tags.
