@@ -905,6 +905,111 @@
           </tbody>
         </table>
         <hr>
+        <h2 id="test-an-alm-connector">Test an ALM Connector</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/connectors/testalm/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
+
+<span class="json">{
+    <span class="hljs-attr">"name"</span>:<span class="hljs-string">"ALM Test"</span>,
+    <span class="hljs-attr">"system"</span>: {
+        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"github"</span>
+    },
+    <span class="hljs-attr">"params"</span>: {
+        <span class="hljs-attr">"alm_server"</span>: <span class="hljs-string">"api.github.com"</span>,
+        <span class="hljs-attr">"github_repo_owner"</span>: <span class="hljs-string">"repo owner"</span>,
+        <span class="hljs-attr">"alm_api_token"</span>: <span class="hljs-string">"42"</span>,
+        <span class="hljs-attr">"alm_validate_cert"</span>: <span class="hljs-literal">true</span>
+    }
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="json">{
+    <span class="hljs-attr">"success"</span>: <span class="hljs-literal">true</span>
+}</span></code></pre>
+        <p>Performs a simple connectivity test against the ALM server.</p>
+        <p><code>POST /api/v2/connectors/testalm/</code></p>
+        <table>
+          <thead>
+            <tr>
+              <th>Fields</th>
+              <th>Required</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>name</td>
+              <td>Yes</td>
+              <td>The name of the connector.</td>
+            </tr>
+            <tr>
+              <td>system</td>
+              <td>Yes</td>
+              <td>A dictionary containing the id, name and short name of the system.</td>
+            </tr>
+            <tr>
+              <td>params</td>
+              <td>Yes</td>
+              <td>A dictionary containing connections options. Please refer to product documentation for more details or reach out to support. Required params will return appropriate errors when unspecified.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="test-an-alm-connection">Test an ALM Connection</h2>
+        <pre class="highlight http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">/api/v2/connections/testalm/</span> HTTP/1.1
+<span class="hljs-attribute">Accept</span>: application/json
+<span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
+
+<span class="json">{
+    <span class="hljs-attr">"connector"</span>: <span class="hljs-number">2</span>,
+    <span class="hljs-attr">"alias"</span>: <span class="hljs-string">"ALM Test"</span>,
+    <span class="hljs-attr">"project"</span>: <span class="hljs-number">2</span>,
+    <span class="hljs-attr">"system"</span>: {
+        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"rally"</span>
+    },
+    <span class="hljs-attr">"params"</span>: {
+        <span class="hljs-attr">"alm_server"</span>:<span class="hljs-string">"server.rallydev.com"</span>,
+        <span class="hljs-attr">"alm_user"</span>: <span class="hljs-string">"username"</span>,
+        <span class="hljs-attr">"alm_pass"</span>: <span class="hljs-string">"password"</span>,
+        <span class="hljs-attr">"alm_project"</span>: <span class="hljs-string">"rally_project"</span>,
+        <span class="hljs-attr">"alm_validate_cert"</span>: <span class="hljs-literal">true</span>
+    }
+}</span></code></pre>
+        <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
+<span class="hljs-attribute">Content-Type</span>: application/json
+
+<span class="json">{
+  <span class="hljs-attr">"success"</span>: <span class="hljs-literal">true</span>
+}</span></code></pre>
+        <p>Performs a connectivity test against the ALM server, verifies the ALM project exists and validates other configuration parameters.</p>
+        <p><code>POST /api/v2/connections/testalm/</code></p>
+        <table>
+          <thead>
+            <tr>
+              <th>Fields</th>
+              <th>Required</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>name</td>
+              <td>Yes</td>
+              <td>The name of the connector.</td>
+            </tr>
+            <tr>
+              <td>system</td>
+              <td>Yes</td>
+              <td>A dictionary containing the id, name and short name of the system.</td>
+            </tr>
+            <tr>
+              <td>params</td>
+              <td>Yes</td>
+              <td>A dictionary containing connections options. Please refer to product documentation for more details or reach out to support. Required params will return appropriate errors when unspecified. </td>
+            </tr>
+          </tbody>
+        </table>
         <h1 id="alm-plugins">ALM Plugins</h1>
         <h2 id="get-all-alm-plugins">Get all ALM Plugins</h2>
         <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/plugins/alm/</span> HTTP/1.1
@@ -10197,6 +10302,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
           <li>Update the structure of the filters field in the report-settings endpoint</li>
           <li>Add search capabilities to phases endpoint.</li>
           <li>Add documentation for Project Release endpoint (previously undocumented).</li>
+          <li>Add test endpoints for connectors and connections</li>
         </ul>
         <h2 id="v4-10">v4.10</h2>
         <ul>
