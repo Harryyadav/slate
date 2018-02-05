@@ -93,6 +93,65 @@ Parameter      | Description
 risk_policy_id | The id of the risk policy to retrieve
 
 
+---
+
+### Expand Parameters
+
+```http
+GET /api/v2/risk-policies/1/?expand=phases,task_statuses HTTP/1.1
+Accept: application/json
+Authorization: Token: "YOUR SDE ACCESS TOKEN"
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "id": 1,
+    "default": true,
+    "name": "All Risk",
+    "description": "Applies to all applications",
+    "filters": {
+        "phases": [
+            {
+                "name": "Requirements",
+                "slug": "requirements"
+            },
+            {
+                "name": "Architecture & Design",
+                "slug": "architecture-design"
+            },
+            {
+                "name": "Development"
+                "slug": "development"
+            },
+            {
+                "name": "Testing"
+                "slug": "testing"
+            }
+        ],
+        "priority": 7,
+        "tags": ["tag1", "tag2"]
+    },
+    "conditions": {
+        "task_statuses": [
+            {
+                name: "Complete",
+                item_id: "TS1"
+            }
+        ]
+    }
+}
+```
+
+See the [Expand Parameters](#expand-parameters) section for more details.
+
+Parameter     | Description
+--------------|---------------------
+phases        | Phases field is expanded to include Phase names.
+task_statuses | Task Statuses field is expanded to include Task Status names.
+---
 
 
 ## Create a New Risk Policy
