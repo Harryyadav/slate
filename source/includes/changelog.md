@@ -3,7 +3,8 @@
 ## v4.12
 
 - Add `debug_mode` field to Analysis Connections and ALM Connections
-- remove redundancy of nesting the survey twice on the project survey endpoint
+- Remove redundancy of nesting the survey twice on the project survey endpoint
+- Add profile_draft, survey_complete and survey_dirty fields to projects endpoint
 
 ## v4.11
 - Drop references to PUT in the docs, to encourage the use of PATCH.
