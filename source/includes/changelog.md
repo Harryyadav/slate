@@ -3,13 +3,18 @@
 ## v4.12
 - Added writable project-level tagging to Tasks.
 - Task tags can be expanded into library-level & project-level tags.
+- Add Risk Policy endpoint.
+- Update Business Units/Applications/Projects endpoints with risk policy fields.
+- Add `debug_mode` field to Analysis Connections and ALM Connections
+- Remove redundancy of nesting the survey twice on the project survey endpoint
+- Add profile_draft, survey_complete and survey_dirty fields to projects endpoint
 
 ## v4.11
-
 - Drop references to PUT in the docs, to encourage the use of PATCH.
 - Update the structure of the filters field in the report-settings endpoint
 - Add search capabilities to phases endpoint.
 - Add documentation for Project Release endpoint (previously undocumented).
+- Add test endpoints for connectors and connections
 
 ## v4.10
 - Add support for creation and deletion of manually added library tasks to Tasks endpoint

@@ -303,6 +303,7 @@ Content-Type: application/json
         },
         "frequency": "manually",
         "command": "sync_rally",
+        "debug_mode": false,
         "params": {
             "sde_project": "Demo Project",
             "alm_user": "rally_user",
@@ -366,6 +367,7 @@ Content-Type: application/json
         },
         "frequency": "manually",
         "command": "sync_rally",
+        "debug_mode": false,
         "params": {
             "sde_project": "Demo Project",
             "alm_user": "rally_user",
@@ -440,6 +442,7 @@ Content-Type: application/json
     },
     "frequency": "manually",
     "command": "sync_rally",
+    "debug_mode": false,
     "params": {
         "sde_project": "Demo Project",
         "alm_user": "rally_user",
@@ -490,6 +493,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
 {
     "alias": "Example Connection",
     "connector": 1,
+    "debug_mode": true,
     "project": 1,
     "frequency": "hourly",
     "params":{
@@ -513,6 +517,7 @@ Content-Type: application/json
     },
     "frequency": "hourly",
     "command": "sync_jira",
+    "debug_mode": true,
     "params":{
         "sde_project": "Project 1",
         "alm_user": "Sindy",
@@ -531,7 +536,8 @@ Content-Type: application/json
         "sde_statuses_in_scope": "TODO",
         "conflict_policy": "alm",
         "sde_min_priority": 7,
-        "alm_reference_context": 5
+        "alm_reference_context": 5,
+        "session_capture_socket": "/doc/sde/sdetools_session_capture.sock"
     },
     "inaccessible": false,
     "connector": 1,
@@ -542,6 +548,7 @@ Content-Type: application/json
 Fields              | Required | Description
 --------------------|----------|-------------
 alias               | Yes      | The name of the new connection.
+debug_mode          | No       | A flag to enable debug mode for verbose logging.
 connector           | Yes      | The id of the connector that this connection will use to connect with the ALM.
 project             | Yes      | The id of the SD Elements project that this connection will connect with.
 frequency           | No       | The frequency in which this connection will sync.  The available options for organizations with the advanced ALM feature are: "hourly", "daily", "weekly", "monthly" and "manually".  If unspecified, the frequency will default to "manually".  Organizations without the advanced ALM feature can only choose "manually".
@@ -586,6 +593,7 @@ Content-Type: application/json
     },
     "frequency": "manually",
     "command": "sync_jira",
+    "debug_mode": false,
     "params":{
         "sde_project": "Project 1",
         "alm_user": "Sindy",
@@ -623,3 +631,105 @@ Parameter | Description
 connection_id   | The ID of the ALM Connection to update
 
 ---
+
+
+
+
+
+
+
+
+
+
+
+## Test an ALM Connector
+
+```http
+POST /api/v2/connectors/testalm/ HTTP/1.1
+Accept: application/json
+Authorization: Token "YOUR SDE ACCESS TOKEN"
+
+{
+    "name":"ALM Test",
+    "system": {
+        "id": "github"
+    },
+    "params": {
+        "alm_server": "api.github.com",
+        "github_repo_owner": "repo owner",
+        "alm_api_token": "42",
+        "alm_validate_cert": true
+    }
+}
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "success": true
+}
+```
+
+Performs a simple connectivity test against the ALM server.
+
+`POST /api/v2/connectors/testalm/`
+
+Fields        | Required | Description
+--------------|----------|-------------
+name          | Yes      | The name of the connector.
+system        | Yes      | A dictionary containing the id, name and short name of the system.
+params        | Yes      | A dictionary containing connections options. Please refer to product documentation for more details or reach out to support. Required params will return appropriate errors when unspecified.
+
+
+
+
+
+
+
+
+
+
+## Test an ALM Connection
+
+```http
+POST /api/v2/connections/testalm/ HTTP/1.1
+Accept: application/json
+Authorization: Token "YOUR SDE ACCESS TOKEN"
+
+{
+    "connector": 2,
+    "alias": "ALM Test",
+    "project": 2,
+    "system": {
+        "id": "rally"
+    },
+    "params": {
+        "alm_server":"server.rallydev.com",
+        "alm_user": "username",
+        "alm_pass": "password",
+        "alm_project": "rally_project",
+        "alm_validate_cert": true
+    }
+}
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "success": true
+}
+```
+
+Performs a connectivity test against the ALM server, verifies the ALM project exists and validates other configuration parameters.
+
+`POST /api/v2/connections/testalm/`
+
+Fields        | Required | Description
+--------------|----------|-------------
+name          | Yes      | The name of the connector.
+system        | Yes      | A dictionary containing the id, name and short name of the system.
+params        | Yes      | A dictionary containing connections options. Please refer to product documentation for more details or reach out to support. Required params will return appropriate errors when unspecified. 

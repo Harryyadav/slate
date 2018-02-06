@@ -49,10 +49,10 @@ search        | Filter applications by performing a textual search on name.
 
 ---
 
-### Include Parameters
+### Expand Parameters
 
 ```http
-GET /api/v2/applications/?include=projects HTTP/1.1
+GET /api/v2/applications/?expand=business_unit HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
@@ -85,10 +85,18 @@ Parameter      | Description
 ---------------|---------------
 business_unit  | Expand the business unit field of the application
 
+
+
+
+
+
+
+
+
 ### Include Parameters
 
 ```http
-GET /api/v2/applications/?include=projects HTTP/1.1
+GET /api/v2/applications/?include=projects,risk_policy_compliance HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
@@ -120,16 +128,21 @@ Content-Type: application/json
                 "slug": "project-2",
                 "url": "http://example.com/bunits/test-bu/application-test/project-2/"
             }
-        ]
+        ],
+        "risk_policy_compliance": {
+          "compliant_projects": 12,
+          "non_compliant_projects": 38
+        }
     }]
 }
 ```
 
 See the [Include Parameters](#include-parameters) section for more details.
 
-Parameter | Description
-----------|---------------
-projects  | Includes a list of projects associated with an application
+Parameter              | Description
+-----------------------|---------------
+projects               | Includes a list of projects associated with an application
+risk_policy_compliance | Includes an object which returns the number of compliant and non-compliant projects
 
 
 
