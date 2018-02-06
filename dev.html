@@ -8729,7 +8729,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <p><strong><code>GET /api/v2/projects/{project_id}/tasks/</code></strong></p>
         <hr>
         <h3 id="expand-parameters">Expand Parameters</h3>
-        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/tasks/?expand=description,status,text,updater</span> HTTP/1.1
+        <pre class="highlight http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/v2/projects/1/tasks/?include=tags&amp;expand=description,status,tags,text,updater</span> HTTP/1.1
 <span class="hljs-attribute">Accept</span>: application/json
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
@@ -8740,6 +8740,10 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <span class="hljs-attr">"id"</span>: <span class="hljs-string">"1-T2"</span>,
         <span class="hljs-attr">"task_id"</span>: <span class="hljs-string">"T2"</span>,
         <span class="hljs-attr">"url"</span>: <span class="hljs-string">"http://example.com/bunits/new-business-unit/..."</span>,
+        <span class="hljs-attr">"tags"</span>: {
+            <span class="hljs-attr">"library_tags"</span>: [<span class="hljs-string">"foo"</span>, <span class="hljs-string">"bar"</span>],
+            <span class="hljs-attr">"project_tags"</span>: [<span class="hljs-string">"baz"</span>]
+        },
         <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Secure forgotten password"</span>,
         <span class="hljs-attr">"text"</span>: {
             <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Insecure forgotten password and password reset..."</span>,
@@ -8803,6 +8807,10 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
             <tr>
               <td>updater</td>
               <td>Updater field is expanded into id, first name, last name, email, role, and active status sub-fields.</td>
+            </tr>
+            <tr>
+              <td>tags</td>
+              <td>Tags field is expanded into library-level &amp; project-level tags. (Requires tags to be included)</td>
             </tr>
           </tbody>
         </table>
@@ -8941,31 +8949,31 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
           <tbody>
             <tr>
               <td>how_tos</td>
-              <td>Includes a list of applicable how-tos</td>
+              <td>Includes a list of applicable how-tos.</td>
             </tr>
             <tr>
               <td>problem</td>
-              <td>Includes the problem that the task is related to</td>
+              <td>Includes the problem that the task is related to.</td>
             </tr>
             <tr>
               <td>related</td>
-              <td>Includes a list of related tasks</td>
+              <td>Includes a list of related tasks.</td>
             </tr>
             <tr>
               <td>tags</td>
-              <td>Includes a list of tags associated to the task</td>
+              <td>Includes a list of tags associated to the task (both library &amp; project).</td>
             </tr>
             <tr>
               <td>regulation_sections</td>
-              <td>Includes a list of regulation sections to which this task belongs</td>
+              <td>Includes a list of regulation sections to which this task belongs.</td>
             </tr>
             <tr>
               <td>references</td>
-              <td>Includes a list of task references linked to this task</td>
+              <td>Includes a list of task references linked to this task.</td>
             </tr>
             <tr>
               <td>training</td>
-              <td>Includes a list of training courses/modules linked to this task</td>
+              <td>Includes a list of training courses/modules linked to this task.</td>
             </tr>
           </tbody>
         </table>
@@ -9079,7 +9087,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
     <span class="hljs-attr">"phase"</span>: <span class="hljs-string">"X1"</span>,
     <span class="hljs-attr">"priority"</span>: <span class="hljs-number">9</span>,
     <span class="hljs-attr">"status"</span>: <span class="hljs-string">"TS1"</span>,
-    <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Task Description"</span>,
+    <span class="hljs-attr">"tags"</span>: [<span class="hljs-string">"tag1"</span>, <span class="hljs-string">"tag2"</span>]
+    <span class="hljs-string">"text"</span>: <span class="hljs-string">"Task Description"</span>,
     <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Project Specific Task"</span>
 }</span></code></pre>
         <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
@@ -9112,7 +9121,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
     <span class="hljs-attr">"priority"</span>: <span class="hljs-string">"9"</span>,
     <span class="hljs-attr">"relevant"</span>: <span class="hljs-literal">true</span>,
     <span class="hljs-attr">"status"</span>: <span class="hljs-string">"TS1"</span>,
-    <span class="hljs-attr">"task_id"</span>: <span class="hljs-string">"PT1"</span>,
+    <span class="hljs-attr">"tags"</span>: [<span class="hljs-string">"tag1"</span>, <span class="hljs-string">"tag2"</span>]
+    <span class="hljs-string">"task_id"</span>: <span class="hljs-string">"PT1"</span>,
     <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Project Specific Task"</span>,
     <span class="hljs-attr">"updater"</span>: <span class="hljs-number">7</span>,
     <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-05-07T18:58:26.732000Z"</span>,
@@ -9149,37 +9159,42 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
             <tr>
               <td>artifact_proxy</td>
               <td>No</td>
-              <td>Arbitrary string which identifies a synchronized ALM issue</td>
+              <td>Arbitrary string which identifies a synchronized ALM issue.</td>
             </tr>
             <tr>
               <td>assigned_to</td>
               <td>No</td>
-              <td>A list of emails for users that belong to the project</td>
+              <td>A list of emails for users that belong to the project.</td>
             </tr>
             <tr>
               <td>phase</td>
               <td>Yes</td>
-              <td>The id of a phase</td>
+              <td>The id of a phase.</td>
             </tr>
             <tr>
               <td>priority</td>
               <td>Yes</td>
-              <td>The priority value from 0-10</td>
+              <td>The priority value from 0-10.</td>
             </tr>
             <tr>
               <td>status</td>
               <td>No</td>
-              <td>The id of a status</td>
+              <td>The id of a status.</td>
             </tr>
             <tr>
               <td>text</td>
               <td>Yes</td>
-              <td>The description of the new task</td>
+              <td>The description of the new task.</td>
             </tr>
             <tr>
               <td>title</td>
               <td>Yes</td>
-              <td>The title of the new task</td>
+              <td>The title of the new task.</td>
+            </tr>
+            <tr>
+              <td>tags</td>
+              <td>No</td>
+              <td>A list of tags for the task.</td>
             </tr>
           </tbody>
         </table>
@@ -9190,7 +9205,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
 <span class="hljs-attribute">Authorization</span>: Token "YOUR SDE ACCESS TOKEN"
 
 <span class="json">{
-    <span class="hljs-attr">"task_id"</span>: <span class="hljs-string">"T21"</span>
+    <span class="hljs-attr">"task_id"</span>: <span class="hljs-string">"T21"</span>,
 }</span></code></pre>
         <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">201</span> CREATED
 <span class="hljs-attribute">Content-Type</span>: application/json
@@ -9276,6 +9291,11 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
               <td>Yes</td>
               <td>The id of the library task to add to the project.</td>
             </tr>
+            <tr>
+              <td>tags</td>
+              <td>No</td>
+              <td>A list of tags that will be added to this task for this project only.</td>
+            </tr>
           </tbody>
         </table>
         <hr>
@@ -9288,6 +9308,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
     <span class="hljs-attr">"artifact_proxy"</span>: <span class="hljs-string">"ABC-XYZ"</span>,
     <span class="hljs-attr">"assigned_to"</span>: [<span class="hljs-string">"user1@example.com"</span>, <span class="hljs-string">"user2@example.com"</span>],
     <span class="hljs-attr">"status"</span>: <span class="hljs-string">"TS1"</span>
+    <span class="hljs-string">"tags"</span>: [<span class="hljs-string">"tag1"</span>, <span class="hljs-string">"tag2"</span>]
 }</span></code></pre>
         <pre class="highlight http"><code>HTTP/1.1 <span class="hljs-number">200</span> OK
 <span class="hljs-attribute">Content-Type</span>: application/json
@@ -9320,7 +9341,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
     <span class="hljs-attr">"relevant"</span>: <span class="hljs-literal">true</span>,
     <span class="hljs-attr">"status"</span>: <span class="hljs-string">"TS1"</span>,
     <span class="hljs-attr">"task_id"</span>: <span class="hljs-string">"T2"</span>,
-    <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Secure forgotten password"</span>,
+    <span class="hljs-attr">"tags"</span>: [<span class="hljs-string">"tag1"</span>, <span class="hljs-string">"tag2"</span>]
+    <span class="hljs-string">"title"</span>: <span class="hljs-string">"Secure forgotten password"</span>,
     <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2015-07-08T02:16:33.923315Z"</span>,
     <span class="hljs-attr">"updater"</span>: <span class="hljs-number">7</span>,
     <span class="hljs-attr">"url"</span>: <span class="hljs-string">"http://example.com/.../1-T2"</span>,
@@ -9360,12 +9382,12 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
             <tr>
               <td>artifact_proxy</td>
               <td>No</td>
-              <td>Arbitrary string which identifies a synchronized ALM issue</td>
+              <td>Arbitrary string which identifies a synchronized ALM issue.</td>
             </tr>
             <tr>
               <td>assigned_to</td>
               <td>No</td>
-              <td>A list of emails for users that belong to the project</td>
+              <td>A list of emails for users that belong to the project.</td>
             </tr>
             <tr>
               <td>phase</td>
@@ -9380,7 +9402,12 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
             <tr>
               <td>status</td>
               <td>No</td>
-              <td>The id of a status</td>
+              <td>The id of a status.</td>
+            </tr>
+            <tr>
+              <td>tags</td>
+              <td>No</td>
+              <td>A list of tags that will be set for this task for this project only.</td>
             </tr>
             <tr>
               <td>text</td>
@@ -10860,6 +10887,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"</code></pre>
         <h1 id="changelog">Changelog</h1>
         <h2 id="v4-12">v4.12</h2>
         <ul>
+          <li>Added writable project-level tagging to Tasks.</li>
+          <li>Task tags can be expanded into library-level &amp; project-level tags.</li>
           <li>Add Risk Policy endpoint.</li>
           <li>Update Business Units/Applications/Projects endpoints with risk policy fields.</li>
           <li>Add <code>debug_mode</code> field to Analysis Connections and ALM Connections</li>
