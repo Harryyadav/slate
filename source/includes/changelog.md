@@ -1,6 +1,8 @@
 # Changelog
 
 ## v4.12
+- Added writable project-level tagging to Tasks.
+- Task tags can be expanded into library-level & project-level tags.
 - Add Risk Policy endpoint.
 - Update Business Units/Applications/Projects endpoints with risk policy fields.
 - Add `debug_mode` field to Analysis Connections and ALM Connections

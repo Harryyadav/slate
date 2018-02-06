@@ -47,7 +47,7 @@ This endpoint returns a list of Task resources associated with the project havin
 ### Expand Parameters
 
 ```http
-GET /api/v2/projects/1/tasks/?expand=description,status,text,updater HTTP/1.1
+GET /api/v2/projects/1/tasks/?include=tags&expand=description,status,tags,text,updater HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
@@ -61,6 +61,10 @@ Content-Type: application/json
         "id": "1-T2",
         "task_id": "T2",
         "url": "http://example.com/bunits/new-business-unit/...",
+        "tags": {
+            "library_tags": ["foo", "bar"],
+            "project_tags": ["baz"]
+        },
         "title": "Secure forgotten password",
         "text": {
             "description": "Insecure forgotten password and password reset...",
@@ -110,6 +114,7 @@ description | Description field is expanded into content and amendments sub-fiel
 status      | Status field is expanded into id, meaning, icon, name and slug sub-fields.
 phase       | Phase field is expanded into id, name, slug, description and tip sub-fields.
 updater     | Updater field is expanded into id, first name, last name, email, role, and active status sub-fields.
+tags        | Tags field is expanded into library-level & project-level tags. (Requires tags to be included)
 ---
 
 ### Include Parameters
@@ -246,13 +251,13 @@ See the [Include Parameters](#include-parameters) section for more details.
 
 Parameter           | Description
 ----------          |---------------------
-how_tos             | Includes a list of applicable how-tos
-problem             | Includes the problem that the task is related to
-related             | Includes a list of related tasks
-tags                | Includes a list of tags associated to the task
-regulation_sections | Includes a list of regulation sections to which this task belongs
-references          | Includes a list of task references linked to this task
-training            | Includes a list of training courses/modules linked to this task
+how_tos             | Includes a list of applicable how-tos.
+problem             | Includes the problem that the task is related to.
+related             | Includes a list of related tasks.
+tags                | Includes a list of tags associated to the task (both library & project).
+regulation_sections | Includes a list of regulation sections to which this task belongs.
+references          | Includes a list of task references linked to this task.
+training            | Includes a list of training courses/modules linked to this task.
 ---
 
 ### Filter Parameters
@@ -386,6 +391,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
     "phase": "X1",
     "priority": 9,
     "status": "TS1",
+    "tags": ["tag1", "tag2"]
     "text": "Task Description",
     "title": "Project Specific Task"
 }
@@ -422,6 +428,7 @@ Content-Type: application/json
     "priority": "9",
     "relevant": true,
     "status": "TS1",
+    "tags": ["tag1", "tag2"]
     "task_id": "PT1",
     "title": "Project Specific Task",
     "updater": 7,
@@ -445,13 +452,14 @@ project_id     | The id of the project the new task belongs to
 
 Fields         | Required | Description
 ---------------|----------|---------------
-artifact_proxy | No       | Arbitrary string which identifies a synchronized ALM issue
-assigned_to    | No       | A list of emails for users that belong to the project
-phase          | Yes      | The id of a phase
-priority       | Yes      | The priority value from 0-10
-status         | No       | The id of a status
-text           | Yes      | The description of the new task
-title          | Yes      | The title of the new task
+artifact_proxy | No       | Arbitrary string which identifies a synchronized ALM issue.
+assigned_to    | No       | A list of emails for users that belong to the project.
+phase          | Yes      | The id of a phase.
+priority       | Yes      | The priority value from 0-10.
+status         | No       | The id of a status.
+text           | Yes      | The description of the new task.
+title          | Yes      | The title of the new task.
+tags           | No       | A list of tags for the task.
 ---
 
 
@@ -464,7 +472,7 @@ Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 
 {
-    "task_id": "T21"
+    "task_id": "T21",
 }
 ```
 
@@ -526,6 +534,7 @@ artifact_proxy  | No       | Arbitrary string which identifies a synchronized AL
 assigned_to     | No       | A list of emails for users that belong to the project
 status          | No       | The id of a status
 task_id         | Yes      | The id of the library task to add to the project.
+tags            | No       | A list of tags that will be added to this task for this project only.
 ---
 
 
@@ -542,6 +551,7 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
     "artifact_proxy": "ABC-XYZ",
     "assigned_to": ["user1@example.com", "user2@example.com"],
     "status": "TS1"
+    "tags": ["tag1", "tag2"]
 }
 ```
 
@@ -577,6 +587,7 @@ Content-Type: application/json
     "relevant": true,
     "status": "TS1",
     "task_id": "T2",
+    "tags": ["tag1", "tag2"]
     "title": "Secure forgotten password",
     "updated": "2015-07-08T02:16:33.923315Z",
     "updater": 7,
@@ -600,11 +611,12 @@ id             | The id of the task to modify
 
 Fields         | Required | Description
 ---------------|----------|---------------
-artifact_proxy | No       | Arbitrary string which identifies a synchronized ALM issue
-assigned_to    | No       | A list of emails for users that belong to the project
+artifact_proxy | No       | Arbitrary string which identifies a synchronized ALM issue.
+assigned_to    | No       | A list of emails for users that belong to the project.
 phase          | No       | The id of a phase. Available only if the updated task is a project specific task.
 priority       | No       | The priority value from 0-10. Available only if the updated task is a project specific task.
-status         | No       | The id of a status
+status         | No       | The id of a status.
+tags           | No       | A list of tags that will be set for this task for this project only.
 text           | No       | The description of the task. Available only if the updated task is a project specific task.
 title          | No       | The title of the task. Available only if the updated task is a project specific task.
 ---
