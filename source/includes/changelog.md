@@ -1,7 +1,8 @@
 # Changelog
 
 ## v4.12
-
+- Add Risk Policy endpoint.
+- Update Business Units/Applications/Projects endpoints with risk policy fields.
 - Add `debug_mode` field to Analysis Connections and ALM Connections
 - Remove redundancy of nesting the survey twice on the project survey endpoint
 - Add profile_draft, survey_complete and survey_dirty fields to projects endpoint

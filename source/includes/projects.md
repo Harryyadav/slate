@@ -64,7 +64,9 @@ Content-Type: application/json
         "survey_dirty": false,
         "locked_on": null,
         "locked_by": null,
-        "locked": false
+        "locked": false,
+        "risk_policy_compliant": true,
+        "risk_policy": 1
     }]
 }
 ```
@@ -179,7 +181,9 @@ Content-Type: application/json
         "survey_dirty": false,
         "locked_on": null,
         "locked_by": null,
-        "locked": false
+        "locked": false,
+        "risk_policy_compliant": true,
+        "risk_policy": 1
     }]
 }
 ```
@@ -195,7 +199,7 @@ incomplete_tasks | Includes a count of incomplete tasks broken down by high (7-1
 ### Expand Parameters
 
 ```http
-GET /api/v2/projects/?expand=creator HTTP/1.1
+GET /api/v2/projects/?expand=creator,risk_policy HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
@@ -253,7 +257,24 @@ Content-Type: application/json
         "survey_dirty": false,
         "locked_on": null,
         "locked_by": null,
-        "locked": false
+        "locked": false,
+        "risk_policy_compliant": true,
+        "risk_policy": {
+            "id": 1,
+            "name": "All Risk",
+            "description": "Applies to all applications",
+            "filters": {
+                "phases": ["requirements", "architecture-design", "development", "testing"],
+                "priority": 7,
+                "tags": ["tag1", "tag2"]
+            },
+            "conditions": {
+                "task_statuses": ["TS1"]
+            },
+            "is_org_default": true,
+            "created": "2018-01-31T17:30:26.175423-05:00",
+            "last_updated": "2018-01-31T17:30:26.175253-05:00"
+        }
     }]
 }
 ```
@@ -262,7 +283,8 @@ See the [Expand Parameters](#expand-parameters) section for more details.
 
 Parameter   | Description
 ------------|---------------------
-creator     | Creator field is expanded to display information on the project creator
+creator     | Creator field is expanded to display information on the project creator.
+risk_policy | Risk Policy field is expanded to display information on the associated risk policy.
 
 
 
@@ -326,7 +348,9 @@ Content-Type: application/json
     "survey_dirty": false,
     "locked_on": null,
     "locked_by": null,
-    "locked": false
+    "locked": false,
+    "risk_policy_compliant": true,
+    "risk_policy": 1
 }
 ```
 
@@ -409,7 +433,9 @@ Content-Type: application/json
     "survey_dirty": false,
     "locked_on": null,
     "locked_by": null,
-    "locked": false
+    "locked": false,
+    "risk_policy_compliant": true,
+    "risk_policy": 1
 }
 ```
 
@@ -421,6 +447,7 @@ name        | Yes      | The name of the new project.
 profile     | No       | The ID of the desired profile for the project.
 users       | No       | A list of dictionaries per user that are to be assigned to the project. Each dictionary should contain the user's email and the desired role.
 locked      | No       | A boolean field to lock or unlock the project. It can only be used by users that have lock_project_survey permission
+risk_policy | No       | The ID of the risk policy which applies to this project.
 
 
 
@@ -489,7 +516,9 @@ Content-Type: application/json
     "survey_dirty": false,
     "locked_on": "2016-06-01T14:39:45.083334Z",
     "locked_by": 1,
-    "locked": true
+    "locked": true,
+    "risk_policy_compliant": true,
+    "risk_policy": 1
 }
 ```
 
@@ -518,6 +547,7 @@ parent           | No       | ID, name, slug, and URL of the parent project.
 base_project     | No       | ID, name, slug, and URL of the original project.
 users            | No       | A list of dictionaries per user that are to be assigned to the project. Each dictionary should contain the user's email and the desired role.
 groups           | No       | A list of dictionaries per group that are to be assigned to the project. Each dictionary should contain the group's id and the desired role.
+risk_policy      | No       | The ID of the risk policy which applies to this project.
 
 
 
