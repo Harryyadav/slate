@@ -23,6 +23,7 @@ Content-Type: application/json
             "name": "Android App",
             "logo_url": "/static/images/android.png"
         },
+        "profile_draft": null,
         "archived": false,
         "name": "Project Test",
         "creator": 1,
@@ -59,6 +60,8 @@ Content-Type: application/json
         "custom_attributes": {
           "slug": "value"
         },
+        "survey_complete": true,
+        "survey_dirty": false,
         "locked_on": null,
         "locked_by": null,
         "locked": false
@@ -105,6 +108,7 @@ Content-Type: application/json
             "name": "Android App",
             "logo_url": "/static/images/android.png"
         },
+        "profile_draft": null,
         "archived": false,
         "name": "Project Test",
         "creator": 1,
@@ -171,6 +175,8 @@ Content-Type: application/json
                 "slug": "testing"
             }
         },
+        "survey_complete": true,
+        "survey_dirty": false,
         "locked_on": null,
         "locked_by": null,
         "locked": false
@@ -209,6 +215,7 @@ Content-Type: application/json
             "name": "Android App",
             "logo_url": "/static/images/android.png"
         },
+        "profile_draft": null,
         "archived": false,
         "name": "Project Test",
         "creator": {
@@ -242,6 +249,8 @@ Content-Type: application/json
         "custom_attributes": {
           "slug": "value"
         },
+        "survey_complete": true,
+        "survey_dirty": false,
         "locked_on": null,
         "locked_by": null,
         "locked": false
@@ -286,6 +295,7 @@ Content-Type: application/json
         "name": "Android App",
         "logo_url": "/static/images/android.png"
     },
+    "profile_draft": null,
     "archived": false,
     "name": "Project Test",
     "creator": 1,
@@ -312,6 +322,8 @@ Content-Type: application/json
     "custom_attributes": {
       "slug": "value"
     },
+    "survey_complete": true,
+    "survey_dirty": false,
     "locked_on": null,
     "locked_by": null,
     "locked": false
@@ -367,6 +379,7 @@ Content-Type: application/json
         "name": "Android App",
         "logo_url": "/static/images/android.png"
     },
+    "profile_draft": null,
     "archived": false,
     "name": "Project Test",
     "creator": 1,
@@ -392,6 +405,8 @@ Content-Type: application/json
     }],
     "custom_attributes": {
     },
+    "survey_complete": true,
+    "survey_dirty": false,
     "locked_on": null,
     "locked_by": null,
     "locked": false
@@ -443,6 +458,7 @@ Content-Type: application/json
         "name": "Android App",
         "logo_url": "/static/images/android.png"
     },
+    "profile_draft": null,
     "archived": false,
     "name": "This is the project's new name!",
     "creator": 1,
@@ -469,6 +485,8 @@ Content-Type: application/json
     "custom_attributes": {
       "slug": "value"
     },
+    "survey_complete": true,
+    "survey_dirty": false,
     "locked_on": "2016-06-01T14:39:45.083334Z",
     "locked_by": 1,
     "locked": true
