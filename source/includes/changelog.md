@@ -3,6 +3,7 @@
 ## v4.12
 
 - Add `debug_mode` field to Analysis Connections and ALM Connections
+- remove redundancy of nesting the survey twice on the project survey endpoint
 
 ## v4.11
 - Drop references to PUT in the docs, to encourage the use of PATCH.
