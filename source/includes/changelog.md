@@ -1,5 +1,6 @@
 # Changelog
 
+
 ## v4.12
 - Added writable project-level tagging to Tasks.
 - Task tags can be expanded into library-level & project-level tags.
@@ -75,6 +76,7 @@
 - Global Roles can be deleted.
 - Projects endpoint now has include parameter to get the completion data by phases.
 - Added Project Activity endpoint
+- Add is_creator to users in Projects endpoint.
 
 ## v4.3
 
