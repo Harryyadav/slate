@@ -367,7 +367,7 @@ Content-Type: application/json
 
 This endpoint retrieves a single Task resource, as specified by the id parameter.
 
-**`GET /api/v2/projects/{project_id}/tasks/{task_id}/`**
+**`GET /api/v2/projects/{project_id}/tasks/{id}/`**
 
 ---
 
