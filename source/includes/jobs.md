@@ -143,7 +143,7 @@ Returns a specific alm job. Note that the params are only shown if you have 'Edi
 ## Post Results of an ALM Job of a Project
 
 ```http
-POST /api/v2/projects/1/jobs/alm/ HTTP/1.1
+POST /api/v2/jobs/alm/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 
@@ -220,7 +220,7 @@ succeeded     | Yes      | Whether the job was run successfully.
 ## Initiate an ALM Connection Sync Job
 
 ```http
-POST /api/v2/projects/1/jobs/alm/ HTTP/1.1
+POST /api/v2/jobs/alm/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 
@@ -419,7 +419,7 @@ Returns a specific analysis job. Note that the params are only shown if you have
 ## Post Results of an Analysis Job of a Project
 
 ```http
-POST /api/v2/projects/1/jobs/analysis/ HTTP/1.1
+POST /api/v2/jobs/analysis/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 
@@ -487,7 +487,7 @@ ready         | No       | Whether the job is ready to post the result or not.  
 ## Initiate an Analysis Connection Import Job
 
 ```http
-POST /api/v2/projects/1/jobs/analysis/ HTTP/1.1
+POST /api/v2/jobs/analysis/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 
