@@ -12,25 +12,30 @@ includes:
 
  - resources
  - activity
+ - alm_connections
+ - alm_plugins
+ - analysis_connections
  - analysis_notes
  - analysis_sessions
+ - api_tokens
  - applications
  - business_units
- - connections
- - connectors
  - global_roles
  - glossary_terms
  - groups
  - jobs
+ - ldap_connections
  - library_tasks
  - library_problems
  - phases
  - profiles
+ - project_releases
  - project_roles
  - project_survey
  - project_activity
  - projects
  - report_settings
+ - risk_policies
  - server_info
  - service_statuses
  - sso
@@ -41,9 +46,10 @@ includes:
  - task_references
  - task_updates
  - users
+ - user_profile
  - user_activity
  - assigned_tasks
- 
+
  - changelog
 
 search: true

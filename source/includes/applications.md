@@ -15,12 +15,17 @@ Content-Type: application/json
 {
     "results": [{
         "id": 1,
-        "business_unit": 1,
+        "business_unit": {
+            "id": 1,
+            "slug": "example-business-unit-1",
+            "name": "example business unit 1"
+        },
         "name": "Application Test",
         "created": "2015-04-15T20:27:24.396442Z",
         "updated": "2015-04-15T20:27:24.389957Z",
         "priority": "0-none",
-        "slug": "application-test"
+        "slug": "application-test",
+        "tags": ["foo", "bar"]
     }]
 }
 ```
@@ -68,7 +73,8 @@ Content-Type: application/json
         "created": "2015-04-15T20:27:24.396442Z",
         "updated": "2015-04-15T20:27:24.389957Z",
         "priority": "0-none",
-        "slug": "application-test"
+        "slug": "application-test",
+        "tags": ["foo", "bar"]
     }]
 }
 ```
@@ -79,10 +85,18 @@ Parameter      | Description
 ---------------|---------------
 business_unit  | Expand the business unit field of the application
 
+
+
+
+
+
+
+
+
 ### Include Parameters
 
 ```http
-GET /api/v2/applications/?include=projects HTTP/1.1
+GET /api/v2/applications/?include=projects,risk_policy_compliance HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
@@ -100,27 +114,35 @@ Content-Type: application/json
         "updated": "2015-04-15T20:27:24.389957Z",
         "priority": "0-none",
         "slug": "application-test",
+        "tags": ["foo", "bar"],
         "projects": [
             {
                 "id": "1",
                 "name": "Project 1",
-                "slug": "project-1"
+                "slug": "project-1",
+                "url": "http://example.com/bunits/test-bu/application-test/project-1/"
             },
             {
                 "id": "2",
                 "name": "Project 2",
-                "slug": "project-2"
+                "slug": "project-2",
+                "url": "http://example.com/bunits/test-bu/application-test/project-2/"
             }
-        ]
+        ],
+        "risk_policy_compliance": {
+          "compliant_projects": 12,
+          "non_compliant_projects": 38
+        }
     }]
 }
 ```
 
 See the [Include Parameters](#include-parameters) section for more details.
 
-Parameter | Description
-----------|---------------
-projects  | Includes a list of projects associated with an application
+Parameter              | Description
+-----------------------|---------------
+projects               | Includes a list of projects associated with an application
+risk_policy_compliance | Includes an object which returns the number of compliant and non-compliant projects
 
 
 
@@ -144,15 +166,18 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "results": [{
-        "id": 3,
-        "business_unit": 1,
-        "name": "Application Test",
-        "created": "2015-04-15T20:27:24.396442Z",
-        "updated": "2015-04-15T20:27:24.389957Z",
-        "priority": "0-none",
-        "slug": "application-test"
-    }]
+    "id": 3,
+    "business_unit": {
+        "id": 1,
+        "slug": "example-business-unit-1",
+        "name": "example business unit 1"
+    },
+    "name": "Application Test",
+    "created": "2015-04-15T20:27:24.396442Z",
+    "updated": "2015-04-15T20:27:24.389957Z",
+    "priority": "0-none",
+    "slug": "application-test",
+    "tags": ["foo", "bar"]
 }
 ```
 
@@ -195,15 +220,18 @@ HTTP/1.1 201 CREATED
 Content-Type: application/json
 
 {
-    "results": [{
-        "id": 3,
-        "business_unit": 1,
-        "name": "API Test",
-        "created": "2015-04-15T20:27:24.396442Z",
-        "updated": "2015-04-15T20:27:24.389957Z",
-        "priority": "0-none",
-        "slug": "api-test"
-    }]
+    "id": 3,
+    "business_unit": {
+        "id": 1,
+        "slug": "example-business-unit-1",
+        "name": "example business unit 1"
+    },
+    "name": "API Test",
+    "created": "2015-04-15T20:27:24.396442Z",
+    "updated": "2015-04-15T20:27:24.389957Z",
+    "priority": "0-none",
+    "slug": "api-test",
+    "tags": []
 }
 ```
 
@@ -212,6 +240,7 @@ Fields        | Required | Description
 business_unit | Yes      | The ID of the business unit the application belongs to
 name          | Yes      | The name of the new application
 priority      | No       | Specifies the priority of the application to be either '0-none', '1-high', '2-medium' or '3-low'
+tags          | No       | List of application tags.
 
 
 
@@ -225,7 +254,7 @@ priority      | No       | Specifies the priority of the application to be eithe
 ## Update an Application
 
 ```http
-PUT /api/v2/applications/1/ HTTP/1.1
+PATCH /api/v2/applications/1/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 
@@ -240,21 +269,24 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "results": [{
-        "id": 1,
-        "business_unit": 2,
-        "name": "Edit Test",
-        "created": "2015-06-18T19:27:14.860536Z",
-        "updated": "2015-06-18T21:00:03.827952Z",
-        "priority": "0-none",
-        "slug": "api-test"
-    }]
+    "id": 1,
+    "business_unit": {
+        "id": 2,
+        "slug": "example-business-unit-2",
+        "name": "example business unit 2"
+    },
+    "name": "Edit Test",
+    "created": "2015-06-18T19:27:14.860536Z",
+    "updated": "2015-06-18T21:00:03.827952Z",
+    "priority": "0-none",
+    "slug": "api-test",
+    "tags": ["foo", "bar"]
 }
 ```
 
 Update a single application by specifying a new name and new business unit. The application to update is identified by the id.
 
-**`PUT /api/v2/applications/{application_id}/`**
+**`PATCH /api/v2/applications/{application_id}/`**
 
 ### URL Parameters
 
@@ -269,6 +301,8 @@ Fields        | Required | Description
 name          | No       | The name of the application can be changed to any other string
 business_unit | No       | This can be edited by setting the business unit id
 priority      | No       | The three options are: '0-none', '1-high', '2-medium', '3-low'
+tags          | No       | List of application tags.
+
 
 
 

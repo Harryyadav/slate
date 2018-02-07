@@ -23,14 +23,27 @@ Content-Type: application/json
             "name": "Android App",
             "logo_url": "/static/images/android.png"
         },
+        "profile_draft": null,
         "archived": false,
         "name": "Project Test",
         "creator": 1,
         "description": "API Project",
         "tags": ["foo", "bar"],
+        "application_tags": ["baz", "qux"],
         "created": "2015-04-15T19:30:04.132712Z",
         "updated": "2015-04-15T19:57:15.042353Z",
-        "parent": null,
+        "parent": {
+            "id": 8,
+            "slug": "parent-984-gamma",
+            "name": "Parent 9.8.4 Gamma",
+            "url": "http://example.com/bunits/bu-test/app-test/parent-984-gamma/"
+        },
+        "base_project": {
+            "id": 10,
+            "name": "base 9.8.4 Gamma",
+            "slug": "base-984-gamma",
+            "url": "http://example.com/bunits/bu-test/app-test/base-984-gamma/"
+        },
         "users": [{
             "id": "1",
             "email": "test@example.com",
@@ -48,9 +61,13 @@ Content-Type: application/json
         "custom_attributes": {
           "slug": "value"
         },
+        "survey_complete": true,
+        "survey_dirty": false,
         "locked_on": null,
         "locked_by": null,
-        "locked": false
+        "locked": false,
+        "risk_policy_compliant": true,
+        "risk_policy": 1
     }]
 }
 ```
@@ -74,7 +91,7 @@ search      | Filter projects by performing a textual search on name and profile
 ### Include Parameters
 
 ```http
-GET /api/v2/projects/1/tasks/?include=permissions,task_counts HTTP/1.1
+GET /api/v2/projects/1/?include=permissions,task_counts,incomplete_tasks HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
@@ -94,14 +111,17 @@ Content-Type: application/json
             "name": "Android App",
             "logo_url": "/static/images/android.png"
         },
+        "profile_draft": null,
         "archived": false,
         "name": "Project Test",
         "creator": 1,
         "description": "API Project",
         "tags": ["foo", "bar"],
+        "application_tags": ["baz", "qux"],
         "created": "2015-04-15T19:30:04.132712Z",
         "updated": "2015-04-15T19:57:15.042353Z",
         "parent": null,
+        "base_project": null,
         "users": [{
             "id": "1",
             "email": "test@example.com",
@@ -132,106 +152,56 @@ Content-Type: application/json
             "sync_with_alm",
             "edit_project_survey"
         ],
+        "incomplete_tasks": {
+            "high": 38,
+            "medium": 60,
+            "low": 11
+        },
         "task_counts": {
-            "development": {
-                "high": {
-                    "na": 0,
-                    "total": 16,
-                    "complete": 2,
-                    "incomplete": 14
-                },
-                "medium": {
-                    "na": 0,
-                    "total": 15,
-                    "complete": 1,
-                    "incomplete": 14
-                },
-                "low": {
-                    "na": 0,
-                    "total": 3,
-                    "complete": 1,
-                    "incomplete": 2
-                }
+            "Requirements": {
+                "total": 28,
+                "complete": 4,
+                "slug": "requirements"
             },
-            "testing": {
-                "high": {
-                    "na": 0,
-                    "total": 25,
-                    "complete": 2,
-                    "incomplete": 23
-                },
-                "medium": {
-                    "na": 0,
-                    "total": 33,
-                    "complete": 1,
-                    "incomplete": 32
-                },
-                "low": {
-                    "na": 0,
-                    "total": 14,
-                    "complete": 2,
-                    "incomplete": 12
-                }
+            "Architecture & Design": {
+                "total": 6,
+                "complete": 1,
+                "slug": "architecture-design"
             },
-            "requirements": {
-                "high": {
-                    "na": 0,
-                    "total": 12,
-                    "complete": 4,
-                    "incomplete": 8
-                },
-                "medium": {
-                    "na": 0,
-                    "total": 26,
-                    "complete": 0,
-                    "incomplete": 26
-                },
-                "low": {
-                    "na": 0,
-                    "total": 10,
-                    "complete": 2,
-                    "incomplete": 8
-                }
+            "Development": {
+                "total": 30,
+                "complete": 5,
+                "slug": "development"
             },
-            "architecture-design": {
-                "high": {
-                    "na": 0,
-                    "total": 4,
-                    "complete": 1,
-                    "incomplete": 3
-                },
-                "medium": {
-                    "na": 0,
-                    "total": 3,
-                    "complete": 1,
-                    "incomplete": 2
-                },
-                "low": {
-                    "na": 0,
-                    "total": 1,
-                    "complete": 1,
-                    "incomplete": 0
-                }
+            "Testing": {
+                "total": 57,
+                "complete": 2,
+                "slug": "testing"
             }
         },
+        "survey_complete": true,
+        "survey_dirty": false,
         "locked_on": null,
         "locked_by": null,
-        "locked": false
+        "locked": false,
+        "risk_policy_compliant": true,
+        "risk_policy": 1
     }]
 }
 ```
 
 See the [Include Parameters](#include-parameters) section for more details.
 
-Parameter     | Description
---------------|---------------------
-permissions   | Includes a list of permissions the requesting user has for the project
-task_counts   | Includes counts of tasks broken down by phase, priority and completeness for the project.<br>Priorities are: high (7-10), medium (4-6), low (1-3).
+Parameter        | Description
+-----------------|---------------------
+permissions      | Includes a list of permissions the requesting user has for the project
+task_counts      | Includes counts of tasks broken down by phase and completeness for the project.
+incomplete_tasks | Includes a count of incomplete tasks broken down by high (7-10), medium (4-6), and low (1-3) priorities.
 
 ### Expand Parameters
 
 ```http
-GET /api/v2/projects/?expand=creator HTTP/1.1
+GET /api/v2/projects/?expand=creator,risk_policy HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 ```
@@ -251,6 +221,7 @@ Content-Type: application/json
             "name": "Android App",
             "logo_url": "/static/images/android.png"
         },
+        "profile_draft": null,
         "archived": false,
         "name": "Project Test",
         "creator": {
@@ -263,9 +234,11 @@ Content-Type: application/json
         },
         "description": "API Project",
         "tags": ["foo", "bar"],
+        "application_tags": ["baz", "qux"],
         "created": "2015-04-15T19:30:04.132712Z",
         "updated": "2015-04-15T19:57:15.042353Z",
         "parent": null,
+        "base_project": null,
         "users": [{
             "id": "1",
             "email": "test@example.com",
@@ -282,9 +255,28 @@ Content-Type: application/json
         "custom_attributes": {
           "slug": "value"
         },
+        "survey_complete": true,
+        "survey_dirty": false,
         "locked_on": null,
         "locked_by": null,
-        "locked": false
+        "locked": false,
+        "risk_policy_compliant": true,
+        "risk_policy": {
+            "id": 1,
+            "name": "All Risk",
+            "description": "Applies to all applications",
+            "filters": {
+                "phases": ["requirements", "architecture-design", "development", "testing"],
+                "priority": 7,
+                "tags": ["tag1", "tag2"]
+            },
+            "conditions": {
+                "task_statuses": ["TS1"]
+            },
+            "is_org_default": true,
+            "created": "2018-01-31T17:30:26.175423-05:00",
+            "last_updated": "2018-01-31T17:30:26.175253-05:00"
+        }
     }]
 }
 ```
@@ -293,7 +285,8 @@ See the [Expand Parameters](#expand-parameters) section for more details.
 
 Parameter   | Description
 ------------|---------------------
-creator     | Creator field is expanded to display information on the project creator
+creator     | Creator field is expanded to display information on the project creator.
+risk_policy | Risk Policy field is expanded to display information on the associated risk policy.
 
 
 
@@ -326,14 +319,17 @@ Content-Type: application/json
         "name": "Android App",
         "logo_url": "/static/images/android.png"
     },
+    "profile_draft": null,
     "archived": false,
     "name": "Project Test",
     "creator": 1,
     "description": "API Project",
     "tags": ["foo", "bar"],
+    "application_tags": ["baz", "qux"],
     "created": "2015-04-15T19:30:04.132712Z",
     "updated": "2015-04-15T19:57:15.042353Z",
-    "parent": 1935,
+    "parent": null,
+    "base_project": null,
     "users": [{
         "id": "1",
         "email": "test@example.com",
@@ -351,9 +347,13 @@ Content-Type: application/json
     "custom_attributes": {
       "slug": "value"
     },
+    "survey_complete": true,
+    "survey_dirty": false,
     "locked_on": null,
     "locked_by": null,
-    "locked": false
+    "locked": false,
+    "risk_policy_compliant": true,
+    "risk_policy": 1
 }
 ```
 
@@ -406,14 +406,17 @@ Content-Type: application/json
         "name": "Android App",
         "logo_url": "/static/images/android.png"
     },
+    "profile_draft": null,
     "archived": false,
     "name": "Project Test",
     "creator": 1,
     "description": "API Project",
-    "tags": ["foo", "bar"],
+    "tags": [],
+    "application_tags": [],
     "created": "2015-04-15T19:30:04.132712Z",
     "updated": "2015-04-15T19:57:15.042353Z",
     "parent": null,
+    "base_project": null,
     "users": [{
         "id": "1",
         "email": "test@example.com",
@@ -430,9 +433,13 @@ Content-Type: application/json
     }],
     "custom_attributes": {
     },
+    "survey_complete": true,
+    "survey_dirty": false,
     "locked_on": null,
     "locked_by": null,
-    "locked": false
+    "locked": false,
+    "risk_policy_compliant": true,
+    "risk_policy": 1
 }
 ```
 
@@ -444,6 +451,7 @@ name        | Yes      | The name of the new project.
 profile     | No       | The ID of the desired profile for the project.
 users       | No       | A list of dictionaries per user that are to be assigned to the project. Each dictionary should contain the user's email and the desired role.
 locked      | No       | A boolean field to lock or unlock the project. It can only be used by users that have lock_project_survey permission
+risk_policy | No       | The ID of the risk policy which applies to this project.
 
 
 
@@ -481,14 +489,17 @@ Content-Type: application/json
         "name": "Android App",
         "logo_url": "/static/images/android.png"
     },
+    "profile_draft": null,
     "archived": false,
     "name": "This is the project's new name!",
     "creator": 1,
     "description": "API Project",
     "tags": ["foo", "bar"],
+    "application_tags": ["baz", "qux"],
     "created": "2015-04-15T19:30:04.132712Z",
     "updated": "2015-07-23T15:52:14.482992Z",
     "parent": null,
+    "base_project": null,
     "users": [{
         "id": "1",
         "email": "test@example.com",
@@ -506,9 +517,13 @@ Content-Type: application/json
     "custom_attributes": {
       "slug": "value"
     },
+    "survey_complete": true,
+    "survey_dirty": false,
     "locked_on": "2016-06-01T14:39:45.083334Z",
     "locked_by": 1,
-    "locked": true
+    "locked": true,
+    "risk_policy_compliant": true,
+    "risk_policy": 1
 }
 ```
 
@@ -524,18 +539,20 @@ project_id | The id of the Project to update
 
 ### Payload
 
-Fields        | Required | Description
---------------|----------|---------------
-locked        | No       | A boolean field to lock or unlock the project. It can only be used by users that have lock_project_survey permission
-application   | No       | The ID of the application the project should be created under.
-profile       | No       | The ID of the desired profile for the project.
-archived      | No       | A boolean to archive and unarchive a project.
-name          | No       | The name of the project.
-description   | No       | Project description.
-tags          | No       | List of project tags.
-parent        | No       | Id of the parent project.
-users         | No       | A list of dictionaries per user that are to be assigned to the project. Each dictionary should contain the user's email and the desired role.
-groups        | No       | A list of dictionaries per group that are to be assigned to the project. Each dictionary should contain the group's id and the desired role.
+Fields           | Required | Description
+-----------------|----------|---------------
+locked           | No       | A boolean field to lock or unlock the project. It can only be used by users that have lock_project_survey permission
+application      | No       | The ID of the application the project should be created under.
+profile          | No       | The ID of the desired profile for the project.
+archived         | No       | A boolean to archive and unarchive a project.
+name             | No       | The name of the project.
+description      | No       | Project description.
+tags             | No       | List of project tags.
+parent           | No       | ID, name, slug, and URL of the parent project.
+base_project     | No       | ID, name, slug, and URL of the original project.
+users            | No       | A list of dictionaries per user that are to be assigned to the project. Each dictionary should contain the user's email and the desired role.
+groups           | No       | A list of dictionaries per group that are to be assigned to the project. Each dictionary should contain the group's id and the desired role.
+risk_policy      | No       | The ID of the risk policy which applies to this project.
 
 
 

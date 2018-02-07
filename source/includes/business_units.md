@@ -37,7 +37,9 @@ Content-Type: application/json
                 "id": "G64",
                 "name": "Group Bar"
             }],
-            "all_users": false
+            "all_users": false,
+            "persist_phases": false,
+            "default_risk_policy": null
         },
         {
             "id": 2,
@@ -49,7 +51,9 @@ Content-Type: application/json
             "default_groups": [],
             "users": [],
             "groups": [],
-            "all_users": true
+            "all_users": false,
+            "persist_phases": false,
+            "default_risk_policy": null
         }
     ]
 }
@@ -69,10 +73,80 @@ name      | Filter business units by name.
 ordering  | Sort business units by the specified field. Prefix field name with minus to sort descending. Sortable fields: name.
 search    | Filter applications by performing a textual search on name.
 
+----
 
 
+### Include Parameters
 
+```http
+GET /api/v2/business-units/?include=risk_policy_compliance HTTP/1.1
+Accept: application/json
+Authorization: Token "YOUR SDE ACCESS TOKEN"
+```
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
 
+{
+    "results": [
+        {
+            "id": 1,
+            "slug": "example-business-unit-1",
+            "name": "example business unit 1",
+            "created": "2015-09-30T18:28:37.214914Z",
+            "updated": "2015-09-30T18:28:37.214959Z",
+            "default_groups": [],
+            "default_users": [],
+            "users": [{
+                "id": 682,
+                "email": "frank@sdelements.com",
+                "first_name": "Frank",
+                "last_name": "Testerton",
+                "is_active": true,
+                "role": {
+                    id: "UR1",
+                    name: "User"
+                }
+            }],
+            "groups": [{
+                "id": "G64",
+                "name": "Group Bar"
+            }],
+            "all_users": false,
+            "persist_phases": false,
+            "default_risk_policy": null,
+            "risk_policy_compliance": {
+                "compliant_projects": 37,
+                "non_compliant_projects": 12
+            }
+        },
+        {
+            "id": 2,
+            "slug": "example-business-unit-2",
+            "name": "example business unit 2",
+            "created": "2015-09-30T19:30:25.254036Z",
+            "updated": "2015-09-30T19:30:25.254072Z",
+            "default_users": [],
+            "default_groups": [],
+            "users": [],
+            "groups": [],
+            "all_users": false,
+            "persist_phases": false,
+            "default_risk_policy": null,
+            "risk_policy_compliance": {
+                "compliant_projects": 15,
+                "non_compliant_projects": 45
+            }
+        }
+    ]
+}
+```
+
+See the [Include Parameters](#include-parameters) section for more details.
+
+Parameter              | Description
+-----------------------|---------------
+risk_policy_compliance | Includes an object which returns the number of compliant and non-compliant projects
 
 
 
@@ -113,7 +187,9 @@ Content-Type: application/json
         "id": "G64",
         "name": "Group Bar"
     }],
-    "all_users": false
+    "all_users": false,
+    "persist_phases": false,
+    "default_risk_policy": null
 }
 ```
 
@@ -150,6 +226,8 @@ Authorization: Token "YOUR SDE ACCESS TOKEN"
     "default_users": [{"email": "test@example.com", "role": "PR4"}],
     "default_groups": [{"id": "G1", "role": "PR4"}],
     "all_users": false,
+    "persist_phases": false,
+    "default_risk_policy": 29
 }
 ```
 
@@ -189,7 +267,9 @@ Content-Type: application/json
         "id": "G1",
         "role": "PR4"
     }],
-    "all_users": false
+    "all_users": false,
+    "persist_phases": false,
+    "default_risk_policy": 29
 }
 ```
 
@@ -201,6 +281,8 @@ groups              | No       | A list of dictionaries representing the groups 
 default_users       | No       | A list of dictionaries representing the default user roles for the users in the business unit. Each dictionary has an email field and a role field where the role is the role id. The users specified here should be members of the business unit unless all_users is true.
 default_groups      | No       | A list of dictionaries representing the default group roles for the users in the business unit. Each dictionary has an id field which is the group id and a role field where the role is the role id. The groups specified here should be members of the business unit unless all_users is true.
 all_users           | No       | Whether the business unit includes all users. Trying to create a business unit with this field set to True and specific users/groups specified is an error. Default is false.
+persist_phases      | No       | Set the persistence of TODO tasks that belong to active phases in a project within this business unit.
+default_risk_policy | No       | The id of risk policy that applies to all projects of this business unit by default unless overriden by the project's risk policy. This overrides the organization's default risk policy.
 
 
 
@@ -214,7 +296,7 @@ all_users           | No       | Whether the business unit includes all users. T
 ## Update a Business Unit
 
 ```http
-PUT /api/v2/business-units/36/ HTTP/1.1
+PATCH /api/v2/business-units/36/ HTTP/1.1
 Accept: application/json
 Authorization: Token "YOUR SDE ACCESS TOKEN"
 
@@ -259,13 +341,15 @@ Content-Type: application/json
         "id": "G1",
         "role": "PR4"
     }],
-    "all_users": false
+    "all_users": false,
+    "persist_phases": false,
+    "default_risk_policy": null
 }
 ```
 
 Update a single business unit by specifying the id. The fields `users`, `groups`, `name`, `default_users`, and `default_groups` can be updated.
 
-**`PUT /api/v2/business-units/{business_unit_id}/`**
+**`PATCH /api/v2/business-units/{business_unit_id}/`**
 
 ### URL Parameters
 

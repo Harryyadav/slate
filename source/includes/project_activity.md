@@ -12,7 +12,6 @@ Parameter        | Description
 ---------------- | -----------
 project_id       | The id of the Project to retrieve the activities of.
 
-
 ```http
 GET /api/v2/projects/{project_id}/activities/ HTTP/1.1
 Accept: application/json

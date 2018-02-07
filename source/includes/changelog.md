@@ -1,7 +1,81 @@
 # Changelog
 
+
+## v4.12
+- Added writable project-level tagging to Tasks.
+- Task tags can be expanded into library-level & project-level tags.
+- Add Risk Policy endpoint.
+- Update Business Units/Applications/Projects endpoints with risk policy fields.
+- Add `debug_mode` field to Analysis Connections and ALM Connections
+- Remove redundancy of nesting the survey twice on the project survey endpoint
+- Add profile_draft, survey_complete and survey_dirty fields to projects endpoint
+
+## v4.11
+- Drop references to PUT in the docs, to encourage the use of PATCH.
+- Update the structure of the filters field in the report-settings endpoint
+- Add search capabilities to phases endpoint.
+- Add documentation for Project Release endpoint (previously undocumented).
+- Add test endpoints for connectors and connections
+
+## v4.10
+- Add support for creation and deletion of manually added library tasks to Tasks endpoint
+  - Add `manually_added_from_library` field to Task resources
+  - Add `manually_added_from_library` field to Assigned Task
+  - The `ad_hoc` field has been renamed to `project_specific`
+
+## v4.9
+- Add `tags` to the Application endpoint
+- Add `application_tags` to Project endpoint
+- Change `related_tasks` to include the title, phase, and url of each related task in the Tasks and specific Task endpoints.
+- Change `notify_tasks` attribute of UserProfile to include id, name.
+- Change `updater` field to be expanded by default in Task Notes endpoint.
+
+## v4.8
+- Rename `base` to `base_project` for the Project endpoint
+- Add incomplete_tasks include filter and redesign task_counts include filter on projects endpoint.
+- Remove `business_unit` as expand filter
+- Expand instances of `business_unit` in `applications` by default
+- Add ALM plugins endpoint, which returns metadata for each ALM integration. Used to render ALM forms.
+- Add params field to connector endpoint & make connector endpoint writeable.
+
+
+## v4.7
+- Add `base` (original project that spawned any number of new releases) to the Project endpoint. (Note: this field will be renamed to `base_project` in v4.8)
+
+## v4.6
+- Add `persist_phases` to Business Unit endpoint
+- Add `updater` and `updated` fields to Analysis Note endpoint
+- Rename ldap group query field to group base dn
+- Original SDE phases can now be edited via the API
+
+## v4.5
+
+- Phases can be created, edited, or deleted.
+- Changed the value of user to email instead of id, since we filter users by email.
+- Password can be changed, password metadata retrieved on GET (session / basic authentication only)
+- Password reset questions can be created, edited, or deleted
+- API tokens can be generated, revoked or regenerated
+- Email notification settings can be updated
+- Group endpoint now has sync_connections include filter to fetch LDAP connections
+  that reference groups
+- Group can no longer be deleted if referenced by LDAP connection
+- User Profile can be retrieved or updated via `/users/me/`
+- LDAP Connections
+  - Added `ldap_start_tls`
+  - Removed `ldap_method`
+  - Renamed deactivation to `deactivate_stale_users`
+  - Change group_mapping to use SDE group ids instead of group names
+
 ## v4.4
 
+- Added include field `last_job` for connections returned by the ALM, Analysis and LDAP Connection endpoints.
+- Added `updater`field tasks returned from the `tasks` endpoint.
+- Added documentation for LDAP connections and jobs
+- LDAP Connections can be created, edited, or deleted.
+- LDAP Jobs can be initiated or the results may be submitted.
+- Global Roles can be deleted.
+- Projects endpoint now has include parameter to get the completion data by phases.
+- Added Project Activity endpoint
 - Add is_creator to users in Projects endpoint.
 
 ## v4.3
