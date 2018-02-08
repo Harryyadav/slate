@@ -34,6 +34,8 @@ The following parameters may be used to filter the library problem resources in 
 Parameter            | Description
 ---------------------|-------------------
 risk_rating          | Given a risk rating 0-10, returns all problems with specified rating
+absolute_urls        | Whether to use absolute or relative urls (default is False)
+to_html              | Whether to convert markdown to html (default is False)
 
 ---
 

@@ -36,6 +36,9 @@ The following parameters may be used to filter the library task resources in the
 Parameter            | Description
 ---------------------|-------------------
 priority             | Given a priority 0-10, returns all tasks with specified priority
+phase                | Given a phase id, returns all tasks in specified phase
+absolute_urls        | Whether to use absolute or relative urls (default is False)
+to_html              | Whether to convert markdown to html (default is False)
 
 ___
 
