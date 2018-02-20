@@ -296,7 +296,7 @@ Content-Type: application/json
 
 Update a specific Group resource.
 
-**`PATCH /api/v2/users/{group_id}/`**
+**`PATCH /api/v2/groups/{group_id}/`**
 
 ### URL Parameters
 
